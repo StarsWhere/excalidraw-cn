@@ -1,0 +1,3 @@
+packages:
+  - dev-docs
+  - src/packages/*

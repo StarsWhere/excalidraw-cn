@@ -27,6 +27,7 @@ module.exports = {
       },
       {
         test: /\.(ts|tsx|js)$/,
+        exclude: /node_modules[\\/](?!browser-fs-access)/,
         use: [
           {
             loader: "ts-loader",
