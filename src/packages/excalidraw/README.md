@@ -14,10 +14,10 @@ You can use npm
 npm install react react-dom @excalidraw/excalidraw
 ```
 
-or via yarn
+or via pnpm
 
 ```
-yarn add react react-dom @excalidraw/excalidraw
+pnpm add react react-dom @excalidraw/excalidraw
 ```
 
 After installation you will see a folder `excalidraw-assets` and `excalidraw-assets-dev` in `dist` directory which contains the assets needed for this app in prod and dev mode respectively.
@@ -1807,13 +1807,14 @@ Check out the existing [Q&A](https://github.com/excalidraw/excalidraw/discussion
 #### Install the dependencies
 
 ```bash
-yarn
+corepack enable pnpm
+pnpm install
 ```
 
 #### Start the server
 
 ```bash
-yarn start
+pnpm --filter @excalidraw/excalidraw start
 ```
 
 [http://localhost:3001](http://localhost:3001) will open in your default browser.
@@ -1835,7 +1836,7 @@ Once the version is released `@excalibot` will post a comment with the release v
 To release the next stable version follow the below steps
 
 ```
-yarn prerelease version
+pnpm prerelease version
 ```
 
 You need to pass the `version` for which you want to create the release. This will make the changes needed before making the release like updating `package.json`, `changelog` and more.
@@ -1843,7 +1844,7 @@ You need to pass the `version` for which you want to create the release. This wi
 The next step is to run the `release` script
 
 ```
-yarn release
+pnpm release
 ```
 
 This will publish the package.

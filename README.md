@@ -3,6 +3,7 @@
 A whiteboard supporting Chinese hand writing style and multi-canvas based on excalidraw.
 
 ### Try it now
+
 - ReveZone
   - Handraw 已全面升级至 [ReveZone](https://github.com/revezone/revezone)（目前处在公测阶段，动动小手给个 star 吧），支持更方便的多画布文件管理和自定义字体，欢迎体验。
     - Github 地址：https://github.com/revezone/revezone 👈 给个 Star 吧
@@ -18,14 +19,12 @@ A whiteboard supporting Chinese hand writing style and multi-canvas based on exc
 - Obsidian Plugin
   - 开源插件（欢迎 Star :point_right:）[obsidian-excalidraw-cn-plugin](https://github.com/korbinzhao/obsidian-excalidraw-cn-plugin) v1.0.0 开发完成，已通过官方评审，并上架。
   - Comming soon, welcome to Star the plugin repo :point_right: [obsidian-excalidraw-cn-plugin](https://github.com/korbinzhao/obsidian-excalidraw-cn-plugin), v1.0.0 development done, official reviewing.
-  
 
 ### :purple_heart:Sponsors
 
 > Welcome sponsors to contact me for customized advertising information. Quick link: <a href="https://github.com/korbinzhao/donate" target="_blank">投喂猫粮（大陆用户）</a> or <a href="https://www.buymeacoffee.com/korbinzhao" target="_blank">Buy me a coffee</a>.
 
 Thanks for [all the sponsors](https://github.com/korbinzhao/donate/blob/main/HISTORY.md)
-
 
 #### Chinese Handwriting Style（中文手写效果）
 
@@ -49,8 +48,8 @@ These instructions will get you a copy of the project up and running on your loc
 
 #### Requirements
 
-- [Node.js](https://nodejs.org/en/)
-- [Yarn](https://yarnpkg.com/getting-started/install) (v1 or v2.4.2+)
+- [Node.js 18.12+](https://nodejs.org/en/)
+- Corepack-enabled [pnpm](https://pnpm.io/)
 - [Git](https://git-scm.com/downloads)
 
 #### Clone the repo
@@ -62,13 +61,14 @@ git clone git@github.com:korbinzhao/excalidraw-cn.git
 #### Install the dependencies
 
 ```bash
-yarn
+corepack enable pnpm
+pnpm install
 ```
 
 #### Start the server
 
 ```bash
-yarn start
+pnpm start
 ```
 
 Now you can open [http://localhost:3000](http://localhost:3000) and start coding in your favorite code editor.
@@ -82,37 +82,37 @@ For collaboration, you will need to set up [collab server](https://github.com/ex
 ##### Install the dependencies
 
 ```
-yarn
+pnpm install
 ```
 
 ##### Run the project
 
 ```
-yarn start
+pnpm start
 ```
 
 ##### Reformat all files with Prettier
 
 ```
-yarn fix
+pnpm fix
 ```
 
 ##### Run tests
 
 ```
-yarn test
+pnpm test
 ```
 
 ##### Update test snapshots
 
 ```
-yarn test:update
+pnpm test:update
 ```
 
 ##### Test for formatting with Prettier
 
 ```
-yarn test:code
+pnpm test:code
 ```
 
 #### Docker Compose
