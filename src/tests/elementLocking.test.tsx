@@ -154,7 +154,7 @@ describe("element locking", () => {
       contextMenu?.querySelector(
         `li[data-testid="toggleLock"] .context-menu-item__label`,
       ),
-    ).toHaveTextContent(t("labels.elementLock.unlock"));
+    )?.toHaveProperty("textContent", t("labels.elementLock.unlock"));
   });
 
   it("right-clicking on element covered by locked element should ignore the locked element", () => {

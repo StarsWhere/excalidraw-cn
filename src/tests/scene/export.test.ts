@@ -44,8 +44,7 @@ describe("exportToSvg", () => {
       null,
     );
 
-    expect(svgElement.querySelector("rect")).toHaveAttribute(
-      "fill",
+    expect(svgElement.querySelector("rect")?.getAttribute("fill")).toBe(
       BACKGROUND_COLOR,
     );
   });
@@ -75,10 +74,9 @@ describe("exportToSvg", () => {
       null,
     );
 
-    expect(svgElement).toHaveAttribute("height", ELEMENT_HEIGHT.toString());
-    expect(svgElement).toHaveAttribute("width", ELEMENT_WIDTH.toString());
-    expect(svgElement).toHaveAttribute(
-      "viewBox",
+    expect(svgElement.getAttribute("height")).toBe(ELEMENT_HEIGHT.toString());
+    expect(svgElement.getAttribute("width")).toBe(ELEMENT_WIDTH.toString());
+    expect(svgElement.getAttribute("viewBox")).toBe(
       `0 0 ${ELEMENT_WIDTH} ${ELEMENT_HEIGHT}`,
     );
   });
@@ -96,12 +94,10 @@ describe("exportToSvg", () => {
       null,
     );
 
-    expect(svgElement).toHaveAttribute(
-      "height",
+    expect(svgElement.getAttribute("height")).toBe(
       (ELEMENT_HEIGHT * SCALE).toString(),
     );
-    expect(svgElement).toHaveAttribute(
-      "width",
+    expect(svgElement.getAttribute("width")).toBe(
       (ELEMENT_WIDTH * SCALE).toString(),
     );
   });

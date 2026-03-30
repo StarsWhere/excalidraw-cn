@@ -232,13 +232,13 @@ describe("Sidebar", () => {
       fireEvent.click(dockButtonInput);
       await waitFor(() => {
         expect(h.state.isSidebarDocked).toBe(true);
-        expect(dockButtonInput).toBeChecked();
+        expect(dockButtonInput.checked).toBe(true);
       });
 
       fireEvent.click(dockButtonInput);
       await waitFor(() => {
         expect(h.state.isSidebarDocked).toBe(false);
-        expect(dockButtonInput).not.toBeChecked();
+        expect(dockButtonInput.checked).toBe(false);
       });
 
       // shouldn't update `appState.isSidebarDocked` when the sidebar
@@ -251,15 +251,15 @@ describe("Sidebar", () => {
       });
 
       await waitFor(() => {
-        expect(dockButtonInput).toBeChecked();
+        expect(dockButtonInput.checked).toBe(true);
         expect(h.state.isSidebarDocked).toBe(false);
-        expect(dockButtonInput).toBeChecked();
+        expect(dockButtonInput.checked).toBe(true);
       });
 
       fireEvent.click(dockButtonInput);
       await waitFor(() => {
         expect(h.state.isSidebarDocked).toBe(false);
-        expect(dockButtonInput).toBeChecked();
+        expect(dockButtonInput.checked).toBe(true);
       });
 
       // the `appState.isSidebarDocked` should remain untouched when
@@ -273,12 +273,12 @@ describe("Sidebar", () => {
 
       await waitFor(() => {
         expect(h.state.isSidebarDocked).toBe(true);
-        expect(dockButtonInput).not.toBeChecked();
+        expect(dockButtonInput.checked).toBe(false);
       });
 
       fireEvent.click(dockButtonInput);
       await waitFor(() => {
-        expect(dockButtonInput).not.toBeChecked();
+        expect(dockButtonInput.checked).toBe(false);
         expect(h.state.isSidebarDocked).toBe(true);
       });
     });
