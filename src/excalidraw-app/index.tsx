@@ -83,7 +83,7 @@ const clearUnsupportedRemoteUrlState = (urlString = window.location.href) => {
     return false;
   }
   console.warn("Ignoring unsupported remote scene link:", url.toString());
-  window.history.replaceState({}, APP_NAME, window.location.origin);
+  window.history.replaceState({}, APP_NAME, window.location.pathname);
   return true;
 };
 
