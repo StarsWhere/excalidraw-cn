@@ -8,10 +8,35 @@ import { t } from "../i18n";
 import { calculateScrollCenter } from "../scene";
 import { AppState, DataURL, LibraryItem } from "../types";
 import { bytesToHexString } from "../utils";
-import { FileSystemHandle, nativeFileSystemSupported } from "./filesystem";
+import { FileSystemHandle } from "./filesystem";
 import { isValidExcalidrawData, isValidLibrary } from "./json";
 import { restore, restoreLibraryItems } from "./restore";
 import { ImportedLibraryData } from "./types";
+
+const createNativeFileHandle = (
+  filePath?: string | null,
+): FileSystemHandle | null => {
+  if (!filePath) {
+    return null;
+  }
+
+  const normalizedPath = String(filePath);
+  const segments = normalizedPath.split(/[\\/]/);
+  const name = segments[segments.length - 1];
+
+  if (!name) {
+    return null;
+  }
+
+  return {
+    kind: "native",
+    path: normalizedPath,
+    name,
+  };
+};
+
+const getFileHandleFromBlob = (blob: Blob | File) =>
+  createNativeFileHandle(blob.path || null);
 
 const parseFileContents = async (blob: Blob | File) => {
   let contents: string;
@@ -128,7 +153,7 @@ export const loadSceneOrLibraryFromBlob = async (
   /** @see restore.localAppState */
   localAppState: AppState | null,
   localElements: readonly ExcalidrawElement[] | null,
-  /** FileSystemHandle. Defaults to `blob.handle` if defined, otherwise null. */
+  /** Native file handle. Defaults to `blob.path` if defined, otherwise null. */
   fileHandle?: FileSystemHandle | null,
 ) => {
   const contents = await parseFileContents(blob);
@@ -142,7 +167,7 @@ export const loadSceneOrLibraryFromBlob = async (
             elements: clearElementsForExport(data.elements || []),
             appState: {
               theme: localAppState?.theme,
-              fileHandle: fileHandle || blob.handle || null,
+              fileHandle: fileHandle || getFileHandleFromBlob(blob),
               ...cleanAppStateForExport(data.appState || {}),
               ...(localAppState
                 ? calculateScrollCenter(
@@ -176,7 +201,7 @@ export const loadFromBlob = async (
   /** @see restore.localAppState */
   localAppState: AppState | null,
   localElements: readonly ExcalidrawElement[] | null,
-  /** FileSystemHandle. Defaults to `blob.handle` if defined, otherwise null. */
+  /** Native file handle. Defaults to `blob.path` if defined, otherwise null. */
   fileHandle?: FileSystemHandle | null,
 ) => {
   const ret = await loadSceneOrLibraryFromBlob(
@@ -331,28 +356,20 @@ export const SVGStringToFile = (SVGString: string, filename: string = "") => {
 export const getFileFromEvent = async (
   event: React.DragEvent<HTMLDivElement>,
 ) => {
-  const file = event.dataTransfer.files.item(0);
-  const fileHandle = await getFileHandle(event);
+  const rawFile = event.dataTransfer.files.item(0);
+  const fileHandle = rawFile ? createNativeFileHandle(rawFile.path) : null;
 
-  return { file: file ? await normalizeFile(file) : null, fileHandle };
+  return {
+    file: rawFile ? await normalizeFile(rawFile) : null,
+    fileHandle,
+  };
 };
 
 export const getFileHandle = async (
   event: React.DragEvent<HTMLDivElement>,
 ): Promise<FileSystemHandle | null> => {
-  if (nativeFileSystemSupported) {
-    try {
-      const item = event.dataTransfer.items[0];
-      const handle: FileSystemHandle | null =
-        (await (item as any).getAsFileSystemHandle()) || null;
-
-      return handle;
-    } catch (error: any) {
-      console.warn(error.name, error.message);
-      return null;
-    }
-  }
-  return null;
+  const file = event.dataTransfer.files.item(0);
+  return file ? createNativeFileHandle(file.path) : null;
 };
 
 /**

@@ -1,12 +1,5 @@
-import {
-  fileOpen as _fileOpen,
-  fileSave as _fileSave,
-  FileSystemHandle,
-  supported as nativeFileSystemSupported,
-} from "browser-fs-access";
-import { EVENT, MIME_TYPES } from "../constants";
+import { MIME_TYPES } from "../constants";
 import { AbortError } from "../errors";
-import { debounce } from "../utils";
 
 type FILE_EXTENSION =
   | "gif"
@@ -19,93 +12,202 @@ type FILE_EXTENSION =
   | "excalidraw"
   | "excalidrawlib";
 
-const INPUT_CHANGE_INTERVAL_MS = 500;
-
-export const fileOpen = <M extends boolean | undefined = false>(opts: {
-  extensions?: FILE_EXTENSION[];
-  description: string;
-  multiple?: M;
-}): Promise<M extends false | undefined ? File : File[]> => {
-  // an unsafe TS hack, alas not much we can do AFAIK
-  type RetType = M extends false | undefined ? File : File[];
-
-  const mimeTypes = opts.extensions?.reduce((mimeTypes, type) => {
-    mimeTypes.push(MIME_TYPES[type]);
-
-    return mimeTypes;
-  }, [] as string[]);
-
-  const extensions = opts.extensions?.reduce((acc, ext) => {
-    if (ext === "jpg") {
-      return acc.concat(".jpg", ".jpeg");
-    }
-    return acc.concat(`.${ext}`);
-  }, [] as string[]);
-
-  return _fileOpen({
-    description: opts.description,
-    extensions,
-    mimeTypes,
-    multiple: opts.multiple ?? false,
-    legacySetup: (resolve, reject, input) => {
-      const scheduleRejection = debounce(reject, INPUT_CHANGE_INTERVAL_MS);
-      const focusHandler = () => {
-        checkForFile();
-        document.addEventListener(EVENT.KEYUP, scheduleRejection);
-        document.addEventListener(EVENT.POINTER_UP, scheduleRejection);
-        scheduleRejection();
-      };
-      const checkForFile = () => {
-        // this hack might not work when expecting multiple files
-        if (input.files?.length) {
-          const ret = opts.multiple ? [...input.files] : input.files[0];
-          resolve(ret as RetType);
-        }
-      };
-      requestAnimationFrame(() => {
-        window.addEventListener(EVENT.FOCUS, focusHandler);
-      });
-      const interval = window.setInterval(() => {
-        checkForFile();
-      }, INPUT_CHANGE_INTERVAL_MS);
-      return (rejectPromise) => {
-        clearInterval(interval);
-        scheduleRejection.cancel();
-        window.removeEventListener(EVENT.FOCUS, focusHandler);
-        document.removeEventListener(EVENT.KEYUP, scheduleRejection);
-        document.removeEventListener(EVENT.POINTER_UP, scheduleRejection);
-        if (rejectPromise) {
-          // so that something is shown in console if we need to debug this
-          console.warn("Opening the file was canceled (legacy-fs).");
-          rejectPromise(new AbortError());
-        }
-      };
-    },
-  }) as Promise<RetType>;
+export type NativeFileHandle = {
+  kind: "native";
+  path: string;
+  name: string;
 };
 
-export const fileSave = (
-  blob: Blob,
-  opts: {
-    /** supply without the extension */
+export type FileSystemHandle = NativeFileHandle;
+
+export type DesktopFilePayload = {
+  name: string;
+  path: string;
+  type: string;
+  buffer: Uint8Array;
+};
+
+export type DesktopOpenDialogOptions = {
+  kind?: "scene" | "image" | "library";
+  multiple?: boolean;
+  description?: string;
+};
+
+export type DesktopSaveDialogPayload = {
+  buffer: Uint8Array;
+  suggestedName: string;
+  filters: {
     name: string;
-    /** file extension */
-    extension: FILE_EXTENSION;
-    description: string;
-    /** existing FileSystemHandle */
-    fileHandle?: FileSystemHandle | null;
-  },
-) => {
-  return _fileSave(
-    blob,
-    {
-      fileName: `${opts.name}.${opts.extension}`,
-      description: opts.description,
-      extensions: [`.${opts.extension}`],
-    },
-    opts.fileHandle,
+    extensions: string[];
+  }[];
+  existingPath?: string | null;
+};
+
+type FileOpenResult = {
+  file: File;
+  fileHandle: FileSystemHandle | null;
+};
+
+export type DesktopFileOpenResult = FileOpenResult;
+
+const FILTER_NAMES: Record<FILE_EXTENSION, string> = {
+  gif: "GIF image",
+  jpg: "JPEG image",
+  png: "PNG image",
+  "excalidraw.png": "Excalidraw PNG image",
+  svg: "SVG image",
+  "excalidraw.svg": "Excalidraw SVG image",
+  json: "JSON file",
+  excalidraw: "Handraw scene",
+  excalidrawlib: "Handraw library",
+};
+
+const createAbortError = () => new AbortError();
+
+const ensureDesktopApi = () => {
+  if (!window.handrawDesktop?.isElectron) {
+    throw new Error("Handraw desktop APIs are unavailable.");
+  }
+
+  return window.handrawDesktop;
+};
+
+const toArrayBuffer = (buffer: Uint8Array | ArrayBuffer) => {
+  if (buffer instanceof ArrayBuffer) {
+    return buffer;
+  }
+
+  return buffer.buffer.slice(
+    buffer.byteOffset,
+    buffer.byteOffset + buffer.byteLength,
   );
 };
 
-export type { FileSystemHandle };
-export { nativeFileSystemSupported };
+export const desktopFilePayloadToFile = (
+  payload: DesktopFilePayload,
+): FileOpenResult => {
+  const file = new File([toArrayBuffer(payload.buffer)], payload.name, {
+    type: payload.type,
+  });
+
+  return {
+    file,
+    fileHandle: {
+      kind: "native",
+      path: payload.path,
+      name: payload.name,
+    },
+  };
+};
+
+const getDialogKind = (extensions?: FILE_EXTENSION[]) => {
+  if (!extensions?.length) {
+    return "scene";
+  }
+
+  if (extensions.every((extension) => extension === "excalidrawlib")) {
+    return "library";
+  }
+
+  if (
+    extensions.every((extension) =>
+      ["gif", "jpg", "png", "svg"].includes(extension),
+    )
+  ) {
+    return "image";
+  }
+
+  return "scene";
+};
+
+const getFileFilters = (extensions: FILE_EXTENSION[]) => {
+  return extensions.map((extension) => ({
+    name: FILTER_NAMES[extension],
+    extensions:
+      extension === "jpg"
+        ? ["jpg", "jpeg"]
+        : extension === "json"
+        ? ["json", "excalidraw"]
+        : [extension],
+  }));
+};
+
+export const nativeFileSystemSupported = true;
+
+export const fileOpen = async <M extends boolean | undefined = false>(opts: {
+  extensions?: FILE_EXTENSION[];
+  description: string;
+  multiple?: M;
+}): Promise<M extends true ? FileOpenResult[] : FileOpenResult> => {
+  const desktop = ensureDesktopApi();
+  const result = await desktop.openFile({
+    kind: getDialogKind(opts.extensions),
+    multiple: opts.multiple ?? false,
+    description: opts.description,
+  });
+
+  if (!result) {
+    throw createAbortError();
+  }
+
+  if (Array.isArray(result)) {
+    return result.map(desktopFilePayloadToFile) as M extends true
+      ? FileOpenResult[]
+      : never;
+  }
+
+  return desktopFilePayloadToFile(result) as M extends true
+    ? never
+    : FileOpenResult;
+};
+
+export const fileSave = async (
+  blob: Blob,
+  opts: {
+    name: string;
+    extension: FILE_EXTENSION;
+    description: string;
+    fileHandle?: FileSystemHandle | null;
+  },
+) => {
+  const desktop = ensureDesktopApi();
+  const fileHandle = await desktop.saveFile({
+    buffer: new Uint8Array(await blob.arrayBuffer()),
+    suggestedName: `${opts.name}.${opts.extension}`,
+    filters: getFileFilters([opts.extension]),
+    existingPath: opts.fileHandle?.path ?? null,
+  });
+
+  if (!fileHandle) {
+    throw createAbortError();
+  }
+
+  return fileHandle;
+};
+
+export const getMimeTypeFromHandle = (
+  handle: FileSystemHandle | null,
+): string | null => {
+  if (!handle) {
+    return null;
+  }
+
+  const ext = handle.path.split(".").pop()?.toLowerCase();
+  if (!ext) {
+    return null;
+  }
+
+  let mappedKey: keyof typeof MIME_TYPES | null = null;
+
+  if (ext === "excalidraw" || ext === "excalidrawlib") {
+    mappedKey = ext;
+  } else if (ext === "svg" || ext === "png" || ext === "gif") {
+    mappedKey = ext;
+  } else if (ext === "jpg" || ext === "jpeg") {
+    mappedKey = "jpg";
+  } else if (ext === "json") {
+    mappedKey = "json";
+  }
+
+  return mappedKey ? MIME_TYPES[mappedKey] : null;
+};

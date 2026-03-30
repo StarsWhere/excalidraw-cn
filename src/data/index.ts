@@ -9,7 +9,7 @@ import { exportToCanvas, exportToSvg } from "../scene/export";
 import { ExportType } from "../scene/types";
 import { AppState, BinaryFiles } from "../types";
 import { canvasToBlob } from "./blob";
-import { fileSave, FileSystemHandle } from "./filesystem";
+import { fileSave, NativeFileHandle } from "./filesystem";
 import { serializeAsJSON } from "./json";
 
 export { loadFromBlob } from "./blob";
@@ -31,7 +31,7 @@ export const exportCanvas = async (
     exportPadding?: number;
     viewBackgroundColor: string;
     name: string;
-    fileHandle?: FileSystemHandle | null;
+    fileHandle?: NativeFileHandle | null;
   },
 ) => {
   if (elements.length === 0) {

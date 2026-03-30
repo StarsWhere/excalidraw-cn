@@ -17,6 +17,32 @@ interface Window {
   EXCALIDRAW_ASSET_PATH: string | undefined;
   EXCALIDRAW_EXPORT_SOURCE: string;
   EXCALIDRAW_THROTTLE_RENDER: boolean | undefined;
+  handrawDesktop?: {
+    isElectron: boolean;
+    platform: string;
+    openFile: (
+      options: import("./data/filesystem").DesktopOpenDialogOptions,
+    ) => Promise<
+      | import("./data/filesystem").DesktopFilePayload
+      | import("./data/filesystem").DesktopFilePayload[]
+      | null
+    >;
+    saveFile: (
+      payload: import("./data/filesystem").DesktopSaveDialogPayload,
+    ) => Promise<import("./data/filesystem").NativeFileHandle | null>;
+    readFile: (
+      filePath: string,
+    ) => Promise<import("./data/filesystem").DesktopFilePayload | null>;
+    getPendingOpenFile: () => Promise<
+      import("./data/filesystem").DesktopFilePayload | null
+    >;
+    onOpenFile: (
+      listener: (
+        payload: import("./data/filesystem").DesktopFilePayload,
+      ) => void,
+    ) => () => void;
+    openExternal: (url: string) => Promise<void>;
+  };
 }
 
 interface CanvasRenderingContext2D {
@@ -113,8 +139,8 @@ type ForwardRef<T, P = any> = Parameters<
 // --------------------------------------------------------------------------—
 
 interface Blob {
-  handle?: import("browser-fs-acces").FileSystemHandle;
   name?: string;
+  path?: string;
 }
 
 declare module "*.scss";

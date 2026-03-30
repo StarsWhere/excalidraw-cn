@@ -48,7 +48,6 @@ import {
 } from "../appState";
 import { parseClipboard } from "../clipboard";
 import {
-  APP_NAME,
   CURSOR_TYPE,
   DEFAULT_MAX_IMAGE_WIDTH_OR_HEIGHT,
   DEFAULT_UI_OPTIONS,
@@ -254,7 +253,11 @@ import {
   updateImageCache as _updateImageCache,
 } from "../element/image";
 import throttle from "lodash.throttle";
-import { fileOpen, FileSystemHandle } from "../data/filesystem";
+import {
+  desktopFilePayloadToFile,
+  fileOpen,
+  NativeFileHandle,
+} from "../data/filesystem";
 import {
   bindTextToShapeAfterDuplication,
   getApproxLineHeight,
@@ -385,6 +388,7 @@ class App extends React.Component<AppProps, AppState> {
   private nearestScrollableContainer: HTMLElement | Document | undefined;
   public library: AppClassProperties["library"];
   public libraryItemsFromStorage: LibraryItems | undefined;
+  private desktopOpenFileCleanup?: () => void;
   private id: string;
   private history: History;
   private excalidrawContainerValue: {
@@ -797,22 +801,6 @@ class App extends React.Component<AppProps, AppState> {
   );
 
   private initializeScene = async () => {
-    if ("launchQueue" in window && "LaunchParams" in window) {
-      (window as any).launchQueue.setConsumer(
-        async (launchParams: { files: any[] }) => {
-          if (!launchParams.files.length) {
-            return;
-          }
-          const fileHandle = launchParams.files[0];
-          const blob: Blob = await fileHandle.getFile();
-          this.loadFileToCanvas(
-            new File([blob], blob.name || "", { type: blob.type }),
-            fileHandle,
-          );
-        },
-      );
-    }
-
     if (this.props.theme) {
       this.setState({ theme: this.props.theme });
     }
@@ -994,20 +982,30 @@ class App extends React.Component<AppProps, AppState> {
         mdScreenQuery.removeListener(handler);
     }
 
-    const searchParams = new URLSearchParams(window.location.search.slice(1));
+    this.desktopOpenFileCleanup = window.handrawDesktop?.onOpenFile(
+      async (payload) => {
+        const { file, fileHandle } = desktopFilePayloadToFile(payload);
+        await this.loadFileToCanvas(file, fileHandle);
+      },
+    );
 
-    if (searchParams.has("web-share-target")) {
-      // Obtain a file that was shared via the Web Share Target API.
-      this.restoreFileFromShare();
-    } else {
-      this.updateDOMRect(this.initializeScene);
-    }
+    this.updateDOMRect(() => {
+      void (async () => {
+        await this.initializeScene();
+        const pendingFile = await window.handrawDesktop?.getPendingOpenFile();
+        if (pendingFile) {
+          const { file, fileHandle } = desktopFilePayloadToFile(pendingFile);
+          await this.loadFileToCanvas(file, fileHandle);
+        }
+      })();
+    });
   }
 
   public componentWillUnmount() {
     this.files = {};
     this.imageCache.clear();
     this.resizeObserver?.disconnect();
+    this.desktopOpenFileCleanup?.();
     this.unmounted = true;
     this.removeEventListeners();
     this.scene.destroy();
@@ -1850,23 +1848,6 @@ class App extends React.Component<AppProps, AppState> {
     } | null,
   ) => {
     this.setState({ toast });
-  };
-
-  restoreFileFromShare = async () => {
-    try {
-      const webShareTargetCache = await caches.open("web-share-target");
-
-      const response = await webShareTargetCache.match("shared-file");
-      if (response) {
-        const blob = await response.blob();
-        const file = new File([blob], blob.name || "", { type: blob.type });
-        this.loadFileToCanvas(file, null);
-        await webShareTargetCache.delete("shared-file");
-        window.history.replaceState(null, APP_NAME, window.location.pathname);
-      }
-    } catch (error: any) {
-      this.setState({ errorMessage: error.message });
-    }
   };
 
   /** adds supplied files to existing files in the appState */
@@ -2851,12 +2832,11 @@ class App extends React.Component<AppProps, AppState> {
           this.props.onLinkOpen(this.hitLinkElement, customEvent);
         }
         if (!customEvent?.defaultPrevented) {
-          const target = isLocalLink(url) ? "_self" : "_blank";
-          const newWindow = window.open(undefined, target);
-          // https://mathiasbynens.github.io/rel-noopener/
-          if (newWindow) {
-            newWindow.opener = null;
-            newWindow.location = normalizeLink(url);
+          const normalizedUrl = normalizeLink(url);
+          if (isLocalLink(url)) {
+            window.location.href = normalizedUrl;
+          } else {
+            void window.handrawDesktop?.openExternal(normalizedUrl);
           }
         }
       }
@@ -5602,7 +5582,7 @@ class App extends React.Component<AppProps, AppState> {
         this.state,
       );
 
-      const imageFile = await fileOpen({
+      const { file: imageFile } = await fileOpen({
         description: "Image",
         extensions: ["jpg", "png", "svg", "gif"],
       });
@@ -5959,7 +5939,7 @@ class App extends React.Component<AppProps, AppState> {
 
   loadFileToCanvas = async (
     file: File,
-    fileHandle: FileSystemHandle | null,
+    fileHandle: NativeFileHandle | null,
   ) => {
     file = await normalizeFile(file);
     try {

@@ -83,7 +83,7 @@ export const LibraryMenuHeader: React.FC<{
           /*
             extensions: [".json", ".excalidrawlib"],
             */
-        }),
+        }).then(({ file }) => file),
         merge: true,
         openLibraryMenu: true,
       });
