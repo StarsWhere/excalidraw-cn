@@ -1,10 +1,8 @@
 import React from "react";
-import * as Sentry from "@sentry/browser";
 import { t } from "../i18n";
 
 interface TopErrorBoundaryState {
   hasError: boolean;
-  sentryEventId: string;
   localStorage: string;
 }
 
@@ -14,7 +12,6 @@ export class TopErrorBoundary extends React.Component<
 > {
   state: TopErrorBoundaryState = {
     hasError: false,
-    sentryEventId: "",
     localStorage: "",
   };
 
@@ -32,15 +29,10 @@ export class TopErrorBoundary extends React.Component<
       }
     }
 
-    Sentry.withScope((scope) => {
-      scope.setExtras(errorInfo);
-      const eventId = Sentry.captureException(error);
-
-      this.setState((state) => ({
-        hasError: true,
-        sentryEventId: eventId,
-        localStorage: JSON.stringify(_localStorage),
-      }));
+    console.error(error, errorInfo);
+    this.setState({
+      hasError: true,
+      localStorage: JSON.stringify(_localStorage),
     });
   }
 
@@ -49,24 +41,6 @@ export class TopErrorBoundary extends React.Component<
       event.preventDefault();
       (event.target as HTMLTextAreaElement).select();
     }
-  }
-
-  private async createGithubIssue() {
-    let body = "";
-    try {
-      const templateStrFn = (
-        await import(
-          /* webpackChunkName: "bug-issue-template" */ "../bug-issue-template"
-        )
-      ).default;
-      body = encodeURIComponent(templateStrFn(this.state.sentryEventId));
-    } catch (error: any) {
-      console.error(error);
-    }
-
-    window.open(
-      `https://github.com/excalidraw/excalidraw/issues/new?body=${body}`,
-    );
   }
 
   private errorSplash() {
@@ -105,18 +79,6 @@ export class TopErrorBoundary extends React.Component<
             </div>
           </div>
           <div>
-            <div className="ErrorSplash-paragraph">
-              {t("errorSplash.trackedToSentry_pre")}
-              {this.state.sentryEventId}
-              {t("errorSplash.trackedToSentry_post")}
-            </div>
-            <div className="ErrorSplash-paragraph">
-              {t("errorSplash.openIssueMessage_pre")}
-              <button onClick={() => this.createGithubIssue()}>
-                {t("errorSplash.openIssueMessage_button")}
-              </button>
-              {t("errorSplash.openIssueMessage_post")}
-            </div>
             <div className="ErrorSplash-paragraph">
               <div className="ErrorSplash-details">
                 <label>{t("errorSplash.sceneContent")}</label>

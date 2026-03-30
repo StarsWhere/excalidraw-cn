@@ -4,16 +4,14 @@ import { t } from "../i18n";
 
 import { AppState, ExportOpts, BinaryFiles } from "../types";
 import { Dialog } from "./Dialog";
-import { exportToFileIcon, LinkIcon } from "./icons";
+import { exportToFileIcon } from "./icons";
 import { ToolButton } from "./ToolButton";
 import { actionSaveFileToDisk } from "../actions/actionExport";
 import { Card } from "./Card";
 
 import "./ExportDialog.scss";
 import { nativeFileSystemSupported } from "../data/filesystem";
-import { trackEvent } from "../analytics";
 import { ActionManager } from "../actions/manager";
-import { getFrame } from "../utils";
 
 export type ExportCB = (
   elements: readonly NonDeletedExcalidrawElement[],
@@ -36,7 +34,6 @@ const JSONExportModal = ({
   exportOpts: ExportOpts;
   canvas: HTMLCanvasElement | null;
 }) => {
-  const { onExportToBackend } = exportOpts;
   return (
     <div className="ExportDialog ExportDialog--json">
       <div className="ExportDialog-cards">
@@ -57,24 +54,6 @@ const JSONExportModal = ({
               showAriaLabel={true}
               onClick={() => {
                 actionManager.executeAction(actionSaveFileToDisk, "ui");
-              }}
-            />
-          </Card>
-        )}
-        {onExportToBackend && (
-          <Card color="pink">
-            <div className="Card-icon">{LinkIcon}</div>
-            <h2>{t("exportDialog.link_title")}</h2>
-            <div className="Card-details">{t("exportDialog.link_details")}</div>
-            <ToolButton
-              className="Card-button"
-              type="button"
-              title={t("exportDialog.link_button")}
-              aria-label={t("exportDialog.link_button")}
-              showAriaLabel={true}
-              onClick={() => {
-                onExportToBackend(elements, appState, files, canvas);
-                trackEvent("export", "link", `ui (${getFrame()})`);
               }}
             />
           </Card>
