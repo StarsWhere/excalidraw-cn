@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { serializeLibraryAsJSON } from "../data/json";
 import { ExcalidrawElement, NonDeleted } from "../element/types";
 import { t } from "../i18n";
-import { AppState, ExcalidrawProps, LibraryItem, LibraryItems } from "../types";
+import { LibraryItem, LibraryItems } from "../types";
 import { arrayToMap, chunk } from "../utils";
 import { LibraryUnit } from "./LibraryUnit";
 import Stack from "./Stack";
@@ -10,7 +10,6 @@ import Stack from "./Stack";
 import "./LibraryMenuItems.scss";
 import { MIME_TYPES } from "../constants";
 import Spinner from "./Spinner";
-import LibraryMenuBrowseButton from "./LibraryMenuBrowseButton";
 import clsx from "clsx";
 
 const CELLS_PER_ROW = 4;
@@ -23,9 +22,6 @@ const LibraryMenuItems = ({
   pendingElements,
   selectedItems,
   onSelectItems,
-  theme,
-  id,
-  libraryReturnUrl,
 }: {
   isLoading: boolean;
   libraryItems: LibraryItems;
@@ -34,9 +30,6 @@ const LibraryMenuItems = ({
   onAddToLibrary: (elements: LibraryItem["elements"]) => void;
   selectedItems: LibraryItem["id"][];
   onSelectItems: (id: LibraryItem["id"][]) => void;
-  libraryReturnUrl: ExcalidrawProps["libraryReturnUrl"];
-  theme: AppState["theme"];
-  id: string;
 }) => {
   const [lastSelectedItem, setLastSelectedItem] = useState<
     LibraryItem["id"] | null
@@ -251,9 +244,7 @@ const LibraryMenuItems = ({
                 {t("library.noItems")}
               </div>
               <div className="library-menu-items__no-items__hint">
-                {publishedItems.length > 0
-                  ? t("library.hint_emptyPrivateLibrary")
-                  : t("library.hint_emptyLibrary")}
+                {t("library.hint_emptyPrivateLibrary")}
               </div>
             </div>
           ) : (
@@ -293,14 +284,6 @@ const LibraryMenuItems = ({
             </div>
           ) : null}
         </>
-
-        {showBtn && (
-          <LibraryMenuBrowseButton
-            id={id}
-            libraryReturnUrl={libraryReturnUrl}
-            theme={theme}
-          />
-        )}
       </Stack.Col>
     </div>
   );

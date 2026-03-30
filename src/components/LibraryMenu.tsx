@@ -31,7 +31,6 @@ import { Sidebar } from "./Sidebar/Sidebar";
 import { getSelectedElements } from "../scene";
 import { NonDeletedExcalidrawElement } from "../element/types";
 import { LibraryMenuHeader } from "./LibraryMenuHeaderContent";
-import LibraryMenuBrowseButton from "./LibraryMenuBrowseButton";
 
 const useOnClickOutside = (
   ref: RefObject<HTMLElement>,
@@ -138,9 +137,6 @@ export const LibraryMenuContent = ({
     );
   }
 
-  const showBtn =
-    libraryItemsData.libraryItems.length > 0 || pendingElements.length > 0;
-
   return (
     <LibraryMenuWrapper>
       <LibraryMenuItems
@@ -153,17 +149,7 @@ export const LibraryMenuContent = ({
         pendingElements={pendingElements}
         selectedItems={selectedItems}
         onSelectItems={onSelectItems}
-        id={id}
-        libraryReturnUrl={libraryReturnUrl}
-        theme={appState.theme}
       />
-      {showBtn && (
-        <LibraryMenuBrowseButton
-          id={id}
-          libraryReturnUrl={libraryReturnUrl}
-          theme={appState.theme}
-        />
-      )}
     </LibraryMenuWrapper>
   );
 };
