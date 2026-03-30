@@ -29,7 +29,6 @@
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
     "antd": "5.4.2",
-    "browser-fs-access": "0.29.1",
     "clsx": "1.1.1",
     "cross-env": "7.0.3",
     "fake-indexeddb": "3.1.7",
@@ -77,7 +76,10 @@
     "@types/pako": "1.0.3",
     "@types/resize-observer-browser": "0.1.7",
     "chai": "4.3.6",
+    "concurrently": "9.2.1",
     "dotenv": "16.0.1",
+    "electron": "37.2.3",
+    "electron-builder": "26.0.12",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-prettier": "3.3.1",
     "http-server": "14.1.1",
@@ -86,34 +88,86 @@
     "jest-canvas-mock": "2.4.0",
     "lint-staged": "12.3.7",
     "pepjs": "0.5.3",
-    "prettier": "2.6.2"
+    "prettier": "2.6.2",
+    "wait-on": "8.0.5"
   },
   "engines": {
     "node": ">=18.12.0"
   },
+  "build": {
+    "extends": null,
+    "appId": "com.handraw.desktop",
+    "productName": "Handraw",
+    "asar": true,
+    "directories": {
+      "buildResources": "public"
+    },
+    "files": [
+      "build/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "favicon.ico",
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "fileAssociations": [
+      {
+        "ext": "excalidraw",
+        "name": "Handraw Scene",
+        "description": "Handraw scene file",
+        "role": "Editor"
+      },
+      {
+        "ext": "excalidrawlib",
+        "name": "Handraw Library",
+        "description": "Handraw library file",
+        "role": "Editor"
+      }
+    ]
+  },
   "homepage": ".",
   "jest": {
     "transformIgnorePatterns": [
-      "node_modules/(?!.pnpm|roughjs|points-on-curve|path-data-parser|points-on-path|browser-fs-access)",
-      "node_modules/.pnpm/(?!(roughjs|points-on-curve|path-data-parser|points-on-path|browser-fs-access)@)"
+      "node_modules/(?!.pnpm|roughjs|points-on-curve|path-data-parser|points-on-path)",
+      "node_modules/.pnpm/(?!(roughjs|points-on-curve|path-data-parser|points-on-path)@)"
     ],
     "resetMocks": false
   },
-  "name": "excalidraw",
+  "main": "electron/main.cjs",
+  "name": "handraw",
+  "description": "A desktop-first hand-drawn whiteboard built with Electron.",
+  "author": "StarsWhere",
   "packageManager": "pnpm@10.30.3",
   "prettier": "@excalidraw/prettier-config",
   "private": true,
+  "version": "0.1.0",
   "scripts": {
     "build:app": "cross-env REACT_APP_GIT_SHA=$VERCEL_GIT_COMMIT_SHA react-scripts build",
+    "build:desktop": "pnpm build:renderer",
+    "build:renderer": "pnpm build:app && pnpm build:version",
     "build:version": "node ./scripts/build-version.js",
-    "build": "pnpm build:app && pnpm build:version",
+    "build": "pnpm build:desktop",
+    "dev:desktop": "concurrently -k -s first \"pnpm dev:renderer\" \"node electron/dev-runner.cjs\"",
+    "dev:renderer": "cross-env BROWSER=none react-scripts start",
+    "dist:win": "pnpm build:renderer && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder --win nsis portable",
     "eject": "react-scripts eject",
     "fix:code": "pnpm test:code --fix",
     "fix:other": "pnpm prettier --write",
     "fix": "pnpm fix:other && pnpm fix:code",
     "prepare": "husky install",
     "prettier": "prettier \"**/*.{css,scss,json,md,html,yml}\" --ignore-path=.prettierignore",
-    "start": "react-scripts start",
+    "start": "pnpm dev:desktop",
+    "start:renderer": "pnpm dev:renderer",
     "start:production": "pnpm build && pnpm exec http-server build -a localhost -p 5001 -o",
     "test:all": "pnpm test:typecheck && pnpm test:code && pnpm test:other && pnpm test:app --watchAll=false",
     "test:app": "react-scripts test --passWithNoTests",
