@@ -17,7 +17,6 @@ interface Window {
   EXCALIDRAW_ASSET_PATH: string | undefined;
   EXCALIDRAW_EXPORT_SOURCE: string;
   EXCALIDRAW_THROTTLE_RENDER: boolean | undefined;
-  gtag: Function;
 }
 
 interface CanvasRenderingContext2D {
@@ -38,12 +37,7 @@ interface CanvasRenderingContext2D {
 
 // https://github.com/facebook/create-react-app/blob/ddcb7d5/packages/react-scripts/lib/react-app.d.ts
 declare namespace NodeJS {
-  interface ProcessEnv {
-    readonly REACT_APP_BACKEND_V2_GET_URL: string;
-    readonly REACT_APP_BACKEND_V2_POST_URL: string;
-    readonly REACT_APP_PORTAL_URL: string;
-    readonly REACT_APP_FIREBASE_CONFIG: string;
-  }
+  interface ProcessEnv {}
 }
 
 interface Clipboard extends EventTarget {
