@@ -5,7 +5,9 @@
 !.npmrc
 !.prettierrc
 !package.json
+!pnpm-lock.yaml
+!pnpm-workspace.yaml
 !public/
 !src/
+!dev-docs/package.json
 !tsconfig.json
-!yarn.lock
