@@ -8,7 +8,7 @@ import {
 export const diagramFixture = {
   type: "excalidraw",
   version: VERSIONS.excalidraw,
-  source: "https://excalidraw.com",
+  source: "local",
   elements: [diamondFixture, ellipseFixture, rectangleFixture],
   appState: {
     viewBackgroundColor: "#ffffff",

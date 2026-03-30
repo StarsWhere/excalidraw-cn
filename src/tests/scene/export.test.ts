@@ -28,6 +28,8 @@ describe("exportToSvg", () => {
       null,
     );
 
+    expect(svgElement.outerHTML).not.toContain("https://");
+    expect(svgElement.outerHTML).toContain('src: url("./Virgil.woff2")');
     expect(svgElement).toMatchSnapshot();
   });
 
