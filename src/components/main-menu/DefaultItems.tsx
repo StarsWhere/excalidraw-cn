@@ -14,12 +14,9 @@ import {
   save,
   SunIcon,
   TrashIcon,
-  usersIcon,
 } from "../icons";
-import { GithubIcon, DiscordIcon, TwitterIcon } from "../icons";
 import { FileAddOutlined, SwitcherOutlined } from "@ant-design/icons";
 import DropdownMenuItem from "../dropdownMenu/DropdownMenuItem";
-import DropdownMenuItemLink from "../dropdownMenu/DropdownMenuItemLink";
 import {
   actionClearCanvas,
   actionLoadScene,
@@ -29,7 +26,6 @@ import {
 } from "../../actions";
 
 import "./DefaultItems.scss";
-import clsx from "clsx";
 import { useSetAtom } from "jotai";
 import { activeConfirmDialogAtom } from "../ActiveConfirmDialog";
 
@@ -249,31 +245,7 @@ export const Export = () => {
 };
 Export.displayName = "Export";
 
-export const Socials = () => (
-  <>
-    <DropdownMenuItemLink
-      icon={GithubIcon}
-      href="https://github.com/excalidraw/excalidraw"
-      aria-label="GitHub"
-    >
-      GitHub
-    </DropdownMenuItemLink>
-    <DropdownMenuItemLink
-      icon={DiscordIcon}
-      href="https://discord.gg/UexuTaE"
-      aria-label="Discord"
-    >
-      Discord
-    </DropdownMenuItemLink>
-    <DropdownMenuItemLink
-      icon={TwitterIcon}
-      href="https://twitter.com/excalidraw"
-      aria-label="Twitter"
-    >
-      Twitter
-    </DropdownMenuItemLink>
-  </>
-);
+export const Socials = () => null;
 Socials.displayName = "Socials";
 
 export const LiveCollaborationTrigger = ({
@@ -283,21 +255,9 @@ export const LiveCollaborationTrigger = ({
   onSelect: () => void;
   isCollaborating: boolean;
 }) => {
-  // FIXME Hack until we tie "t" to lang state
-  // eslint-disable-next-line
-  const appState = useExcalidrawAppState();
-  return (
-    <DropdownMenuItem
-      data-testid="collab-button"
-      icon={usersIcon}
-      className={clsx({
-        "active-collab": isCollaborating,
-      })}
-      onSelect={onSelect}
-    >
-      {t("labels.liveCollaboration")}
-    </DropdownMenuItem>
-  );
+  void onSelect;
+  void isCollaborating;
+  return null;
 };
 
 LiveCollaborationTrigger.displayName = "LiveCollaborationTrigger";

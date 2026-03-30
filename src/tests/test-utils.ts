@@ -105,7 +105,7 @@ const initLocalStorage = (data: ImportedDataState) => {
 };
 
 export const updateSceneData = (data: SceneData) => {
-  (window.collab as any).excalidrawAPI.updateScene(data);
+  (window.h.app as any).excalidrawAPI.updateScene(data);
 };
 
 const originalGetBoundingClientRect =
