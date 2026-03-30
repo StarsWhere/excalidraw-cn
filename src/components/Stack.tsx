@@ -23,12 +23,14 @@ const RowStack = ({
   return (
     <div
       className={clsx("Stack Stack_horizontal", className)}
-      style={{
-        "--gap": gap,
-        alignItems: align,
-        justifyContent,
-        ...style,
-      }}
+      style={
+        {
+          "--gap": gap,
+          alignItems: align,
+          justifyContent,
+          ...style,
+        } as React.CSSProperties
+      }
     >
       {children}
     </div>
@@ -46,12 +48,14 @@ const ColStack = ({
   return (
     <div
       className={clsx("Stack Stack_vertical", className)}
-      style={{
-        "--gap": gap,
-        justifyItems: align,
-        justifyContent,
-        ...style,
-      }}
+      style={
+        {
+          "--gap": gap,
+          justifyItems: align,
+          justifyContent,
+          ...style,
+        } as React.CSSProperties
+      }
     >
       {children}
     </div>
