@@ -19,10 +19,13 @@ const updateReadme = () => {
 
 const publish = () => {
   try {
-    execSync(`yarn  --frozen-lockfile`);
-    execSync(`yarn --frozen-lockfile`, { cwd: excalidrawDir });
-    execSync(`yarn run build:umd`, { cwd: excalidrawDir });
-    execSync(`yarn --cwd ${excalidrawDir} publish`);
+    execSync(`pnpm install --frozen-lockfile`, { stdio: "inherit" });
+    execSync(`pnpm --filter @excalidraw/excalidraw build:umd`, {
+      stdio: "inherit",
+    });
+    execSync(`pnpm --filter @excalidraw/excalidraw publish`, {
+      stdio: "inherit",
+    });
   } catch (error) {
     console.error(error);
     process.exit(1);

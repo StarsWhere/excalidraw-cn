@@ -9,15 +9,18 @@ jobs:
   sentry:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Setup Node.js 14.x
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - name: Setup Node.js 18.x
+        uses: actions/setup-node@v4
         with:
-          node-version: 14.x
+          node-version: 18.x
+          cache: pnpm
+      - name: Enable Corepack
+        run: corepack enable pnpm
       - name: Install and build
         run: |
-          yarn --frozen-lockfile
-          yarn build:app
+          pnpm install --frozen-lockfile
+          pnpm build:app
         env:
           CI: true
       - name: Install Sentry

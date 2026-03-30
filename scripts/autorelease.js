@@ -15,10 +15,13 @@ const publish = () => {
   const tag = isPreview ? "preview" : "next";
 
   try {
-    execSync(`yarn  --frozen-lockfile`);
-    execSync(`yarn --frozen-lockfile`, { cwd: excalidrawDir });
-    execSync(`yarn run build:umd`, { cwd: excalidrawDir });
-    execSync(`yarn --cwd ${excalidrawDir} publish --tag ${tag}`);
+    execSync(`pnpm install --frozen-lockfile`, { stdio: "inherit" });
+    execSync(`pnpm --filter @excalidraw/excalidraw build:umd`, {
+      stdio: "inherit",
+    });
+    execSync(`pnpm --filter @excalidraw/excalidraw publish --tag ${tag}`, {
+      stdio: "inherit",
+    });
     console.info(`Published ${pkg.name}@${tag}🎉`);
     core.setOutput(
       "result",
