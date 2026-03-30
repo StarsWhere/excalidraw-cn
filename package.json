@@ -75,7 +75,6 @@
     "workbox-streams": "^6.5.4"
   },
   "devDependencies": {
-    "@actions/core": "1.11.1",
     "@babel/runtime": "7.21.0",
     "@excalidraw/eslint-config": "1.0.0",
     "@excalidraw/prettier-config": "1.0.2",
@@ -93,8 +92,7 @@
     "jest-canvas-mock": "2.4.0",
     "lint-staged": "12.3.7",
     "pepjs": "0.5.3",
-    "prettier": "2.6.2",
-    "rewire": "6.0.0"
+    "prettier": "2.6.2"
   },
   "engines": {
     "node": ">=18.12.0"
@@ -112,8 +110,6 @@
   "prettier": "@excalidraw/prettier-config",
   "private": true,
   "scripts": {
-    "build-node": "node ./scripts/build-node.js",
-    "build:app:docker": "cross-env REACT_APP_DISABLE_SENTRY=true REACT_APP_DISABLE_TRACKING=true react-scripts build",
     "build:app": "cross-env REACT_APP_GIT_SHA=$VERCEL_GIT_COMMIT_SHA react-scripts build",
     "build:version": "node ./scripts/build-version.js",
     "build": "pnpm build:app && pnpm build:version",
@@ -121,8 +117,6 @@
     "fix:code": "pnpm test:code --fix",
     "fix:other": "pnpm prettier --write",
     "fix": "pnpm fix:other && pnpm fix:code",
-    "locales-coverage": "node scripts/build-locales-coverage.js",
-    "locales-coverage:description": "node scripts/locales-coverage-description.js",
     "prepare": "husky install",
     "prettier": "prettier \"**/*.{css,scss,json,md,html,yml}\" --ignore-path=.prettierignore",
     "start": "react-scripts start",
@@ -134,10 +128,7 @@
     "test:other": "pnpm prettier --list-different",
     "test:typecheck": "tsc",
     "test:update": "pnpm test:app --updateSnapshot --watchAll=false",
-    "test": "pnpm test:app",
-    "autorelease": "node scripts/autorelease.js",
-    "prerelease": "node scripts/prerelease.js",
-    "release": "node scripts/release.js"
+    "test": "pnpm test:app"
   },
   "repository": "git@github.com:korbinzhao/handraw.git"
 }
