@@ -314,12 +314,12 @@ describe("Test Linear Elements", () => {
       expect(midPointsWithRoundEdge).toMatchInlineSnapshot(`
         Array [
           Array [
-            55.9697848965255,
-            47.442326230998205,
+            55.96978489652548,
+            47.44232623099819,
           ],
           Array [
             76.08587175006699,
-            43.294165939653226,
+            43.29416593965321,
           ],
         ]
       `);
@@ -362,12 +362,12 @@ describe("Test Linear Elements", () => {
       expect(newMidPoints).toMatchInlineSnapshot(`
         Array [
           Array [
-            105.96978489652551,
-            67.4423262309982,
+            105.96978489652548,
+            67.44232623099819,
           ],
           Array [
             126.08587175006699,
-            63.294165939653226,
+            63.29416593965321,
           ],
         ]
       `);
@@ -605,12 +605,12 @@ describe("Test Linear Elements", () => {
         expect(newMidPoints).toMatchInlineSnapshot(`
           Array [
             Array [
-              31.884084517616053,
-              23.13275505472383,
+              31.88408451761603,
+              23.132755054723816,
             ],
             Array [
-              77.74792546875662,
-              44.57840982272327,
+              77.7479254687566,
+              44.57840982272326,
             ],
           ]
         `);
@@ -666,12 +666,12 @@ describe("Test Linear Elements", () => {
         expect(newMidPoints).toMatchInlineSnapshot(`
           Array [
             Array [
-              55.9697848965255,
-              47.442326230998205,
+              55.96978489652548,
+              47.44232623099819,
             ],
             Array [
               76.08587175006699,
-              43.294165939653226,
+              43.29416593965321,
             ],
           ]
         `);

@@ -44,7 +44,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -204,7 +204,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -215,7 +215,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -257,7 +257,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id1": true,
         },
@@ -327,7 +327,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id2": true,
         },
@@ -425,7 +425,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id2": true,
@@ -580,7 +580,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -747,7 +747,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -758,7 +758,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -800,7 +800,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id1": true,
         },
@@ -870,7 +870,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id2": true,
         },
@@ -968,7 +968,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id2": true,
@@ -1122,7 +1122,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -1276,7 +1276,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -1287,7 +1287,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -1329,7 +1329,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id1": true,
         },
@@ -1399,7 +1399,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id1": true,
@@ -1478,7 +1478,7 @@ Object {
       "appState": Object {
         "editingGroupId": "id4",
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id5": true,
@@ -1553,7 +1553,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id7": true,
         },
@@ -1655,7 +1655,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id1": true,
@@ -1767,7 +1767,7 @@ Object {
       "appState": Object {
         "editingGroupId": "id4",
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id11": true,
@@ -1874,7 +1874,7 @@ Object {
       "appState": Object {
         "editingGroupId": "id10",
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id12": true,
           "id7": true,
@@ -2029,7 +2029,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -2115,7 +2115,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -2126,7 +2126,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -2168,7 +2168,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id1": true,
@@ -2259,7 +2259,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -2416,7 +2416,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -2427,7 +2427,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -2469,7 +2469,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id1": true,
         },
@@ -2539,7 +2539,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id2": true,
         },
@@ -2637,7 +2637,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id2": true,
@@ -2792,7 +2792,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -2909,7 +2909,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -2920,7 +2920,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -2962,7 +2962,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id1": true,
@@ -3081,7 +3081,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -3164,7 +3164,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -3175,7 +3175,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -3265,7 +3265,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -3413,7 +3413,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -3424,7 +3424,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -3466,7 +3466,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id1": true,
         },
@@ -3536,7 +3536,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id2": true,
         },
@@ -3634,7 +3634,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id1": true,
           "id3": true,
@@ -3781,7 +3781,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -3864,7 +3864,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -3875,7 +3875,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -3917,7 +3917,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -3959,7 +3959,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -4049,7 +4049,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -4135,7 +4135,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -4146,7 +4146,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -4188,7 +4188,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id1": true,
@@ -4279,7 +4279,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -4367,7 +4367,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -4378,7 +4378,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -4420,7 +4420,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id1": true,
@@ -4463,7 +4463,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id1": true,
@@ -4555,7 +4555,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -4672,7 +4672,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -4683,7 +4683,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -4725,7 +4725,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id1": true,
         },
@@ -4843,7 +4843,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -4992,7 +4992,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -5003,7 +5003,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -5045,7 +5045,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id1": true,
         },
@@ -5115,7 +5115,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id2": true,
         },
@@ -5288,7 +5288,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -5431,7 +5431,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -5442,7 +5442,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -5484,7 +5484,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id1": true,
         },
@@ -5629,7 +5629,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -5745,7 +5745,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -5756,7 +5756,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -5798,7 +5798,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id1": true,
         },
@@ -5943,7 +5943,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -6053,7 +6053,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -6064,7 +6064,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -6154,7 +6154,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -6239,7 +6239,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -6250,7 +6250,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -6340,7 +6340,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -6491,7 +6491,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -6502,7 +6502,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -6544,7 +6544,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id1": true,
         },
@@ -6614,7 +6614,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id2": true,
         },
@@ -6712,7 +6712,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id1": true,
@@ -6868,7 +6868,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -6989,7 +6989,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -7000,7 +7000,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -7042,7 +7042,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id1": true,
         },
@@ -7112,7 +7112,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id1": true,
@@ -7233,7 +7233,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -7629,7 +7629,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -7640,7 +7640,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -7682,7 +7682,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id1": true,
         },
@@ -7752,7 +7752,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id2": true,
         },
@@ -7850,7 +7850,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id3": true,
         },
@@ -7991,7 +7991,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id4": true,
         },
@@ -8175,7 +8175,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id5": true,
         },
@@ -8405,7 +8405,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id5": true,
         },
@@ -8639,7 +8639,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id6": true,
         },
@@ -8919,7 +8919,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id6": true,
         },
@@ -9203,7 +9203,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id7": false,
         },
@@ -9585,7 +9585,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -9735,7 +9735,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -9746,7 +9746,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -9788,7 +9788,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id1": true,
         },
@@ -9858,7 +9858,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id2": true,
         },
@@ -10004,7 +10004,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -10124,7 +10124,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -10135,7 +10135,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -10175,7 +10175,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id1": true,
         },
@@ -10293,7 +10293,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -10411,7 +10411,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -10422,7 +10422,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id2": true,
@@ -10541,7 +10541,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -10660,7 +10660,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -10671,7 +10671,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id2": true,
@@ -10742,7 +10742,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id2": true,
@@ -10862,7 +10862,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -10945,7 +10945,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -10956,7 +10956,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -11046,7 +11046,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -11129,7 +11129,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -11140,7 +11140,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -11230,7 +11230,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -11313,7 +11313,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -11324,7 +11324,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -11414,7 +11414,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -11535,7 +11535,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -11546,7 +11546,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -11651,7 +11651,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -11772,7 +11772,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -11783,7 +11783,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -11888,7 +11888,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -11993,7 +11993,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -12004,7 +12004,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": false,
         },
@@ -12116,7 +12116,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -12237,7 +12237,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -12248,7 +12248,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -12353,7 +12353,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -12436,7 +12436,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -12447,7 +12447,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -12537,7 +12537,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -12658,7 +12658,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -12669,7 +12669,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -12774,7 +12774,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -12857,7 +12857,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -12868,7 +12868,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -12958,7 +12958,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -13063,7 +13063,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -13074,7 +13074,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": false,
         },
@@ -13186,7 +13186,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -13269,7 +13269,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -13280,7 +13280,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -13370,7 +13370,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -13631,7 +13631,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -13642,7 +13642,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -13684,7 +13684,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id1": true,
         },
@@ -13754,7 +13754,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id2": true,
         },
@@ -13852,7 +13852,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id1": true,
@@ -13961,7 +13961,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id1": true,
@@ -14209,7 +14209,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -14327,7 +14327,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -14338,7 +14338,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -14380,7 +14380,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id1": true,
         },
@@ -14498,7 +14498,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "touch",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -14550,7 +14550,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -14609,7 +14609,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -14659,7 +14659,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -14718,7 +14718,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -14804,7 +14804,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -14815,7 +14815,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -14905,7 +14905,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -15028,7 +15028,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -15039,7 +15039,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -15081,7 +15081,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id1": true,
         },
@@ -15151,7 +15151,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id1": true,
@@ -15273,7 +15273,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -15424,7 +15424,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -15435,7 +15435,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -15477,7 +15477,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id1": true,
         },
@@ -15547,7 +15547,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id2": true,
         },
@@ -15645,7 +15645,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id1": true,
@@ -15754,7 +15754,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id1": true,
@@ -15904,7 +15904,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -15987,7 +15987,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -15998,7 +15998,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -16040,7 +16040,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -16130,7 +16130,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -16329,7 +16329,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -16340,7 +16340,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -16382,7 +16382,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id1": true,
         },
@@ -16452,7 +16452,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id1": true,
@@ -16531,7 +16531,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id5": true,
         },
@@ -16633,7 +16633,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id6": true,
         },
@@ -16763,7 +16763,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id5": true,
           "id6": true,
@@ -16902,7 +16902,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id1": true,
@@ -17093,7 +17093,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -17143,7 +17143,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -17202,7 +17202,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -17357,7 +17357,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -17368,7 +17368,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -17410,7 +17410,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id1": true,
         },
@@ -17480,7 +17480,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id2": true,
         },
@@ -17578,7 +17578,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id1": true,
@@ -17686,7 +17686,7 @@ Object {
       "appState": Object {
         "editingGroupId": "id3",
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id2": true,
@@ -17792,7 +17792,7 @@ Object {
       "appState": Object {
         "editingGroupId": "id3",
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id2": true,
@@ -17902,7 +17902,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
           "id1": true,
@@ -18088,7 +18088,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -18264,7 +18264,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -18275,7 +18275,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -18317,7 +18317,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id1": true,
         },
@@ -18387,7 +18387,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id2": true,
         },
@@ -18560,7 +18560,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -18703,7 +18703,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -18714,7 +18714,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -18756,7 +18756,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id1": true,
         },
@@ -18874,7 +18874,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "touch",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -18926,7 +18926,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -18985,7 +18985,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -19147,7 +19147,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id2": true,
         },
@@ -19267,7 +19267,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id2": true,
         },
@@ -19385,7 +19385,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -19396,7 +19396,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id0": true,
         },
@@ -19438,7 +19438,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {
           "id1": true,
         },
@@ -19556,7 +19556,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -19606,7 +19606,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
@@ -19665,7 +19665,7 @@ Object {
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "Untitled-201933152653",
+  "name": "default_canvas",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -19715,7 +19715,7 @@ Object {
       "appState": Object {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "Untitled-201933152653",
+        "name": "default_canvas",
         "selectedElementIds": Object {},
         "selectedGroupIds": Object {},
         "viewBackgroundColor": "#ffffff",
