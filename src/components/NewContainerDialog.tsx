@@ -9,7 +9,7 @@ import { message } from "antd";
 import {
   createContainerInStorage,
   getContainerListFromStorage,
-} from "../excalidraw-app/data/localStorage";
+} from "../excalidraw-app/data/desktopState";
 import { RESVERED_LOCALSTORAGE_KEYS } from "../excalidraw-app/app_constants";
 
 export const NewSceneDialog = ({

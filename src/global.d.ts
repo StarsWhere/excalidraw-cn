@@ -17,29 +17,29 @@ interface Window {
   EXCALIDRAW_ASSET_PATH: string | undefined;
   EXCALIDRAW_EXPORT_SOURCE: string;
   EXCALIDRAW_THROTTLE_RENDER: boolean | undefined;
-  handrawDesktop?: {
+  handrawDesktop: {
     isElectron: boolean;
     platform: string;
     loadDesktopState: () => Promise<
-      import("./excalidraw-app/data/localStorage").DesktopBootstrapState
+      import("./excalidraw-app/data/desktopState").DesktopBootstrapState
     >;
     loadDraftState: () => Promise<
-      import("./excalidraw-app/data/localStorage").DesktopDraftState
+      import("./excalidraw-app/data/desktopState").DesktopDraftState
     >;
     saveDraftState: (
-      payload: import("./excalidraw-app/data/localStorage").DesktopDraftSavePayload,
-    ) => Promise<import("./excalidraw-app/data/localStorage").DesktopDraftState>;
+      payload: import("./excalidraw-app/data/desktopState").DesktopDraftSavePayload,
+    ) => Promise<import("./excalidraw-app/data/desktopState").DesktopDraftState>;
     loadLibraryState: () => Promise<import("./types").LibraryItems>;
     saveLibraryState: (
       items: import("./types").LibraryItems,
     ) => Promise<import("./types").LibraryItems>;
     listContainers: () => Promise<string[]>;
     writeContainer: (
-      payload: import("./excalidraw-app/data/localStorage").DesktopContainerWritePayload,
-    ) => Promise<import("./excalidraw-app/data/localStorage").DesktopDraftState>;
+      payload: import("./excalidraw-app/data/desktopState").DesktopContainerWritePayload,
+    ) => Promise<import("./excalidraw-app/data/desktopState").DesktopDraftState>;
     deleteContainer: (
       name: string,
-    ) => Promise<import("./excalidraw-app/data/localStorage").DesktopDraftState>;
+    ) => Promise<import("./excalidraw-app/data/desktopState").DesktopDraftState>;
     readBinaryFileCache: (
       fileIds: import("./element/types").FileId[],
     ) => Promise<{
@@ -57,11 +57,11 @@ interface Window {
     ) => Promise<void>;
     saveSettings: (
       settings: Partial<
-        import("./excalidraw-app/data/localStorage").DesktopSettings
+        import("./excalidraw-app/data/desktopState").DesktopSettings
       >,
-    ) => Promise<import("./excalidraw-app/data/localStorage").DesktopSettings>;
+    ) => Promise<import("./excalidraw-app/data/desktopState").DesktopSettings>;
     resetDesktopState: () => Promise<
-      import("./excalidraw-app/data/localStorage").DesktopBootstrapState
+      import("./excalidraw-app/data/desktopState").DesktopBootstrapState
     >;
     openFile: (
       options: import("./data/filesystem").DesktopOpenDialogOptions,

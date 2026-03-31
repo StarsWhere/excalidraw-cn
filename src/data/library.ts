@@ -14,7 +14,6 @@ import { getCommonBoundingBox } from "../element/bounds";
 import { AbortError } from "../errors";
 import { t } from "../i18n";
 import { useEffect, useRef } from "react";
-import { URL_HASH_KEYS, URL_QUERY_KEYS, APP_NAME, EVENT } from "../constants";
 
 export const libraryItemsAtom = atom<{
   status: "loading" | "loaded";
@@ -337,40 +336,6 @@ export const distributeLibraryItemsOnSquareGrid = (
   return resElements;
 };
 
-export const parseLibraryTokensFromUrl = () => {
-  const libraryUrl =
-    // current
-    new URLSearchParams(window.location.hash.slice(1)).get(
-      URL_HASH_KEYS.addLibrary,
-    ) ||
-    // legacy, kept for compat reasons
-    new URLSearchParams(window.location.search).get(URL_QUERY_KEYS.addLibrary);
-  const idToken = libraryUrl
-    ? new URLSearchParams(window.location.hash.slice(1)).get("token")
-    : null;
-
-  return libraryUrl ? { libraryUrl, idToken } : null;
-};
-
-const clearLibraryUrlTokens = () => {
-  if (window.location.hash.includes(URL_HASH_KEYS.addLibrary)) {
-    const hash = new URLSearchParams(window.location.hash.slice(1));
-    hash.delete(URL_HASH_KEYS.addLibrary);
-    hash.delete("token");
-    const nextHash = hash.toString();
-    window.history.replaceState({}, APP_NAME, nextHash ? `#${nextHash}` : "");
-  } else if (window.location.search.includes(URL_QUERY_KEYS.addLibrary)) {
-    const query = new URLSearchParams(window.location.search);
-    query.delete(URL_QUERY_KEYS.addLibrary);
-    query.delete("token");
-    const nextQuery = query.toString();
-    const nextUrl = `${window.location.pathname}${
-      nextQuery ? `?${nextQuery}` : ""
-    }${window.location.hash}`;
-    window.history.replaceState({}, APP_NAME, nextUrl);
-  }
-};
-
 export const useHandleLibrary = ({
   excalidrawAPI,
   getInitialLibraryItems,
@@ -385,23 +350,6 @@ export const useHandleLibrary = ({
       return;
     }
 
-    const warnAndClearUnsupportedLibraryUrl = (libraryUrl: string) => {
-      console.warn(
-        "Ignoring unsupported remote library import:",
-        decodeURIComponent(libraryUrl),
-      );
-      clearLibraryUrlTokens();
-    };
-
-    const onHashChange = (event: HashChangeEvent) => {
-      event.preventDefault();
-      const libraryUrlTokens = parseLibraryTokensFromUrl();
-      if (libraryUrlTokens) {
-        event.stopImmediatePropagation();
-        warnAndClearUnsupportedLibraryUrl(libraryUrlTokens.libraryUrl);
-      }
-    };
-
     // -------------------------------------------------------------------------
     // ------ init load --------------------------------------------------------
     if (getInitialLibraryRef.current) {
@@ -409,17 +357,6 @@ export const useHandleLibrary = ({
         libraryItems: getInitialLibraryRef.current(),
       });
     }
-
-    const libraryUrlTokens = parseLibraryTokensFromUrl();
-
-    if (libraryUrlTokens) {
-      warnAndClearUnsupportedLibraryUrl(libraryUrlTokens.libraryUrl);
-    }
     // --------------------------------------------------------- init load -----
-
-    window.addEventListener(EVENT.HASHCHANGE, onHashChange);
-    return () => {
-      window.removeEventListener(EVENT.HASHCHANGE, onHashChange);
-    };
   }, [excalidrawAPI]);
 };

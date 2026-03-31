@@ -15,7 +15,7 @@ import {
   readFilesFromStorage,
   saveDraftStateToStorage,
   writeFilesToStorage,
-} from "./localStorage";
+} from "./desktopState";
 
 class LocalFileManager extends FileManager {
   clearObsoleteFiles = async (opts: { currentFileIds: FileId[] }) => {

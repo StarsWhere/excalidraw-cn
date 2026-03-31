@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import "jest-canvas-mock";
 import dotenv from "dotenv";
 import polyfill from "./polyfill";
-import { resetDesktopStateCache } from "./excalidraw-app/data/localStorage";
+import { resetDesktopStateCache } from "./excalidraw-app/data/desktopState";
 import { desktopApiMock, resetDesktopTestState } from "./tests/desktopTestState";
 
 polyfill();

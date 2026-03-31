@@ -14,7 +14,7 @@ describe("appState", () => {
     const exportBackground = !defaultAppState.exportBackground;
 
     await render(<ExcalidrawApp />, {
-      localStorageData: {
+      desktopStateData: {
         appState: {
           exportBackground,
           viewBackgroundColor: "#F00",
@@ -53,7 +53,7 @@ describe("appState", () => {
 
   it("changing fontSize with text tool selected (no element created yet)", async () => {
     const { container } = await render(<ExcalidrawApp />, {
-      localStorageData: {
+      desktopStateData: {
         appState: {
           currentItemFontSize: 30,
         },

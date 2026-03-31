@@ -1,6 +1,9 @@
 import React from "react";
 import { t } from "../i18n";
-import { getDesktopStateSnapshot } from "../excalidraw-app/data/localStorage";
+import {
+  getDesktopStateSnapshot,
+  requireDesktopApi,
+} from "../excalidraw-app/data/desktopState";
 
 interface TopErrorBoundaryState {
   hasError: boolean;
@@ -50,7 +53,7 @@ export class TopErrorBoundary extends React.Component<
             <button
               onClick={async () => {
                 try {
-                  await window.handrawDesktop?.resetDesktopState();
+                  await requireDesktopApi().resetDesktopState();
                   window.location.reload();
                 } catch (error: any) {
                   console.error(error);

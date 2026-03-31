@@ -14,7 +14,7 @@ const mouse = new Pointer("mouse");
 describe("history", () => {
   it("initializing scene should end up with single history entry", async () => {
     await render(<ExcalidrawApp />, {
-      localStorageData: {
+      desktopStateData: {
         elements: [API.createElement({ type: "rectangle", id: "A" })],
         appState: {
           zenModeEnabled: true,
@@ -61,7 +61,7 @@ describe("history", () => {
 
   it("scene import via drag&drop should create new history entry", async () => {
     await render(<ExcalidrawApp />, {
-      localStorageData: {
+      desktopStateData: {
         elements: [API.createElement({ type: "rectangle", id: "A" })],
         appState: {
           viewBackgroundColor: "#FFF",

@@ -283,9 +283,10 @@ import { Fonts } from "../scene/Fonts";
 import { actionPaste } from "../actions/actionClipboard";
 import { actionToggleHandTool } from "../actions/actionCanvas";
 import {
+  requireDesktopApi,
   setContainerIdToStorage,
   setContainerNameToStorage,
-} from "../excalidraw-app/data/localStorage";
+} from "../excalidraw-app/data/desktopState";
 
 const deviceContextInitialValue = {
   isSmScreen: false,
@@ -982,7 +983,7 @@ class App extends React.Component<AppProps, AppState> {
         mdScreenQuery.removeListener(handler);
     }
 
-    this.desktopOpenFileCleanup = window.handrawDesktop?.onOpenFile(
+    this.desktopOpenFileCleanup = requireDesktopApi().onOpenFile(
       async (payload) => {
         const { file, fileHandle } = desktopFilePayloadToFile(payload);
         await this.loadFileToCanvas(file, fileHandle);
@@ -992,7 +993,7 @@ class App extends React.Component<AppProps, AppState> {
     this.updateDOMRect(() => {
       void (async () => {
         await this.initializeScene();
-        const pendingFile = await window.handrawDesktop?.getPendingOpenFile();
+        const pendingFile = await requireDesktopApi().getPendingOpenFile();
         if (pendingFile) {
           const { file, fileHandle } = desktopFilePayloadToFile(pendingFile);
           await this.loadFileToCanvas(file, fileHandle);
@@ -2833,13 +2834,13 @@ class App extends React.Component<AppProps, AppState> {
         }
         if (!customEvent?.defaultPrevented) {
           const normalizedUrl = normalizeLink(url);
-          if (isLocalLink(url)) {
-            window.location.href = normalizedUrl;
-          } else {
-            void window.handrawDesktop?.openExternal(normalizedUrl);
+            if (isLocalLink(url)) {
+              window.location.href = normalizedUrl;
+            } else {
+              void requireDesktopApi().openExternal(normalizedUrl);
+            }
           }
         }
-      }
     }
   };
 

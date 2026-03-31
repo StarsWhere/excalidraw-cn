@@ -10,7 +10,7 @@ export const isFirefox =
   navigator.userAgent.indexOf("rv:") > 1 &&
   navigator.userAgent.indexOf("Gecko") > 1;
 
-export const APP_NAME = "Excalidraw";
+export const APP_NAME = "Handraw";
 
 export const DRAGGING_THRESHOLD = 10; // px
 export const LINE_CONFIRM_THRESHOLD = 8; // px
@@ -57,7 +57,6 @@ export enum EVENT {
   WHEEL = "wheel",
   TOUCH_START = "touchstart",
   TOUCH_END = "touchend",
-  HASHCHANGE = "hashchange",
   VISIBILITY_CHANGE = "visibilitychange",
   SCROLL = "scroll",
   // custom events
@@ -141,14 +140,6 @@ export const IDLE_THRESHOLD = 60_000;
 export const ACTIVE_THRESHOLD = 3_000;
 
 export const THEME_FILTER = cssVariables.themeFilter;
-
-export const URL_QUERY_KEYS = {
-  addLibrary: "addLibrary",
-} as const;
-
-export const URL_HASH_KEYS = {
-  addLibrary: "addLibrary",
-} as const;
 
 export const DEFAULT_UI_OPTIONS: AppProps["UIOptions"] = {
   canvasActions: {

@@ -82,7 +82,18 @@ const clone = <T>(value: T): T => {
   return JSON.parse(JSON.stringify(value));
 };
 
-const getDesktopApi = () => window.handrawDesktop;
+export const getDesktopApi = () => window.handrawDesktop;
+
+export const requireDesktopApi = () => {
+  const desktop = getDesktopApi();
+  if (!desktop?.isElectron) {
+    throw new Error(
+      "Handraw must run inside the Electron desktop shell. preload bridge was not found.",
+    );
+  }
+
+  return desktop;
+};
 
 const ensureSceneEntry = (containerName: string) => {
   if (!storageCache.scenes[containerName]) {
@@ -133,13 +144,7 @@ const getDefaultBootstrapState = (): DesktopBootstrapState => ({
 export const bootstrapDesktopState = async () => {
   if (!bootstrapPromise) {
     bootstrapPromise = (async () => {
-      const desktop = getDesktopApi();
-      if (!desktop?.isElectron) {
-        const fallbackState = getDefaultBootstrapState();
-        applyBootstrapState(fallbackState);
-        return fallbackState;
-      }
-
+      const desktop = requireDesktopApi();
       const snapshot = await desktop.loadDesktopState();
       const nextState: DesktopBootstrapState = {
         ...getDefaultBootstrapState(),
@@ -167,23 +172,13 @@ export const resetDesktopStateCache = () => {
 };
 
 const persistSettings = async () => {
-  const desktop = getDesktopApi();
-  if (!desktop?.isElectron) {
-    return;
-  }
-
+  const desktop = requireDesktopApi();
   await desktop.saveSettings({
     currentContainerName: storageCache.currentContainerName,
   });
 };
 
-export const saveUsernameToLocalStorage = (_username: string) => {
-  return;
-};
-
-export const importUsernameFromLocalStorage = (): string | null => null;
-
-export const importFromLocalStorage = () => {
+export const getDesktopDraftState = () => {
   const currentContainerName = getContainerNameFromStorage();
   const savedElements = storageCache.scenes[currentContainerName] || [];
   const savedState = storageCache.appState;
@@ -217,7 +212,7 @@ export const saveDraftStateToStorage = async (
   elements: readonly ExcalidrawElement[],
   appState: AppState,
 ) => {
-  const desktop = getDesktopApi();
+  const desktop = requireDesktopApi();
   const currentContainerName = getContainerNameFromStorage();
 
   storageCache.currentContainerName = currentContainerName;
@@ -228,10 +223,6 @@ export const saveDraftStateToStorage = async (
   storageCache.scenes[currentContainerName] = clone(
     clearElementsForLocalStorage(elements),
   );
-
-  if (!desktop?.isElectron) {
-    return;
-  }
 
   await desktop.saveDraftState({
     containerName: currentContainerName,
@@ -269,23 +260,20 @@ export const getTotalStorageSize = () => {
   }
 };
 
-export const getLibraryItemsFromStorage = () => {
+export const getLibraryItems = () => {
   return clone(storageCache.libraryItems || []);
 };
 
-export const saveLibraryItemsToStorage = async (
+export const saveLibraryItems = async (
   libraryItems: ImportedDataState["libraryItems"],
 ) => {
   storageCache.libraryItems = libraryItems ? clone(libraryItems) : [];
-  const desktop = getDesktopApi();
-  if (!desktop?.isElectron) {
-    return storageCache.libraryItems;
-  }
+  const desktop = requireDesktopApi();
   return desktop.saveLibraryState(storageCache.libraryItems as any);
 };
 
-export const clearLibraryItemsFromStorage = async () => {
-  return saveLibraryItemsToStorage([]);
+export const clearLibraryItems = async () => {
+  return saveLibraryItems([]);
 };
 
 export const setContainerIdToStorage = (id: string) => {
@@ -324,7 +312,7 @@ export const getContainerListFromStorage = (): string[] => {
 };
 
 export const createContainerInStorage = async (name: string) => {
-  const desktop = getDesktopApi();
+  const desktop = requireDesktopApi();
   storageCache.currentContainerName = name;
   storageCache.appState = {
     ...(storageCache.appState || {}),
@@ -335,18 +323,16 @@ export const createContainerInStorage = async (name: string) => {
   }
   storageCache.scenes[name] = [];
 
-  if (desktop?.isElectron) {
-    const nextState = await desktop.writeContainer({
-      mode: "create",
-      name,
-      elements: [],
-    });
-    applyBootstrapState({
-      ...getDefaultBootstrapState(),
-      ...nextState,
-      libraryItems: storageCache.libraryItems,
-    });
-  }
+  const nextState = await desktop.writeContainer({
+    mode: "create",
+    name,
+    elements: [],
+  });
+  applyBootstrapState({
+    ...getDefaultBootstrapState(),
+    ...nextState,
+    libraryItems: storageCache.libraryItems,
+  });
 };
 
 export const setContainerListToStorage = (list: string[] = []) => {
@@ -366,10 +352,7 @@ export const setElementsToStorage = async (
 ) => {
   const currentContainerName = getContainerNameFromStorage();
   storageCache.scenes[currentContainerName] = clone(elements);
-  const desktop = getDesktopApi();
-  if (!desktop?.isElectron) {
-    return;
-  }
+  const desktop = requireDesktopApi();
 
   await desktop.writeContainer({
     mode: "updateScene",
@@ -390,7 +373,7 @@ export const renameContainerNameToStorage = async (
   }
 
   const elements = getElementsFromStorage(oldName);
-  const desktop = getDesktopApi();
+  const desktop = requireDesktopApi();
 
   delete storageCache.scenes[oldName];
   storageCache.scenes[newName] = elements;
@@ -408,10 +391,6 @@ export const renameContainerNameToStorage = async (
     };
   }
 
-  if (!desktop?.isElectron) {
-    return;
-  }
-
   const nextState = await desktop.writeContainer({
     mode: "rename",
     previousName: oldName,
@@ -426,7 +405,7 @@ export const renameContainerNameToStorage = async (
 };
 
 export const removeContainerFromStorage = async (containerName: string) => {
-  const desktop = getDesktopApi();
+  const desktop = requireDesktopApi();
 
   delete storageCache.scenes[containerName];
   storageCache.containerList = storageCache.containerList.filter(
@@ -447,10 +426,6 @@ export const removeContainerFromStorage = async (containerName: string) => {
     }
   }
 
-  if (!desktop?.isElectron) {
-    return;
-  }
-
   const nextState = await desktop.deleteContainer(containerName);
   applyBootstrapState({
     ...getDefaultBootstrapState(),
@@ -467,14 +442,7 @@ export const getAllContainerListElementsFromStorage = () => {
 };
 
 export const readFilesFromStorage = async (ids: FileId[]) => {
-  const desktop = getDesktopApi();
-  if (!desktop?.isElectron) {
-    return {
-      loadedFiles: [] as BinaryFileData[],
-      erroredFiles: new Map<FileId, true>(),
-    };
-  }
-
+  const desktop = requireDesktopApi();
   const payload = await desktop.readBinaryFileCache(ids);
   return {
     loadedFiles: payload.loadedFiles || [],
@@ -488,14 +456,7 @@ export const readFilesFromStorage = async (ids: FileId[]) => {
 };
 
 export const writeFilesToStorage = async (files: BinaryFileData[]) => {
-  const desktop = getDesktopApi();
-  if (!desktop?.isElectron) {
-    return {
-      savedFiles: new Map<FileId, true>(),
-      erroredFiles: new Map<FileId, true>(),
-    };
-  }
-
+  const desktop = requireDesktopApi();
   const payload = await desktop.writeBinaryFileCache(files);
   return {
     savedFiles: new Map(
@@ -514,11 +475,7 @@ export const writeFilesToStorage = async (files: BinaryFileData[]) => {
 };
 
 export const clearObsoleteFilesFromStorage = async (currentFileIds: FileId[]) => {
-  const desktop = getDesktopApi();
-  if (!desktop?.isElectron) {
-    return;
-  }
-
+  const desktop = requireDesktopApi();
   await desktop.pruneBinaryFileCache(currentFileIds);
 };
 

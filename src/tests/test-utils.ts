@@ -14,7 +14,7 @@ import { ImportedDataState } from "../data/types";
 import {
   bootstrapDesktopState,
   resetDesktopStateCache,
-} from "../excalidraw-app/data/localStorage";
+} from "../excalidraw-app/data/desktopState";
 
 import { SceneData } from "../types";
 import { getSelectedElements } from "../scene/selection";
@@ -29,15 +29,15 @@ const customQueries = {
 type TestRenderFn = (
   ui: React.ReactElement,
   options?: Omit<
-    RenderOptions & { localStorageData?: ImportedDataState },
+    RenderOptions & { desktopStateData?: ImportedDataState },
     "queries"
   >,
 ) => Promise<RenderResult<typeof customQueries>>;
 
 const renderApp: TestRenderFn = async (ui, options) => {
-  if (options?.localStorageData) {
-    await initLocalStorage(options.localStorageData);
-    delete options.localStorageData;
+  if (options?.desktopStateData) {
+    await initDesktopState(options.desktopStateData);
+    delete options.desktopStateData;
   }
 
   const renderResult = render(ui, {
@@ -97,7 +97,7 @@ export class GlobalTestState {
   }
 }
 
-const initLocalStorage = async (data: ImportedDataState) => {
+const initDesktopState = async (data: ImportedDataState) => {
   setDesktopDraftState(data);
   resetDesktopStateCache();
   await bootstrapDesktopState();

@@ -65,7 +65,7 @@ const FILTER_NAMES: Record<FILE_EXTENSION, string> = {
 const createAbortError = () => new AbortError();
 
 const ensureDesktopApi = () => {
-  if (!window.handrawDesktop?.isElectron) {
+  if (!window.handrawDesktop.isElectron) {
     throw new Error("Handraw desktop APIs are unavailable.");
   }
 

@@ -9,7 +9,7 @@ import {
   getContainerNameFromStorage,
   removeContainerFromStorage,
   setContainerNameToStorage,
-} from "../excalidraw-app/data/localStorage";
+} from "../excalidraw-app/data/desktopState";
 import { List, Popconfirm } from "antd";
 import { CheckSquareOutlined, CloseCircleOutlined } from "@ant-design/icons";
 

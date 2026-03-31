@@ -3,7 +3,7 @@ import { debounce, getVersion, nFormatter } from "../utils";
 import {
   getElementsStorageSize,
   getTotalStorageSize,
-} from "./data/localStorage";
+} from "./data/desktopState";
 import { DEFAULT_VERSION } from "../constants";
 import { t } from "../i18n";
 import { copyTextToSystemClipboard } from "../clipboard";

@@ -1,11 +1,9 @@
 import polyfill from "../polyfill";
-import LanguageDetector from "i18next-browser-languagedetector";
 import { useEffect, useRef, useState } from "react";
 import { trackEvent } from "../analytics";
 import { ErrorDialog } from "../components/ErrorDialog";
 import { TopErrorBoundary } from "../components/TopErrorBoundary";
 import {
-  APP_NAME,
   EVENT,
   THEME,
   TITLE_TIMEOUT,
@@ -28,25 +26,22 @@ import {
   ExcalidrawInitialDataState,
 } from "../types";
 import {
-  debounce,
   getVersion,
   getFrame,
-  isTestEnv,
   preventUnload,
   ResolvablePromise,
   resolvablePromise,
 } from "../utils";
-import { STORAGE_KEYS } from "./app_constants";
 import { loadScene } from "./data";
 import {
   bootstrapDesktopState,
-  clearLibraryItemsFromStorage,
+  clearLibraryItems,
+  getDesktopDraftState,
   getContainerNameFromStorage,
-  getLibraryItemsFromStorage,
-  importFromLocalStorage,
+  getLibraryItems,
   getAllContainerListElementsFromStorage,
-  saveLibraryItemsToStorage,
-} from "./data/localStorage";
+  saveLibraryItems,
+} from "./data/desktopState";
 import CustomStats from "./CustomStats";
 
 import "./index.scss";
@@ -57,7 +52,7 @@ import { isInitializedImageElement } from "../element/typeChecks";
 import { LocalData } from "./data/LocalData";
 import { atom, Provider, useAtom } from "jotai";
 import { jotaiStore } from "../jotai";
-import { parseLibraryTokensFromUrl, useHandleLibrary } from "../data/library";
+import { useHandleLibrary } from "../data/library";
 import { AppMainMenu } from "./components/AppMainMenu";
 import { AppWelcomeScreen } from "./components/AppWelcomeScreen";
 import { AppFooter } from "./components/AppFooter";
@@ -66,29 +61,8 @@ polyfill();
 
 window.EXCALIDRAW_THROTTLE_RENDER = true;
 
-const languageDetector = new LanguageDetector();
-languageDetector.init({
-  languageUtils: {},
-  caches: [],
-});
-
-const isUnsupportedRemoteUrl = (url: URL) => {
-  return (
-    url.searchParams.has("id") ||
-    /^#json=/.test(url.hash) ||
-    /^#room=/.test(url.hash) ||
-    /^#url=/.test(url.hash)
-  );
-};
-
-const clearUnsupportedRemoteUrlState = (urlString = window.location.href) => {
-  const url = new URL(urlString);
-  if (!isUnsupportedRemoteUrl(url)) {
-    return false;
-  }
-  console.warn("Ignoring unsupported remote scene link:", url.toString());
-  window.history.replaceState({}, APP_NAME, window.location.pathname);
-  return true;
+const detectDesktopLanguage = () => {
+  return navigator.languages?.[0] || navigator.language || defaultLang.code;
 };
 
 const initializeScene = async (): Promise<{
@@ -96,13 +70,12 @@ const initializeScene = async (): Promise<{
   isExternalScene: false;
 }> => {
   await bootstrapDesktopState();
-  const localDataState = importFromLocalStorage();
-  clearUnsupportedRemoteUrlState();
-  const scene = await loadScene(null, null, localDataState);
+  const desktopState = getDesktopDraftState();
+  const scene = await loadScene(null, null, desktopState);
   return { scene, isExternalScene: false };
 };
 
-const currentLangCode = languageDetector.detect() || defaultLang.code;
+const currentLangCode = detectDesktopLanguage();
 
 export const langCodeAtom = atom(
   Array.isArray(currentLangCode) ? currentLangCode[0] : currentLangCode,
@@ -110,7 +83,7 @@ export const langCodeAtom = atom(
 
 const ExcalidrawWrapper = () => {
   const [errorMessage, setErrorMessage] = useState("");
-  const [langCode, setLangCode] = useAtom(langCodeAtom);
+  const [langCode] = useAtom(langCodeAtom);
   // initial state
   // ---------------------------------------------------------------------------
 
@@ -135,7 +108,7 @@ const ExcalidrawWrapper = () => {
 
   useHandleLibrary({
     excalidrawAPI,
-    getInitialLibraryItems: getLibraryItemsFromStorage,
+    getInitialLibraryItems: getLibraryItems,
   });
 
   useEffect(() => {
@@ -182,16 +155,8 @@ const ExcalidrawWrapper = () => {
       initialStatePromiseRef.current.promise.resolve(data.scene);
     });
 
-    const onHashChange = (event: HashChangeEvent) => {
-      event.preventDefault();
-      if (parseLibraryTokensFromUrl()) {
-        return;
-      }
-      clearUnsupportedRemoteUrlState();
-    };
-
     const titleTimeout = setTimeout(
-      () => (document.title = APP_NAME),
+      () => (document.title = "Handraw"),
       TITLE_TIMEOUT,
     );
 
@@ -205,13 +170,11 @@ const ExcalidrawWrapper = () => {
       }
     };
 
-    window.addEventListener(EVENT.HASHCHANGE, onHashChange, false);
     window.addEventListener(EVENT.UNLOAD, onUnload, false);
     window.addEventListener(EVENT.BLUR, visibilityChange, false);
     document.addEventListener(EVENT.VISIBILITY_CHANGE, visibilityChange, false);
     window.addEventListener(EVENT.FOCUS, visibilityChange, false);
     return () => {
-      window.removeEventListener(EVENT.HASHCHANGE, onHashChange, false);
       window.removeEventListener(EVENT.UNLOAD, onUnload, false);
       window.removeEventListener(EVENT.BLUR, visibilityChange, false);
       window.removeEventListener(EVENT.FOCUS, visibilityChange, false);
@@ -222,7 +185,7 @@ const ExcalidrawWrapper = () => {
       );
       clearTimeout(titleTimeout);
     };
-  }, [excalidrawAPI, setLangCode]);
+  }, [excalidrawAPI]);
 
   useEffect(() => {
     const unloadHandler = (event: BeforeUnloadEvent) => {
@@ -243,12 +206,8 @@ const ExcalidrawWrapper = () => {
     };
   }, [excalidrawAPI]);
 
-  useEffect(() => {
-    languageDetector.cacheUserLanguage(langCode);
-  }, [langCode]);
-
   const [theme, setTheme] = useState<Theme>(
-    () => importFromLocalStorage().appState?.theme || THEME.LIGHT,
+    () => getDesktopDraftState().appState?.theme || THEME.LIGHT,
   );
 
   useEffect(() => {
@@ -309,10 +268,10 @@ const ExcalidrawWrapper = () => {
 
   const onLibraryChange = async (items: LibraryItems) => {
     if (!items.length) {
-      await clearLibraryItemsFromStorage();
+      await clearLibraryItems();
       return;
     }
-    await saveLibraryItemsToStorage(items);
+    await saveLibraryItems(items);
   };
 
   return (
