@@ -4,6 +4,10 @@ import dotenv from "dotenv";
 import polyfill from "./polyfill";
 import { resetDesktopStateCache } from "./excalidraw-app/data/desktopState";
 import { desktopApiMock, resetDesktopTestState } from "./tests/desktopTestState";
+import {
+  installConsoleErrorFilter,
+  restoreConsoleErrorFilter,
+} from "./tests/consoleFilters";
 
 polyfill();
 // jest doesn't know of .env.development so we need to init it ourselves
@@ -26,4 +30,10 @@ beforeEach(() => {
   resetDesktopTestState();
   resetDesktopStateCache();
   window.handrawDesktop = desktopApiMock as typeof window.handrawDesktop;
+});
+
+installConsoleErrorFilter();
+
+afterAll(() => {
+  restoreConsoleErrorFilter();
 });

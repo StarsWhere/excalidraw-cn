@@ -7,6 +7,7 @@ import {
   RenderOptions,
   waitFor,
   fireEvent,
+  act,
 } from "@testing-library/react";
 
 import * as toolQueries from "./queries/toolQueries";
@@ -24,6 +25,46 @@ import { setDesktopDraftState } from "./desktopTestState";
 const customQueries = {
   ...queries,
   ...toolQueries,
+};
+
+const ACT_WRAPPED = Symbol("actWrapped");
+
+const wrapMethodWithAct = <
+  T extends Record<string, any>,
+  K extends keyof T & string,
+>(
+  target: T | undefined,
+  key: K,
+) => {
+  const original = target?.[key];
+  if (typeof original !== "function" || (original as any)[ACT_WRAPPED]) {
+    return;
+  }
+
+  const wrapped = (...args: Parameters<typeof original>) => {
+    let result: ReturnType<typeof original>;
+    act(() => {
+      result = original.apply(target, args);
+    });
+    return result!;
+  };
+
+  Object.defineProperty(wrapped, ACT_WRAPPED, {
+    value: true,
+  });
+
+  Object.defineProperty(target, key, {
+    configurable: true,
+    value: wrapped,
+  });
+};
+
+const wrapDesktopTestApisWithAct = () => {
+  wrapMethodWithAct(window.h as any, "setState");
+  wrapMethodWithAct(window.h?.app as any, "setState");
+  wrapMethodWithAct(window.h?.app as any, "setAppState");
+  wrapMethodWithAct(window.h?.app as any, "refresh");
+  wrapMethodWithAct(window.h?.app as any, "refreshDeviceState");
 };
 
 type TestRenderFn = (
@@ -69,6 +110,9 @@ const renderApp: TestRenderFn = async (ui, options) => {
     }
   });
 
+  await act(async () => {});
+  wrapDesktopTestApisWithAct();
+
   return renderResult;
 };
 
@@ -104,7 +148,9 @@ const initDesktopState = async (data: ImportedDataState) => {
 };
 
 export const updateSceneData = (data: SceneData) => {
-  (window.h.app as any).excalidrawAPI.updateScene(data);
+  act(() => {
+    (window.h.app as any).excalidrawAPI.updateScene(data);
+  });
 };
 
 const originalGetBoundingClientRect =
