@@ -7,10 +7,8 @@ import { ActionManager } from "../actions/manager";
 import { Button } from "./Button";
 import { message } from "antd";
 import {
+  createContainerInStorage,
   getContainerListFromStorage,
-  setContainerNameToStorage,
-  setContainerListToStorage,
-  setElementsToStorage,
 } from "../excalidraw-app/data/localStorage";
 import { RESVERED_LOCALSTORAGE_KEYS } from "../excalidraw-app/app_constants";
 
@@ -57,7 +55,7 @@ export const NewSceneDialog = ({
               backgroundColor: "#6965db",
               color: "#fff",
             }}
-            onSelect={() => {
+            onSelect={async () => {
               const containerList: string[] = getContainerListFromStorage();
 
               if (containerList.includes(newContainerName)) {
@@ -70,9 +68,7 @@ export const NewSceneDialog = ({
                 return;
               }
 
-              setContainerNameToStorage(newContainerName);
-              setContainerListToStorage([...containerList, newContainerName]);
-              setElementsToStorage([]);
+              await createContainerInStorage(newContainerName);
 
               window.location.reload();
             }}

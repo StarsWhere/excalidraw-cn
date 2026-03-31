@@ -1,5 +1,5 @@
-import { ExcalidrawElement } from "../../element/types";
-import { AppState } from "../../types";
+import { ExcalidrawElement, FileId } from "../../element/types";
+import { AppState, BinaryFileData } from "../../types";
 import {
   clearAppStateForLocalStorage,
   getDefaultAppState,
@@ -8,54 +8,192 @@ import { clearElementsForLocalStorage } from "../../element";
 import { STORAGE_KEYS } from "../app_constants";
 import { ImportedDataState } from "../../data/types";
 
-export const saveUsernameToLocalStorage = (username: string) => {
-  try {
-    localStorage.setItem(
-      STORAGE_KEYS.LOCAL_STORAGE_COLLAB,
-      JSON.stringify({ username }),
-    );
-  } catch (error: any) {
-    // Unable to access window.localStorage
-    console.error(error);
-  }
+export type DesktopSettings = {
+  currentContainerName: string;
 };
 
-export const importUsernameFromLocalStorage = (): string | null => {
-  try {
-    const data = localStorage.getItem(STORAGE_KEYS.LOCAL_STORAGE_COLLAB);
-    if (data) {
-      return JSON.parse(data).username;
+export type DesktopDraftState = {
+  containerList: string[];
+  containerName: string;
+  elements: readonly ExcalidrawElement[];
+  appState: Partial<AppState> | null;
+  scenes: Record<string, readonly ExcalidrawElement[]>;
+};
+
+export type DesktopBootstrapState = DesktopDraftState & {
+  libraryItems: ImportedDataState["libraryItems"];
+  settings?: DesktopSettings;
+};
+
+export type DesktopDraftSavePayload = {
+  containerName: string;
+  elements: readonly ExcalidrawElement[];
+  appState: Partial<AppState>;
+};
+
+export type DesktopContainerWritePayload =
+  | {
+      mode: "create" | "select";
+      name: string;
+      elements?: readonly ExcalidrawElement[];
     }
-  } catch (error: any) {
-    // Unable to access localStorage
-    console.error(error);
+  | {
+      mode: "rename";
+      name: string;
+      previousName: string;
+      elements?: readonly ExcalidrawElement[];
+    }
+  | {
+      mode: "updateScene";
+      name: string;
+      elements: readonly ExcalidrawElement[];
+    };
+
+const DEFAULT_CONTAINER_NAME = STORAGE_KEYS.LOCAL_STORAGE_DEFAULT_CONTAINER_NAME;
+
+type DesktopStateCache = {
+  initialized: boolean;
+  containerId: string | null;
+  currentContainerName: string;
+  containerList: string[];
+  scenes: Record<string, readonly ExcalidrawElement[]>;
+  appState: Partial<AppState> | null;
+  libraryItems: ImportedDataState["libraryItems"];
+};
+
+const storageCache: DesktopStateCache = {
+  initialized: false,
+  containerId: null,
+  currentContainerName: DEFAULT_CONTAINER_NAME,
+  containerList: [DEFAULT_CONTAINER_NAME],
+  scenes: {
+    [DEFAULT_CONTAINER_NAME]: [],
+  },
+  appState: null,
+  libraryItems: [],
+};
+
+let bootstrapPromise: Promise<DesktopBootstrapState> | null = null;
+
+const clone = <T>(value: T): T => {
+  if (value === undefined || value === null) {
+    return value;
+  }
+  return JSON.parse(JSON.stringify(value));
+};
+
+const getDesktopApi = () => window.handrawDesktop;
+
+const ensureSceneEntry = (containerName: string) => {
+  if (!storageCache.scenes[containerName]) {
+    storageCache.scenes[containerName] = [];
+  }
+};
+
+const applyBootstrapState = (state: DesktopBootstrapState) => {
+  const containerList =
+    state.containerList.length > 0
+      ? [...state.containerList]
+      : [DEFAULT_CONTAINER_NAME];
+  const currentContainerName =
+    state.containerName && containerList.includes(state.containerName)
+      ? state.containerName
+      : containerList[0];
+
+  storageCache.initialized = true;
+  storageCache.containerList = containerList;
+  storageCache.currentContainerName = currentContainerName;
+  storageCache.appState = state.appState ? clone(state.appState) : null;
+  storageCache.libraryItems = state.libraryItems ? clone(state.libraryItems) : [];
+  storageCache.scenes = Object.keys(state.scenes || {}).length
+    ? clone(state.scenes)
+    : {
+        [currentContainerName]: clone(state.elements || []),
+      };
+
+  for (const containerName of containerList) {
+    ensureSceneEntry(containerName);
+  }
+};
+
+const getDefaultBootstrapState = (): DesktopBootstrapState => ({
+  containerList: [DEFAULT_CONTAINER_NAME],
+  containerName: DEFAULT_CONTAINER_NAME,
+  elements: [],
+  appState: null,
+  scenes: {
+    [DEFAULT_CONTAINER_NAME]: [],
+  },
+  libraryItems: [],
+  settings: {
+    currentContainerName: DEFAULT_CONTAINER_NAME,
+  },
+});
+
+export const bootstrapDesktopState = async () => {
+  if (!bootstrapPromise) {
+    bootstrapPromise = (async () => {
+      const desktop = getDesktopApi();
+      if (!desktop?.isElectron) {
+        const fallbackState = getDefaultBootstrapState();
+        applyBootstrapState(fallbackState);
+        return fallbackState;
+      }
+
+      const snapshot = await desktop.loadDesktopState();
+      const nextState: DesktopBootstrapState = {
+        ...getDefaultBootstrapState(),
+        ...snapshot,
+        scenes:
+          snapshot?.scenes && Object.keys(snapshot.scenes).length
+            ? snapshot.scenes
+            : getDefaultBootstrapState().scenes,
+        libraryItems: snapshot?.libraryItems || [],
+      };
+      applyBootstrapState(nextState);
+      return nextState;
+    })();
   }
 
-  return null;
+  return bootstrapPromise;
 };
+
+export const resetDesktopStateCache = () => {
+  bootstrapPromise = null;
+  Object.assign(storageCache, getDefaultBootstrapState(), {
+    initialized: false,
+    containerId: null,
+  });
+};
+
+const persistSettings = async () => {
+  const desktop = getDesktopApi();
+  if (!desktop?.isElectron) {
+    return;
+  }
+
+  await desktop.saveSettings({
+    currentContainerName: storageCache.currentContainerName,
+  });
+};
+
+export const saveUsernameToLocalStorage = (_username: string) => {
+  return;
+};
+
+export const importUsernameFromLocalStorage = (): string | null => null;
 
 export const importFromLocalStorage = () => {
-  let savedElements = null;
-  let savedState = null;
-
   const currentContainerName = getContainerNameFromStorage();
-
-  try {
-    // savedElements = localStorage.getItem(STORAGE_KEYS.LOCAL_STORAGE_ELEMENTS);
-    savedElements = localStorage.getItem(currentContainerName);
-    savedState = localStorage.getItem(STORAGE_KEYS.LOCAL_STORAGE_APP_STATE);
-  } catch (error: any) {
-    // Unable to access localStorage
-    console.error(error);
-  }
+  const savedElements = storageCache.scenes[currentContainerName] || [];
+  const savedState = storageCache.appState;
 
   let elements: ExcalidrawElement[] = [];
   if (savedElements) {
     try {
-      elements = clearElementsForLocalStorage(JSON.parse(savedElements));
+      elements = clearElementsForLocalStorage(clone(savedElements));
     } catch (error: any) {
       console.error(error);
-      // Do nothing because elements array is already empty
     }
   }
 
@@ -64,25 +202,49 @@ export const importFromLocalStorage = () => {
     try {
       appState = {
         ...getDefaultAppState(),
-        ...clearAppStateForLocalStorage(
-          JSON.parse(savedState) as Partial<AppState>,
-        ),
+        ...clearAppStateForLocalStorage(clone(savedState) as Partial<AppState>),
+        name: currentContainerName,
       };
     } catch (error: any) {
       console.error(error);
-      // Do nothing because appState is already null
     }
   }
+
   return { elements, appState };
+};
+
+export const saveDraftStateToStorage = async (
+  elements: readonly ExcalidrawElement[],
+  appState: AppState,
+) => {
+  const desktop = getDesktopApi();
+  const currentContainerName = getContainerNameFromStorage();
+
+  storageCache.currentContainerName = currentContainerName;
+  storageCache.appState = {
+    ...clearAppStateForLocalStorage(clone(appState)),
+    name: currentContainerName,
+  };
+  storageCache.scenes[currentContainerName] = clone(
+    clearElementsForLocalStorage(elements),
+  );
+
+  if (!desktop?.isElectron) {
+    return;
+  }
+
+  await desktop.saveDraftState({
+    containerName: currentContainerName,
+    elements: storageCache.scenes[currentContainerName],
+    appState: storageCache.appState,
+  });
 };
 
 export const getElementsStorageSize = () => {
   try {
     const currentContainerName = getContainerNameFromStorage();
-    // const elements = localStorage.getItem(STORAGE_KEYS.LOCAL_STORAGE_ELEMENTS);
-    const elements = localStorage.getItem(currentContainerName);
-    const elementsSize = elements?.length || 0;
-    return elementsSize;
+    const elements = storageCache.scenes[currentContainerName] || [];
+    return JSON.stringify(elements).length;
   } catch (error: any) {
     console.error(error);
     return 0;
@@ -91,15 +253,16 @@ export const getElementsStorageSize = () => {
 
 export const getTotalStorageSize = () => {
   try {
-    const appState = localStorage.getItem(STORAGE_KEYS.LOCAL_STORAGE_APP_STATE);
-    const collab = localStorage.getItem(STORAGE_KEYS.LOCAL_STORAGE_COLLAB);
-    const library = localStorage.getItem(STORAGE_KEYS.LOCAL_STORAGE_LIBRARY);
+    const appState = storageCache.appState || {};
+    const library = storageCache.libraryItems || [];
+    const containers = storageCache.containerList || [];
 
-    const appStateSize = appState?.length || 0;
-    const collabSize = collab?.length || 0;
-    const librarySize = library?.length || 0;
-
-    return appStateSize + collabSize + librarySize + getElementsStorageSize();
+    return (
+      JSON.stringify(appState).length +
+      JSON.stringify(library).length +
+      JSON.stringify(containers).length +
+      getElementsStorageSize()
+    );
   } catch (error: any) {
     console.error(error);
     return 0;
@@ -107,77 +270,115 @@ export const getTotalStorageSize = () => {
 };
 
 export const getLibraryItemsFromStorage = () => {
-  try {
-    const libraryItems: ImportedDataState["libraryItems"] = JSON.parse(
-      localStorage.getItem(STORAGE_KEYS.LOCAL_STORAGE_LIBRARY) as string,
-    );
+  return clone(storageCache.libraryItems || []);
+};
 
-    return libraryItems || [];
-  } catch (error) {
-    console.error(error);
-    return [];
+export const saveLibraryItemsToStorage = async (
+  libraryItems: ImportedDataState["libraryItems"],
+) => {
+  storageCache.libraryItems = libraryItems ? clone(libraryItems) : [];
+  const desktop = getDesktopApi();
+  if (!desktop?.isElectron) {
+    return storageCache.libraryItems;
   }
+  return desktop.saveLibraryState(storageCache.libraryItems as any);
+};
+
+export const clearLibraryItemsFromStorage = async () => {
+  return saveLibraryItemsToStorage([]);
 };
 
 export const setContainerIdToStorage = (id: string) => {
-  if (id) {
-    localStorage.setItem(STORAGE_KEYS.LOCAL_STORAGE_CONTAINER_ID, id);
-  }
+  storageCache.containerId = id;
 };
 
 export const setContainerNameToStorage = (name: string) => {
-  if (name) {
-    localStorage.setItem(STORAGE_KEYS.LOCAL_STORAGE_CONTAINER_NAME, name);
+  if (!name) {
+    return;
   }
+
+  storageCache.currentContainerName = name;
+  if (storageCache.appState) {
+    storageCache.appState = {
+      ...storageCache.appState,
+      name,
+    };
+  }
+  if (!storageCache.containerList.includes(name)) {
+    storageCache.containerList = [...storageCache.containerList, name];
+  }
+  ensureSceneEntry(name);
+  void persistSettings();
 };
 
 export const getContainerIdFromStorage = () => {
-  localStorage.getItem(STORAGE_KEYS.LOCAL_STORAGE_CONTAINER_ID);
+  return storageCache.containerId;
 };
 
 export const getContainerNameFromStorage = () => {
-  return (
-    localStorage.getItem(STORAGE_KEYS.LOCAL_STORAGE_CONTAINER_NAME) ||
-    STORAGE_KEYS.LOCAL_STORAGE_DEFAULT_CONTAINER_NAME
-  );
+  return storageCache.currentContainerName || DEFAULT_CONTAINER_NAME;
 };
 
 export const getContainerListFromStorage = (): string[] => {
-  try {
-    return JSON.parse(
-      localStorage.getItem(STORAGE_KEYS.LOCAL_STORAGE_CONTAINER_LIST) ||
-        `["${STORAGE_KEYS.LOCAL_STORAGE_DEFAULT_CONTAINER_NAME}"]`,
-    );
-  } catch (err) {
-    console.error("localStorage getContainerList error", err);
-    return [STORAGE_KEYS.LOCAL_STORAGE_DEFAULT_CONTAINER_NAME];
+  return [...storageCache.containerList];
+};
+
+export const createContainerInStorage = async (name: string) => {
+  const desktop = getDesktopApi();
+  storageCache.currentContainerName = name;
+  storageCache.appState = {
+    ...(storageCache.appState || {}),
+    name,
+  };
+  if (!storageCache.containerList.includes(name)) {
+    storageCache.containerList = [...storageCache.containerList, name];
+  }
+  storageCache.scenes[name] = [];
+
+  if (desktop?.isElectron) {
+    const nextState = await desktop.writeContainer({
+      mode: "create",
+      name,
+      elements: [],
+    });
+    applyBootstrapState({
+      ...getDefaultBootstrapState(),
+      ...nextState,
+      libraryItems: storageCache.libraryItems,
+    });
   }
 };
 
 export const setContainerListToStorage = (list: string[] = []) => {
-  localStorage.setItem(
-    STORAGE_KEYS.LOCAL_STORAGE_CONTAINER_LIST,
-    JSON.stringify(list),
-  );
+  storageCache.containerList = list.length ? [...list] : [DEFAULT_CONTAINER_NAME];
 };
 
 export const getElementsFromStorage = (
   containerName?: string,
 ): ExcalidrawElement[] => {
-  const currentContainerName = getContainerNameFromStorage();
-
-  return JSON.parse(
-    localStorage.getItem(containerName || currentContainerName) || "[]",
-  );
+  return clone(
+    storageCache.scenes[containerName || getContainerNameFromStorage()] || [],
+  ) as ExcalidrawElement[];
 };
 
-export const setElementsToStorage = (elements: ExcalidrawElement[] = []) => {
+export const setElementsToStorage = async (
+  elements: ExcalidrawElement[] = [],
+) => {
   const currentContainerName = getContainerNameFromStorage();
+  storageCache.scenes[currentContainerName] = clone(elements);
+  const desktop = getDesktopApi();
+  if (!desktop?.isElectron) {
+    return;
+  }
 
-  localStorage.setItem(currentContainerName, JSON.stringify(elements));
+  await desktop.writeContainer({
+    mode: "updateScene",
+    name: currentContainerName,
+    elements,
+  });
 };
 
-export const renameContainerNameToStorage = (
+export const renameContainerNameToStorage = async (
   oldName: string,
   newName: string,
 ) => {
@@ -185,46 +386,149 @@ export const renameContainerNameToStorage = (
     console.warn(
       `oldName: ${oldName}, newName: ${newName} 不同时存在，无法重命名`,
     );
+    return;
   }
 
-  const elements = getElementsFromStorage();
+  const elements = getElementsFromStorage(oldName);
+  const desktop = getDesktopApi();
 
-  setContainerNameToStorage(newName);
+  delete storageCache.scenes[oldName];
+  storageCache.scenes[newName] = elements;
+  storageCache.containerList = storageCache.containerList.map((name) =>
+    name === oldName ? newName : name,
+  );
+  storageCache.currentContainerName =
+    storageCache.currentContainerName === oldName
+      ? newName
+      : storageCache.currentContainerName;
+  if (storageCache.appState?.name === oldName) {
+    storageCache.appState = {
+      ...storageCache.appState,
+      name: newName,
+    };
+  }
 
-  setElementsToStorage(elements);
+  if (!desktop?.isElectron) {
+    return;
+  }
 
-  localStorage.removeItem(oldName);
-
-  const containerList = getContainerListFromStorage();
-
-  const newContainerList = containerList.map((name: string) => {
-    if (name === oldName) {
-      return newName;
-    }
-    return name;
+  const nextState = await desktop.writeContainer({
+    mode: "rename",
+    previousName: oldName,
+    name: newName,
+    elements,
   });
-
-  setContainerListToStorage(newContainerList);
+  applyBootstrapState({
+    ...getDefaultBootstrapState(),
+    ...nextState,
+    libraryItems: storageCache.libraryItems,
+  });
 };
 
-export const removeContainerFromStorage = (containerName: string) => {
-  localStorage.removeItem(containerName);
+export const removeContainerFromStorage = async (containerName: string) => {
+  const desktop = getDesktopApi();
 
-  const containerList = getContainerListFromStorage();
+  delete storageCache.scenes[containerName];
+  storageCache.containerList = storageCache.containerList.filter(
+    (name) => name !== containerName,
+  );
+  if (!storageCache.containerList.length) {
+    storageCache.containerList = [DEFAULT_CONTAINER_NAME];
+    ensureSceneEntry(DEFAULT_CONTAINER_NAME);
+  }
 
-  const newContainerList = containerList.filter((name: string) => {
-    return name !== containerName;
+  if (storageCache.currentContainerName === containerName) {
+    storageCache.currentContainerName = storageCache.containerList[0];
+    if (storageCache.appState) {
+      storageCache.appState = {
+        ...storageCache.appState,
+        name: storageCache.currentContainerName,
+      };
+    }
+  }
+
+  if (!desktop?.isElectron) {
+    return;
+  }
+
+  const nextState = await desktop.deleteContainer(containerName);
+  applyBootstrapState({
+    ...getDefaultBootstrapState(),
+    ...nextState,
+    libraryItems: storageCache.libraryItems,
   });
-
-  setContainerListToStorage(newContainerList);
 };
 
 export const getAllContainerListElementsFromStorage = () => {
-  const containerList = getContainerListFromStorage();
-
-  return containerList.reduce((prevElements, containerName) => {
-    const _elements = getElementsFromStorage(containerName);
-
-    return [...prevElements, ..._elements];
+  return storageCache.containerList.reduce((prevElements, containerName) => {
+    const elements = storageCache.scenes[containerName] || [];
+    return [...prevElements, ...elements];
   }, [] as ExcalidrawElement[]);
+};
+
+export const readFilesFromStorage = async (ids: FileId[]) => {
+  const desktop = getDesktopApi();
+  if (!desktop?.isElectron) {
+    return {
+      loadedFiles: [] as BinaryFileData[],
+      erroredFiles: new Map<FileId, true>(),
+    };
+  }
+
+  const payload = await desktop.readBinaryFileCache(ids);
+  return {
+    loadedFiles: payload.loadedFiles || [],
+    erroredFiles: new Map(
+      (payload.erroredFiles || []).map((fileId: FileId) => [
+        fileId,
+        true as const,
+      ]),
+    ),
+  };
+};
+
+export const writeFilesToStorage = async (files: BinaryFileData[]) => {
+  const desktop = getDesktopApi();
+  if (!desktop?.isElectron) {
+    return {
+      savedFiles: new Map<FileId, true>(),
+      erroredFiles: new Map<FileId, true>(),
+    };
+  }
+
+  const payload = await desktop.writeBinaryFileCache(files);
+  return {
+    savedFiles: new Map(
+      (payload.savedFiles || []).map((fileId: FileId) => [
+        fileId,
+        true as const,
+      ]),
+    ),
+    erroredFiles: new Map(
+      (payload.erroredFiles || []).map((fileId: FileId) => [
+        fileId,
+        true as const,
+      ]),
+    ),
+  };
+};
+
+export const clearObsoleteFilesFromStorage = async (currentFileIds: FileId[]) => {
+  const desktop = getDesktopApi();
+  if (!desktop?.isElectron) {
+    return;
+  }
+
+  await desktop.pruneBinaryFileCache(currentFileIds);
+};
+
+export const getDesktopStateSnapshot = () => {
+  return clone({
+    containerId: storageCache.containerId,
+    currentContainerName: storageCache.currentContainerName,
+    containerList: storageCache.containerList,
+    appState: storageCache.appState,
+    libraryItems: storageCache.libraryItems,
+    scenes: storageCache.scenes,
+  });
 };

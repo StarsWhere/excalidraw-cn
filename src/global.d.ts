@@ -20,6 +20,49 @@ interface Window {
   handrawDesktop?: {
     isElectron: boolean;
     platform: string;
+    loadDesktopState: () => Promise<
+      import("./excalidraw-app/data/localStorage").DesktopBootstrapState
+    >;
+    loadDraftState: () => Promise<
+      import("./excalidraw-app/data/localStorage").DesktopDraftState
+    >;
+    saveDraftState: (
+      payload: import("./excalidraw-app/data/localStorage").DesktopDraftSavePayload,
+    ) => Promise<import("./excalidraw-app/data/localStorage").DesktopDraftState>;
+    loadLibraryState: () => Promise<import("./types").LibraryItems>;
+    saveLibraryState: (
+      items: import("./types").LibraryItems,
+    ) => Promise<import("./types").LibraryItems>;
+    listContainers: () => Promise<string[]>;
+    writeContainer: (
+      payload: import("./excalidraw-app/data/localStorage").DesktopContainerWritePayload,
+    ) => Promise<import("./excalidraw-app/data/localStorage").DesktopDraftState>;
+    deleteContainer: (
+      name: string,
+    ) => Promise<import("./excalidraw-app/data/localStorage").DesktopDraftState>;
+    readBinaryFileCache: (
+      fileIds: import("./element/types").FileId[],
+    ) => Promise<{
+      loadedFiles: import("./types").BinaryFileData[];
+      erroredFiles: import("./element/types").FileId[];
+    }>;
+    writeBinaryFileCache: (
+      files: import("./types").BinaryFileData[],
+    ) => Promise<{
+      savedFiles: import("./element/types").FileId[];
+      erroredFiles: import("./element/types").FileId[];
+    }>;
+    pruneBinaryFileCache: (
+      fileIds: import("./element/types").FileId[],
+    ) => Promise<void>;
+    saveSettings: (
+      settings: Partial<
+        import("./excalidraw-app/data/localStorage").DesktopSettings
+      >,
+    ) => Promise<import("./excalidraw-app/data/localStorage").DesktopSettings>;
+    resetDesktopState: () => Promise<
+      import("./excalidraw-app/data/localStorage").DesktopBootstrapState
+    >;
     openFile: (
       options: import("./data/filesystem").DesktopOpenDialogOptions,
     ) => Promise<
@@ -61,7 +104,6 @@ interface CanvasRenderingContext2D {
   ) => void;
 }
 
-// https://github.com/facebook/create-react-app/blob/ddcb7d5/packages/react-scripts/lib/react-app.d.ts
 declare namespace NodeJS {
   interface ProcessEnv {}
 }

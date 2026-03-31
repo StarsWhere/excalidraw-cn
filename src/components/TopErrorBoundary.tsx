@@ -1,9 +1,10 @@
 import React from "react";
 import { t } from "../i18n";
+import { getDesktopStateSnapshot } from "../excalidraw-app/data/localStorage";
 
 interface TopErrorBoundaryState {
   hasError: boolean;
-  localStorage: string;
+  desktopState: string;
 }
 
 export class TopErrorBoundary extends React.Component<
@@ -12,7 +13,7 @@ export class TopErrorBoundary extends React.Component<
 > {
   state: TopErrorBoundaryState = {
     hasError: false,
-    localStorage: "",
+    desktopState: "",
   };
 
   render() {
@@ -20,19 +21,10 @@ export class TopErrorBoundary extends React.Component<
   }
 
   componentDidCatch(error: Error, errorInfo: any) {
-    const _localStorage: any = {};
-    for (const [key, value] of Object.entries({ ...localStorage })) {
-      try {
-        _localStorage[key] = JSON.parse(value);
-      } catch (error: any) {
-        _localStorage[key] = value;
-      }
-    }
-
     console.error(error, errorInfo);
     this.setState({
       hasError: true,
-      localStorage: JSON.stringify(_localStorage),
+      desktopState: JSON.stringify(getDesktopStateSnapshot(), null, 2),
     });
   }
 
@@ -56,9 +48,9 @@ export class TopErrorBoundary extends React.Component<
           <div className="ErrorSplash-paragraph align-center">
             {t("errorSplash.clearCanvasMessage")}
             <button
-              onClick={() => {
+              onClick={async () => {
                 try {
-                  localStorage.clear();
+                  await window.handrawDesktop?.resetDesktopState();
                   window.location.reload();
                 } catch (error: any) {
                   console.error(error);
@@ -86,7 +78,7 @@ export class TopErrorBoundary extends React.Component<
                   rows={5}
                   onPointerDown={this.selectTextArea}
                   readOnly={true}
-                  value={this.state.localStorage}
+                  value={this.state.desktopState}
                 />
               </div>
             </div>

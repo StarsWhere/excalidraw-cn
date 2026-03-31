@@ -7,8 +7,8 @@ import { Dialog } from "./Dialog";
 import {
   getContainerListFromStorage,
   getContainerNameFromStorage,
-  setContainerNameToStorage,
   removeContainerFromStorage,
+  setContainerNameToStorage,
 } from "../excalidraw-app/data/localStorage";
 import { List, Popconfirm } from "antd";
 import { CheckSquareOutlined, CloseCircleOutlined } from "@ant-design/icons";
@@ -54,7 +54,7 @@ export const SwitchSceneDialog = ({
                         currentContainerName === scene ? "green" : "#333"
                       }`,
                     }}
-                    onClick={() => {
+                    onClick={async () => {
                       setContainerNameToStorage(scene);
 
                       window.location.reload();
@@ -69,8 +69,8 @@ export const SwitchSceneDialog = ({
                   </span>
                   <Popconfirm
                     title={`确定删除 ${scene} 吗?`}
-                    onConfirm={() => {
-                      removeContainerFromStorage(scene);
+                    onConfirm={async () => {
+                      await removeContainerFromStorage(scene);
                       if (currentContainerName === scene) {
                         setContainerNameToStorage(containerList[0]);
                       }

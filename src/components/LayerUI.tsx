@@ -277,7 +277,8 @@ const LayerUI = ({
               <InputPreview
                 defaultValue={currentContainerName}
                 onSave={(value) => {
-                  renameContainerNameToStorage(currentContainerName, value);
+                  setAppState({ name: value });
+                  void renameContainerNameToStorage(currentContainerName, value);
                 }}
               />
             </Stack.Row>

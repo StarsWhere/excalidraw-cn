@@ -18,7 +18,8 @@ import {
   Theme,
 } from "../element/types";
 import { useCallbackRefState } from "../hooks/useCallbackRefState";
-import { Excalidraw, defaultLang } from "../packages/excalidraw/index";
+import { Excalidraw } from "../components/Excalidraw";
+import { defaultLang } from "../i18n";
 import {
   AppState,
   LibraryItems,
@@ -35,13 +36,16 @@ import {
   ResolvablePromise,
   resolvablePromise,
 } from "../utils";
-import { STORAGE_KEYS, SYNC_BROWSER_TABS_TIMEOUT } from "./app_constants";
+import { STORAGE_KEYS } from "./app_constants";
 import { loadScene } from "./data";
 import {
+  bootstrapDesktopState,
+  clearLibraryItemsFromStorage,
   getContainerNameFromStorage,
   getLibraryItemsFromStorage,
   importFromLocalStorage,
   getAllContainerListElementsFromStorage,
+  saveLibraryItemsToStorage,
 } from "./data/localStorage";
 import CustomStats from "./CustomStats";
 
@@ -51,7 +55,6 @@ import { updateStaleImageStatuses } from "./data/FileManager";
 import { newElementWith } from "../element/mutateElement";
 import { isInitializedImageElement } from "../element/typeChecks";
 import { LocalData } from "./data/LocalData";
-import { isBrowserStorageStateNewer } from "./data/tabSync";
 import { atom, Provider, useAtom } from "jotai";
 import { jotaiStore } from "../jotai";
 import { parseLibraryTokensFromUrl, useHandleLibrary } from "../data/library";
@@ -66,6 +69,7 @@ window.EXCALIDRAW_THROTTLE_RENDER = true;
 const languageDetector = new LanguageDetector();
 languageDetector.init({
   languageUtils: {},
+  caches: [],
 });
 
 const isUnsupportedRemoteUrl = (url: URL) => {
@@ -91,6 +95,7 @@ const initializeScene = async (): Promise<{
   scene: ExcalidrawInitialDataState | null;
   isExternalScene: false;
 }> => {
+  await bootstrapDesktopState();
   const localDataState = importFromLocalStorage();
   clearUnsupportedRemoteUrlState();
   const scene = await loadScene(null, null, localDataState);
@@ -190,59 +195,6 @@ const ExcalidrawWrapper = () => {
       TITLE_TIMEOUT,
     );
 
-    const syncData = debounce(() => {
-      if (isTestEnv()) {
-        return;
-      }
-      if (!document.hidden) {
-        // don't sync if local state is newer or identical to browser state
-        if (isBrowserStorageStateNewer(STORAGE_KEYS.VERSION_DATA_STATE)) {
-          const localDataState = importFromLocalStorage();
-          let langCode = languageDetector.detect() || defaultLang.code;
-          if (Array.isArray(langCode)) {
-            langCode = langCode[0];
-          }
-          setLangCode(langCode);
-          excalidrawAPI.updateScene({
-            ...localDataState,
-          });
-          excalidrawAPI.updateLibrary({
-            libraryItems: getLibraryItemsFromStorage(),
-          });
-        }
-
-        if (isBrowserStorageStateNewer(STORAGE_KEYS.VERSION_FILES)) {
-          const elements = excalidrawAPI.getSceneElementsIncludingDeleted();
-          const currFiles = excalidrawAPI.getFiles();
-          const fileIds =
-            elements?.reduce((acc, element) => {
-              if (
-                isInitializedImageElement(element) &&
-                // only load and update images that aren't already loaded
-                !currFiles[element.fileId]
-              ) {
-                return acc.concat(element.fileId);
-              }
-              return acc;
-            }, [] as FileId[]) || [];
-          if (fileIds.length) {
-            LocalData.fileStorage
-              .getFiles(fileIds)
-              .then(({ loadedFiles, erroredFiles }) => {
-                if (loadedFiles.length) {
-                  excalidrawAPI.addFiles(loadedFiles);
-                }
-                updateStaleImageStatuses({
-                  excalidrawAPI,
-                  erroredFiles,
-                  elements: excalidrawAPI.getSceneElementsIncludingDeleted(),
-                });
-              });
-          }
-        }
-      }
-    }, SYNC_BROWSER_TABS_TIMEOUT);
-
     const onUnload = () => {
       LocalData.flushSave();
     };
@@ -250,12 +202,6 @@ const ExcalidrawWrapper = () => {
     const visibilityChange = (event: FocusEvent | Event) => {
       if (event.type === EVENT.BLUR || document.hidden) {
         LocalData.flushSave();
-      }
-      if (
-        event.type === EVENT.VISIBILITY_CHANGE ||
-        event.type === EVENT.FOCUS
-      ) {
-        syncData();
       }
     };
 
@@ -302,17 +248,10 @@ const ExcalidrawWrapper = () => {
   }, [langCode]);
 
   const [theme, setTheme] = useState<Theme>(
-    () =>
-      localStorage.getItem(STORAGE_KEYS.LOCAL_STORAGE_THEME) ||
-      // FIXME migration from old LS scheme. Can be removed later. #5660
-      importFromLocalStorage().appState?.theme ||
-      THEME.LIGHT,
+    () => importFromLocalStorage().appState?.theme || THEME.LIGHT,
   );
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEYS.LOCAL_STORAGE_THEME, theme);
-    // currently only used for body styling during init (see public/index.html),
-    // but may change in the future
     document.documentElement.classList.toggle("dark", theme === THEME.DARK);
   }, [theme]);
 
@@ -370,11 +309,10 @@ const ExcalidrawWrapper = () => {
 
   const onLibraryChange = async (items: LibraryItems) => {
     if (!items.length) {
-      localStorage.removeItem(STORAGE_KEYS.LOCAL_STORAGE_LIBRARY);
+      await clearLibraryItemsFromStorage();
       return;
     }
-    const serializedItems = JSON.stringify(items);
-    localStorage.setItem(STORAGE_KEYS.LOCAL_STORAGE_LIBRARY, serializedItems);
+    await saveLibraryItemsToStorage(items);
   };
 
   return (
@@ -384,7 +322,6 @@ const ExcalidrawWrapper = () => {
         name={getContainerNameFromStorage()}
         onChange={onChange}
         initialData={initialStatePromiseRef.current.promise}
-        isCollaborating={false}
         UIOptions={{
           canvasActions: {
             toggleTheme: true,
