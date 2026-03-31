@@ -3,11 +3,11 @@
  * to the Electron desktop persistence layer.
  */
 
-import { clearAppStateForLocalState } from "../../appState";
-import { ExcalidrawElement, FileId } from "../../element/types";
-import { AppState, BinaryFileData, BinaryFiles } from "../../types";
-import { debounce } from "../../utils";
-import { SAVE_TO_DESKTOP_STORE_TIMEOUT } from "../app_constants";
+import { clearAppStateForLocalState } from "../../../core/editor/state/appState";
+import { ExcalidrawElement, FileId } from "../../../core/editor/elements/types";
+import { AppState, BinaryFileData, BinaryFiles } from "../../../core/editor/state/types";
+import { debounce } from "../../../shared/lib/utils";
+import { SAVE_TO_DESKTOP_STORE_TIMEOUT } from "../state/constants";
 import { FileManager } from "./FileManager";
 import { Locker } from "./Locker";
 import {
@@ -15,7 +15,7 @@ import {
   readFilesFromStorage,
   saveDesktopStateToStorage,
   writeFilesToStorage,
-} from "./desktopState";
+} from "../state/desktopState";
 
 class LocalFileManager extends FileManager {
   clearObsoleteFiles = async (opts: { currentFileIds: FileId[] }) => {

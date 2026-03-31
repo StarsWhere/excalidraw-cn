@@ -1,4 +1,4 @@
-import { createIcon } from "../../components/icons";
+import { createIcon } from "../../../core/editor/components/icons";
 
 export const excalidrawPlusIcon = createIcon(
   <>

@@ -1,5 +1,5 @@
-import { restore } from "../../data/restore";
-import { ImportedDataState } from "../../data/types";
+import { restore } from "../../../../core/editor/io/restore";
+import { ImportedDataState } from "../../../../core/editor/io/types";
 
 export const loadScene = async (
   id: string | null,

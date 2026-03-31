@@ -1,6 +1,6 @@
 import React from "react";
-import { t } from "../../i18n";
-import WelcomeScreen from "../../components/welcome-screen/WelcomeScreen";
+import { t } from "../../../shared/i18n";
+import WelcomeScreen from "../../../core/editor/components/welcome-screen/WelcomeScreen";
 
 export const AppWelcomeScreen: React.FC = React.memo(() => {
   return (

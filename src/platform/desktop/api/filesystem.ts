@@ -1,5 +1,6 @@
-import { MIME_TYPES } from "../constants";
-import { AbortError } from "../errors";
+import { MIME_TYPES } from "../../../core/editor/state/constants";
+import { AbortError } from "../../../shared/lib/errors";
+import { requireHandrawDesktopApi } from "./handrawDesktop";
 
 type FILE_EXTENSION =
   | "gif"
@@ -64,13 +65,7 @@ const FILTER_NAMES: Record<FILE_EXTENSION, string> = {
 
 const createAbortError = () => new AbortError();
 
-const ensureDesktopApi = () => {
-  if (!window.handrawDesktop.isElectron) {
-    throw new Error("Handraw desktop APIs are unavailable.");
-  }
-
-  return window.handrawDesktop;
-};
+const ensureDesktopApi = () => requireHandrawDesktopApi();
 
 const toArrayBuffer = (buffer: Uint8Array | ArrayBuffer) => {
   if (buffer instanceof ArrayBuffer) {

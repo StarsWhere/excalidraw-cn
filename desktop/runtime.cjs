@@ -40,6 +40,7 @@ module.exports = ({ app, BrowserWindow, dialog, ipcMain, shell, appRoot }) => {
   const rendererRoot = isPackagedDistRoot
     ? path.join(appRoot, "renderer")
     : path.join(appRoot, "dist", "renderer");
+  const preloadPath = path.join(appRoot, "desktop", "preload.cjs");
 
   const isDevelopment = () => Boolean(process.env.ELECTRON_START_URL);
 
@@ -168,7 +169,7 @@ module.exports = ({ app, BrowserWindow, dialog, ipcMain, shell, appRoot }) => {
       autoHideMenuBar: true,
       show: false,
       webPreferences: {
-        preload: path.join(appRoot, "electron", "preload.cjs"),
+        preload: preloadPath,
         contextIsolation: true,
         nodeIntegration: false,
         sandbox: false,

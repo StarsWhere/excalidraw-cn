@@ -1,12 +1,16 @@
-import { ExcalidrawElement, FileId } from "../../element/types";
-import { AppState, BinaryFileData } from "../../types";
+import { ExcalidrawElement, FileId } from "../../../core/editor/elements/types";
+import { AppState, BinaryFileData } from "../../../core/editor/state/types";
 import {
   clearAppStateForLocalState,
   getDefaultAppState,
-} from "../../appState";
-import { clearElementsForLocalState } from "../../element";
-import { DEFAULT_BOARD_NAME } from "../app_constants";
-import { ImportedDataState } from "../../data/types";
+} from "../../../core/editor/state/appState";
+import { clearElementsForLocalState } from "../../../core/editor/elements";
+import { DEFAULT_BOARD_NAME } from "./constants";
+import { ImportedDataState } from "../../../core/editor/io/types";
+import {
+  getHandrawDesktopApi,
+  requireHandrawDesktopApi,
+} from "../../../platform/desktop/api/handrawDesktop";
 
 export type DesktopSettings = {
   currentBoardName: string;
@@ -78,18 +82,9 @@ const clone = <T>(value: T): T => {
   return JSON.parse(JSON.stringify(value));
 };
 
-export const getDesktopApi = () => window.handrawDesktop;
+export const getDesktopApi = () => getHandrawDesktopApi();
 
-export const requireDesktopApi = () => {
-  const desktop = getDesktopApi();
-  if (!desktop?.isElectron) {
-    throw new Error(
-      "Handraw must run inside the Electron desktop shell. preload bridge was not found.",
-    );
-  }
-
-  return desktop;
-};
+export const requireDesktopApi = () => requireHandrawDesktopApi();
 
 const ensureBoardEntry = (boardName: string) => {
   if (!storageCache.scenes[boardName]) {

@@ -1,10 +1,10 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import ExcalidrawApp from "./excalidraw-app";
+import ExcalidrawApp from "./shell/DesktopApp";
 import {
   bootstrapDesktopState,
   requireDesktopApi,
-} from "./excalidraw-app/data/desktopState";
+} from "./state/desktopState";
 
 window.__EXCALIDRAW_SHA__ = process.env.REACT_APP_GIT_SHA;
 

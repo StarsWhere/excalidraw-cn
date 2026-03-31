@@ -1,38 +1,38 @@
-import polyfill from "../polyfill";
+import polyfill from "../../../shared/lib/polyfill";
 import { useEffect, useRef, useState } from "react";
-import { trackEvent } from "../analytics";
-import { ErrorDialog } from "../components/ErrorDialog";
-import { TopErrorBoundary } from "../components/TopErrorBoundary";
+import { trackEvent } from "../../../shared/lib/analytics";
+import { ErrorDialog } from "../../../core/editor/components/ErrorDialog";
+import { TopErrorBoundary } from "../../../core/editor/components/TopErrorBoundary";
 import {
   EVENT,
   THEME,
   TITLE_TIMEOUT,
   VERSION_TIMEOUT,
-} from "../constants";
+} from "../../../core/editor/state/constants";
 import {
   ExcalidrawElement,
   FileId,
   NonDeletedExcalidrawElement,
   Theme,
-} from "../element/types";
-import { useCallbackRefState } from "../hooks/useCallbackRefState";
-import { Excalidraw } from "../components/Excalidraw";
-import { defaultLang } from "../i18n";
+} from "../../../core/editor/elements/types";
+import { useCallbackRefState } from "../../../shared/hooks/useCallbackRefState";
+import { Excalidraw } from "../../../core/editor/components/Excalidraw";
+import { defaultLang } from "../../../shared/i18n";
 import {
   AppState,
   LibraryItems,
   ExcalidrawImperativeAPI,
   BinaryFiles,
   ExcalidrawInitialDataState,
-} from "../types";
+} from "../../../core/editor/state/types";
 import {
   getVersion,
   getFrame,
   preventUnload,
   ResolvablePromise,
   resolvablePromise,
-} from "../utils";
-import { loadScene } from "./data";
+} from "../../../shared/lib/utils";
+import { loadScene } from "../features/boards/loadScene";
 import {
   bootstrapDesktopState,
   clearLibraryItems,
@@ -41,22 +41,22 @@ import {
   getDesktopDraftState,
   getLibraryItems,
   saveLibraryItems,
-} from "./data/desktopState";
-import { onDesktopStateChanged } from "./data/desktopEvents";
-import CustomStats from "./CustomStats";
+} from "../state/desktopState";
+import { onDesktopStateChanged } from "../state/desktopEvents";
+import CustomStats from "../ui/CustomStats";
 
-import "./index.scss";
+import "../styles/index.scss";
 
-import { updateStaleImageStatuses } from "./data/FileManager";
-import { newElementWith } from "../element/mutateElement";
-import { isInitializedImageElement } from "../element/typeChecks";
-import { LocalData } from "./data/LocalData";
+import { updateStaleImageStatuses } from "../services/FileManager";
+import { newElementWith } from "../../../core/editor/elements/mutateElement";
+import { isInitializedImageElement } from "../../../core/editor/elements/typeChecks";
+import { LocalData } from "../services/LocalData";
 import { atom, Provider, useAtom } from "jotai";
-import { jotaiStore } from "../jotai";
-import { useHandleLibrary } from "../data/library";
-import { AppMainMenu } from "./components/AppMainMenu";
-import { AppWelcomeScreen } from "./components/AppWelcomeScreen";
-import { AppFooter } from "./components/AppFooter";
+import { jotaiStore } from "../../../core/editor/state/jotai";
+import { useHandleLibrary } from "../../../core/editor/io/library";
+import { AppMainMenu } from "../ui/AppMainMenu";
+import { AppWelcomeScreen } from "../ui/AppWelcomeScreen";
+import { AppFooter } from "../ui/AppFooter";
 
 polyfill();
 

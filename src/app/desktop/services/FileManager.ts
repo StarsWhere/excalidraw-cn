@@ -1,19 +1,19 @@
-import { compressData } from "../../data/encode";
-import { newElementWith } from "../../element/mutateElement";
-import { isInitializedImageElement } from "../../element/typeChecks";
+import { compressData } from "../../../core/editor/io/encode";
+import { newElementWith } from "../../../core/editor/elements/mutateElement";
+import { isInitializedImageElement } from "../../../core/editor/elements/typeChecks";
 import {
   ExcalidrawElement,
   ExcalidrawImageElement,
   FileId,
   InitializedExcalidrawImageElement,
-} from "../../element/types";
-import { t } from "../../i18n";
+} from "../../../core/editor/elements/types";
+import { t } from "../../../shared/i18n";
 import {
   BinaryFileData,
   BinaryFileMetadata,
   ExcalidrawImperativeAPI,
   BinaryFiles,
-} from "../../types";
+} from "../../../core/editor/state/types";
 
 export class FileManager {
   /** files being fetched */
