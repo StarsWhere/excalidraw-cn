@@ -17,6 +17,8 @@ const createDesktopStorage = ({ app }) => {
   const containersFile = path.join(stateDir, "containers.json");
   const libraryFile = path.join(stateDir, "library.json");
   const settingsFile = path.join(metaDir, "settings.json");
+  let initialized = false;
+  let initializationPromise = null;
 
   const sceneFilePath = (containerName) =>
     path.join(scenesDir, `${encodeURIComponent(containerName)}.excalidraw.json`);
@@ -42,52 +44,76 @@ const createDesktopStorage = ({ app }) => {
   };
 
   const writeJson = async (filePath, value) => {
-    const tempFilePath = `${filePath}.tmp`;
+    const tempFilePath = `${filePath}.${process.pid}.${Date.now()}.${Math.random()
+      .toString(16)
+      .slice(2)}.tmp`;
     await ensureDir(path.dirname(filePath));
-    await fs.writeFile(tempFilePath, JSON.stringify(value, null, 2), "utf8");
-    await fs.rename(tempFilePath, filePath);
+    try {
+      await fs.writeFile(tempFilePath, JSON.stringify(value, null, 2), "utf8");
+      await fs.rename(tempFilePath, filePath);
+    } finally {
+      await fs.rm(tempFilePath, { force: true }).catch(() => undefined);
+    }
   };
 
   const ensureInitialized = async () => {
-    await Promise.all([
-      ensureDir(stateDir),
-      ensureDir(scenesDir),
-      ensureDir(filesDir),
-      ensureDir(metaDir),
-    ]);
-
-    const containers = await readJson(containersFile, null);
-    const nextContainers =
-      Array.isArray(containers) && containers.length
-        ? containers
-        : [DEFAULT_CONTAINER_NAME];
-    await writeJson(containersFile, nextContainers);
-
-    const settings = await readJson(settingsFile, {});
-    const currentContainerName =
-      typeof settings.currentContainerName === "string" &&
-      nextContainers.includes(settings.currentContainerName)
-        ? settings.currentContainerName
-        : nextContainers[0];
-    await writeJson(settingsFile, {
-      ...settings,
-      currentContainerName,
-    });
-
-    if (!(await fileExists(appStateFile))) {
-      await writeJson(appStateFile, {});
+    if (initialized) {
+      return;
     }
 
-    if (!(await fileExists(libraryFile))) {
-      await writeJson(libraryFile, []);
+    if (!initializationPromise) {
+      initializationPromise = (async () => {
+        await Promise.all([
+          ensureDir(stateDir),
+          ensureDir(scenesDir),
+          ensureDir(filesDir),
+          ensureDir(metaDir),
+        ]);
+
+        const containers = await readJson(containersFile, null);
+        const nextContainers =
+          Array.isArray(containers) && containers.length
+            ? containers
+            : [DEFAULT_CONTAINER_NAME];
+        await writeJson(containersFile, nextContainers);
+
+        const settings = await readJson(settingsFile, {});
+        const currentContainerName =
+          typeof settings.currentContainerName === "string" &&
+          nextContainers.includes(settings.currentContainerName)
+            ? settings.currentContainerName
+            : nextContainers[0];
+        await writeJson(settingsFile, {
+          ...settings,
+          currentContainerName,
+        });
+
+        if (!(await fileExists(appStateFile))) {
+          await writeJson(appStateFile, {});
+        }
+
+        if (!(await fileExists(libraryFile))) {
+          await writeJson(libraryFile, []);
+        }
+
+        for (const containerName of nextContainers) {
+          const filePath = sceneFilePath(containerName);
+          if (!(await fileExists(filePath))) {
+            await writeJson(filePath, []);
+          }
+        }
+
+        initialized = true;
+      })().finally(() => {
+        initializationPromise = null;
+      });
     }
 
-    for (const containerName of nextContainers) {
-      const filePath = sceneFilePath(containerName);
-      if (!(await fileExists(filePath))) {
-        await writeJson(filePath, []);
-      }
-    }
+    await initializationPromise;
+  };
+
+  const invalidateInitialization = () => {
+    initialized = false;
   };
 
   const readContainers = async () => {
@@ -351,6 +377,7 @@ const createDesktopStorage = ({ app }) => {
 
   const resetDesktopState = async () => {
     await fs.rm(rootDir, { recursive: true, force: true });
+    invalidateInitialization();
     await ensureInitialized();
     return loadDesktopState();
   };
