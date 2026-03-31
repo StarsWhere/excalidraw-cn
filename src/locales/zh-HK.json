@@ -72,7 +72,6 @@
     "layers": "圖層",
     "actions": "動作",
     "language": "🌏 語言",
-    "liveCollaboration": "",
     "duplicateSelection": "製作副本",
     "untitled": "未命名的作品",
     "name": "",
@@ -193,8 +192,7 @@
     "cannotRestoreFromImage": "",
     "invalidSceneUrl": "",
     "resetLibrary": "",
-    "removeItemsFromsLibrary": "",
-    "invalidEncryptionKey": ""
+    "removeItemsFromsLibrary": ""
   },
   "errors": {
     "unsupportedFileType": "",
@@ -202,7 +200,6 @@
     "fileTooBig": "",
     "svgImageInsertError": "",
     "invalidSVGString": "",
-    "cannotResolveCollabServer": "",
     "importLibraryError": "",
     "collabSaveFailed": "",
     "collabSaveFailed_sizeExceeded": ""
@@ -266,16 +263,6 @@
     "openIssueMessage_button": "",
     "openIssueMessage_post": "",
     "sceneContent": ""
-  },
-  "roomDialog": {
-    "desc_intro": "",
-    "desc_privacy": "",
-    "button_startSession": "",
-    "button_stopSession": "",
-    "desc_inProgressIntro": "",
-    "desc_shareLink": "",
-    "desc_exitSession": "",
-    "shareTitle": ""
   },
   "errorDialog": {
     "title": ""
@@ -402,6 +389,7 @@
     "pasteAsSingleElement": ""
   },
   "colors": {
+    "495057": "",
     "ffffff": "",
     "f8f9fa": "",
     "f1f3f5": "",
@@ -434,7 +422,6 @@
     "fd7e14": "",
     "000000": "",
     "343a40": "",
-    "495057": "",
     "c92a2a": "",
     "a61e4d": "",
     "862e9c": "",

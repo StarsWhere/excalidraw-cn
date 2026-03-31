@@ -72,7 +72,6 @@
     "layers": "Calques",
     "actions": "Accions",
     "language": "Lenga",
-    "liveCollaboration": "Collaboracion en dirèct...",
     "duplicateSelection": "Duplicar",
     "untitled": "Sens títol",
     "name": "Nom",
@@ -191,8 +190,7 @@
     "cannotRestoreFromImage": "Restauracion impossibla de la scèna a partir del fichièr imatge",
     "invalidSceneUrl": "Importacion impossibla de la scèna a partir de l’URL provesida. Es siá mal formatada o siá conten pas cap de donada JSON Excalidraw valida.",
     "resetLibrary": "Aquò suprimirà vòstra bibliotèca. O volètz vertadièrament ?",
-    "removeItemsFromsLibrary": "Suprimir {{count}} element(s) de la bibliotèca ?",
-    "invalidEncryptionKey": "La clau de chiframent deu conténer 22 caractèrs. La collaboracion en dirèct es desactivada."
+    "removeItemsFromsLibrary": "Suprimir {{count}} element(s) de la bibliotèca ?"
   },
   "errors": {
     "unsupportedFileType": "Tipe de fichièr pas pres en carga.",
@@ -200,7 +198,6 @@
     "fileTooBig": "Fichièr tròp pesuc. La talha maximala autorizada es {{maxSize}}.",
     "svgImageInsertError": "Insercion d’imatge SVG impossibla. Las balisas SVG semblan invalidas.",
     "invalidSVGString": "SVG invalid.",
-    "cannotResolveCollabServer": "Connexion impossibla al servidor collab. Mercés de recargar la pagina e tornar ensajar.",
     "importLibraryError": "Impossible de cargar la bibliotèca",
     "collabSaveFailed": "",
     "collabSaveFailed_sizeExceeded": ""
@@ -264,16 +261,6 @@
     "openIssueMessage_button": "traçadors d’avarias.",
     "openIssueMessage_post": " Volgatz inclure las informacions çai-jos en las copiant e pegant a l’issue GitHub.",
     "sceneContent": "Contengut de la scèna :"
-  },
-  "roomDialog": {
-    "desc_intro": "Podètz convidar lo monde a vòstra scèna actuala per participar amb vos.",
-    "desc_privacy": "Vos en fagatz pas, la session utiliza lo chiframent del cap a la fin, çò que dessenetz demorarà privat. Mai nòstres servidors poiràn pas veire vòstra creacion.",
-    "button_startSession": "Començar la session",
-    "button_stopSession": "Arrestar la session",
-    "desc_inProgressIntro": "La session de collaboracion es ara en cors.",
-    "desc_shareLink": "Partejatz aqueste ligam amb lo monde amb qui volètz collaborar :",
-    "desc_exitSession": "Arrestar la session vos desconnectarà de la sala, mas poiretz contunhar de trabalhar a la scèna, en local. Notatz qu’aquò afectarà pas los autres, e poiràn collaborar a lor version.",
-    "shareTitle": "Rejonhètz una session collaborativa sus Excalidraw"
   },
   "errorDialog": {
     "title": "Error"
@@ -400,6 +387,7 @@
     "pasteAsSingleElement": ""
   },
   "colors": {
+    "495057": "Gris 7",
     "ffffff": "Blanc",
     "f8f9fa": "Gris 0",
     "f1f3f5": "Gris 0",
@@ -432,7 +420,6 @@
     "fd7e14": "Irange 6",
     "000000": "Negre",
     "343a40": "Gris 8",
-    "495057": "Gris 7",
     "c92a2a": "Roge 9",
     "a61e4d": "Ròse 9",
     "862e9c": "Bordèu 9",

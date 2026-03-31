@@ -72,7 +72,6 @@
     "layers": "Lager",
     "actions": "Åtgärder",
     "language": "Språk",
-    "liveCollaboration": "Samarbeta live...",
     "duplicateSelection": "Duplicera",
     "untitled": "Namnlös",
     "name": "Namn",
@@ -191,8 +190,7 @@
     "cannotRestoreFromImage": "Skiss kunde inte återställas från denna bildfil",
     "invalidSceneUrl": "Det gick inte att importera skiss från den angivna webbadressen. Antingen har den fel format, eller så innehåller den ingen giltig Excalidraw JSON data.",
     "resetLibrary": "Detta kommer att rensa ditt bibliotek. Är du säker?",
-    "removeItemsFromsLibrary": "Ta bort {{count}} objekt från biblioteket?",
-    "invalidEncryptionKey": "Krypteringsnyckeln måste vara 22 tecken. Livesamarbetet är inaktiverat."
+    "removeItemsFromsLibrary": "Ta bort {{count}} objekt från biblioteket?"
   },
   "errors": {
     "unsupportedFileType": "Filtypen stöds inte.",
@@ -200,7 +198,6 @@
     "fileTooBig": "Filen är för stor. Maximal tillåten storlek är {{maxSize}}.",
     "svgImageInsertError": "Kunde inte infoga SVG-bild. SVG-koden ser ogiltig ut.",
     "invalidSVGString": "Ogiltig SVG.",
-    "cannotResolveCollabServer": "Det gick inte att ansluta till samarbets-servern. Ladda om sidan och försök igen.",
     "importLibraryError": "Kunde inte ladda bibliotek",
     "collabSaveFailed": "",
     "collabSaveFailed_sizeExceeded": ""
@@ -264,16 +261,6 @@
     "openIssueMessage_button": "buggspårare.",
     "openIssueMessage_post": " Vänligen inkludera information nedan genom att kopiera och klistra in i GitHub-problemet.",
     "sceneContent": "Skissinnehåll:"
-  },
-  "roomDialog": {
-    "desc_intro": "Du kan bjuda in personer till din nuvarande skiss för att samarbeta med dig.",
-    "desc_privacy": "Oroa dig inte, sessionen använder kryptering från ände till ände, så vad du än ritar kommer att förbli privat. Inte ens vår server kommer att kunna se vad du skissar.",
-    "button_startSession": "Starta sessionen",
-    "button_stopSession": "Stoppa session",
-    "desc_inProgressIntro": "Nu pågår en live-samarbetssession.",
-    "desc_shareLink": "Dela denna länk med någon du vill samarbeta med:",
-    "desc_exitSession": "Att avbryta sessionen kommer att koppla bort dig från rummet, men du kommer att kunna fortsätta arbeta med skissen, lokalt. Observera att detta inte påverkar andra människor, och de kommer fortfarande att kunna samarbeta på deras version.",
-    "shareTitle": "Delta i en live-samarbetssession på Excalidraw"
   },
   "errorDialog": {
     "title": "Fel"
@@ -400,6 +387,7 @@
     "pasteAsSingleElement": ""
   },
   "colors": {
+    "495057": "Grå 7",
     "ffffff": "Vit",
     "f8f9fa": "Grå 0",
     "f1f3f5": "Grå 1",
@@ -432,7 +420,6 @@
     "fd7e14": "Orange 6",
     "000000": "Svart",
     "343a40": "Grå 8",
-    "495057": "Grå 7",
     "c92a2a": "Röd 9",
     "a61e4d": "Rosa 9",
     "862e9c": "Lila 9",

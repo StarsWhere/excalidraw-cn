@@ -72,7 +72,6 @@
     "layers": "Disposition",
     "actions": "Actions",
     "language": "Langue",
-    "liveCollaboration": "Collaboration en direct...",
     "duplicateSelection": "Dupliquer",
     "untitled": "Sans-titre",
     "name": "Nom",
@@ -191,8 +190,7 @@
     "cannotRestoreFromImage": "Impossible de restaurer la scène depuis ce fichier image",
     "invalidSceneUrl": "Impossible d'importer la scène depuis l'URL fournie. Elle est soit incorrecte, soit ne contient pas de données JSON Excalidraw valides.",
     "resetLibrary": "Cela va effacer votre bibliothèque. Êtes-vous sûr·e ?",
-    "removeItemsFromsLibrary": "Supprimer {{count}} élément(s) de la bibliothèque ?",
-    "invalidEncryptionKey": "La clé de chiffrement doit comporter 22 caractères. La collaboration en direct est désactivée."
+    "removeItemsFromsLibrary": "Supprimer {{count}} élément(s) de la bibliothèque ?"
   },
   "errors": {
     "unsupportedFileType": "Type de fichier non supporté.",
@@ -200,7 +198,6 @@
     "fileTooBig": "Le fichier est trop volumineux. La taille maximale autorisée est de {{maxSize}}.",
     "svgImageInsertError": "Impossible d'insérer l'image SVG. Le balisage SVG semble invalide.",
     "invalidSVGString": "SVG invalide.",
-    "cannotResolveCollabServer": "Impossible de se connecter au serveur collaboratif. Veuillez recharger la page et réessayer.",
     "importLibraryError": "Impossible de charger la bibliothèque",
     "collabSaveFailed": "Impossible d'enregistrer dans la base de données en arrière-plan. Si des problèmes persistent, vous devriez enregistrer votre fichier localement pour vous assurer de ne pas perdre votre travail.",
     "collabSaveFailed_sizeExceeded": "Impossible d'enregistrer dans la base de données en arrière-plan, le tableau semble trop grand. Vous devriez enregistrer le fichier localement pour vous assurer de ne pas perdre votre travail."
@@ -264,16 +261,6 @@
     "openIssueMessage_button": "outil de suivi des bugs.",
     "openIssueMessage_post": " Veuillez inclure les informations ci-dessous en les copiant-collant dans le ticket GitHub.",
     "sceneContent": "Contenu de la scène :"
-  },
-  "roomDialog": {
-    "desc_intro": "Vous pouvez inviter des personnes à collaborer avec vous sur votre scène actuelle.",
-    "desc_privacy": "Pas d'inquiétude, la session utilise le chiffrement de bout en bout, donc tout ce que vous dessinez restera privé. Même notre serveur ne pourra voir ce que vous faites.",
-    "button_startSession": "Démarrer la session",
-    "button_stopSession": "Arrêter la session",
-    "desc_inProgressIntro": "La session de collaboration en direct est maintenant en cours.",
-    "desc_shareLink": "Partagez ce lien avec les personnes avec lesquelles vous souhaitez collaborer :",
-    "desc_exitSession": "Arrêter la session vous déconnectera de la salle, mais vous pourrez continuer à travailler avec la scène, localement. Notez que cela n'affectera pas les autres personnes, et ils pourront toujours collaborer sur leur version.",
-    "shareTitle": "Rejoindre une session de collaboration en direct sur Excalidraw"
   },
   "errorDialog": {
     "title": "Erreur"
@@ -400,6 +387,7 @@
     "pasteAsSingleElement": "Utiliser {{shortcut}} pour coller comme un seul élément,\nou coller dans un éditeur de texte existant"
   },
   "colors": {
+    "495057": "Gris 7",
     "ffffff": "Blanc",
     "f8f9fa": "Gris 0",
     "f1f3f5": "Gris 1",
@@ -432,7 +420,6 @@
     "fd7e14": "Orange 6",
     "000000": "Noir",
     "343a40": "Gris 8",
-    "495057": "Gris 7",
     "c92a2a": "Rouge 9",
     "a61e4d": "Rose 9",
     "862e9c": "Mauve 9",

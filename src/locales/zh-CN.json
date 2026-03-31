@@ -72,7 +72,6 @@
     "layers": "图层",
     "actions": "操作",
     "language": "语言",
-    "liveCollaboration": "实时协作...",
     "duplicateSelection": "复制",
     "untitled": "无标题",
     "name": "名字",
@@ -194,8 +193,7 @@
     "cannotRestoreFromImage": "无法从此图像文件恢复画布",
     "invalidSceneUrl": "无法从提供的 URL 导入场景。它或者格式不正确，或者不包含有效的 Handraw JSON 数据。",
     "resetLibrary": "这将会清除你的素材库。你确定要这么做吗？",
-    "removeItemsFromsLibrary": "确定要从素材库中删除 {{count}} 个项目吗？",
-    "invalidEncryptionKey": "密钥必须包含22个字符。实时协作已被禁用。"
+    "removeItemsFromsLibrary": "确定要从素材库中删除 {{count}} 个项目吗？"
   },
   "errors": {
     "unsupportedFileType": "不支持的文件格式。",
@@ -203,7 +201,6 @@
     "fileTooBig": "文件过大。最大允许的大小为 {{maxSize}}。",
     "svgImageInsertError": "无法插入 SVG 图像。该 SVG 标记似乎是无效的。",
     "invalidSVGString": "无效的 SVG。",
-    "cannotResolveCollabServer": "无法连接到实时协作服务器。请重新加载页面并重试。",
     "importLibraryError": "无法加载素材库",
     "collabSaveFailed": "无法保存到后端数据库。如果问题持续存在，您应该保存文件到本地，以确保您的工作不会丢失。",
     "collabSaveFailed_sizeExceeded": "无法保存到后端数据库，画布似乎过大。您应该保存文件到本地，以确保您的工作不会丢失。"
@@ -267,16 +264,6 @@
     "openIssueMessage_button": "错误追踪器。",
     "openIssueMessage_post": " 请复制并粘贴以下信息到 GitHub Issue 中。",
     "sceneContent": "画布内容:"
-  },
-  "roomDialog": {
-    "desc_intro": "你可以邀请其他人到目前的画面中与你协作。",
-    "desc_privacy": "别担心, 该会话使用端到端加密, 无论绘制什么都将保持私密，甚至连我们的服务器也无法查看。",
-    "button_startSession": "启动会议",
-    "button_stopSession": "结束会议",
-    "desc_inProgressIntro": "实时协作会议正在进行。",
-    "desc_shareLink": "分享此链接给你要协作的用户",
-    "desc_exitSession": "停止会话将中断您在与房间的连接，但您依然可以在本地继续使用画布. 请注意，这不会影响到其他用户, 他们仍可以在他们的版本上继续协作。",
-    "shareTitle": "加入 Excalidraw 实时协作会议"
   },
   "errorDialog": {
     "title": "错误"
@@ -403,6 +390,7 @@
     "pasteAsSingleElement": "使用 {{shortcut}} 粘贴为单个元素，\n或粘贴到现有的文本编辑器里"
   },
   "colors": {
+    "495057": "灰 7",
     "ffffff": "白",
     "f8f9fa": "灰 0",
     "f1f3f5": "灰 1",
@@ -435,7 +423,6 @@
     "fd7e14": "橙 6",
     "000000": "黑",
     "343a40": "灰 8",
-    "495057": "灰 7",
     "c92a2a": "红 9",
     "a61e4d": "粉红 9",
     "862e9c": "紫红 9",
@@ -451,9 +438,9 @@
   },
   "welcomeScreen": {
     "app": {
-      "center_heading": "您的所有数据都储存在浏览器本地。",
-      "center_heading_plus": "是否前往 Excalidraw+ ？",
-      "menuHint": "导出、首选项、语言……"
+      "center_heading": "您的所有数据都保存在这台电脑本地。",
+      "center_heading_plus": "桌面版",
+      "menuHint": "文件、画布、导出、语言……"
     },
     "defaults": {
       "menuHint": "导出、首选项……",

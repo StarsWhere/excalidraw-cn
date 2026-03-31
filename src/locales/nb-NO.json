@@ -72,7 +72,6 @@
     "layers": "Lag",
     "actions": "Handlinger",
     "language": "Språk",
-    "liveCollaboration": "Sanntids-samarbeid...",
     "duplicateSelection": "Dupliser",
     "untitled": "Uten navn",
     "name": "Navn",
@@ -191,8 +190,7 @@
     "cannotRestoreFromImage": "Scenen kunne ikke gjenopprettes fra denne bildefilen",
     "invalidSceneUrl": "Kunne ikke importere scene fra den oppgitte URL-en. Den er enten ødelagt, eller inneholder ikke gyldig Excalidraw JSON-data.",
     "resetLibrary": "Dette vil tømme biblioteket ditt. Er du sikker?",
-    "removeItemsFromsLibrary": "Slett {{count}} element(er) fra biblioteket?",
-    "invalidEncryptionKey": "Krypteringsnøkkel må ha 22 tegn. Live-samarbeid er deaktivert."
+    "removeItemsFromsLibrary": "Slett {{count}} element(er) fra biblioteket?"
   },
   "errors": {
     "unsupportedFileType": "Filtypen støttes ikke.",
@@ -200,7 +198,6 @@
     "fileTooBig": "Filen er for stor. Maksimal tillatt størrelse er {{maxSize}}.",
     "svgImageInsertError": "Kunne ikke sette inn SVG-bilde. SVG-koden ser ugyldig ut.",
     "invalidSVGString": "Ugyldig SVG.",
-    "cannotResolveCollabServer": "Kunne ikke koble til samarbeidsserveren. Vennligst oppdater siden og prøv på nytt.",
     "importLibraryError": "Kunne ikke laste bibliotek",
     "collabSaveFailed": "Kan ikke lagre i backend-databasen. Hvis problemer vedvarer, bør du lagre filen lokalt for å sikre at du ikke mister arbeidet.",
     "collabSaveFailed_sizeExceeded": "Kunne ikke lagre til backend-databasen, lerretet ser ut til å være for stort. Du bør lagre filen lokalt for å sikre at du ikke mister arbeidet ditt."
@@ -264,16 +261,6 @@
     "openIssueMessage_button": "feilrapporteringssystem.",
     "openIssueMessage_post": " Ta med opplysningene nedenfor ved å kopiere og lime inn i GitHub-saken.",
     "sceneContent": "Scene-innhold:"
-  },
-  "roomDialog": {
-    "desc_intro": "Du kan invitere personer til scenen din for å samarbeide med deg.",
-    "desc_privacy": "Ta det med ro, sesjonen bruker ende-til-ende-kryptering, så alt du tegner forblir privat. Ikke en gang serveren vår kan se hva du lager.",
-    "button_startSession": "Start økt",
-    "button_stopSession": "Stopp sesjon",
-    "desc_inProgressIntro": "Sanntids-samarbeidsøkt er nå i gang.",
-    "desc_shareLink": "Del denne linken med de du vil samarbeide med:",
-    "desc_exitSession": "Dersom du avslutter sesjonen blir du frakoblet rommet, men du kan fortsette å arbeide med scenen lokalt. Vær oppmerksom på at dette ikke vil påvirke andre personer, og de vil fortsatt ha mulighet til å samarbeide på deres versjon.",
-    "shareTitle": "Bli med i en live samarbeidsøkt på Excalidraw"
   },
   "errorDialog": {
     "title": "Feil"
@@ -400,6 +387,7 @@
     "pasteAsSingleElement": "Bruk {{shortcut}} for å lime inn som ett enkelt element,\neller lim inn i en eksisterende tekstbehandler"
   },
   "colors": {
+    "495057": "Grå 7",
     "ffffff": "Hvit",
     "f8f9fa": "Grå 0",
     "f1f3f5": "Grå 1",
@@ -432,7 +420,6 @@
     "fd7e14": "Oransje 6",
     "000000": "Sort",
     "343a40": "Grå 8",
-    "495057": "Grå 7",
     "c92a2a": "Rød 9",
     "a61e4d": "Rosa 9",
     "862e9c": "Drue 9",

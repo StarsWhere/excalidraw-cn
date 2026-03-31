@@ -72,7 +72,6 @@
     "layers": "Slāņi",
     "actions": "Darbības",
     "language": "Valoda",
-    "liveCollaboration": "Sadarbība tiešsaistē...",
     "duplicateSelection": "Izveidot kopiju",
     "untitled": "Bez nosaukuma",
     "name": "Vārds",
@@ -191,8 +190,7 @@
     "cannotRestoreFromImage": "Ainu nevarēja atgūt no attēla datnes",
     "invalidSceneUrl": "Nevarēja importēt ainu no norādītā URL. Vai nu tas ir nederīgs, vai nesatur derīgus Excalidraw JSON datus.",
     "resetLibrary": "Šī funkcija iztukšos bibliotēku. Vai turpināt?",
-    "removeItemsFromsLibrary": "Vai izņemt {{count}} vienumu(s) no bibliotēkas?",
-    "invalidEncryptionKey": "Šifrēšanas atslēgai jābūt 22 simbolus garai. Tiešsaistes sadarbība ir izslēgta."
+    "removeItemsFromsLibrary": "Vai izņemt {{count}} vienumu(s) no bibliotēkas?"
   },
   "errors": {
     "unsupportedFileType": "Neatbalstīts datnes veids.",
@@ -200,7 +198,6 @@
     "fileTooBig": "Datne ir par lielu. Lielākais atļautais izmērs ir {{maxSize}}.",
     "svgImageInsertError": "Nevarēja ievietot SVG attēlu. Šķiet, ka SVG marķējums nav derīgs.",
     "invalidSVGString": "Nederīgs SVG.",
-    "cannotResolveCollabServer": "Nevarēja savienoties ar sadarbošanās serveri. Lūdzu, pārlādējiet lapu un mēģiniet vēlreiz.",
     "importLibraryError": "Nevarēja ielādēt bibliotēku",
     "collabSaveFailed": "Darbs nav saglabāts datubāzē. Ja problēma turpinās, saglabājiet datni lokālajā krātuvē, lai nodrošinātos pret darba pazaudēšanu.",
     "collabSaveFailed_sizeExceeded": "Darbs nav saglabāts datubāzē, šķiet, ka tāfele ir pārāk liela. Saglabājiet datni lokālajā krātuvē, lai nodrošinātos pret darba pazaudēšanu."
@@ -264,16 +261,6 @@
     "openIssueMessage_button": "kļūdu uzskaitē.",
     "openIssueMessage_post": " Lūdzu, miniet sekojošo informāciju to kopējot un ielīmējot jūsu ziņojumā platformā GitHub.",
     "sceneContent": "Ainas saturs:"
-  },
-  "roomDialog": {
-    "desc_intro": "Varat ielūgt cilvēkus pašreizējajā ainā, lai sadarbotos ar tiem.",
-    "desc_privacy": "Neuztraucieties, sesija izmanto šifrēšanu no gala līdz galam, tātad jūsu zīmējums paliks privāts. Pat mūsu serveri nevarēs redzēt, ar ko esat nācis klajā.",
-    "button_startSession": "Sākt sesiju",
-    "button_stopSession": "Beigt sesiju",
-    "desc_inProgressIntro": "Notiek tiešsaistes sadarbības sesija.",
-    "desc_shareLink": "Dalieties ar šo saiti ar jebkuru, ar ko vēlaties sadarboties:",
-    "desc_exitSession": "Sesijas beigšana jūs atvienos no sadarbošanās, bet jūs vēl joprojām varēsiet strādāt ar ainu savā datorā. Ievērojiet, ka šis neietekmēs citus dalībniekus, un viņi vēl joprojām varēs sadarboties savā ainas versijā.",
-    "shareTitle": "Pievienoties tiešsaistes sadarbībai programmā Excalidraw"
   },
   "errorDialog": {
     "title": "Kļūda"
@@ -400,6 +387,7 @@
     "pasteAsSingleElement": "Izmantojiet {{shortcut}}, lai ielīmētu kā jaunu elementu, vai ielīmētu esošā teksta lauciņā"
   },
   "colors": {
+    "495057": "Pelēks 7",
     "ffffff": "Balts",
     "f8f9fa": "Pelēks 0",
     "f1f3f5": "Pelēks 1",
@@ -432,7 +420,6 @@
     "fd7e14": "Oranžs 6",
     "000000": "Melns",
     "343a40": "Pelēks 8",
-    "495057": "Pelēks 7",
     "c92a2a": "Sarkans 9",
     "a61e4d": "Rozā 9",
     "862e9c": "Vīnogu 9",

@@ -72,7 +72,6 @@
     "layers": "Lapisan",
     "actions": "Aksi",
     "language": "Bahasa",
-    "liveCollaboration": "Kolaborasi langsung...",
     "duplicateSelection": "Duplikat",
     "untitled": "Tanpa judul",
     "name": "Nama",
@@ -191,8 +190,7 @@
     "cannotRestoreFromImage": "Pemandangan tidak dapat dipulihkan dari file gambar ini",
     "invalidSceneUrl": "Tidak dapat impor pemandangan dari URL. Kemungkinan URL itu rusak atau tidak berisi data JSON Excalidraw yang valid.",
     "resetLibrary": "Ini akan menghapus pustaka Anda. Anda yakin?",
-    "removeItemsFromsLibrary": "Hapus {{count}} item dari pustaka?",
-    "invalidEncryptionKey": "Sandi enkripsi harus 22 karakter. Kolaborasi langsung dinonaktifkan."
+    "removeItemsFromsLibrary": "Hapus {{count}} item dari pustaka?"
   },
   "errors": {
     "unsupportedFileType": "Tipe file tidak didukung.",
@@ -200,7 +198,6 @@
     "fileTooBig": "File terlalu besar. Ukuran maksimum yang dibolehkan {{maxSize}}.",
     "svgImageInsertError": "Tidak dapat menyisipkan gambar SVG. Markup SVG sepertinya tidak valid.",
     "invalidSVGString": "SVG tidak valid.",
-    "cannotResolveCollabServer": "Tidak dapat terhubung ke server kolab. Muat ulang laman dan coba lagi.",
     "importLibraryError": "Tidak dapat memuat pustaka",
     "collabSaveFailed": "Tidak dapat menyimpan ke dalam basis data server. Jika masih berlanjut, Anda sebaiknya simpan berkas Anda secara lokal untuk memastikan pekerjaan Anda tidak hilang.",
     "collabSaveFailed_sizeExceeded": "Tidak dapat menyimpan ke dalam basis data server, tampaknya ukuran kanvas terlalu besar. Anda sebaiknya simpan berkas Anda secara lokal untuk memastikan pekerjaan Anda tidak hilang."
@@ -264,16 +261,6 @@
     "openIssueMessage_button": "pelacak bug.",
     "openIssueMessage_post": " Mohon sertakan informasi dibawah ini dengan menyalin dan menempelkan di Github issue.",
     "sceneContent": "Pemandangan konten:"
-  },
-  "roomDialog": {
-    "desc_intro": "Anda dapat mengundang orang ke pemandangan Anda saat ini untuk berkolaborasi dengan Anda.",
-    "desc_privacy": "Jangan khawatir, sesi menggunakan enkripsi end-to-end, sehingga apa pun yang Anda gambar akan tetap bersifat pribadi. Bahkan server kami tidak dapat melihat apa yang Anda lakukan.",
-    "button_startSession": "Mulai sesi",
-    "button_stopSession": "Hentikan sesi",
-    "desc_inProgressIntro": "Sesi kolaborasi sedang berlangsung sekarang.",
-    "desc_shareLink": "Bagikan tautan ini dengan siapa pun yang Anda inginkan untuk kolaborasi bersama:",
-    "desc_exitSession": "Menghentikan sesi akan memutuskan hubungan Anda dari ruangan, tetapi Anda dapat melanjutkan bekerja dengan pemandangan Anda secara lokal. Perhatikan bahwa ini tidak memengaruhi orang lain, dan mereka masih dapat berkolaborasi pada versi mereka.",
-    "shareTitle": "Gabung sesi kolaborasi langsung di Excalidraw"
   },
   "errorDialog": {
     "title": "Kesalahan"
@@ -400,6 +387,7 @@
     "pasteAsSingleElement": "Gunakan {{shortcut}} untuk menempelkan sebagai satu elemen,\natau tempelkan ke teks editor yang ada"
   },
   "colors": {
+    "495057": "Abu-abu 7",
     "ffffff": "Putih",
     "f8f9fa": "Abu-abu 0",
     "f1f3f5": "Abu-abu 1",
@@ -432,7 +420,6 @@
     "fd7e14": "Jingga 6",
     "000000": "Hitam",
     "343a40": "Abu-abu 8",
-    "495057": "Abu-abu 7",
     "c92a2a": "Merah 9",
     "a61e4d": "Merah muda 9",
     "862e9c": "Ungu 9",

@@ -72,7 +72,6 @@
     "layers": "Capas",
     "actions": "Acciones",
     "language": "Idioma",
-    "liveCollaboration": "Colaboración en directo...",
     "duplicateSelection": "Duplicar",
     "untitled": "Sin título",
     "name": "Nombre",
@@ -191,8 +190,7 @@
     "cannotRestoreFromImage": "No se pudo restaurar la escena desde este archivo de imagen",
     "invalidSceneUrl": "No se ha podido importar la escena desde la URL proporcionada. Está mal formada, o no contiene datos de Excalidraw JSON válidos.",
     "resetLibrary": "Esto borrará tu biblioteca. ¿Estás seguro?",
-    "removeItemsFromsLibrary": "¿Eliminar {{count}} elemento(s) de la biblioteca?",
-    "invalidEncryptionKey": "La clave de cifrado debe tener 22 caracteres. La colaboración en vivo está deshabilitada."
+    "removeItemsFromsLibrary": "¿Eliminar {{count}} elemento(s) de la biblioteca?"
   },
   "errors": {
     "unsupportedFileType": "Tipo de archivo no admitido.",
@@ -200,7 +198,6 @@
     "fileTooBig": "Archivo demasiado grande. El tamaño máximo permitido es {{maxSize}}.",
     "svgImageInsertError": "No se pudo insertar la imagen SVG. El código SVG parece inválido.",
     "invalidSVGString": "SVG no válido.",
-    "cannotResolveCollabServer": "No se pudo conectar al servidor colaborador. Por favor, vuelva a cargar la página y vuelva a intentarlo.",
     "importLibraryError": "No se pudo cargar la librería",
     "collabSaveFailed": "No se pudo guardar en la base de datos del backend. Si los problemas persisten, debería guardar su archivo localmente para asegurarse de que no pierde su trabajo.",
     "collabSaveFailed_sizeExceeded": "No se pudo guardar en la base de datos del backend, el lienzo parece ser demasiado grande. Debería guardar el archivo localmente para asegurarse de que no pierde su trabajo."
@@ -264,16 +261,6 @@
     "openIssueMessage_button": "rastreador de errores.",
     "openIssueMessage_post": " Por favor, incluya la siguiente información copiándola y pegándola en el issue de GitHub.",
     "sceneContent": "Contenido de la escena:"
-  },
-  "roomDialog": {
-    "desc_intro": "Puede invitar a otras personas a tu actual escena para que colaboren contigo.",
-    "desc_privacy": "No te preocupes, la sesión usa encriptación de punta a punta, por lo que todo lo que se dibuje se mantendrá privadamente. Ni siquiera nuestro servidor podrá ver lo que haces.",
-    "button_startSession": "Iniciar sesión",
-    "button_stopSession": "Detener sesión",
-    "desc_inProgressIntro": "La sesión de colaboración en vivo está ahora en progreso.",
-    "desc_shareLink": "Comparte este enlace con cualquier persona con quien quieras colaborar:",
-    "desc_exitSession": "Detener la sesión te desconectará de la sala, pero podrás seguir trabajando con la escena en su computadora, esto es de modo local. Ten en cuenta que esto no afectará a otras personas, y que las mismas seguirán siendo capaces de colaborar en tu escena.",
-    "shareTitle": "Únase a una sesión colaborativa en vivo en Excalidraw"
   },
   "errorDialog": {
     "title": "Error"
@@ -400,6 +387,7 @@
     "pasteAsSingleElement": "Usa {{shortcut}} para pegar como un solo elemento,\no pegar en un editor de texto existente"
   },
   "colors": {
+    "495057": "Gris 7",
     "ffffff": "Blanco",
     "f8f9fa": "Gris 0",
     "f1f3f5": "Gris 1",
@@ -432,7 +420,6 @@
     "fd7e14": "Naranja 6",
     "000000": "Negro",
     "343a40": "Gris 8",
-    "495057": "Gris 7",
     "c92a2a": "Rojo 9",
     "a61e4d": "Rosa 9",
     "862e9c": "Uva 9",

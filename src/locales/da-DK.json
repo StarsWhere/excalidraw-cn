@@ -72,7 +72,6 @@
     "layers": "Lag",
     "actions": "Handlinger",
     "language": "Sprog",
-    "liveCollaboration": "",
     "duplicateSelection": "",
     "untitled": "Unavngivet",
     "name": "Navn",
@@ -191,8 +190,7 @@
     "cannotRestoreFromImage": "",
     "invalidSceneUrl": "",
     "resetLibrary": "",
-    "removeItemsFromsLibrary": "",
-    "invalidEncryptionKey": ""
+    "removeItemsFromsLibrary": ""
   },
   "errors": {
     "unsupportedFileType": "",
@@ -200,7 +198,6 @@
     "fileTooBig": "",
     "svgImageInsertError": "",
     "invalidSVGString": "",
-    "cannotResolveCollabServer": "",
     "importLibraryError": "",
     "collabSaveFailed": "",
     "collabSaveFailed_sizeExceeded": ""
@@ -264,16 +261,6 @@
     "openIssueMessage_button": "",
     "openIssueMessage_post": " Kopiere og indsæt venligst oplysningerne nedenfor i et GitHub problem.",
     "sceneContent": "Scene indhold:"
-  },
-  "roomDialog": {
-    "desc_intro": "Du kan invitere folk til din nuværende scene, så de kan samarbejde med dig.",
-    "desc_privacy": "Bare rolig, sessionen bruger end-to-end kryptering, så uanset hvad du tegner vil det forblive privat. Ikke engang vores server vil kunne se, hvad du kommer op med.",
-    "button_startSession": "Start session",
-    "button_stopSession": "Stop session",
-    "desc_inProgressIntro": "Live-samarbejde session er nu begyndt.",
-    "desc_shareLink": "Del dette link med enhver, du ønsker at samarbejde med:",
-    "desc_exitSession": "",
-    "shareTitle": ""
   },
   "errorDialog": {
     "title": "Fejl"
@@ -400,6 +387,7 @@
     "pasteAsSingleElement": ""
   },
   "colors": {
+    "495057": "",
     "ffffff": "",
     "f8f9fa": "",
     "f1f3f5": "",
@@ -432,7 +420,6 @@
     "fd7e14": "",
     "000000": "",
     "343a40": "",
-    "495057": "",
     "c92a2a": "",
     "a61e4d": "",
     "862e9c": "",

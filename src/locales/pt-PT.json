@@ -72,7 +72,6 @@
     "layers": "Camadas",
     "actions": "Ações",
     "language": "Idioma",
-    "liveCollaboration": "Colaboração ao vivo...",
     "duplicateSelection": "Duplicar",
     "untitled": "Sem título",
     "name": "Nome",
@@ -191,8 +190,7 @@
     "cannotRestoreFromImage": "Não foi possível restaurar a cena deste ficheiro de imagem",
     "invalidSceneUrl": "Não foi possível importar a cena a partir do URL fornecido. Ou está mal formado ou não contém dados JSON do Excalidraw válidos.",
     "resetLibrary": "Isto irá limpar a sua biblioteca. Tem a certeza?",
-    "removeItemsFromsLibrary": "Apagar {{count}} item(ns) da biblioteca?",
-    "invalidEncryptionKey": "Chave de encriptação deve ter 22 caracteres. A colaboração ao vivo está desativada."
+    "removeItemsFromsLibrary": "Apagar {{count}} item(ns) da biblioteca?"
   },
   "errors": {
     "unsupportedFileType": "Tipo de ficheiro não suportado.",
@@ -200,7 +198,6 @@
     "fileTooBig": "O ficheiro é muito grande. O tamanho máximo permitido é {{maxSize}}.",
     "svgImageInsertError": "Não foi possível inserir a imagem SVG. A marcação SVG parece inválida.",
     "invalidSVGString": "SVG inválido.",
-    "cannotResolveCollabServer": "Não foi possível fazer a ligação ao servidor colaborativo. Por favor, volte a carregar a página e tente novamente.",
     "importLibraryError": "Não foi possível carregar a biblioteca",
     "collabSaveFailed": "Não foi possível guardar na base de dados de backend. Se os problemas persistirem, guarde o ficheiro localmente para garantir que não perde o seu trabalho.",
     "collabSaveFailed_sizeExceeded": "Não foi possível guardar na base de dados de backend, o ecrã parece estar muito grande. Deve guardar o ficheiro localmente para garantir que não perde o seu trabalho."
@@ -264,16 +261,6 @@
     "openIssueMessage_button": "rastreador de bugs.",
     "openIssueMessage_post": " Por favor, inclua informações abaixo, copiando e colando no relatório de erros no GitHub.",
     "sceneContent": "Conteúdo da cena:"
-  },
-  "roomDialog": {
-    "desc_intro": "Pode convidar pessoas para colaborarem na sua cena atual.",
-    "desc_privacy": "Não se preocupe, a sessão usa criptografia de ponta-a-ponta, por isso o que desenhar permanecerá privado. Nem mesmo o nosso servidor poderá ver o que cria.",
-    "button_startSession": "Iniciar sessão",
-    "button_stopSession": "Parar sessão",
-    "desc_inProgressIntro": "A sessão de colaboração ao vivo está agora em andamento.",
-    "desc_shareLink": "Partilhe este link com qualquer pessoa com quem queira colaborar:",
-    "desc_exitSession": "Interrompendo a sessão irá desconectar-se da sala, mas poderá continuar a trabalhar com a cena localmente. Note que isso não afetará outras pessoas e elas ainda poderão colaborar nas versões deles.",
-    "shareTitle": "Participe numa sessão de colaboração ao vivo no Excalidraw"
   },
   "errorDialog": {
     "title": "Erro"
@@ -400,6 +387,7 @@
     "pasteAsSingleElement": "Usar {{shortcut}} para colar como um único elemento,\nou colar num editor de texto existente"
   },
   "colors": {
+    "495057": "Cinza 7",
     "ffffff": "Branco",
     "f8f9fa": "Cinza 0",
     "f1f3f5": "Cinza 1",
@@ -432,7 +420,6 @@
     "fd7e14": "Laranja 6",
     "000000": "Preto",
     "343a40": "Cinza 8",
-    "495057": "Cinza 7",
     "c92a2a": "Vermelho 9",
     "a61e4d": "Rosa 9",
     "862e9c": "Uva 9",

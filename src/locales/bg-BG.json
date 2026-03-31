@@ -72,7 +72,6 @@
     "layers": "Слоеве",
     "actions": "Действия",
     "language": "Език",
-    "liveCollaboration": "",
     "duplicateSelection": "Дублирай",
     "untitled": "Неозаглавено",
     "name": "Име",
@@ -191,8 +190,7 @@
     "cannotRestoreFromImage": "Не може да бъде възстановена сцена от този файл",
     "invalidSceneUrl": "",
     "resetLibrary": "",
-    "removeItemsFromsLibrary": "",
-    "invalidEncryptionKey": ""
+    "removeItemsFromsLibrary": ""
   },
   "errors": {
     "unsupportedFileType": "Този файлов формат не се поддържа.",
@@ -200,7 +198,6 @@
     "fileTooBig": "",
     "svgImageInsertError": "",
     "invalidSVGString": "",
-    "cannotResolveCollabServer": "",
     "importLibraryError": "",
     "collabSaveFailed": "",
     "collabSaveFailed_sizeExceeded": ""
@@ -264,16 +261,6 @@
     "openIssueMessage_button": "тракер за грешки.",
     "openIssueMessage_post": " Моля, включете информация по-долу, като я копирате и добавите в GitHub.",
     "sceneContent": "Съдържание на сцената:"
-  },
-  "roomDialog": {
-    "desc_intro": "Можете да поканите хора на текущата си сцена да си сътрудничат с вас.",
-    "desc_privacy": "Не се притеснявайте, сесията използва криптиране от край до край, така че каквото нарисувате ще остане частно. Дори нашият сървър няма да може да види какво предлагате.",
-    "button_startSession": "Стартирайте сесията",
-    "button_stopSession": "Стоп на сесията",
-    "desc_inProgressIntro": "Сесията за сътрудничество на живо е в ход.",
-    "desc_shareLink": "Споделете тази връзка с всеки, с когото искате да си сътрудничите:",
-    "desc_exitSession": "Спирането на сесията ще ви изключи от стаята, но ще можете да продължите да работите със сцената, локално. Имайте предвид, че това няма да засегне други хора и те все още ще могат да си сътрудничат с тяхната версия.",
-    "shareTitle": ""
   },
   "errorDialog": {
     "title": "Грешка"
@@ -400,6 +387,7 @@
     "pasteAsSingleElement": ""
   },
   "colors": {
+    "495057": "",
     "ffffff": "",
     "f8f9fa": "",
     "f1f3f5": "",
@@ -432,7 +420,6 @@
     "fd7e14": "",
     "000000": "",
     "343a40": "",
-    "495057": "",
     "c92a2a": "",
     "a61e4d": "",
     "862e9c": "",

@@ -72,7 +72,6 @@
     "layers": "الطبقات",
     "actions": "الإجراءات",
     "language": "اللغة",
-    "liveCollaboration": "التعاون المباشر...",
     "duplicateSelection": "تكرار",
     "untitled": "غير معنون",
     "name": "الاسم",
@@ -191,8 +190,7 @@
     "cannotRestoreFromImage": "تعذر استعادة المشهد من ملف الصورة",
     "invalidSceneUrl": "تعذر استيراد المشهد من عنوان URL المتوفر. إما أنها مشوهة، أو لا تحتوي على بيانات Excalidraw JSON صالحة.",
     "resetLibrary": "هذا سوف يمسح مكتبتك. هل أنت متأكد؟",
-    "removeItemsFromsLibrary": "حذف {{count}} عنصر (عناصر) من المكتبة؟",
-    "invalidEncryptionKey": "مفتاح التشفير يجب أن يكون من 22 حرفاً. التعاون المباشر معطل."
+    "removeItemsFromsLibrary": "حذف {{count}} عنصر (عناصر) من المكتبة؟"
   },
   "errors": {
     "unsupportedFileType": "نوع الملف غير مدعوم.",
@@ -200,7 +198,6 @@
     "fileTooBig": "الملف كبير جداً. الحد الأقصى المسموح به للحجم هو {{maxSize}}.",
     "svgImageInsertError": "تعذر إدراج صورة SVG. يبدو أن ترميز SVG غير صحيح.",
     "invalidSVGString": "SVG غير صالح.",
-    "cannotResolveCollabServer": "",
     "importLibraryError": "",
     "collabSaveFailed": "",
     "collabSaveFailed_sizeExceeded": ""
@@ -264,16 +261,6 @@
     "openIssueMessage_button": "متعقّب الخلل.",
     "openIssueMessage_post": " يرجى تضمين المعلومات أدناة عن طريق نسخ ولصق المشكلة في GitHub.",
     "sceneContent": "محتوى المشهد:"
-  },
-  "roomDialog": {
-    "desc_intro": "يمكنك دعوة الآخرين لمشاركتك نفس الجلسة التي تعمل عليها.",
-    "desc_privacy": "لا تقلق، الجلسة تستخدم التشفير من النهاية إلى النهاية، لذلك فإن أي شيء ترسمه سيبقى خاصاً. لن يتمكن حتى الخادوم الخاص بنا من رؤية ما توصلت إليه.",
-    "button_startSession": "بدء الجلسة",
-    "button_stopSession": "إيقاف الجلسة",
-    "desc_inProgressIntro": "تجري الآن المشاركة الحية.",
-    "desc_shareLink": "شارك هذا الرابط مع أي شخص تريده أن يشاركك الجلسة:",
-    "desc_exitSession": "إيقاف الجلسة سيؤدي إلى قطع الاتصال الخاص بك من الغرفة، ولكن ستتمكن من مواصلة العمل مع المشهد، محليا. لاحظ أن هذا لن يؤثر على الأشخاص الآخرين، و سيظلون قادرين على التعاون في إصدارهم.",
-    "shareTitle": "الانضمام إلى جلسة تعاون حية على Excalidraw"
   },
   "errorDialog": {
     "title": "خطأ"
@@ -400,6 +387,7 @@
     "pasteAsSingleElement": ""
   },
   "colors": {
+    "495057": "رمادي 7",
     "ffffff": "أبيض",
     "f8f9fa": "رمادي 0",
     "f1f3f5": "رمادي 1",
@@ -432,7 +420,6 @@
     "fd7e14": "برتقالي 6",
     "000000": "أسود",
     "343a40": "رمادي 8",
-    "495057": "رمادي 7",
     "c92a2a": "أحمر 9",
     "a61e4d": "وردي 9",
     "862e9c": "عنبي 9",

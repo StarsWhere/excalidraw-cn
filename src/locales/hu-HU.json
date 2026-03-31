@@ -72,7 +72,6 @@
     "layers": "Rétegek",
     "actions": "Műveletek",
     "language": "Nyelv",
-    "liveCollaboration": "",
     "duplicateSelection": "Duplikálás",
     "untitled": "Névtelen",
     "name": "Név",
@@ -191,8 +190,7 @@
     "cannotRestoreFromImage": "A jelenet visszaállítása nem sikerült ebből a kép fájlból",
     "invalidSceneUrl": "Nem sikerült importálni a jelenetet a megadott URL-ről. Rossz formátumú, vagy nem tartalmaz érvényes Excalidraw JSON-adatokat.",
     "resetLibrary": "Ezzel törlöd a könyvtárát. biztos vagy ebben?",
-    "removeItemsFromsLibrary": "{{count}} elemet törölsz a könyvtárból?",
-    "invalidEncryptionKey": "A titkosítási kulcsnak 22 karakterből kell állnia. Az élő együttműködés le van tiltva."
+    "removeItemsFromsLibrary": "{{count}} elemet törölsz a könyvtárból?"
   },
   "errors": {
     "unsupportedFileType": "Nem támogatott fájltípus.",
@@ -200,7 +198,6 @@
     "fileTooBig": "A fájl túl nagy. A megengedett maximális méret {{maxSize}}.",
     "svgImageInsertError": "Nem sikerült beszúrni az SVG-képet. Az SVG szintaktika érvénytelennek tűnik.",
     "invalidSVGString": "Érvénytelen SVG.",
-    "cannotResolveCollabServer": "",
     "importLibraryError": "",
     "collabSaveFailed": "",
     "collabSaveFailed_sizeExceeded": ""
@@ -264,16 +261,6 @@
     "openIssueMessage_button": "hibakövető rendszerünkhöz.",
     "openIssueMessage_post": " Kérjük, másolja be az alábbi információkat a GitHub problémába.",
     "sceneContent": "Jelenet tartalma:"
-  },
-  "roomDialog": {
-    "desc_intro": "Meghívhat embereket a jelenlegi jelenetbe, hogy együttműködjenek önnel.",
-    "desc_privacy": "Ne aggódj, a munkamenet végpontok közötti titkosítást használ, tehát bármit rajzolsz, privát marad. Még a szerverünkről se lehet belenézni.",
-    "button_startSession": "Munkamenet indítása",
-    "button_stopSession": "Munkamenet leállítása",
-    "desc_inProgressIntro": "Az élő együttműködési munkamenet folyamatban van.",
-    "desc_shareLink": "Ossza meg ezt a linket bárkivel, akivel együtt szeretne működni:",
-    "desc_exitSession": "Az munkamenet leállítása kilépteti önt a szobából, de folytathatja a munkát a saját gépén. Vegye figyelembe, hogy ez nem érinti más emberek munkáját és ők továbbra is együttműködhetnek a saját változatukon.",
-    "shareTitle": "Csatlakozás egy élő együttműködési munkamenethez az Excalidraw-ban"
   },
   "errorDialog": {
     "title": "Hiba"
@@ -400,6 +387,7 @@
     "pasteAsSingleElement": ""
   },
   "colors": {
+    "495057": "Szürke 7",
     "ffffff": "Fehér",
     "f8f9fa": "Szürke 0",
     "f1f3f5": "Szürke 1",
@@ -432,7 +420,6 @@
     "fd7e14": "Narancs 6",
     "000000": "Fekete",
     "343a40": "Szürke 8",
-    "495057": "Szürke 7",
     "c92a2a": "Piros 9",
     "a61e4d": "Pink 9",
     "862e9c": "Szőlő 9",

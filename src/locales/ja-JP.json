@@ -72,7 +72,6 @@
     "layers": "レイヤー",
     "actions": "操作",
     "language": "言語",
-    "liveCollaboration": "共同編集...",
     "duplicateSelection": "複製",
     "untitled": "無題",
     "name": "名前",
@@ -191,8 +190,7 @@
     "cannotRestoreFromImage": "このイメージファイルからシーンを復元できませんでした",
     "invalidSceneUrl": "指定された URL からシーンをインポートできませんでした。不正な形式であるか、有効な Excalidraw JSON データが含まれていません。",
     "resetLibrary": "ライブラリを消去します。本当によろしいですか？",
-    "removeItemsFromsLibrary": "{{count}} 個のアイテムをライブラリから削除しますか？",
-    "invalidEncryptionKey": "暗号化キーは22文字でなければなりません。ライブコラボレーションは無効化されています。"
+    "removeItemsFromsLibrary": "{{count}} 個のアイテムをライブラリから削除しますか？"
   },
   "errors": {
     "unsupportedFileType": "サポートされていないファイル形式です。",
@@ -200,7 +198,6 @@
     "fileTooBig": "ファイルが大きすぎます。許可される最大サイズは {{maxSize}} です。",
     "svgImageInsertError": "SVGイメージを挿入できませんでした。SVGマークアップは無効に見えます。",
     "invalidSVGString": "無効なSVGです。",
-    "cannotResolveCollabServer": "コラボレーションサーバに接続できませんでした。ページを再読み込みして、もう一度お試しください。",
     "importLibraryError": "ライブラリを読み込めませんでした。",
     "collabSaveFailed": "バックエンドデータベースに保存できませんでした。問題が解決しない場合は、作業を失わないようにローカルにファイルを保存してください。",
     "collabSaveFailed_sizeExceeded": "キャンバスが大きすぎるため、バックエンドデータベースに保存できませんでした。問題が解決しない場合は、作業を失わないようにローカルにファイルを保存してください。"
@@ -264,16 +261,6 @@
     "openIssueMessage_button": "バグ報告",
     "openIssueMessage_post": " GitHub のIssueに以下の情報をコピーして貼り付けてください。",
     "sceneContent": "シーンの内容:"
-  },
-  "roomDialog": {
-    "desc_intro": "他の人を編集中のあなたの画面に招待して共同編集することができます。",
-    "desc_privacy": "このセッションはエンドツーエンド暗号化されており、描画内容は保護されています。運営サーバーからも内容は見えません。",
-    "button_startSession": "セッションを開始する",
-    "button_stopSession": "セッションを終了する",
-    "desc_inProgressIntro": "共同編集セッションが有効になっています。",
-    "desc_shareLink": "下記URLを共同編集したい人に共有してください：",
-    "desc_exitSession": "セッションを終了するとあなたはルームから切断されますが、ローカルで作業を続けることができます。セッションを終了しても他のメンバには影響はなく、引き続き共同作業を行うことができます。",
-    "shareTitle": "Excalidrawの共同編集セッションに参加する"
   },
   "errorDialog": {
     "title": "エラー"
@@ -400,6 +387,7 @@
     "pasteAsSingleElement": "{{shortcut}} を使用して単一の要素として貼り付けるか、\n既存のテキストエディタに貼り付け"
   },
   "colors": {
+    "495057": "グレー 7",
     "ffffff": "ホワイト",
     "f8f9fa": "グレー 0",
     "f1f3f5": "グレー 1",
@@ -432,7 +420,6 @@
     "fd7e14": "オレンジ 6",
     "000000": "ブラック",
     "343a40": "グレー 8",
-    "495057": "グレー 7",
     "c92a2a": "レッド 9",
     "a61e4d": "ピンク 9",
     "862e9c": "グレープ 9",

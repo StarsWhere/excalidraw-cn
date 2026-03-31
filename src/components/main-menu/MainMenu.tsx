@@ -8,8 +8,6 @@ import DropdownMenu from "../dropdownMenu/DropdownMenu";
 
 import * as DefaultItems from "./DefaultItems";
 
-import { UserList } from "../UserList";
-import { t } from "../../i18n";
 import { HamburgerMenuIcon } from "../icons";
 import { withInternalFallback } from "../hoc/withInternalFallback";
 import { composeEventHandlers } from "../../utils";
@@ -55,15 +53,6 @@ const MainMenu = Object.assign(
               })}
             >
               {children}
-              {device.isMobile && appState.collaborators.size > 0 && (
-                <fieldset className="UserList-Wrapper">
-                  <legend>{t("labels.collaborators")}</legend>
-                  <UserList
-                    mobile={true}
-                    collaborators={appState.collaborators}
-                  />
-                </fieldset>
-              )}
             </DropdownMenu.Content>
           </DropdownMenu>
         </mainMenuTunnel.In>

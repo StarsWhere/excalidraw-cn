@@ -72,7 +72,6 @@
     "layers": "Vrstvy",
     "actions": "Akcie",
     "language": "Jazyk",
-    "liveCollaboration": "Živá spolupráca...",
     "duplicateSelection": "Duplikovať",
     "untitled": "Bez názvu",
     "name": "Meno",
@@ -191,8 +190,7 @@
     "cannotRestoreFromImage": "Nepodarilo sa obnoviť scénu z tohto obrázkového súboru",
     "invalidSceneUrl": "Nepodarilo sa načítať scénu z poskytnutej URL. Je nevalidná alebo neobsahuje žiadne validné Excalidraw JSON dáta.",
     "resetLibrary": "Týmto vyprázdnite vašu knižnicu. Ste si istý?",
-    "removeItemsFromsLibrary": "Odstrániť {{count}} položiek z knižnice?",
-    "invalidEncryptionKey": "Šifrovací kľúč musí mať 22 znakov. Živá spolupráca je vypnutá."
+    "removeItemsFromsLibrary": "Odstrániť {{count}} položiek z knižnice?"
   },
   "errors": {
     "unsupportedFileType": "Nepodporovaný typ súboru.",
@@ -200,7 +198,6 @@
     "fileTooBig": "Súbor je príliš veľký. Maximálna povolená veľkosť je {{maxSize}}.",
     "svgImageInsertError": "Nepodarilo sa vložiť SVG obrázok. SVG formát je pravdepodobne nevalidný.",
     "invalidSVGString": "Nevalidné SVG.",
-    "cannotResolveCollabServer": "Nepodarilo sa pripojiť ku kolaboračnému serveru. Prosím obnovte stránku a skúste to znovu.",
     "importLibraryError": "Nepodarilo sa načítať knižnicu",
     "collabSaveFailed": "Uloženie do databázy sa nepodarilo. Ak tento problém pretrváva uložte si váš súbor lokálne aby ste nestratili vašu prácu.",
     "collabSaveFailed_sizeExceeded": "Uloženie do databázy sa nepodarilo, pretože veľkosť plátna je príliš veľká. Uložte si váš súbor lokálne aby ste nestratili vašu prácu."
@@ -264,16 +261,6 @@
     "openIssueMessage_button": "hlásenie chýb.",
     "openIssueMessage_post": " Prosím zahrňte informácie nižšie pomocou kopírovania a prilepenia do GitHub issue.",
     "sceneContent": "Obsah scény:"
-  },
-  "roomDialog": {
-    "desc_intro": "Pozvite niekoho do svojej aktuálnej scény a pracujte spoločne.",
-    "desc_privacy": "Nemajte obavy, schôdza používa end-to-end šifrovanie, takže všetko čo nakreslíte je súkromné. Dokonca, ani náš server dedokáže prečítať, čo ste vytvorili.",
-    "button_startSession": "Začať schôdzu",
-    "button_stopSession": "Ukončiť schôdzu",
-    "desc_inProgressIntro": "Práve prebieha živá schôdza.",
-    "desc_shareLink": "Zdieľajte tento odkaz s osobou, s ktorou chcete spolupracovať:",
-    "desc_exitSession": "Ukončenie schôdze vás odpojí z miestnosti, avšak naďalej budete môcť pokračovať v práci na scéne lokálne. Toto neovplyvní ostatných spolupracovníkov a stále budú môcť spolupracovať na ich verzii.",
-    "shareTitle": "Pripojiť sa k živej schôdzi na Excalidraw"
   },
   "errorDialog": {
     "title": "Chyba"
@@ -400,6 +387,7 @@
     "pasteAsSingleElement": "Použitím {{shortcut}} vložte ako samostatný prvok alebo vložte do existujúceho editovaného textu"
   },
   "colors": {
+    "495057": "Sivá 7",
     "ffffff": "Biela",
     "f8f9fa": "Sivá 0",
     "f1f3f5": "Sivá 1",
@@ -432,7 +420,6 @@
     "fd7e14": "Oranžová 6",
     "000000": "Čierna",
     "343a40": "Sivá 8",
-    "495057": "Sivá 7",
     "c92a2a": "Červená 9",
     "a61e4d": "Ružová 9",
     "862e9c": "Hroznová fialová 9",

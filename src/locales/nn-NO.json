@@ -72,7 +72,6 @@
     "layers": "Lag",
     "actions": "Handlingar",
     "language": "Språk",
-    "liveCollaboration": "",
     "duplicateSelection": "Dupliser",
     "untitled": "Utan namn",
     "name": "Namn",
@@ -191,8 +190,7 @@
     "cannotRestoreFromImage": "Scena kunne ikkje gjenopprettast frå denne biletfila",
     "invalidSceneUrl": "Kunne ikkje hente noko scene frå den URL-en. Ho er anten øydelagd eller inneheld ikkje gyldig Excalidraw JSON-data.",
     "resetLibrary": "Dette vil fjerne alt innhald frå biblioteket. Er du sikker?",
-    "removeItemsFromsLibrary": "Slette {{count}} element frå biblioteket?",
-    "invalidEncryptionKey": "Krypteringsnøkkelen må ha 22 teikn. Sanntidssamarbeid er deaktivert."
+    "removeItemsFromsLibrary": "Slette {{count}} element frå biblioteket?"
   },
   "errors": {
     "unsupportedFileType": "Filtypen er ikkje støtta.",
@@ -200,7 +198,6 @@
     "fileTooBig": "Fila er for stor. Maksimal tillate storleik er {{maxSize}}.",
     "svgImageInsertError": "Kunne ikkje sette inn SVG-biletet. SVG-koden ser ugyldig ut.",
     "invalidSVGString": "Ugyldig SVG.",
-    "cannotResolveCollabServer": "Kunne ikkje kople til samarbeidsserveren. Ver vennleg å oppdatere inn sida og prøv på nytt.",
     "importLibraryError": "",
     "collabSaveFailed": "",
     "collabSaveFailed_sizeExceeded": ""
@@ -264,16 +261,6 @@
     "openIssueMessage_button": "feilrapporteringssystemet vårt.",
     "openIssueMessage_post": " Ta med opplysingane nedanfor ved å kopiere og lime inn i GitHub-saka.",
     "sceneContent": "Scene-innhald:"
-  },
-  "roomDialog": {
-    "desc_intro": "Du kan invitere personar til scena di for å samarbeide med deg.",
-    "desc_privacy": "Ta det med ro; økta brukar ende-til-ende-kryptering, så alt du teiknar held fram med å vere privat. Ikkje ein gong serveren vår kan sjå kva du lagar.",
-    "button_startSession": "Start økt",
-    "button_stopSession": "Stopp økt",
-    "desc_inProgressIntro": "Sanntids-samarbeidsøkt er no i gang.",
-    "desc_shareLink": "Del denne lenka med dei du vil samarbeide med:",
-    "desc_exitSession": "Dersom du avsluttar økta blir du kopla frå rommet, men du kan halde fram med å arbeide med scena lokalt. Ver merksam på at dette ikkje vil påverke andre personar, og desse vil framleis ha moglegheit til å samarbeide på deira eigen versjon.",
-    "shareTitle": "Bli med på eit sanntidssamarbeid på Excalidraw"
   },
   "errorDialog": {
     "title": "Feil"
@@ -400,6 +387,7 @@
     "pasteAsSingleElement": ""
   },
   "colors": {
+    "495057": "Grå 7",
     "ffffff": "Kvit",
     "f8f9fa": "Grå 0",
     "f1f3f5": "Grå 1",
@@ -432,7 +420,6 @@
     "fd7e14": "Oransje 6",
     "000000": "Svart",
     "343a40": "Grå 8",
-    "495057": "Grå 7",
     "c92a2a": "Raud 9",
     "a61e4d": "Rosa 9",
     "862e9c": "Drue 9",

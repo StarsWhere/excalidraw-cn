@@ -72,7 +72,6 @@
     "layers": "Sluoksniai",
     "actions": "Veiksmai",
     "language": "Kalba",
-    "liveCollaboration": "Bendradarbiavimas gyvai...",
     "duplicateSelection": "",
     "untitled": "",
     "name": "",
@@ -191,8 +190,7 @@
     "cannotRestoreFromImage": "Nepavyko atstatyti scenos iš šio nuotraukos failo",
     "invalidSceneUrl": "Nepavyko suimportuoti scenos iš pateiktos nuorodos (URL). Ji arba blogai suformatuota, arba savyje neturi teisingų Excalidraw JSON duomenų.",
     "resetLibrary": "Tai išvalys tavo biblioteką. Ar tikrai to nori?",
-    "removeItemsFromsLibrary": "Ištrinti {{count}} elementą/-us iš bibliotekos?",
-    "invalidEncryptionKey": "Šifravimo raktas turi būti iš 22 simbolių. Redagavimas gyvai yra išjungtas."
+    "removeItemsFromsLibrary": "Ištrinti {{count}} elementą/-us iš bibliotekos?"
   },
   "errors": {
     "unsupportedFileType": "Nepalaikomas failo tipas.",
@@ -200,7 +198,6 @@
     "fileTooBig": "Per didelis failas. Didžiausias leidžiamas dydis yra {{maxSize}}.",
     "svgImageInsertError": "Nepavyko įtraukti SVG paveiksliuko. Panašu, jog SVG yra nevalidus.",
     "invalidSVGString": "Nevalidus SVG.",
-    "cannotResolveCollabServer": "Nepavyko prisijungti prie serverio bendradarbiavimui. Perkrauk puslapį ir pabandyk prisijungti dar kartą.",
     "importLibraryError": "Nepavyko įkelti bibliotekos",
     "collabSaveFailed": "",
     "collabSaveFailed_sizeExceeded": ""
@@ -264,16 +261,6 @@
     "openIssueMessage_button": "",
     "openIssueMessage_post": "",
     "sceneContent": ""
-  },
-  "roomDialog": {
-    "desc_intro": "",
-    "desc_privacy": "",
-    "button_startSession": "Pradėti seansą",
-    "button_stopSession": "Sustabdyti seansą",
-    "desc_inProgressIntro": "",
-    "desc_shareLink": "",
-    "desc_exitSession": "",
-    "shareTitle": ""
   },
   "errorDialog": {
     "title": "Klaida"
@@ -400,6 +387,7 @@
     "pasteAsSingleElement": ""
   },
   "colors": {
+    "495057": "Pilka 7",
     "ffffff": "Balta",
     "f8f9fa": "Pilka 0",
     "f1f3f5": "Pilka 1",
@@ -432,7 +420,6 @@
     "fd7e14": "Oranžinė 6",
     "000000": "Juoda",
     "343a40": "Pilna 8",
-    "495057": "Pilka 7",
     "c92a2a": "Raudona 9",
     "a61e4d": "Rožinė 9",
     "862e9c": "",

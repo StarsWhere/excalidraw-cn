@@ -72,7 +72,6 @@
     "layers": "Katmanlar",
     "actions": "Eylemler",
     "language": "Dil",
-    "liveCollaboration": "Canlı ortak çalışma alanı...",
     "duplicateSelection": "Çoğalt",
     "untitled": "Adsız",
     "name": "İsim",
@@ -191,8 +190,7 @@
     "cannotRestoreFromImage": "Sahne bu resim dosyasından geri yüklenemedi",
     "invalidSceneUrl": "Verilen bağlantıdan çalışma alanı yüklenemedi. Dosya bozuk olabilir veya geçerli bir Excalidraw JSON verisi bulundurmuyor olabilir.",
     "resetLibrary": "Bu işlem kütüphanenizi sıfırlayacak. Emin misiniz?",
-    "removeItemsFromsLibrary": "{{count}} öğe(ler) kitaplıktan kaldırılsın mı?",
-    "invalidEncryptionKey": "Şifreleme anahtarı 22 karakter olmalı. Canlı işbirliği devre dışı bırakıldı."
+    "removeItemsFromsLibrary": "{{count}} öğe(ler) kitaplıktan kaldırılsın mı?"
   },
   "errors": {
     "unsupportedFileType": "Desteklenmeyen dosya türü.",
@@ -200,7 +198,6 @@
     "fileTooBig": "Dosya çok büyük. İzin verilen maksimum boyut {{maxSize}}.",
     "svgImageInsertError": "SVG resmi eklenemedi. SVG işaretlemesi geçersiz görünüyor.",
     "invalidSVGString": "Geçersiz SVG.",
-    "cannotResolveCollabServer": "İş birliği sunucusuna bağlanılamıyor. Lütfen sayfayı yenileyip tekrar deneyin.",
     "importLibraryError": "Kütüphane yüklenemedi",
     "collabSaveFailed": "Backend veritabanına kaydedilemedi. Eğer problem devam ederse, çalışmanızı korumak için dosyayı yerel olarak kaydetmelisiniz.",
     "collabSaveFailed_sizeExceeded": "Backend veritabanına kaydedilemedi; tuval çok büyük. Çalışmanızı korumak için dosyayı yerel olarak kaydetmelisiniz."
@@ -264,16 +261,6 @@
     "openIssueMessage_button": "hata takibi.",
     "openIssueMessage_post": " Lütfen aşağıya GitHub sorununa kopyalayarak ve yapıştırarak bilgi ekleyin.",
     "sceneContent": "Sahne içeriği:"
-  },
-  "roomDialog": {
-    "desc_intro": "Çalışma alanınıza, sizinle birlikte çalışabilmeleri için başkalarını da ekleyebilirsiniz.",
-    "desc_privacy": "Çalışma ortamında yaptıklarınız ve çizimleriniz uçtan uca şifrelemeyle saklanmaktadır. Sunucularımız dahi bu verileri şifrelenmemiş haliyle göremez.",
-    "button_startSession": "Oturumu başlat",
-    "button_stopSession": "Oturumu sonlandır",
-    "desc_inProgressIntro": "Ortak çalışma ortamı oluşturuldu.",
-    "desc_shareLink": "Bu bağlantıyı birlikte çalışacağınız kişilerle paylaşabilirsiniz:",
-    "desc_exitSession": "Çalışma ortamını kapattığınızda ortak çalışmadan ayrılmış olursunuz ancak kendi versiyonunuzda çalışmaya devam edebilirsiniz. Bu durumda ortak çalıştığınız diğer kişiler etkilenmeyecek, çalışma ortamındaki versiyon üzerinden çalışmaya devam edebilecekler.",
-    "shareTitle": "Excalidraw'da canlı ortak calışma oturumuna katıl"
   },
   "errorDialog": {
     "title": "Hata"
@@ -400,6 +387,7 @@
     "pasteAsSingleElement": "Tekil obje olarak yapıştırmak için veya var olan bir metin editörüne yapıştırmak için {{shortcut}} kullanın"
   },
   "colors": {
+    "495057": "Gri 7",
     "ffffff": "Beyaz",
     "f8f9fa": "Gri 0",
     "f1f3f5": "Gri 1",
@@ -432,7 +420,6 @@
     "fd7e14": "Turuncu 6",
     "000000": "Siyah",
     "343a40": "Gri 8",
-    "495057": "Gri 7",
     "c92a2a": "Kırmızı 9",
     "a61e4d": "Pembe 9",
     "862e9c": "Koyu Mor 9",

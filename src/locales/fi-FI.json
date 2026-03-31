@@ -72,7 +72,6 @@
     "layers": "Tasot",
     "actions": "Toiminnot",
     "language": "Kieli",
-    "liveCollaboration": "",
     "duplicateSelection": "Monista",
     "untitled": "Nimetön",
     "name": "Nimi",
@@ -191,8 +190,7 @@
     "cannotRestoreFromImage": "Teosta ei voitu palauttaa tästä kuvatiedostosta",
     "invalidSceneUrl": "Teosta ei voitu tuoda annetusta URL-osoitteesta. Tallenne on vioittunut, tai osoitteessa ei ole Excalidraw JSON-dataa.",
     "resetLibrary": "Tämä tyhjentää kirjastosi. Jatketaanko?",
-    "removeItemsFromsLibrary": "Poista {{count}} kohdetta kirjastosta?",
-    "invalidEncryptionKey": "Salausavaimen on oltava 22 merkkiä pitkä. Live-yhteistyö ei ole käytössä."
+    "removeItemsFromsLibrary": "Poista {{count}} kohdetta kirjastosta?"
   },
   "errors": {
     "unsupportedFileType": "Tiedostotyyppiä ei tueta.",
@@ -200,7 +198,6 @@
     "fileTooBig": "Tiedosto on liian suuri. Suurin sallittu koko on {{maxSize}}.",
     "svgImageInsertError": "SVG- kuvaa ei voitu lisätä. Tiedoston SVG-sisältö näyttää virheelliseltä.",
     "invalidSVGString": "Virheellinen SVG.",
-    "cannotResolveCollabServer": "Yhteyden muodostaminen collab-palvelimeen epäonnistui. Virkistä sivu ja yritä uudelleen.",
     "importLibraryError": "",
     "collabSaveFailed": "",
     "collabSaveFailed_sizeExceeded": ""
@@ -264,16 +261,6 @@
     "openIssueMessage_button": "virheenseurantajärjestelmässämme.",
     "openIssueMessage_post": " Sisällytä alla olevat tiedot kopioimalla ne GitHub-ongelmaan.",
     "sceneContent": "Piirroksen tiedot:"
-  },
-  "roomDialog": {
-    "desc_intro": "Voit kutsua ihmisiä piirrokseesi tekemään yhteistyötä kanssasi.",
-    "desc_privacy": "Älä huoli, istunto käyttää päästä-päähän-salausta, joten mitä tahansa piirrätkin, se pysyy salassa. Edes palvelimemme eivät näe mitä keksit.",
-    "button_startSession": "Aloita istunto",
-    "button_stopSession": "Lopeta istunto",
-    "desc_inProgressIntro": "Jaettu istunto on nyt käynnissä.",
-    "desc_shareLink": "Jaa tämä linkki kenelle tahansa, jonka kanssa haluat tehdä yhteistyötä:",
-    "desc_exitSession": "Istunnon pysäyttäminen katkaisee yhteyden huoneeseen, mutta voit vielä jatkaa työskentelyä paikallisesti. Huomaa, että tämä ei vaikuta muihin käyttäjiin ja he voivat jatkaa oman versionsa parissa työskentelyä.",
-    "shareTitle": "Liity Excalidraw live-yhteistyöistuntoon"
   },
   "errorDialog": {
     "title": "Virhe"
@@ -400,6 +387,7 @@
     "pasteAsSingleElement": ""
   },
   "colors": {
+    "495057": "Harmaa 7",
     "ffffff": "Valkoinen",
     "f8f9fa": "Harmaa 0",
     "f1f3f5": "Harmaa 1",
@@ -432,7 +420,6 @@
     "fd7e14": "Oranssi 6",
     "000000": "Musta",
     "343a40": "Harmaa 8",
-    "495057": "Harmaa 7",
     "c92a2a": "Punainen 9",
     "a61e4d": "Pinkki 9",
     "862e9c": "Rypäle 9",

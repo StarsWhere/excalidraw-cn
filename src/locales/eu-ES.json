@@ -72,7 +72,6 @@
     "layers": "Geruzak",
     "actions": "Ekintzak",
     "language": "Hizkuntza",
-    "liveCollaboration": "Zuzeneko elkarlana...",
     "duplicateSelection": "Bikoiztu",
     "untitled": "Izengabea",
     "name": "Izena",
@@ -191,8 +190,7 @@
     "cannotRestoreFromImage": "Ezin izan da eszena leheneratu irudi fitxategi honetatik",
     "invalidSceneUrl": "Ezin izan da eszena inportatu emandako URLtik. Gaizki eratuta dago edo ez du baliozko Excalidraw JSON daturik.",
     "resetLibrary": "Honek zure liburutegia garbituko du. Ziur zaude?",
-    "removeItemsFromsLibrary": "Liburutegitik {{count}} elementu ezabatu?",
-    "invalidEncryptionKey": "Enkriptazio-gakoak 22 karaktere izan behar ditu. Zuzeneko lankidetza desgaituta dago."
+    "removeItemsFromsLibrary": "Liburutegitik {{count}} elementu ezabatu?"
   },
   "errors": {
     "unsupportedFileType": "Onartu gabeko fitxategi mota.",
@@ -200,7 +198,6 @@
     "fileTooBig": "Fitxategia handiegia da. Onartutako gehienezko tamaina {{maxSize}} da.",
     "svgImageInsertError": "Ezin izan da SVG irudia txertatu. SVG markak baliogabea dirudi.",
     "invalidSVGString": "SVG baliogabea.",
-    "cannotResolveCollabServer": "Ezin izan da elkarlaneko zerbitzarira konektatu. Mesedez, berriro kargatu orria eta saiatu berriro.",
     "importLibraryError": "Ezin izan da liburutegia kargatu",
     "collabSaveFailed": "Ezin izan da backend datu-basean gorde. Arazoak jarraitzen badu, zure fitxategia lokalean gorde beharko zenuke zure lana ez duzula galtzen ziurtatzeko.",
     "collabSaveFailed_sizeExceeded": "Ezin izan da backend datu-basean gorde, ohiala handiegia dela dirudi. Fitxategia lokalean gorde beharko zenuke zure lana galtzen ez duzula ziurtatzeko."
@@ -264,16 +261,6 @@
     "openIssueMessage_button": "erroreen jarraipena egitea.",
     "openIssueMessage_post": " Sartu beheko informazioa kopiatu eta itsatsi bidez GitHub issue-n.",
     "sceneContent": "Eszenaren edukia:"
-  },
-  "roomDialog": {
-    "desc_intro": "Jendea zure uneko eszenara gonbida dezakezu zurekin elkarlanean aritzeko.",
-    "desc_privacy": "Ez kezkatu, saioak muturretik muturrerako enkriptatzea erabiltzen du, beraz, marrazten duzuna pribatua izango da. Gure zerbitzariak ere ezingo du ikusi zer egiten duzun.",
-    "button_startSession": "Hasi saioa",
-    "button_stopSession": "Itxi saioa",
-    "desc_inProgressIntro": "Zuzeneko lankidetza saioa abian da.",
-    "desc_shareLink": "Partekatu esteka hau elkarlanean aritu nahi duzun edonorekin:",
-    "desc_exitSession": "Saioa ixteak aretotik deskonektatuko zaitu, baina eszenarekin lanean jarraitu ahal izango duzu lokalean. Kontuan izan honek ez diela beste pertsonei eragingo, eta euren bertsioan elkarlanean aritu ahal izango dira.",
-    "shareTitle": "Sartu Excalidraw-en zuzeneko lankidetza-saio batean"
   },
   "errorDialog": {
     "title": "Errorea"
@@ -400,6 +387,7 @@
     "pasteAsSingleElement": "Erabili {{shortcut}} elementu bakar gisa itsasteko,\nedo itsatsi lehendik dagoen testu-editore batean"
   },
   "colors": {
+    "495057": "Grisa 7",
     "ffffff": "Zuria",
     "f8f9fa": "Grisa 0",
     "f1f3f5": "Grisa 1",
@@ -432,7 +420,6 @@
     "fd7e14": "Laranja 6",
     "000000": "Beltza",
     "343a40": "Grisa 8",
-    "495057": "Grisa 7",
     "c92a2a": "Gorria 9",
     "a61e4d": "Arrosa 9",
     "862e9c": "Mahats kolorea 9",

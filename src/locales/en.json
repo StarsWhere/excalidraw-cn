@@ -72,7 +72,6 @@
     "layers": "Layers",
     "actions": "Actions",
     "language": "Language",
-    "liveCollaboration": "Live collaboration...",
     "duplicateSelection": "Duplicate",
     "untitled": "Untitled",
     "name": "Name",
@@ -119,7 +118,6 @@
       "edit": "Edit line",
       "exit": "Exit line editor"
     },
-
     "elementLock": {
       "lock": "Lock",
       "unlock": "Unlock",
@@ -194,8 +192,7 @@
     "cannotRestoreFromImage": "Scene couldn't be restored from this image file",
     "invalidSceneUrl": "Couldn't import scene from the supplied URL. It's either malformed, or doesn't contain valid Excalidraw JSON data.",
     "resetLibrary": "This will clear your library. Are you sure?",
-    "removeItemsFromsLibrary": "Delete {{count}} item(s) from library?",
-    "invalidEncryptionKey": "Encryption key must be of 22 characters. Live collaboration is disabled."
+    "removeItemsFromsLibrary": "Delete {{count}} item(s) from library?"
   },
   "errors": {
     "unsupportedFileType": "Unsupported file type.",
@@ -203,7 +200,6 @@
     "fileTooBig": "File is too big. Maximum allowed size is {{maxSize}}.",
     "svgImageInsertError": "Couldn't insert SVG image. The SVG markup looks invalid.",
     "invalidSVGString": "Invalid SVG.",
-    "cannotResolveCollabServer": "Couldn't connect to the collab server. Please reload the page and try again.",
     "importLibraryError": "Couldn't load library",
     "collabSaveFailed": "Couldn't save to the backend database. If problems persist, you should save your file locally to ensure you don't lose your work.",
     "collabSaveFailed_sizeExceeded": "Couldn't save to the backend database, the canvas seems to be too big. You should save the file locally to ensure you don't lose your work."
@@ -269,16 +265,6 @@
     "openIssueMessage_button": "bug tracker.",
     "openIssueMessage_post": " Please include information below by copying and pasting into the GitHub issue.",
     "sceneContent": "Scene content:"
-  },
-  "roomDialog": {
-    "desc_intro": "You can invite people to your current scene to collaborate with you.",
-    "desc_privacy": "Don't worry, the session uses end-to-end encryption, so whatever you draw will stay private. Not even our server will be able to see what you come up with.",
-    "button_startSession": "Start session",
-    "button_stopSession": "Stop session",
-    "desc_inProgressIntro": "Live-collaboration session is now in progress.",
-    "desc_shareLink": "Share this link with anyone you want to collaborate with:",
-    "desc_exitSession": "Stopping the session will disconnect you from the room, but you'll be able to continue working with the scene, locally. Note that this won't affect other people, and they'll still be able to collaborate on their version.",
-    "shareTitle": "Join a live collaboration session on Excalidraw"
   },
   "errorDialog": {
     "title": "Error"
@@ -405,6 +391,7 @@
     "pasteAsSingleElement": "Use {{shortcut}} to paste as a single element,\nor paste into an existing text editor"
   },
   "colors": {
+    "495057": "Gray 7",
     "ffffff": "White",
     "f8f9fa": "Gray 0",
     "f1f3f5": "Gray 1",
@@ -437,7 +424,6 @@
     "fd7e14": "Orange 6",
     "000000": "Black",
     "343a40": "Gray 8",
-    "495057": "Gray 7",
     "c92a2a": "Red 9",
     "a61e4d": "Pink 9",
     "862e9c": "Grape 9",
@@ -453,9 +439,9 @@
   },
   "welcomeScreen": {
     "app": {
-      "center_heading": "All your data is saved locally in your browser.",
-      "center_heading_plus": "Did you want to go to the Excalidraw+ instead?",
-      "menuHint": "Export, preferences, languages, ..."
+      "center_heading": "All your data stays on this PC.",
+      "center_heading_plus": "Desktop edition",
+      "menuHint": "Files, canvases, export, languages..."
     },
     "defaults": {
       "menuHint": "Export, preferences, and more...",

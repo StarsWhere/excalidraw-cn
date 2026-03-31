@@ -72,7 +72,6 @@
     "layers": "Straturi",
     "actions": "Acțiuni",
     "language": "Limbă",
-    "liveCollaboration": "Colaborare în direct...",
     "duplicateSelection": "Duplicare",
     "untitled": "Nedenumit",
     "name": "Nume",
@@ -191,8 +190,7 @@
     "cannotRestoreFromImage": "Scena nu a putut fi restaurată din acest fișier de imagine",
     "invalidSceneUrl": "Scena nu a putut fi importată din URL-ul furnizat. Este fie incorect formată, fie nu conține date JSON Excalidraw valide.",
     "resetLibrary": "Această opțiune va elimina conținutul din bibliotecă. Confirmi?",
-    "removeItemsFromsLibrary": "Ștergi {{count}} element(e) din bibliotecă?",
-    "invalidEncryptionKey": "Cheia de criptare trebuie să aibă 22 de caractere. Colaborarea în direct este dezactivată."
+    "removeItemsFromsLibrary": "Ștergi {{count}} element(e) din bibliotecă?"
   },
   "errors": {
     "unsupportedFileType": "Tip de fișier neacceptat.",
@@ -200,7 +198,6 @@
     "fileTooBig": "Fișierul este prea mare. Dimensiunea maximă permisă este de {{maxSize}}.",
     "svgImageInsertError": "Imaginea SVG nu a putut fi introdus. Marcajul SVG pare invalid.",
     "invalidSVGString": "SVG invalid.",
-    "cannotResolveCollabServer": "Nu a putut fi realizată conexiunea la serverul de colaborare. Reîncarcă pagina și încearcă din nou.",
     "importLibraryError": "Biblioteca nu a putut fi încărcată",
     "collabSaveFailed": "Nu s-a putut salva în baza de date la nivel de server. Dacă problemele persistă, ar trebui să salvezi fișierul la nivel local pentru a te asigura că nu îți pierzi munca.",
     "collabSaveFailed_sizeExceeded": "Nu s-a putut salva în baza de date la nivel de server, întrucât se pare că pânza este prea mare. Ar trebui să salvezi fișierul la nivel local pentru a te asigura că nu îți pierzi munca."
@@ -264,16 +261,6 @@
     "openIssueMessage_button": "monitorul nostru pentru erori.",
     "openIssueMessage_post": " Te rugăm să incluzi informațiile de mai jos prin copierea și lipirea în problema GitHub.",
     "sceneContent": "Conținutul scenei:"
-  },
-  "roomDialog": {
-    "desc_intro": "Poți invita alte persoane pentru a colabora la scena actuală.",
-    "desc_privacy": "Nu te îngrijora. Sesiunea utilizează criptarea integrală, astfel încât orice desenezi va rămâne privat. Nici măcar serverul nostru nu va putea vedea pe ce ai lucrat.",
-    "button_startSession": "Pornire sesiune",
-    "button_stopSession": "Oprire sesiune",
-    "desc_inProgressIntro": "Sesiunea de colaborare în direct este în curs de desfășurare.",
-    "desc_shareLink": "Distribuie acest URL persoanelor cu care dorești să colaborezi:",
-    "desc_exitSession": "Oprirea sesiunii te va deconecta de la sală, însă vei putea lucra în continuare, pe plan local, cu scena. Reține că această opțiune nu va afecta alte persoane, iar acestea vor putea să colaboreze în continuare pe versiunea lor.",
-    "shareTitle": "Alătură-te unei sesiuni de colaborare în direct pe Excalidraw"
   },
   "errorDialog": {
     "title": "Eroare"
@@ -400,6 +387,7 @@
     "pasteAsSingleElement": "Folosește {{shortcut}} pentru a insera ca un singur element\nsau insera într-un editor de text existent"
   },
   "colors": {
+    "495057": "Gri 7",
     "ffffff": "Alb",
     "f8f9fa": "Gri 0",
     "f1f3f5": "Gri 1",
@@ -432,7 +420,6 @@
     "fd7e14": "Portocaliu 6",
     "000000": "Negru",
     "343a40": "Gri 8",
-    "495057": "Gri 7",
     "c92a2a": "Roșu 9",
     "a61e4d": "Roz 9",
     "862e9c": "Struguriu 9",

@@ -72,7 +72,6 @@
     "layers": "Ebenen",
     "actions": "Aktionen",
     "language": "Sprache",
-    "liveCollaboration": "Live-Zusammenarbeit...",
     "duplicateSelection": "Duplizieren",
     "untitled": "Unbenannt",
     "name": "Name",
@@ -191,8 +190,7 @@
     "cannotRestoreFromImage": "Die Zeichnung konnte aus dieser Bilddatei nicht wiederhergestellt werden",
     "invalidSceneUrl": "Die Szene konnte nicht von der angegebenen URL importiert werden. Sie ist entweder fehlerhaft oder enthält keine gültigen Excalidraw JSON-Daten.",
     "resetLibrary": "Dieses löscht deine Bibliothek. Bist du sicher?",
-    "removeItemsFromsLibrary": "{{count}} Element(e) aus der Bibliothek löschen?",
-    "invalidEncryptionKey": "Verschlüsselungsschlüssel muss 22 Zeichen lang sein. Die Live-Zusammenarbeit ist deaktiviert."
+    "removeItemsFromsLibrary": "{{count}} Element(e) aus der Bibliothek löschen?"
   },
   "errors": {
     "unsupportedFileType": "Nicht unterstützter Dateityp.",
@@ -200,7 +198,6 @@
     "fileTooBig": "Die Datei ist zu groß. Die maximal zulässige Größe ist {{maxSize}}.",
     "svgImageInsertError": "SVG-Bild konnte nicht eingefügt werden. Das SVG-Markup sieht ungültig aus.",
     "invalidSVGString": "Ungültige SVG.",
-    "cannotResolveCollabServer": "Konnte keine Verbindung zum Collab-Server herstellen. Bitte lade die Seite neu und versuche es erneut.",
     "importLibraryError": "Bibliothek konnte nicht geladen werden",
     "collabSaveFailed": "Keine Speicherung in der Backend-Datenbank möglich. Wenn die Probleme weiterhin bestehen, solltest Du Deine Datei lokal speichern, um sicherzustellen, dass Du Deine Arbeit nicht verlierst.",
     "collabSaveFailed_sizeExceeded": "Keine Speicherung in der Backend-Datenbank möglich, die Zeichenfläche scheint zu groß zu sein. Du solltest Deine Datei lokal speichern, um sicherzustellen, dass Du Deine Arbeit nicht verlierst."
@@ -264,16 +261,6 @@
     "openIssueMessage_button": "Bug-Tracker.",
     "openIssueMessage_post": " Bitte teile die unten stehenden Informationen mit uns im GitHub Issue (Kopieren und Einfügen).",
     "sceneContent": "Zeichnungsinhalt:"
-  },
-  "roomDialog": {
-    "desc_intro": "Du kannst Leute zu deiner aktuellen Zeichnung einladen um mit ihnen zusammenzuarbeiten.",
-    "desc_privacy": "Keine Sorge, die Sitzung nutzt eine Ende-zu-Ende-Verschlüsselung. Alles was du zeichnest, bleibt privat. Auch unser Server sieht nicht, was du dir einfallen lässt.",
-    "button_startSession": "Sitzung starten",
-    "button_stopSession": "Sitzung beenden",
-    "desc_inProgressIntro": "Die Live-Sitzung wird nun ausgeführt.",
-    "desc_shareLink": "Teile diesen Link mit allen, mit denen du zusammenarbeiten möchtest:",
-    "desc_exitSession": "Wenn du die Sitzung beendest, wird deine Verbindung zum Raum getrennt. Du kannst jedoch lokal weiter an der Zeichnung arbeiten. Beachte, dass dies keine Auswirkungen auf andere hat und diese weiterhin gemeinsam an ihrer Version arbeiten können.",
-    "shareTitle": "An einer Live-Kollaborationssitzung auf Excalidraw teilnehmen"
   },
   "errorDialog": {
     "title": "Fehler"
@@ -400,6 +387,7 @@
     "pasteAsSingleElement": "Verwende {{shortcut}} , um als einzelnes Element\neinzufügen oder in einen existierenden Texteditor einzufügen"
   },
   "colors": {
+    "495057": "Grau 7",
     "ffffff": "Weiß",
     "f8f9fa": "Grau 0",
     "f1f3f5": "Grau 1",
@@ -432,7 +420,6 @@
     "fd7e14": "Orange 6",
     "000000": "Schwarz",
     "343a40": "Grau 8",
-    "495057": "Grau 7",
     "c92a2a": "Rot 9",
     "a61e4d": "Pink 9",
     "862e9c": "Traube 9",

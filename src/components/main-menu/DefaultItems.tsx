@@ -247,17 +247,3 @@ Export.displayName = "Export";
 
 export const Socials = () => null;
 Socials.displayName = "Socials";
-
-export const LiveCollaborationTrigger = ({
-  onSelect,
-  isCollaborating,
-}: {
-  onSelect: () => void;
-  isCollaborating: boolean;
-}) => {
-  void onSelect;
-  void isCollaborating;
-  return null;
-};
-
-LiveCollaborationTrigger.displayName = "LiveCollaborationTrigger";

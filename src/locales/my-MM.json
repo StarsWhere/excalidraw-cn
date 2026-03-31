@@ -72,7 +72,6 @@
     "layers": "အလွှာများ",
     "actions": "လုပ်ဆောင်ချက်များ",
     "language": "ဘာသာစကား",
-    "liveCollaboration": "",
     "duplicateSelection": "ပွား",
     "untitled": "အမည်မရှိ",
     "name": "အမည်",
@@ -191,8 +190,7 @@
     "cannotRestoreFromImage": "ဤပုံဖြင့်မြင်ကွင်းပြန်လည်မရယူနိုင်ပါ။",
     "invalidSceneUrl": "",
     "resetLibrary": "",
-    "removeItemsFromsLibrary": "",
-    "invalidEncryptionKey": ""
+    "removeItemsFromsLibrary": ""
   },
   "errors": {
     "unsupportedFileType": "",
@@ -200,7 +198,6 @@
     "fileTooBig": "",
     "svgImageInsertError": "",
     "invalidSVGString": "",
-    "cannotResolveCollabServer": "",
     "importLibraryError": "",
     "collabSaveFailed": "",
     "collabSaveFailed_sizeExceeded": ""
@@ -264,16 +261,6 @@
     "openIssueMessage_button": "ချို့ယွင်းမှုအားခြေရာကောက်ပါ။",
     "openIssueMessage_post": " အောက်ပါအချက်အလက်များအား Github တွင် Issue အနေဖြင့်ဖြည့်သွင်းဖော်ပြပေးပါ။",
     "sceneContent": "မြင်ကွင်းပါအချက်အလက်။ ။"
-  },
-  "roomDialog": {
-    "desc_intro": "လက်ရှိမြင်ကွင်းတွင်ပူးပေါင်းရေးဆွဲရန် အခြားသူများအား ဖိတ်ကြားနိုင်သည်။",
-    "desc_privacy": "နှစ်ဘက်စွန်းတိုင်လျှို့ဝှက်ထားသဖြင့်ရေးဆွဲသမျှအား ဆာဗာပေါ်မှပင်လျှင်ကြည့်ရှုနိုင်မည်မဟုတ်ပါ။ မစိုးရိမ်ပါနှင့်။",
-    "button_startSession": "ပူးပေါင်းမှုစတင်",
-    "button_stopSession": "ပူးပေါင်းမှုအဆုံးသတ်",
-    "desc_inProgressIntro": "တိုက်ရိုက်ပူးပေါင်းရေးဆွဲမှုများပြုလုပ်နေပါသည်။",
-    "desc_shareLink": "ဤလင့်ခ်အား ပူးပေါင်းရေးဆွဲလိုသူများထံပေးပို့ပါ။ ။ ",
-    "desc_exitSession": "ပူးပေါင်းမှုရပ်တန့်ပါက အဖွဲ့အတွင်းမှထွက်ခွာသွားမည်ဖြစ်သော်လည်း မိမိမြင်ကွင်းတွင်ဆက်လက်ရေးဆွဲနိုင်ပါမည်။ အဖွဲ့အတွင်းကျန်ရှိနေခဲ့သောအခြားပါဝင်သူများသည်လည်း ဆက်လက်ပူးပေါင်းရေးဆွဲနေနိုင်ပါလိမ့်မည်။",
-    "shareTitle": ""
   },
   "errorDialog": {
     "title": "ချို့ယွင်းချက်"
@@ -400,6 +387,7 @@
     "pasteAsSingleElement": ""
   },
   "colors": {
+    "495057": "",
     "ffffff": "",
     "f8f9fa": "",
     "f1f3f5": "",
@@ -432,7 +420,6 @@
     "fd7e14": "",
     "000000": "",
     "343a40": "",
-    "495057": "",
     "c92a2a": "",
     "a61e4d": "",
     "862e9c": "",

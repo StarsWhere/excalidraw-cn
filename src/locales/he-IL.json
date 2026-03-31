@@ -72,7 +72,6 @@
     "layers": "שכבות",
     "actions": "פעולות",
     "language": "שפה",
-    "liveCollaboration": "",
     "duplicateSelection": "שכפל",
     "untitled": "ללא כותרת",
     "name": "שם",
@@ -191,8 +190,7 @@
     "cannotRestoreFromImage": "לא הצלחנו לשחזר את התצוגה מקובץ התמונה",
     "invalidSceneUrl": "ייבוא המידע מן סצינה מכתובת האינטרנט נכשלה. המידע בנוי באופן משובש או שהוא אינו קובץ JSON תקין של Excalidraw.",
     "resetLibrary": "פעולה זו תנקה את כל הלוח. אתה בטוח?",
-    "removeItemsFromsLibrary": "מחיקת {{count}} פריטים(ים) מתוך הספריה?",
-    "invalidEncryptionKey": "מפתח ההצפנה חייב להיות בן 22 תוים. השיתוף החי מבוטל."
+    "removeItemsFromsLibrary": "מחיקת {{count}} פריטים(ים) מתוך הספריה?"
   },
   "errors": {
     "unsupportedFileType": "סוג הקובץ אינו נתמך.",
@@ -200,7 +198,6 @@
     "fileTooBig": "הקובץ כבד מדי. הגודל המקסימלי המותר הוא {{maxSize}}.",
     "svgImageInsertError": "לא ניתן היה להטמיע את תמונת ה-SVG. קידוד ה-SVG אינו תקני.",
     "invalidSVGString": "SVG בלתי תקני.",
-    "cannotResolveCollabServer": "",
     "importLibraryError": "לא ניתן היה לטעון את הספריה",
     "collabSaveFailed": "",
     "collabSaveFailed_sizeExceeded": ""
@@ -264,16 +261,6 @@
     "openIssueMessage_button": "מעקב באגים.",
     "openIssueMessage_post": " בבקשה כלול את המידע למטה באמצעות העתקה והדבקה בנושא ב GitHub.",
     "sceneContent": "תוכן הלוח:"
-  },
-  "roomDialog": {
-    "desc_intro": "אתה יכול להזמין אנשים ללוח הנוכחי שלך בכדי לשתף פעולה.",
-    "desc_privacy": "אל דאגה, השיתוף מוצפן מקצה לקצה, כך שכל מה שתצייר ישאר פרטי. אפילו השרתים שלנו לא יוכלו לראות את מה שאתה ממציא.",
-    "button_startSession": "התחל שיתוף",
-    "button_stopSession": "הפסק שיתוף",
-    "desc_inProgressIntro": "שיתוף חי כרגע בפעולה.",
-    "desc_shareLink": "שתף את הקישור עם כל מי שאתה מעוניין לעבוד אתו:",
-    "desc_exitSession": "עצירת השיתוף תנתק אותך מהחדר, אבל עדיין תוכל להמשיך לעבוד על הלוח, מקומית. שים לב שזה לא ישפיע על אנשים אחרים, והם עדיין יוכלו לשתף פעולה עם הגירסה שלהם.",
-    "shareTitle": "הצטרף לסשן שיתוף בזמן אמת של Excalidraw"
   },
   "errorDialog": {
     "title": "שגיאה"
@@ -400,6 +387,7 @@
     "pasteAsSingleElement": ""
   },
   "colors": {
+    "495057": "אפור 7",
     "ffffff": "לבן",
     "f8f9fa": "אפור 0",
     "f1f3f5": "אפור 1",
@@ -432,7 +420,6 @@
     "fd7e14": "כתום 6",
     "000000": "שחור",
     "343a40": "אפור 8",
-    "495057": "אפור 7",
     "c92a2a": "אדום 9",
     "a61e4d": "ורוד 9",
     "862e9c": "ענבים 9",

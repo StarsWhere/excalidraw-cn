@@ -72,7 +72,6 @@
     "layers": "Capes",
     "actions": "Accions",
     "language": "Llengua",
-    "liveCollaboration": "",
     "duplicateSelection": "Duplica",
     "untitled": "Sense títol",
     "name": "Nom",
@@ -191,8 +190,7 @@
     "cannotRestoreFromImage": "L’escena no s’ha pogut restaurar des d’aquest fitxer d’imatge",
     "invalidSceneUrl": "No s'ha pogut importar l'escena des de l'adreça URL proporcionada. Està malformada o no conté dades Excalidraw JSON vàlides.",
     "resetLibrary": "Això buidarà la biblioteca. N'esteu segur?",
-    "removeItemsFromsLibrary": "Suprimir {{count}} element(s) de la biblioteca?",
-    "invalidEncryptionKey": "La clau d'encriptació ha de tenir 22 caràcters. La col·laboració en directe està desactivada."
+    "removeItemsFromsLibrary": "Suprimir {{count}} element(s) de la biblioteca?"
   },
   "errors": {
     "unsupportedFileType": "Tipus de fitxer no suportat.",
@@ -200,7 +198,6 @@
     "fileTooBig": "El fitxer és massa gros. La mida màxima permesa és {{maxSize}}.",
     "svgImageInsertError": "No ha estat possible inserir la imatge SVG. Les marques SVG semblen invàlides.",
     "invalidSVGString": "SVG no vàlid.",
-    "cannotResolveCollabServer": "No ha estat possible connectar amb el servidor collab. Si us plau recarregueu la pàgina i torneu a provar.",
     "importLibraryError": "No s'ha pogut carregar la biblioteca",
     "collabSaveFailed": "",
     "collabSaveFailed_sizeExceeded": ""
@@ -264,16 +261,6 @@
     "openIssueMessage_button": "rastrejador d'errors.",
     "openIssueMessage_post": " Incloeu la informació a continuació copiant i enganxant a GitHub Issues.",
     "sceneContent": "Contingut de l'escena:"
-  },
-  "roomDialog": {
-    "desc_intro": "Podeu convidar persones a la vostra escena actual a col·laborar amb vós.",
-    "desc_privacy": "No us preocupeu, la sessió utilitza el xifratge de punta a punta, de manera que qualsevol cosa que dibuixeu romandrà privada. Ni tan sols el nostre servidor podrà veure què feu.",
-    "button_startSession": "Inicia la sessió",
-    "button_stopSession": "Atura la sessió",
-    "desc_inProgressIntro": "La sessió de col·laboració en directe està en marxa.",
-    "desc_shareLink": "Comparteix aquest enllaç amb qualsevol persona amb qui vulgueu col·laborar:",
-    "desc_exitSession": "Si atureu la sessió, us desconectareu de la sala, però podreu continuar treballant amb el dibuix localment. Tingues en compte que això no afectarà a altres persones, i encara podran col·laborar en la seva versió.",
-    "shareTitle": "Uniu-vos a una sessió de col·laboració en directe a Excalidraw"
   },
   "errorDialog": {
     "title": "Error"
@@ -400,6 +387,7 @@
     "pasteAsSingleElement": ""
   },
   "colors": {
+    "495057": "Gris 7",
     "ffffff": "Blanc",
     "f8f9fa": "Gris 0",
     "f1f3f5": "Gris 1",
@@ -432,7 +420,6 @@
     "fd7e14": "Taronja 6",
     "000000": "Negre",
     "343a40": "Gris 8",
-    "495057": "Gris 7",
     "c92a2a": "Vermell 9",
     "a61e4d": "Rosa 9",
     "862e9c": "Malva 9",
