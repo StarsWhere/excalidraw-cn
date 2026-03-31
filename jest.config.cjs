@@ -1,10 +1,16 @@
 module.exports = {
   testEnvironment: "jsdom",
-  setupFilesAfterEnv: ["<rootDir>/src/setupTests.ts"],
+  setupFilesAfterEnv: ["<rootDir>/src/test/setupTests.ts"],
+  snapshotResolver: "<rootDir>/scripts/test/jest/snapshotResolver.cjs",
   moduleNameMapper: {
     "\\.(css|scss)$": "identity-obj-proxy",
     "\\.(gif|ttf|eot|svg|png|jpg|jpeg|webp|bmp|ico|woff2?)$":
-      "<rootDir>/scripts/jest/fileMock.cjs",
+      "<rootDir>/scripts/test/jest/fileMock.cjs",
+    "^@app/(.*)$": "<rootDir>/src/app/$1",
+    "^@core/(.*)$": "<rootDir>/src/core/$1",
+    "^@platform/(.*)$": "<rootDir>/src/platform/$1",
+    "^@shared/(.*)$": "<rootDir>/src/shared/$1",
+    "^@test/(.*)$": "<rootDir>/src/test/$1",
   },
   transform: {
     "^.+\\.(ts|tsx|js|jsx)$": [
@@ -21,5 +27,5 @@ module.exports = {
   ],
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json"],
   resetMocks: false,
-  testPathIgnorePatterns: ["/node_modules/", "<rootDir>/src/packages/"],
+  testPathIgnorePatterns: ["/node_modules/"],
 };
