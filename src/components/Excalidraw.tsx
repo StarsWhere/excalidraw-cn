@@ -1,20 +1,16 @@
 import React, { useEffect, forwardRef } from "react";
-import { InitializeApp } from "../../components/InitializeApp";
-import App from "../../components/App";
-import { isShallowEqual } from "../../utils";
+import { InitializeApp } from "./InitializeApp";
+import App, { useDevice } from "./App";
+import { isShallowEqual } from "../utils";
 
-import "../../css/app.scss";
-import "../../css/styles.scss";
+import "../css/app.scss";
+import "../css/styles.scss";
 
-import { AppProps, ExcalidrawAPIRefValue, ExcalidrawProps } from "../../types";
-import { defaultLang } from "../../i18n";
-import { DEFAULT_UI_OPTIONS } from "../../constants";
+import { AppProps, ExcalidrawAPIRefValue, ExcalidrawProps } from "../types";
+import { defaultLang } from "../i18n";
+import { DEFAULT_UI_OPTIONS } from "../constants";
 import { Provider } from "jotai";
-import { jotaiScope, jotaiStore } from "../../jotai";
-import Footer from "../../components/footer/FooterCenter";
-import MainMenu from "../../components/main-menu/MainMenu";
-import WelcomeScreen from "../../components/welcome-screen/WelcomeScreen";
-import LiveCollaborationTrigger from "../../components/live-collaboration/LiveCollaborationTrigger";
+import { jotaiScope, jotaiStore } from "../jotai";
 
 const ExcalidrawBase = (props: ExcalidrawProps) => {
   const {
@@ -69,7 +65,6 @@ const ExcalidrawBase = (props: ExcalidrawProps) => {
   }
 
   useEffect(() => {
-    // Block pinch-zooming on iOS outside of the content area
     const handleTouchMove = (event: TouchEvent) => {
       // @ts-ignore
       if (typeof event.scale === "number" && event.scale !== 1) {
@@ -129,7 +124,6 @@ const areEqual = (
   prevProps: PublicExcalidrawProps,
   nextProps: PublicExcalidrawProps,
 ) => {
-  // short-circuit early
   if (prevProps.children !== nextProps.children) {
     return false;
   }
@@ -144,8 +138,9 @@ const areEqual = (
     UIOptions: nextUIOptions = {},
     ...next
   } = nextProps;
+  void prevInitialData;
+  void nextInitialData;
 
-  // comparing UIOptions
   const prevUIOptionsKeys = Object.keys(prevUIOptions) as (keyof Partial<
     typeof DEFAULT_UI_OPTIONS
   >)[];
@@ -162,9 +157,9 @@ const areEqual = (
       const canvasOptionKeys = Object.keys(
         prevUIOptions.canvasActions!,
       ) as (keyof Partial<typeof DEFAULT_UI_OPTIONS.canvasActions>)[];
-      return canvasOptionKeys.every((key) => {
+      return canvasOptionKeys.every((canvasActionKey) => {
         if (
-          key === "export" &&
+          canvasActionKey === "export" &&
           prevUIOptions?.canvasActions?.export &&
           nextUIOptions?.canvasActions?.export
         ) {
@@ -174,8 +169,8 @@ const areEqual = (
           );
         }
         return (
-          prevUIOptions?.canvasActions?.[key] ===
-          nextUIOptions?.canvasActions?.[key]
+          prevUIOptions?.canvasActions?.[canvasActionKey] ===
+          nextUIOptions?.canvasActions?.[canvasActionKey]
         );
       });
     }
@@ -193,55 +188,4 @@ const forwardedRefComp = forwardRef<
 export const Excalidraw = React.memo(forwardedRefComp, areEqual);
 Excalidraw.displayName = "Excalidraw";
 
-export {
-  getSceneVersion,
-  isInvisiblySmallElement,
-  getNonDeletedElements,
-} from "../../element";
-export { defaultLang, languages } from "../../i18n";
-export {
-  restore,
-  restoreAppState,
-  restoreElements,
-  restoreLibraryItems,
-} from "../../data/restore";
-export {
-  exportToCanvas,
-  exportToBlob,
-  exportToSvg,
-  serializeAsJSON,
-  serializeLibraryAsJSON,
-  loadLibraryFromBlob,
-  loadFromBlob,
-  loadSceneOrLibraryFromBlob,
-  getFreeDrawSvgPath,
-  exportToClipboard,
-  mergeLibraryItems,
-} from "../../packages/utils";
-export { isLinearElement } from "../../element/typeChecks";
-
-export { FONT_FAMILY, THEME, MIME_TYPES } from "../../constants";
-
-export {
-  mutateElement,
-  newElementWith,
-  bumpVersion,
-} from "../../element/mutateElement";
-
-export {
-  parseLibraryTokensFromUrl,
-  useHandleLibrary,
-} from "../../data/library";
-
-export {
-  sceneCoordsToViewportCoords,
-  viewportCoordsToSceneCoords,
-} from "../../utils";
-
-export { Sidebar } from "../../components/Sidebar/Sidebar";
-export { Button } from "../../components/Button";
-export { Footer };
-export { MainMenu };
-export { useDevice } from "../../components/App";
-export { WelcomeScreen };
-export { LiveCollaborationTrigger };
+export { useDevice };

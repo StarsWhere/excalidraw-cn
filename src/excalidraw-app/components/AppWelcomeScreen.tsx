@@ -1,6 +1,6 @@
 import React from "react";
 import { t } from "../../i18n";
-import { WelcomeScreen } from "../../packages/excalidraw/index";
+import WelcomeScreen from "../../components/welcome-screen/WelcomeScreen";
 
 export const AppWelcomeScreen: React.FC = React.memo(() => {
   return (

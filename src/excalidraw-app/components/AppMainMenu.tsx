@@ -1,5 +1,5 @@
 import React from "react";
-import { MainMenu } from "../../packages/excalidraw/index";
+import MainMenu from "../../components/main-menu/MainMenu";
 import { LanguageList } from "./LanguageList";
 
 export const AppMainMenu: React.FC = React.memo(() => {
