@@ -1,8 +1,6 @@
 import fallbackLangData from "./locales/en.json";
-import percentages from "./locales/percentages.json";
+import zhCNLangData from "./locales/zh-CN.json";
 import { ENV } from "./constants";
-
-const COMPLETION_THRESHOLD = 85;
 
 export interface Language {
   code: string;
@@ -12,60 +10,12 @@ export interface Language {
 
 export const defaultLang = { code: "en", label: "English" };
 
-const allLanguages: Language[] = [
-  { code: "ar-SA", label: "العربية", rtl: true },
-  { code: "bg-BG", label: "Български" },
-  { code: "ca-ES", label: "Català" },
-  { code: "cs-CZ", label: "Česky" },
-  { code: "de-DE", label: "Deutsch" },
-  { code: "el-GR", label: "Ελληνικά" },
-  { code: "es-ES", label: "Español" },
-  { code: "eu-ES", label: "Euskara" },
-  { code: "fa-IR", label: "فارسی", rtl: true },
-  { code: "fi-FI", label: "Suomi" },
-  { code: "fr-FR", label: "Français" },
-  { code: "gl-ES", label: "Galego" },
-  { code: "he-IL", label: "עברית", rtl: true },
-  { code: "hi-IN", label: "हिन्दी" },
-  { code: "hu-HU", label: "Magyar" },
-  { code: "id-ID", label: "Bahasa Indonesia" },
-  { code: "it-IT", label: "Italiano" },
-  { code: "ja-JP", label: "日本語" },
-  { code: "kab-KAB", label: "Taqbaylit" },
-  { code: "kk-KZ", label: "Қазақ тілі" },
-  { code: "ko-KR", label: "한국어" },
-  { code: "ku-TR", label: "Kurdî" },
-  { code: "lt-LT", label: "Lietuvių" },
-  { code: "lv-LV", label: "Latviešu" },
-  { code: "my-MM", label: "Burmese" },
-  { code: "nb-NO", label: "Norsk bokmål" },
-  { code: "nl-NL", label: "Nederlands" },
-  { code: "nn-NO", label: "Norsk nynorsk" },
-  { code: "oc-FR", label: "Occitan" },
-  { code: "pa-IN", label: "ਪੰਜਾਬੀ" },
-  { code: "pl-PL", label: "Polski" },
-  { code: "pt-BR", label: "Português Brasileiro" },
-  { code: "pt-PT", label: "Português" },
-  { code: "ro-RO", label: "Română" },
-  { code: "ru-RU", label: "Русский" },
-  { code: "sk-SK", label: "Slovenčina" },
-  { code: "sv-SE", label: "Svenska" },
-  { code: "sl-SI", label: "Slovenščina" },
-  { code: "tr-TR", label: "Türkçe" },
-  { code: "uk-UA", label: "Українська" },
+const SUPPORTED_LANGUAGES: Language[] = [
+  defaultLang,
   { code: "zh-CN", label: "简体中文" },
-  { code: "zh-TW", label: "繁體中文" },
-  { code: "vi-VN", label: "Tiếng Việt" },
-  { code: "mr-IN", label: "मराठी" },
-].concat([defaultLang]);
+];
 
-export const languages: Language[] = allLanguages
-  .sort((left, right) => (left.label > right.label ? 1 : -1))
-  .filter(
-    (lang) =>
-      (percentages as Record<string, number>)[lang.code] >=
-      COMPLETION_THRESHOLD,
-  );
+export const languages: Language[] = [...SUPPORTED_LANGUAGES];
 
 const TEST_LANG_CODE = "__test__";
 if (process.env.NODE_ENV === ENV.DEVELOPMENT) {
@@ -80,24 +30,26 @@ if (process.env.NODE_ENV === ENV.DEVELOPMENT) {
 }
 
 let currentLang: Language = defaultLang;
-let currentLangData = {};
+let currentLangData: any = fallbackLangData;
+
+const localeDataMap: Record<string, any> = {
+  en: fallbackLangData,
+  "zh-CN": zhCNLangData,
+};
 
 export const setLanguage = async (lang: Language) => {
-  currentLang = lang;
+  const normalizedLang =
+    localeDataMap[lang.code as keyof typeof localeDataMap] ? lang : defaultLang;
+  currentLang = normalizedLang;
   document.documentElement.dir = currentLang.rtl ? "rtl" : "ltr";
   document.documentElement.lang = currentLang.code;
 
-  if (lang.code.startsWith(TEST_LANG_CODE)) {
+  if (currentLang.code.startsWith(TEST_LANG_CODE)) {
     currentLangData = {};
   } else {
-    try {
-      currentLangData = await import(
-        /* webpackChunkName: "locales/[request]" */ `./locales/${currentLang.code}.json`
-      );
-    } catch (error: any) {
-      console.error(`Failed to load language ${lang.code}:`, error.message);
-      currentLangData = fallbackLangData;
-    }
+    currentLangData =
+      localeDataMap[currentLang.code as keyof typeof localeDataMap] ||
+      fallbackLangData;
   }
 };
 
