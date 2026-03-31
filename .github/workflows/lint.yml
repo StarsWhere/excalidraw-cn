@@ -1,10 +1,10 @@
-name: Lint
+name: Windows Checks
 
 on: pull_request
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -22,5 +22,5 @@ jobs:
         run: |
           pnpm install --frozen-lockfile
           pnpm test:other
-          pnpm test:code
-          pnpm test:typecheck
+          pnpm lint
+          pnpm typecheck

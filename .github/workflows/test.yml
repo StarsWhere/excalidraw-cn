@@ -1,10 +1,10 @@
-name: Tests
+name: Windows Build
 
 on: pull_request
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
       - name: Setup Node.js 18.x
@@ -14,7 +14,9 @@ jobs:
           cache: pnpm
       - name: Enable Corepack
         run: corepack enable pnpm
-      - name: Install and test
+      - name: Install, test, build and package
         run: |
           pnpm install --frozen-lockfile
-          pnpm test:app
+          pnpm test:app --runInBand
+          pnpm build
+          pnpm dist:win

@@ -2,8 +2,8 @@
 
 const fs = require("fs");
 const path = require("path");
-const versionFile = path.join("build", "version.json");
-const indexFile = path.join("build", "index.html");
+const versionFile = path.join("dist", "renderer", "version.json");
+const indexFile = path.join("dist", "renderer", "index.html");
 
 const versionDate = (date) => date.toISOString().replace(".000", "");
 
