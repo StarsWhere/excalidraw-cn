@@ -1,6 +1,2 @@
-.docusaurus
-build
-dev-docs/.docusaurus
-dev-docs/build
-src/packages/excalidraw/dist
-src/packages/utils/dist
+dist
+docs/assets

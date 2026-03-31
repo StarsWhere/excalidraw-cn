@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { execSync } from "node:child_process";
+import path from "node:path";
 
 const getGitSha = () => {
   try {
@@ -14,6 +15,15 @@ export default defineConfig(({ mode }) => ({
   base: "./",
   plugins: [react()],
   publicDir: "public",
+  resolve: {
+    alias: {
+      "@app": path.resolve("src/app"),
+      "@core": path.resolve("src/core"),
+      "@platform": path.resolve("src/platform"),
+      "@shared": path.resolve("src/shared"),
+      "@test": path.resolve("src/test"),
+    },
+  },
   build: {
     outDir: "dist/renderer",
     emptyOutDir: true,

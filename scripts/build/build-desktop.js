@@ -3,9 +3,9 @@
 const fs = require("node:fs/promises");
 const path = require("node:path");
 
-const rootDir = path.resolve(__dirname, "..");
-const sourceDir = path.join(rootDir, "electron");
-const outputDir = path.join(rootDir, "dist", "electron");
+const rootDir = path.resolve(__dirname, "..", "..");
+const sourceDir = path.join(rootDir, "desktop");
+const outputDir = path.join(rootDir, "dist", "desktop");
 
 const main = async () => {
   await fs.rm(outputDir, { recursive: true, force: true });

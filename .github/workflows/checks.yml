@@ -3,7 +3,7 @@ name: Windows Checks
 on: pull_request
 
 jobs:
-  lint:
+  checks:
     runs-on: windows-latest
 
     steps:
@@ -18,9 +18,9 @@ jobs:
       - name: Enable Corepack
         run: corepack enable pnpm
 
-      - name: Install and lint
+      - name: Install and verify
         run: |
           pnpm install --frozen-lockfile
-          pnpm test:other
-          pnpm lint
-          pnpm typecheck
+          pnpm check:format
+          pnpm check:lint
+          pnpm check:type

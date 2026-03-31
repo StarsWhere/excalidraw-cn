@@ -1,8 +1,29 @@
 {
   "extends": ["@excalidraw/eslint-config"],
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "project": "./tsconfig.json"
+      }
+    }
+  },
   "rules": {
     "import/no-anonymous-default-export": "off",
     "no-restricted-globals": "off",
     "no-console": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["src/core/editor/elements/**/*.{ts,tsx,js,jsx}", "src/core/editor/render/**/*.{ts,tsx,js,jsx}", "src/core/editor/scene/**/*.{ts,tsx,js,jsx}", "src/core/editor/lib/**/*.{ts,tsx,js,jsx}", "src/core/editor/features/**/*.{ts,tsx,js,jsx}"],
+      "excludedFiles": ["**/*.test.*"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": ["@app/*", "@platform/*", "**/app/desktop/*", "**/platform/desktop/*"]
+          }
+        ]
+      }
+    }
+  ]
 }

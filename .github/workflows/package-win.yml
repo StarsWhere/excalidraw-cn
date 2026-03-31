@@ -1,9 +1,9 @@
-name: Windows Build
+name: Windows Package
 
 on: pull_request
 
 jobs:
-  test:
+  package:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -17,6 +17,6 @@ jobs:
       - name: Install, test, build and package
         run: |
           pnpm install --frozen-lockfile
-          pnpm test:app --runInBand
+          pnpm check:test --runInBand
           pnpm build
-          pnpm dist:win
+          pnpm release:win

@@ -70,14 +70,15 @@
     "productName": "Handraw",
     "asar": true,
     "extraMetadata": {
-      "main": "dist/electron/main.cjs"
+      "main": "dist/desktop/main.cjs"
     },
     "directories": {
-      "buildResources": "public"
+      "buildResources": "public",
+      "output": "dist/release"
     },
     "files": [
       "dist/renderer/**/*",
-      "dist/electron/**/*",
+      "dist/desktop/**/*",
       "package.json"
     ],
     "win": {
@@ -85,7 +86,7 @@
         "nsis",
         "portable"
       ],
-      "icon": "favicon.ico",
+      "icon": "public/icons/favicon.ico",
       "signAndEditExecutable": false
     },
     "nsis": {
@@ -109,7 +110,7 @@
     ]
   },
   "homepage": ".",
-  "main": "electron/main.cjs",
+  "main": "desktop/main.cjs",
   "name": "handraw",
   "description": "A desktop-first hand-drawn whiteboard built with Electron.",
   "author": "StarsWhere",
@@ -118,31 +119,23 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
-    "build:electron": "node ./scripts/build-electron.js",
+    "build:desktop": "node ./scripts/build/build-desktop.js",
     "build:renderer": "vite build && pnpm build:version",
-    "build:version": "node ./scripts/build-version.js",
-    "build": "pnpm build:renderer && pnpm build:electron",
-    "dev": "concurrently -k -s first \"pnpm dev:renderer\" \"pnpm dev:electron\"",
-    "dev:electron": "wait-on tcp:5173 && cross-env ELECTRON_START_URL=http://127.0.0.1:5173 electron .",
+    "build:version": "node ./scripts/build/build-version.js",
+    "build": "pnpm build:renderer && pnpm build:desktop",
+    "dev": "concurrently -k -s first \"pnpm dev:renderer\" \"pnpm dev:desktop\"",
+    "dev:desktop": "wait-on tcp:5173 && cross-env ELECTRON_START_URL=http://127.0.0.1:5173 electron .",
     "dev:renderer": "vite",
-    "dist:win": "pnpm build && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder --win nsis portable",
-    "fix:code": "pnpm test:code --fix",
-    "fix:other": "pnpm prettier --write",
-    "fix": "pnpm fix:other && pnpm fix:code",
-    "lint": "pnpm test:code",
+    "check:format": "prettier \"**/*.{css,scss,json,md,html,yml}\" --ignore-path=.prettierignore --list-different",
+    "check:lint": "eslint --quiet --ext .js,.ts,.tsx .",
+    "check:type": "tsc --noEmit",
+    "check:test": "jest --passWithNoTests",
+    "check": "pnpm check:format && pnpm check:lint && pnpm check:type && pnpm check:test --runInBand",
+    "fix:format": "prettier \"**/*.{css,scss,json,md,html,yml}\" --ignore-path=.prettierignore --write",
+    "fix:lint": "eslint --quiet --ext .js,.ts,.tsx . --fix",
+    "fix": "pnpm fix:format && pnpm fix:lint",
     "prepare": "husky install",
-    "prettier": "prettier \"**/*.{css,scss,json,md,html,yml}\" --ignore-path=.prettierignore",
-    "start": "pnpm dev",
-    "start:desktop": "pnpm build && electron .",
-    "test:all": "pnpm typecheck && pnpm lint && pnpm test:other && pnpm test:app --runInBand",
-    "test:app": "jest --passWithNoTests",
-    "test:code": "eslint --quiet --ext .js,.ts,.tsx .",
-    "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --no-cache",
-    "test:other": "pnpm prettier --list-different",
-    "test:typecheck": "tsc --noEmit",
-    "test:update": "pnpm test:app --updateSnapshot",
-    "typecheck": "pnpm test:typecheck",
-    "test": "pnpm test:app"
+    "release:win": "pnpm build && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder --win nsis portable"
   },
   "repository": "git@github.com:korbinzhao/handraw.git"
 }
