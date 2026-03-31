@@ -20,7 +20,6 @@ export const useAtomWithInitialValue = <
     } else {
       setValue(initialValue);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return [value, setValue] as const;
