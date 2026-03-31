@@ -179,13 +179,13 @@
     "couldNotCreateShareableLink": "无法创建共享链接",
     "couldNotCreateShareableLinkTooBig": "无法创建可共享链接：画布过大",
     "couldNotLoadInvalidFile": "无法加载无效的文件",
-    "importBackendFailed": "从后端导入失败。",
+    "importBackendFailed": "导入失败。",
     "cannotExportEmptyCanvas": "无法导出空白画布。",
     "couldNotCopyToClipboard": "无法复制到剪贴板。",
     "decryptFailed": "无法解密数据。",
     "uploadedSecurly": "上传已被端到端加密保护，这意味着 Handraw 的服务器和第三方都无法读取内容。",
     "loadSceneOverridePrompt": "加载外部绘图将取代您现有的内容。您想要继续吗？",
-    "collabStopOverridePrompt": "停止会话将覆盖您先前本地存储的绘图。 您确定吗？\n\n(如果您想保持本地绘图，只需关闭浏览器选项卡。)",
+    "collabStopOverridePrompt": "停止当前会话将覆盖您先前保存在本地的绘图。您确定吗？\n\n(如果您想保留当前绘图，请直接关闭 Handraw 窗口。)",
     "errorAddingToLibrary": "无法将项目添加到素材库中",
     "errorRemovingFromLibrary": "无法从素材库中移除项目",
     "confirmAddLibrary": "这将添加 {{numShapes}} 个形状到您的素材库中。您确定吗？",
@@ -202,8 +202,8 @@
     "svgImageInsertError": "无法插入 SVG 图像。该 SVG 标记似乎是无效的。",
     "invalidSVGString": "无效的 SVG。",
     "importLibraryError": "无法加载素材库",
-    "collabSaveFailed": "无法保存到后端数据库。如果问题持续存在，您应该保存文件到本地，以确保您的工作不会丢失。",
-    "collabSaveFailed_sizeExceeded": "无法保存到后端数据库，画布似乎过大。您应该保存文件到本地，以确保您的工作不会丢失。"
+    "collabSaveFailed": "无法保存当前会话数据。如果问题持续存在，请将文件保存到本地，以确保您的工作不会丢失。",
+    "collabSaveFailed_sizeExceeded": "无法保存当前会话数据，画布似乎过大。请将文件保存到本地，以确保您的工作不会丢失。"
   },
   "toolBar": {
     "selection": "选择",

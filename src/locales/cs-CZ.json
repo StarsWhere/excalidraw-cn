@@ -176,7 +176,7 @@
     "couldNotCreateShareableLink": "Nepodařilo se vytvořit sdílitelný odkaz.",
     "couldNotCreateShareableLinkTooBig": "Nepodařilo se vytvořit sdílený odkaz: scéna je příliš velká",
     "couldNotLoadInvalidFile": "Nepodařilo se načíst neplatný soubor",
-    "importBackendFailed": "Import z backendu se nezdařil.",
+    "importBackendFailed": "Import se nezdařil.",
     "cannotExportEmptyCanvas": "Nelze exportovat prázdné plátno.",
     "couldNotCopyToClipboard": "Nelze zkopírovat do schránky.",
     "decryptFailed": "Nelze dešifrovat data.",

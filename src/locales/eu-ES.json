@@ -182,7 +182,7 @@
     "decryptFailed": "Ezin izan da deszifratu.",
     "uploadedSecurly": "Kargatzea muturretik muturrerako zifratze bidez ziurtatu da, hau da, Excalidraw zerbitzariak eta hirugarrenek ezin dutela edukia irakurri.",
     "loadSceneOverridePrompt": "Kanpoko marrazkia kargatzeak lehendik duzun edukia ordezkatuko du. Jarraitu nahi duzu?",
-    "collabStopOverridePrompt": "Saioa gelditzeak lokalean gordetako zure aurreko marrazkia gainidatziko du. Ziur zaude?\n\n(Zure marrazki lokala mantendu nahi baduzu, itxi arakatzailearen fitxa.)",
+    "collabStopOverridePrompt": "Saioa gelditzeak lokalean gordetako zure marrazkia ordezkatuko du. Ziur zaude?\n\n(Zure marrazki lokala gorde nahi baduzu, itxi leiho hau.)",
     "errorAddingToLibrary": "Ezin izan da elementua liburutegian gehitu",
     "errorRemovingFromLibrary": "Ezin izan da elementua liburutegitik kendu",
     "confirmAddLibrary": "Honek {{numShapes}} forma gehituko ditu zure liburutegian. Ziur zaude?",
@@ -199,8 +199,8 @@
     "svgImageInsertError": "Ezin izan da SVG irudia txertatu. SVG markak baliogabea dirudi.",
     "invalidSVGString": "SVG baliogabea.",
     "importLibraryError": "Ezin izan da liburutegia kargatu",
-    "collabSaveFailed": "Ezin izan da backend datu-basean gorde. Arazoak jarraitzen badu, zure fitxategia lokalean gorde beharko zenuke zure lana ez duzula galtzen ziurtatzeko.",
-    "collabSaveFailed_sizeExceeded": "Ezin izan da backend datu-basean gorde, ohiala handiegia dela dirudi. Fitxategia lokalean gorde beharko zenuke zure lana galtzen ez duzula ziurtatzeko."
+    "collabSaveFailed": "Ezin izan dira saioko datuak gorde. Arazoak jarraitzen badu, gorde fitxategia lokalean zure lana ez galtzeko.",
+    "collabSaveFailed_sizeExceeded": "Ezin izan dira saioko datuak gorde. Baliteke oihala handiegia izatea. Gorde fitxategia lokalean zure lana ez galtzeko."
   },
   "toolBar": {
     "selection": "Hautapena",
@@ -435,7 +435,7 @@
   },
   "welcomeScreen": {
     "app": {
-      "center_heading": "Zure datu guztiak lokalean gordetzen dira zure nabigatzailean.",
+      "center_heading": "Zure datu guztiak lokalean gordetzen dira gailuan.",
       "center_heading_plus": "Horren ordez Excalidraw+-era joan nahi al zenuen?",
       "menuHint": "Esportatu, hobespenak, hizkuntzak..."
     },

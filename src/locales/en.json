@@ -178,13 +178,13 @@
     "couldNotCreateShareableLink": "Couldn't create shareable link.",
     "couldNotCreateShareableLinkTooBig": "Couldn't create shareable link: the scene is too big",
     "couldNotLoadInvalidFile": "Couldn't load invalid file",
-    "importBackendFailed": "Importing from backend failed.",
+    "importBackendFailed": "Import failed.",
     "cannotExportEmptyCanvas": "Cannot export empty canvas.",
     "couldNotCopyToClipboard": "Couldn't copy to clipboard.",
     "decryptFailed": "Couldn't decrypt data.",
     "uploadedSecurly": "The upload has been secured with end-to-end encryption, which means that Excalidraw server and third parties can't read the content.",
     "loadSceneOverridePrompt": "Loading external drawing will replace your existing content. Do you wish to continue?",
-    "collabStopOverridePrompt": "Stopping the session will overwrite your previous, locally stored drawing. Are you sure?\n\n(If you want to keep your local drawing, simply close the browser tab instead.)",
+    "collabStopOverridePrompt": "Stopping the session will overwrite your previous locally saved drawing. Are you sure?\n\n(If you want to keep your current drawing, close the Handraw window instead.)",
     "errorAddingToLibrary": "Couldn't add item to the library",
     "errorRemovingFromLibrary": "Couldn't remove item from the library",
     "confirmAddLibrary": "This will add {{numShapes}} shape(s) to your library. Are you sure?",
@@ -201,8 +201,8 @@
     "svgImageInsertError": "Couldn't insert SVG image. The SVG markup looks invalid.",
     "invalidSVGString": "Invalid SVG.",
     "importLibraryError": "Couldn't load library",
-    "collabSaveFailed": "Couldn't save to the backend database. If problems persist, you should save your file locally to ensure you don't lose your work.",
-    "collabSaveFailed_sizeExceeded": "Couldn't save to the backend database, the canvas seems to be too big. You should save the file locally to ensure you don't lose your work."
+    "collabSaveFailed": "Couldn't save the session data. If problems persist, save your file locally to ensure you don't lose your work.",
+    "collabSaveFailed_sizeExceeded": "Couldn't save the session data because the canvas seems too large. Save your file locally to ensure you don't lose your work."
   },
   "toolBar": {
     "selection": "Selection",
@@ -246,7 +246,7 @@
     "bindTextToElement": "Press enter to add text",
     "deepBoxSelect": "Hold CtrlOrCmd to deep select, and to prevent dragging",
     "eraserRevert": "Hold Alt to revert the elements marked for deletion",
-    "firefox_clipboard_write": "This feature can likely be enabled by setting the \"dom.events.asyncClipboard.clipboardItem\" flag to \"true\". To change the browser flags in Firefox, visit the \"about:config\" page."
+    "firefox_clipboard_write": "Clipboard writing is unavailable in the current desktop environment. Try exporting the file instead."
   },
   "canvasError": {
     "cannotShowPreview": "Cannot show preview",

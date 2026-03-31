@@ -176,13 +176,13 @@
     "couldNotCreateShareableLink": "Tidak bisa membuat tautan yang bisa dibagikan",
     "couldNotCreateShareableLinkTooBig": "Tidak dapat membuat tautan yang dapat dibagikan: pemandangan terlalu besar",
     "couldNotLoadInvalidFile": "Tidak dapat memuat berkas yang tidak valid",
-    "importBackendFailed": "Gagal mengimpor dari backend",
+    "importBackendFailed": "Impor gagal.",
     "cannotExportEmptyCanvas": "Tidak bisa mengekspor kanvas kosong",
     "couldNotCopyToClipboard": "Tidak bisa menyalin ke papan klip.",
     "decryptFailed": "Tidak dapat mengdekripsi data.",
     "uploadedSecurly": "Pengunggahan ini telah diamankan menggunakan enkripsi end-to-end, artinya server Excalidraw dan pihak ketiga tidak data membaca nya",
     "loadSceneOverridePrompt": "Memuat gambar external akan mengganti konten Anda yang ada. Apakah Anda ingin melanjutkan?",
-    "collabStopOverridePrompt": "Menghentikan sesi akan menimpa gambar Anda yang tersimpan secara lokal. Anda yakin?\n\n(Jika Anda ingin menyimpan gambar lokal Anda, gantinya cukup tutup tab browser.)",
+    "collabStopOverridePrompt": "Menghentikan sesi akan menimpa gambar Anda yang tersimpan secara lokal. Anda yakin?\n\n(Jika Anda ingin menyimpan gambar lokal Anda, tutup jendela ini.)",
     "errorAddingToLibrary": "Tidak dapat menambahkan item ke pustaka",
     "errorRemovingFromLibrary": "Tidak dapat membuang item dari pustaka",
     "confirmAddLibrary": "Ini akan menambahkan {{numShapes}} bentuk ke pustaka Anda. Anda yakin?",
@@ -199,8 +199,8 @@
     "svgImageInsertError": "Tidak dapat menyisipkan gambar SVG. Markup SVG sepertinya tidak valid.",
     "invalidSVGString": "SVG tidak valid.",
     "importLibraryError": "Tidak dapat memuat pustaka",
-    "collabSaveFailed": "Tidak dapat menyimpan ke dalam basis data server. Jika masih berlanjut, Anda sebaiknya simpan berkas Anda secara lokal untuk memastikan pekerjaan Anda tidak hilang.",
-    "collabSaveFailed_sizeExceeded": "Tidak dapat menyimpan ke dalam basis data server, tampaknya ukuran kanvas terlalu besar. Anda sebaiknya simpan berkas Anda secara lokal untuk memastikan pekerjaan Anda tidak hilang."
+    "collabSaveFailed": "Data sesi tidak dapat disimpan. Jika masalah ini berlanjut, simpan berkas Anda secara lokal agar pekerjaan Anda tidak hilang.",
+    "collabSaveFailed_sizeExceeded": "Data sesi tidak dapat disimpan. Ukuran kanvas mungkin terlalu besar. Simpan berkas Anda secara lokal agar pekerjaan Anda tidak hilang."
   },
   "toolBar": {
     "selection": "Pilihan",
@@ -435,7 +435,7 @@
   },
   "welcomeScreen": {
     "app": {
-      "center_heading": "Semua data Anda disimpan secara lokal di peramban Anda.",
+      "center_heading": "Semua data Anda disimpan secara lokal di perangkat Anda.",
       "center_heading_plus": "Apa Anda ingin berpindah ke Excalidraw+?",
       "menuHint": "Ekspor, preferensi, bahasa, ..."
     },

@@ -176,13 +176,13 @@
     "couldNotCreateShareableLink": "Non riesco a creare un link condivisibile.",
     "couldNotCreateShareableLinkTooBig": "Impossibile creare il link condivisibile: la scena è troppo grande",
     "couldNotLoadInvalidFile": "Impossibile caricare un file no valido",
-    "importBackendFailed": "Importazione dal server fallita.",
+    "importBackendFailed": "Importazione non riuscita.",
     "cannotExportEmptyCanvas": "Non è possibile esportare una tela vuota.",
     "couldNotCopyToClipboard": "Impossibile copiare negli appunti.",
     "decryptFailed": "Impossibile decriptare i dati.",
     "uploadedSecurly": "L'upload è stato protetto con la crittografia end-to-end, il che significa che il server Excalidraw e terze parti non possono leggere il contenuto.",
     "loadSceneOverridePrompt": "Se carichi questo disegno esterno, sostituirà quello che hai. Vuoi continuare?",
-    "collabStopOverridePrompt": "Interrompere la sessione sovrascriverà il precedente disegno memorizzato localmente. Sei sicuro?\n\n(Se vuoi mantenere il tuo disegno locale, chiudi semplicemente la scheda del browser.)",
+    "collabStopOverridePrompt": "Interrompere la sessione sostituirà il disegno salvato localmente. Sei sicuro?\n\n(Se vuoi mantenere il tuo disegno locale, chiudi questa finestra.)",
     "errorAddingToLibrary": "Impossibile aggiungere l'elemento alla libreria",
     "errorRemovingFromLibrary": "Impossibile rimuovere l'elemento dalla libreria",
     "confirmAddLibrary": "Questo aggiungerà {{numShapes}} forma(e) alla tua libreria. Sei sicuro?",
@@ -199,8 +199,8 @@
     "svgImageInsertError": "Impossibile inserire l'immagine SVG. Il markup SVG non sembra corretto.",
     "invalidSVGString": "SVG non valido.",
     "importLibraryError": "Impossibile caricare la libreria",
-    "collabSaveFailed": "Impossibile salvare nel database di backend. Se i problemi persistono, dovresti salvare il tuo file localmente per assicurarti di non perdere il tuo lavoro.",
-    "collabSaveFailed_sizeExceeded": "Impossibile salvare nel database di backend, la tela sembra essere troppo grande. Dovresti salvare il file localmente per assicurarti di non perdere il tuo lavoro."
+    "collabSaveFailed": "Impossibile salvare i dati della sessione. Se il problema persiste, salva il file localmente per non perdere il tuo lavoro.",
+    "collabSaveFailed_sizeExceeded": "Impossibile salvare i dati della sessione. La tela potrebbe essere troppo grande. Salva il file localmente per non perdere il tuo lavoro."
   },
   "toolBar": {
     "selection": "Selezione",
@@ -435,7 +435,7 @@
   },
   "welcomeScreen": {
     "app": {
-      "center_heading": "Tutti i tuoi dati sono salvati localmente nel browser.",
+      "center_heading": "Tutti i tuoi dati sono salvati localmente sul dispositivo.",
       "center_heading_plus": "Volevi invece andare su Excalidraw+?",
       "menuHint": "Esporta, preferenze, lingue, ..."
     },

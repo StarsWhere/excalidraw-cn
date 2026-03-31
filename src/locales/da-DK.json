@@ -176,7 +176,7 @@
     "couldNotCreateShareableLink": "Kunne ikke oprette delbart link.",
     "couldNotCreateShareableLinkTooBig": "Kunne ikke oprette delbart link: scenen er for stor",
     "couldNotLoadInvalidFile": "Kunne ikke indlæse ugyldig fil",
-    "importBackendFailed": "Import fra backend mislykkedes.",
+    "importBackendFailed": "Import mislykkedes.",
     "cannotExportEmptyCanvas": "",
     "couldNotCopyToClipboard": "",
     "decryptFailed": "",

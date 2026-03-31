@@ -182,7 +182,7 @@
     "decryptFailed": "No se pudieron descifrar los datos.",
     "uploadedSecurly": "La carga ha sido asegurada con cifrado de principio a fin, lo que significa que el servidor de Excalidraw y terceros no pueden leer el contenido.",
     "loadSceneOverridePrompt": "Si carga este dibujo externo, reemplazará el que tiene. ¿Desea continuar?",
-    "collabStopOverridePrompt": "Detener la sesión sobrescribirá su dibujo anterior almacenado localmente. ¿Está seguro?\n\n(Si desea mantener su dibujo local, simplemente cierre la pestaña del navegador.)",
+    "collabStopOverridePrompt": "Detener la sesión sobrescribirá su dibujo guardado localmente. ¿Está seguro?\n\n(Si desea conservar su dibujo local, cierre esta ventana.)",
     "errorAddingToLibrary": "No se pudo agregar el elemento a la biblioteca",
     "errorRemovingFromLibrary": "No se pudo quitar el elemento de la biblioteca",
     "confirmAddLibrary": "Esto añadirá {{numShapes}} forma(s) a tu biblioteca. ¿Estás seguro?",
@@ -199,8 +199,8 @@
     "svgImageInsertError": "No se pudo insertar la imagen SVG. El código SVG parece inválido.",
     "invalidSVGString": "SVG no válido.",
     "importLibraryError": "No se pudo cargar la librería",
-    "collabSaveFailed": "No se pudo guardar en la base de datos del backend. Si los problemas persisten, debería guardar su archivo localmente para asegurarse de que no pierde su trabajo.",
-    "collabSaveFailed_sizeExceeded": "No se pudo guardar en la base de datos del backend, el lienzo parece ser demasiado grande. Debería guardar el archivo localmente para asegurarse de que no pierde su trabajo."
+    "collabSaveFailed": "No se pudieron guardar los datos de la sesión. Si el problema persiste, guarde el archivo localmente para no perder su trabajo.",
+    "collabSaveFailed_sizeExceeded": "No se pudieron guardar los datos de la sesión. El lienzo podría ser demasiado grande. Guarde el archivo localmente para no perder su trabajo."
   },
   "toolBar": {
     "selection": "Selección",
@@ -435,7 +435,7 @@
   },
   "welcomeScreen": {
     "app": {
-      "center_heading": "Toda su información es guardada localmente en su navegador.",
+      "center_heading": "Toda su información se guarda localmente en su dispositivo.",
       "center_heading_plus": "¿Quieres ir a Excalidraw+?",
       "menuHint": "Exportar, preferencias, idiomas, ..."
     },

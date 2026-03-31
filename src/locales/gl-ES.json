@@ -176,13 +176,13 @@
     "couldNotCreateShareableLink": "Non se puido crear unha ligazón para compartir.",
     "couldNotCreateShareableLinkTooBig": "Non se puido crear a ligazón para compartir: a escena é demasiado grande",
     "couldNotLoadInvalidFile": "Non se puido cargar o ficheiro non válido",
-    "importBackendFailed": "A importación dende o backend fallou.",
+    "importBackendFailed": "A importación fallou.",
     "cannotExportEmptyCanvas": "Non se pode exportar un lenzo baleiro.",
     "couldNotCopyToClipboard": "Non se puido copiar ao portapapeis.",
     "decryptFailed": "Non se poideron descifrar os datos.",
     "uploadedSecurly": "A carga foi asegurada con cifrado de extremo a extremo, o que significa que o servidor de Excalidraw e terceiros non poden ler o contido.",
     "loadSceneOverridePrompt": "A carga dun debuxo externo substituirá o contido existente. Desexa continuar?",
-    "collabStopOverridePrompt": "Deter a sesión, sobrescribirá o seu debuxo local previamente almacenado. Está seguro?\n\n(Se quere manter o seu debuxo local, simplemente peche a lapela do navegador.)",
+    "collabStopOverridePrompt": "Deter a sesión substituirá o teu debuxo gardado localmente. Estás seguro?\n\n(Se queres conservar o teu debuxo local, pecha esta xanela.)",
     "errorAddingToLibrary": "Non se puido engadir o elemento á biblioteca",
     "errorRemovingFromLibrary": "Non se puido eliminar o elemento da biblioteca",
     "confirmAddLibrary": "Isto engadirá {{numShapes}} forma(s) a túa biblioteca. Estás seguro?",
@@ -199,8 +199,8 @@
     "svgImageInsertError": "Non se puido inserir como imaxe SVG. O marcado SVG semella inválido.",
     "invalidSVGString": "SVG inválido.",
     "importLibraryError": "Non se puido cargar a biblioteca",
-    "collabSaveFailed": "Non se puido gardar na base de datos. Se o problema persiste, deberías gardar o teu arquivo de maneira local para asegurarte de non perdelo teu traballo.",
-    "collabSaveFailed_sizeExceeded": "Non se puido gardar na base de datos, o lenzo semella demasiado grande. Deberías gardar o teu arquivo de maneira local para asegurarte de non perdelo teu traballo."
+    "collabSaveFailed": "Non se puideron gardar os datos da sesión. Se o problema continúa, garda o ficheiro localmente para non perder o teu traballo.",
+    "collabSaveFailed_sizeExceeded": "Non se puideron gardar os datos da sesión. O lenzo pode ser demasiado grande. Garda o ficheiro localmente para non perder o teu traballo."
   },
   "toolBar": {
     "selection": "Selección",
@@ -435,7 +435,7 @@
   },
   "welcomeScreen": {
     "app": {
-      "center_heading": "Toda a información é gardada de maneira local no seu navegador.",
+      "center_heading": "Toda a información gárdase localmente no teu dispositivo.",
       "center_heading_plus": "Queres ir a Excalidraw+ no seu lugar?",
       "menuHint": "Exportar, preferencias, idiomas, ..."
     },
