@@ -14,28 +14,7 @@ import {
 
 export const SVG_EXPORT_TAG = `<!-- svg-source:excalidraw -->`;
 
-const getLocalSvgAssetPath = () => {
-  if (!process.env.IS_EXCALIDRAW_NPM_PACKAGE) {
-    return "./";
-  }
-
-  const configuredAssetPath = window.EXCALIDRAW_ASSET_PATH || ".";
-  const resolvedAssetPath = new URL(configuredAssetPath, window.location.href);
-
-  if (resolvedAssetPath.origin !== window.location.origin) {
-    console.warn(
-      "Ignoring unsupported external asset path for SVG export:",
-      resolvedAssetPath.toString(),
-    );
-    return "./dist/excalidraw-assets/";
-  }
-
-  const normalizedPath = resolvedAssetPath.pathname.endsWith("/")
-    ? resolvedAssetPath.pathname
-    : `${resolvedAssetPath.pathname}/`;
-
-  return `${normalizedPath}dist/excalidraw-assets/`;
-};
+const getDesktopSvgAssetPath = () => "./";
 
 export const exportToCanvas = async (
   elements: readonly NonDeletedExcalidrawElement[],
@@ -145,7 +124,7 @@ export const exportToSvg = async (
     svgRoot.setAttribute("filter", THEME_FILTER);
   }
 
-  const assetPath = getLocalSvgAssetPath();
+  const assetPath = getDesktopSvgAssetPath();
   svgRoot.innerHTML = `
   ${SVG_EXPORT_TAG}
   ${metadata}
