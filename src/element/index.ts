@@ -95,6 +95,6 @@ export const clearElementsForExport = (
   elements: readonly ExcalidrawElement[],
 ) => _clearElements(elements);
 
-export const clearElementsForLocalStorage = (
+export const clearElementsForLocalState = (
   elements: readonly ExcalidrawElement[],
 ) => _clearElements(elements);

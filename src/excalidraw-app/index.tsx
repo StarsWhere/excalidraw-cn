@@ -146,7 +146,7 @@ const ExcalidrawWrapper = () => {
             });
           });
       }
-      // on fresh load, clear unused files from IDB (from previous session)
+      // On fresh load, clear unused files from the desktop file cache.
       LocalData.fileStorage.clearObsoleteFiles({ currentFileIds: fileIds });
     };
 

@@ -1,10 +1,10 @@
 import { ExcalidrawElement, FileId } from "../../element/types";
 import { AppState, BinaryFileData } from "../../types";
 import {
-  clearAppStateForLocalStorage,
+  clearAppStateForLocalState,
   getDefaultAppState,
 } from "../../appState";
-import { clearElementsForLocalStorage } from "../../element";
+import { clearElementsForLocalState } from "../../element";
 import { STORAGE_KEYS } from "../app_constants";
 import { ImportedDataState } from "../../data/types";
 
@@ -186,7 +186,7 @@ export const getDesktopDraftState = () => {
   let elements: ExcalidrawElement[] = [];
   if (savedElements) {
     try {
-      elements = clearElementsForLocalStorage(clone(savedElements));
+      elements = clearElementsForLocalState(clone(savedElements));
     } catch (error: any) {
       console.error(error);
     }
@@ -197,7 +197,7 @@ export const getDesktopDraftState = () => {
     try {
       appState = {
         ...getDefaultAppState(),
-        ...clearAppStateForLocalStorage(clone(savedState) as Partial<AppState>),
+        ...clearAppStateForLocalState(clone(savedState) as Partial<AppState>),
         name: currentContainerName,
       };
     } catch (error: any) {
@@ -217,11 +217,11 @@ export const saveDraftStateToStorage = async (
 
   storageCache.currentContainerName = currentContainerName;
   storageCache.appState = {
-    ...clearAppStateForLocalStorage(clone(appState)),
+    ...clearAppStateForLocalState(clone(appState)),
     name: currentContainerName,
   };
   storageCache.scenes[currentContainerName] = clone(
-    clearElementsForLocalStorage(elements),
+    clearElementsForLocalState(elements),
   );
 
   await desktop.saveDraftState({

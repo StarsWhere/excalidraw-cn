@@ -1,9 +1,9 @@
 /**
  * This file deals with saving draft state (appState, elements, images, ...)
- * to the Electron desktop storage layer.
+ * to the Electron desktop persistence layer.
  */
 
-import { clearAppStateForLocalStorage } from "../../appState";
+import { clearAppStateForLocalState } from "../../appState";
 import { ExcalidrawElement, FileId } from "../../element/types";
 import { AppState, BinaryFileData, BinaryFiles } from "../../types";
 import { debounce } from "../../utils";
@@ -35,7 +35,7 @@ export class LocalData {
     ) => {
       await saveDraftStateToStorage(
         elements,
-        clearAppStateForLocalStorage(appState) as AppState,
+        clearAppStateForLocalState(appState) as AppState,
       );
 
       await this.fileStorage.saveFiles({

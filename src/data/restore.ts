@@ -490,7 +490,7 @@ export const restoreAppState = (
 export const restore = (
   data: Pick<ImportedDataState, "appState" | "elements" | "files"> | null,
   /**
-   * Local AppState (`this.state` or initial state from localStorage) so that we
+   * Local AppState (`this.state` or the initial locally persisted state) so that we
    * don't overwrite local state with default values (when values not
    * explicitly specified).
    * Supply `null` if you can't get access to it.
