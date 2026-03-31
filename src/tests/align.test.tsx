@@ -1,4 +1,3 @@
-import ReactDOM from "react-dom";
 import { render } from "./test-utils";
 import ExcalidrawApp from "../excalidraw-app";
 import { defaultLang, setLanguage } from "../i18n";
@@ -55,8 +54,6 @@ const createAndSelectTwoRectanglesWithDifferentSizes = () => {
 
 describe("aligning", () => {
   beforeEach(async () => {
-    // Unmount ReactDOM from root
-    ReactDOM.unmountComponentAtNode(document.getElementById("root")!);
     mouse.reset();
 
     await setLanguage(defaultLang);

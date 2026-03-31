@@ -1,4 +1,3 @@
-import ReactDOM from "react-dom";
 import { GlobalTestState, render, waitFor } from "./test-utils";
 import { UI, Pointer } from "./helpers/ui";
 import { API } from "./helpers/api";
@@ -31,12 +30,8 @@ jest.mock("../data/blob", () => {
   };
 });
 beforeEach(async () => {
-  // Unmount ReactDOM from root
-  ReactDOM.unmountComponentAtNode(document.getElementById("root")!);
 
   mouse.reset();
-  localStorage.clear();
-  sessionStorage.clear();
   jest.clearAllMocks();
 
   Object.assign(document, {

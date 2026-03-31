@@ -1,4 +1,3 @@
-import ReactDOM from "react-dom";
 import { render } from "./test-utils";
 import App from "../components/App";
 import * as Renderer from "../renderer/renderScene";
@@ -10,12 +9,8 @@ import ExcalidrawApp from "../excalidraw-app";
 import { API } from "./helpers/api";
 import { KEYS } from "../keys";
 
-// Unmount ReactDOM from root
-ReactDOM.unmountComponentAtNode(document.getElementById("root")!);
-
 const renderScene = jest.spyOn(Renderer, "renderScene");
 beforeEach(() => {
-  localStorage.clear();
   renderScene.mockClear();
   reseed(7);
 });

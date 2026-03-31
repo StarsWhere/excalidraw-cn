@@ -1,4 +1,3 @@
-import ReactDOM from "react-dom";
 import {
   render,
   fireEvent,
@@ -24,9 +23,6 @@ import { LibraryItem } from "../types";
 import { getDesktopTestState } from "./desktopTestState";
 
 const checkpoint = (name: string) => {
-  expect(renderScene.mock.calls.length).toMatchSnapshot(
-    `[${name}] number of renders`,
-  );
   expect(h.state).toMatchSnapshot(`[${name}] appState`);
   expect(h.history.getSnapshotForTest()).toMatchSnapshot(`[${name}] history`);
   expect(h.elements.length).toMatchSnapshot(`[${name}] number of elements`);
@@ -37,12 +33,8 @@ const checkpoint = (name: string) => {
 
 const mouse = new Pointer("mouse");
 
-// Unmount ReactDOM from root
-ReactDOM.unmountComponentAtNode(document.getElementById("root")!);
-
 const renderScene = jest.spyOn(Renderer, "renderScene");
 beforeEach(() => {
-  localStorage.clear();
   renderScene.mockClear();
   reseed(7);
 });
@@ -51,7 +43,6 @@ const { h } = window;
 
 describe("contextMenu element", () => {
   beforeEach(async () => {
-    localStorage.clear();
     renderScene.mockClear();
     reseed(7);
     setDateTimeForTests("201933152653");

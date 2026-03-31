@@ -1,4 +1,3 @@
-import ReactDOM from "react-dom";
 import { ExcalidrawElement } from "../element/types";
 import { CODES, KEYS } from "../keys";
 import ExcalidrawApp from "../excalidraw-app";
@@ -44,10 +43,6 @@ const checkpoint = (name: string) => {
 };
 
 beforeEach(async () => {
-  // Unmount ReactDOM from root
-  ReactDOM.unmountComponentAtNode(document.getElementById("root")!);
-
-  localStorage.clear();
   renderScene.mockClear();
   reseed(7);
   setDateTimeForTests("201933152653");

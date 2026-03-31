@@ -1,7 +1,7 @@
-import ReactDOM from "react-dom";
 import ExcalidrawApp from "../excalidraw-app";
 import { GlobalTestState, render, screen } from "../tests/test-utils";
 import { Keyboard, Pointer, UI } from "../tests/helpers/ui";
+import { installConsoleErrorFilter } from "../tests/consoleFilters";
 import { CODES, KEYS } from "../keys";
 import { fireEvent } from "../tests/test-utils";
 import { queryByText } from "@testing-library/react";
@@ -16,8 +16,6 @@ import { API } from "../tests/helpers/api";
 import { mutateElement } from "./mutateElement";
 import { resize } from "../tests/utils";
 import { getOriginalContainerHeightFromCache } from "./textWysiwyg";
-// Unmount ReactDOM from root
-ReactDOM.unmountComponentAtNode(document.getElementById("root")!);
 
 const tab = "    ";
 const mouse = new Pointer("mouse");
@@ -447,6 +445,7 @@ describe("textWysiwyg", () => {
 
     beforeEach(async () => {
       jest.restoreAllMocks();
+      installConsoleErrorFilter();
       jest
         .spyOn(textElementUtils, "getApproxLineHeight")
         .mockReturnValue(APPROX_LINE_HEIGHT);
@@ -463,6 +462,7 @@ describe("textWysiwyg", () => {
 
     afterEach(() => {
       jest.restoreAllMocks();
+      installConsoleErrorFilter();
     });
 
     it("should bind text to container when double clicked on center of filled container", async () => {

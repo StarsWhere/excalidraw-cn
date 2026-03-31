@@ -1,4 +1,3 @@
-import ReactDOM from "react-dom";
 import ExcalidrawApp from "../excalidraw-app";
 import { render } from "../tests/test-utils";
 import { Keyboard, Pointer, UI } from "../tests/helpers/ui";
@@ -7,8 +6,6 @@ import { API } from "../tests/helpers/api";
 import { actionSelectAll } from "../actions";
 import { t } from "../i18n";
 import { mutateElement } from "../element/mutateElement";
-
-ReactDOM.unmountComponentAtNode(document.getElementById("root")!);
 
 const mouse = new Pointer("mouse");
 const h = window.h;

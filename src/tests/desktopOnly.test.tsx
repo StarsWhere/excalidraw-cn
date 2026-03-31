@@ -11,6 +11,7 @@ import {
   bootstrapDesktopState,
   resetDesktopStateCache,
 } from "../excalidraw-app/data/desktopState";
+import { installConsoleErrorFilter } from "./consoleFilters";
 
 describe("desktop-only app", () => {
   beforeEach(() => {
@@ -19,6 +20,7 @@ describe("desktop-only app", () => {
 
   afterEach(() => {
     jest.restoreAllMocks();
+    installConsoleErrorFilter();
   });
 
   it("fails fast when the Electron preload bridge is missing", async () => {

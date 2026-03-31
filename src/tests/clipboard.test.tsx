@@ -1,4 +1,3 @@
-import ReactDOM from "react-dom";
 import { render, waitFor, GlobalTestState } from "./test-utils";
 import { Pointer, Keyboard } from "./helpers/ui";
 import ExcalidrawApp from "../excalidraw-app";
@@ -73,9 +72,6 @@ const sleep = (ms: number) => {
 };
 
 beforeEach(async () => {
-  ReactDOM.unmountComponentAtNode(document.getElementById("root")!);
-
-  localStorage.clear();
 
   mouse.reset();
 
