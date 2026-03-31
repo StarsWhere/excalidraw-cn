@@ -7,12 +7,12 @@ import { ActionManager } from "../actions/manager";
 import { Button } from "./Button";
 import { message } from "antd";
 import {
-  createContainerInStorage,
-  getContainerListFromStorage,
+  createBoardInStorage,
+  getBoardListFromStorage,
 } from "../excalidraw-app/data/desktopState";
-import { RESVERED_LOCALSTORAGE_KEYS } from "../excalidraw-app/app_constants";
+import { notifyDesktopStateChanged } from "../excalidraw-app/data/desktopEvents";
 
-export const NewSceneDialog = ({
+export const NewBoardDialog = ({
   // elements,
   appState,
   setAppState,
@@ -35,11 +35,11 @@ export const NewSceneDialog = ({
 
   return (
     <>
-      {appState.openDialog === "newScene" && (
-        <Dialog onCloseRequest={handleClose} title={t("buttons.newScene")}>
+      {appState.openDialog === "newBoard" && (
+        <Dialog onCloseRequest={handleClose} title={t("buttons.newBoard")}>
           <input
             type="text"
-            placeholder={t("labels.inputNewContainerName")}
+            placeholder={t("labels.inputNewBoardName")}
             style={{ minWidth: 500 }}
             defaultValue={newContainerName}
             onChange={(e) => {
@@ -56,21 +56,21 @@ export const NewSceneDialog = ({
               color: "#fff",
             }}
             onSelect={async () => {
-              const containerList: string[] = getContainerListFromStorage();
+              const boardName = newContainerName.trim();
+              const boardList: string[] = getBoardListFromStorage();
 
-              if (containerList.includes(newContainerName)) {
-                message.error(`画布 ${newContainerName} 已存在，无需重复创建`);
+              if (!boardName) {
+                message.error(t("errors.required"));
                 return;
               }
 
-              if (RESVERED_LOCALSTORAGE_KEYS.includes(newContainerName)) {
-                message.error(`请不要以 excalidraw_ 开头进行画布命名`);
+              if (boardList.includes(boardName)) {
+                message.error(`画布 ${boardName} 已存在，无需重复创建`);
                 return;
               }
 
-              await createContainerInStorage(newContainerName);
-
-              window.location.reload();
+              await createBoardInStorage(boardName);
+              notifyDesktopStateChanged();
             }}
           >
             {t("buttons.confirm")}

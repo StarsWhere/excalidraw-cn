@@ -29,39 +29,39 @@ import "./DefaultItems.scss";
 import { useSetAtom } from "jotai";
 import { activeConfirmDialogAtom } from "../ActiveConfirmDialog";
 
-export const NewScene = () => {
+export const NewBoard = () => {
   const setAppState = useExcalidrawSetAppState();
 
   return (
     <DropdownMenuItem
       icon={<FileAddOutlined />}
-      onSelect={() => setAppState({ openDialog: "newScene" })}
+      onSelect={() => setAppState({ openDialog: "newBoard" })}
       data-testid="recent-scenes-button"
-      shortcut={getShortcutFromShortcutName("newScene")}
-      aria-label={t("buttons.newScene")}
+      shortcut={getShortcutFromShortcutName("newBoard")}
+      aria-label={t("buttons.newBoard")}
     >
-      {t("buttons.newScene")}
+      {t("buttons.newBoard")}
     </DropdownMenuItem>
   );
 };
 
-export const SwitchScene = () => {
+export const SwitchBoard = () => {
   const setAppState = useExcalidrawSetAppState();
 
   return (
     <DropdownMenuItem
       icon={<SwitcherOutlined />}
-      onSelect={() => setAppState({ openDialog: "switchScene" })}
+      onSelect={() => setAppState({ openDialog: "switchBoard" })}
       data-testid="recent-scenes-button"
-      shortcut={getShortcutFromShortcutName("switchScene")}
-      aria-label={t("buttons.switchScene")}
+      shortcut={getShortcutFromShortcutName("switchBoard")}
+      aria-label={t("buttons.switchBoard")}
     >
-      {t("buttons.switchScene")}
+      {t("buttons.switchBoard")}
     </DropdownMenuItem>
   );
 };
 
-SwitchScene.displayName = "SwitchScene";
+SwitchBoard.displayName = "SwitchBoard";
 
 export const LoadScene = () => {
   // FIXME Hack until we tie "t" to lang state

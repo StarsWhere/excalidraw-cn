@@ -36,12 +36,13 @@ import { loadScene } from "./data";
 import {
   bootstrapDesktopState,
   clearLibraryItems,
+  getAllBoardElementsFromStorage,
+  getCurrentBoardName,
   getDesktopDraftState,
-  getContainerNameFromStorage,
   getLibraryItems,
-  getAllContainerListElementsFromStorage,
   saveLibraryItems,
 } from "./data/desktopState";
+import { onDesktopStateChanged } from "./data/desktopEvents";
 import CustomStats from "./CustomStats";
 
 import "./index.scss";
@@ -62,7 +63,11 @@ polyfill();
 window.EXCALIDRAW_THROTTLE_RENDER = true;
 
 const detectDesktopLanguage = () => {
-  return navigator.languages?.[0] || navigator.language || defaultLang.code;
+  const preferredLanguage =
+    navigator.languages?.[0] || navigator.language || defaultLang.code;
+  return preferredLanguage.toLowerCase().startsWith("zh")
+    ? "zh-CN"
+    : defaultLang.code;
 };
 
 const initializeScene = async (): Promise<{
@@ -84,6 +89,7 @@ export const langCodeAtom = atom(
 const ExcalidrawWrapper = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [langCode] = useAtom(langCodeAtom);
+  const [appRevision, setAppRevision] = useState(0);
   // initial state
   // ---------------------------------------------------------------------------
 
@@ -111,6 +117,14 @@ const ExcalidrawWrapper = () => {
     getInitialLibraryItems: getLibraryItems,
   });
 
+  useEffect(
+    () =>
+      onDesktopStateChanged(() => {
+        setAppRevision((revision) => revision + 1);
+      }),
+    [],
+  );
+
   useEffect(() => {
     if (!excalidrawAPI) {
       return;
@@ -123,9 +137,9 @@ const ExcalidrawWrapper = () => {
       if (!data.scene || !isInitialLoad) {
         return;
       }
-      const allContainerListElements = getAllContainerListElementsFromStorage();
+      const allBoardElements = getAllBoardElementsFromStorage();
       const fileIds =
-        allContainerListElements?.reduce((acc, element) => {
+        allBoardElements?.reduce((acc, element) => {
           if (isInitializedImageElement(element)) {
             return acc.concat(element.fileId);
           }
@@ -277,8 +291,9 @@ const ExcalidrawWrapper = () => {
   return (
     <div style={{ height: "100%" }} className="excalidraw-app">
       <Excalidraw
+        key={appRevision}
         ref={excalidrawRefCallback}
-        name={getContainerNameFromStorage()}
+        name={getCurrentBoardName()}
         onChange={onChange}
         initialData={initialStatePromiseRef.current.promise}
         UIOptions={{

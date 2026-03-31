@@ -8,8 +8,8 @@ export type ShortcutName =
       ActionName,
       | "toggleTheme"
       | "loadScene"
-      | "switchScene"
-      | "newScene"
+      | "switchBoard"
+      | "newBoard"
       | "cut"
       | "copy"
       | "paste"
@@ -43,8 +43,8 @@ const shortcutMap: Record<ShortcutName, string[]> = {
   toggleTheme: [getShortcutKey("Shift+Alt+D")],
   saveScene: [getShortcutKey("CtrlOrCmd+S")],
   loadScene: [getShortcutKey("CtrlOrCmd+O")],
-  switchScene: [getShortcutKey("")],
-  newScene: [getShortcutKey("")],
+  switchBoard: [getShortcutKey("")],
+  newBoard: [getShortcutKey("")],
   imageExport: [getShortcutKey("CtrlOrCmd+Shift+E")],
   cut: [getShortcutKey("CtrlOrCmd+X")],
   copy: [getShortcutKey("CtrlOrCmd+C")],

@@ -73,8 +73,8 @@ export type ActionName =
   | "saveToActiveFile"
   | "saveFileToDisk"
   | "loadScene"
-  | "switchScene"
-  | "newScene"
+  | "switchBoard"
+  | "newBoard"
   | "duplicateSelection"
   | "deleteSelectedElements"
   | "changeViewBackgroundColor"
@@ -157,7 +157,6 @@ export interface Action {
           | "export"
           | "history"
           | "menu"
-          | "collab"
           | "hyperlink";
         action?: string;
         predicate?: (

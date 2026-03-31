@@ -5,8 +5,8 @@ import { LanguageList } from "./LanguageList";
 export const AppMainMenu: React.FC = React.memo(() => {
   return (
     <MainMenu>
-      <MainMenu.DefaultItems.NewScene />
-      <MainMenu.DefaultItems.SwitchScene />
+      <MainMenu.DefaultItems.NewBoard />
+      <MainMenu.DefaultItems.SwitchBoard />
       <MainMenu.DefaultItems.LoadScene />
       <MainMenu.DefaultItems.SaveToActiveFile />
       <MainMenu.DefaultItems.Export />

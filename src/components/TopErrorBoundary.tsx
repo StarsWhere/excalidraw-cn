@@ -3,7 +3,9 @@ import { t } from "../i18n";
 import {
   getDesktopStateSnapshot,
   requireDesktopApi,
+  resetDesktopStateCache,
 } from "../excalidraw-app/data/desktopState";
+import { notifyDesktopStateChanged } from "../excalidraw-app/data/desktopEvents";
 
 interface TopErrorBoundaryState {
   hasError: boolean;
@@ -44,7 +46,16 @@ export class TopErrorBoundary extends React.Component<
         <div className="ErrorSplash-messageContainer">
           <div className="ErrorSplash-paragraph bigger align-center">
             {t("errorSplash.headingMain_pre")}
-            <button onClick={() => window.location.reload()}>
+            <button
+              onClick={() => {
+                resetDesktopStateCache();
+                this.setState({
+                  hasError: false,
+                  desktopState: "",
+                });
+                notifyDesktopStateChanged();
+              }}
+            >
               {t("errorSplash.headingMain_button")}
             </button>
           </div>
@@ -54,7 +65,12 @@ export class TopErrorBoundary extends React.Component<
               onClick={async () => {
                 try {
                   await requireDesktopApi().resetDesktopState();
-                  window.location.reload();
+                  resetDesktopStateCache();
+                  this.setState({
+                    hasError: false,
+                    desktopState: "",
+                  });
+                  notifyDesktopStateChanged();
                 } catch (error: any) {
                   console.error(error);
                 }

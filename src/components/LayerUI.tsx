@@ -13,8 +13,8 @@ import { isShallowEqual, muteFSAbortError } from "../utils";
 import { SelectedShapeActions, ShapesSwitcher } from "./Actions";
 import { ErrorDialog } from "./ErrorDialog";
 import { ExportCB, ImageExportDialog } from "./ImageExportDialog";
-import { SwitchSceneDialog } from "./SwitchContainerDialog";
-import { NewSceneDialog } from "./NewContainerDialog";
+import { SwitchBoardDialog } from "./SwitchContainerDialog";
+import { NewBoardDialog } from "./NewContainerDialog";
 import { FixedSideContainer } from "./FixedSideContainer";
 import { HintViewer } from "./HintViewer";
 import { Island } from "./Island";
@@ -48,8 +48,8 @@ import { HandButton } from "./HandButton";
 import { isHandToolActive } from "../appState";
 import { TunnelsContext, useInitializeTunnels } from "./context/tunnels";
 import {
-  getContainerNameFromStorage,
-  renameContainerNameToStorage,
+  getCurrentBoardName,
+  renameBoardNameInStorage,
 } from "../excalidraw-app/data/desktopState";
 import InputPreview from "./InputPreview";
 
@@ -94,10 +94,6 @@ const DefaultMainMenu: React.FC<{
       )}
       <MainMenu.DefaultItems.Help />
       <MainMenu.DefaultItems.ClearCanvas />
-      <MainMenu.Separator />
-      <MainMenu.Group title="Excalidraw links">
-        <MainMenu.DefaultItems.Socials />
-      </MainMenu.Group>
       <MainMenu.Separator />
       <MainMenu.DefaultItems.ToggleTheme />
       <MainMenu.DefaultItems.ChangeCanvasBackground />
@@ -200,9 +196,9 @@ const LayerUI = ({
     );
   };
 
-  const renderSwitchSceneDialog = () => {
+  const renderSwitchBoardDialog = () => {
     return (
-      <SwitchSceneDialog
+      <SwitchBoardDialog
         appState={appState}
         setAppState={setAppState}
         actionManager={actionManager}
@@ -210,9 +206,9 @@ const LayerUI = ({
     );
   };
 
-  const renderNewSceneDialog = () => {
+  const renderNewBoardDialog = () => {
     return (
-      <NewSceneDialog
+      <NewBoardDialog
         appState={appState}
         setAppState={setAppState}
         actionManager={actionManager}
@@ -260,7 +256,7 @@ const LayerUI = ({
       elements,
     );
 
-    const currentContainerName = getContainerNameFromStorage();
+    const currentBoardName = getCurrentBoardName();
 
     return (
       <FixedSideContainer side="top">
@@ -274,10 +270,10 @@ const LayerUI = ({
             <Stack.Row gap={6} align="center">
               {renderCanvasActions()}
               <InputPreview
-                defaultValue={currentContainerName}
+                defaultValue={currentBoardName}
                 onSave={(value) => {
                   setAppState({ name: value });
-                  void renameContainerNameToStorage(currentContainerName, value);
+                  void renameBoardNameInStorage(currentBoardName, value);
                 }}
               />
             </Stack.Row>
@@ -416,8 +412,8 @@ const LayerUI = ({
       <ActiveConfirmDialog />
       {renderImageExportDialog()}
       {renderJSONExportDialog()}
-      {renderSwitchSceneDialog()}
-      {renderNewSceneDialog()}
+      {renderSwitchBoardDialog()}
+      {renderNewBoardDialog()}
       {appState.pasteDialog.shown && (
         <PasteChartDialog
           setAppState={setAppState}

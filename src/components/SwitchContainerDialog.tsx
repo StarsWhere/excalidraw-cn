@@ -5,15 +5,16 @@ import "./ExportDialog.scss";
 import { ActionManager } from "../actions/manager";
 import { Dialog } from "./Dialog";
 import {
-  getContainerListFromStorage,
-  getContainerNameFromStorage,
-  removeContainerFromStorage,
-  setContainerNameToStorage,
+  getBoardListFromStorage,
+  getCurrentBoardName,
+  removeBoardFromStorage,
+  selectBoardInStorage,
 } from "../excalidraw-app/data/desktopState";
 import { List, Popconfirm } from "antd";
 import { CheckSquareOutlined, CloseCircleOutlined } from "@ant-design/icons";
+import { notifyDesktopStateChanged } from "../excalidraw-app/data/desktopEvents";
 
-export const SwitchSceneDialog = ({
+export const SwitchBoardDialog = ({
   appState,
   setAppState,
 }: {
@@ -25,16 +26,16 @@ export const SwitchSceneDialog = ({
     setAppState({ openDialog: null });
   }, [setAppState]);
 
-  const containerList = getContainerListFromStorage();
+  const boardList = getBoardListFromStorage();
 
-  const currentContainerName = getContainerNameFromStorage();
+  const currentBoardName = getCurrentBoardName();
 
   return (
     <>
-      {appState.openDialog === "switchScene" && (
-        <Dialog onCloseRequest={handleClose} title={t("buttons.switchScene")}>
+      {appState.openDialog === "switchBoard" && (
+        <Dialog onCloseRequest={handleClose} title={t("buttons.switchBoard")}>
           <List>
-            {containerList?.map((scene: string) => {
+            {boardList?.map((scene: string) => {
               return (
                 <List.Item
                   key={scene}
@@ -51,16 +52,15 @@ export const SwitchSceneDialog = ({
                       flex: "auto",
                       cursor: "pointer",
                       color: `${
-                        currentContainerName === scene ? "green" : "#333"
+                        currentBoardName === scene ? "green" : "#333"
                       }`,
                     }}
                     onClick={async () => {
-                      setContainerNameToStorage(scene);
-
-                      window.location.reload();
+                      await selectBoardInStorage(scene);
+                      notifyDesktopStateChanged();
                     }}
                   >
-                    {currentContainerName === scene ? (
+                    {currentBoardName === scene ? (
                       <CheckSquareOutlined
                         style={{ marginRight: 10, color: "green" }}
                       />
@@ -70,11 +70,8 @@ export const SwitchSceneDialog = ({
                   <Popconfirm
                     title={`确定删除 ${scene} 吗?`}
                     onConfirm={async () => {
-                      await removeContainerFromStorage(scene);
-                      if (currentContainerName === scene) {
-                        setContainerNameToStorage(containerList[0]);
-                      }
-                      window.location.reload();
+                      await removeBoardFromStorage(scene);
+                      notifyDesktopStateChanged();
                     }}
                   >
                     <CloseCircleOutlined

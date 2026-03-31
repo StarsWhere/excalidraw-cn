@@ -126,7 +126,7 @@
     },
     "statusPublished": "已发布",
     "sidebarLock": "侧边栏常驻",
-    "inputNewContainerName": "请输入新的画布名称"
+    "inputNewBoardName": "请输入新的画布名称"
   },
   "library": {
     "noItems": "尚未添加任何项目……",
@@ -146,8 +146,8 @@
     "save": "保存至当前文件",
     "saveAs": "保存为",
     "load": "打开文件",
-    "switchScene": "切换画布",
-    "newScene": "新建画布",
+    "switchBoard": "切换画布",
+    "newBoard": "新建画布",
     "getShareableLink": "获取共享链接",
     "close": "关闭",
     "selectLanguage": "选择语言",
@@ -219,7 +219,8 @@
     "lock": "绘制后保持所选的工具栏状态",
     "penMode": "笔模式 – 避免误触",
     "link": "为选中的形状添加/更新链接",
-    "eraser": "橡皮"
+    "eraser": "橡皮",
+    "hand": "抓手（平移工具）"
   },
   "headings": {
     "canvasActions": "画布动作",

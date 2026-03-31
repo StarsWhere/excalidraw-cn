@@ -125,6 +125,7 @@
       "unlockAll": "Unlock all"
     },
     "statusPublished": "Published",
+    "inputNewBoardName": "Please enter a new board name",
     "sidebarLock": "Keep sidebar open"
   },
   "library": {
@@ -170,8 +171,8 @@
     "publishLibrary": "Publish",
     "submit": "Submit",
     "confirm": "Confirm",
-    "switchScene": "Switch Scene",
-    "newScene": "New Scene"
+    "switchBoard": "Switch Board",
+    "newBoard": "New Board"
   },
   "alerts": {
     "clearReset": "This will clear the whole canvas. Are you sure?",

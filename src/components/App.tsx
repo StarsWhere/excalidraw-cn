@@ -276,7 +276,6 @@ import {
   hideHyperlinkToolip,
   Hyperlink,
   isPointHittingLinkIcon,
-  isLocalLink,
 } from "../element/Hyperlink";
 import { shouldShowBoundingBox } from "../element/transformHandles";
 import { Fonts } from "../scene/Fonts";
@@ -284,8 +283,7 @@ import { actionPaste } from "../actions/actionClipboard";
 import { actionToggleHandTool } from "../actions/actionCanvas";
 import {
   requireDesktopApi,
-  setContainerIdToStorage,
-  setContainerNameToStorage,
+  setCurrentBoardName,
 } from "../excalidraw-app/data/desktopState";
 
 const deviceContextInitialValue = {
@@ -433,9 +431,7 @@ class App extends React.Component<AppProps, AppState> {
 
     this.id = nanoid();
 
-    setContainerIdToStorage(this.id);
-
-    setContainerNameToStorage(name);
+    setCurrentBoardName(name);
 
     this.library = new Library(this);
     if (excalidrawRef) {
@@ -1295,33 +1291,6 @@ class App extends React.Component<AppProps, AppState> {
       {};
     const pointerUsernames: { [id: string]: string } = {};
     const pointerUserStates: { [id: string]: string } = {};
-    this.state.collaborators.forEach((user, socketId) => {
-      if (user.selectedElementIds) {
-        for (const id of Object.keys(user.selectedElementIds)) {
-          if (!(id in remoteSelectedElementIds)) {
-            remoteSelectedElementIds[id] = [];
-          }
-          remoteSelectedElementIds[id].push(socketId);
-        }
-      }
-      if (!user.pointer) {
-        return;
-      }
-      if (user.username) {
-        pointerUsernames[socketId] = user.username;
-      }
-      if (user.userState) {
-        pointerUserStates[socketId] = user.userState;
-      }
-      pointerViewportCoords[socketId] = sceneCoordsToViewportCoords(
-        {
-          sceneX: user.pointer.x,
-          sceneY: user.pointer.y,
-        },
-        this.state,
-      );
-      cursorButton[socketId] = user.button;
-    });
 
     const renderingElements = this.scene
       .getNonDeletedElements()
@@ -1880,7 +1849,6 @@ class App extends React.Component<AppProps, AppState> {
     <K extends keyof AppState>(sceneData: {
       elements?: SceneData["elements"];
       appState?: Pick<AppState, K> | null;
-      collaborators?: SceneData["collaborators"];
       commitToHistory?: SceneData["commitToHistory"];
     }) => {
       if (sceneData.commitToHistory) {
@@ -1893,10 +1861,6 @@ class App extends React.Component<AppProps, AppState> {
 
       if (sceneData.elements) {
         this.scene.replaceAllElements(sceneData.elements);
-      }
-
-      if (sceneData.collaborators) {
-        this.setState({ collaborators: sceneData.collaborators });
       }
     },
   );
@@ -2834,13 +2798,9 @@ class App extends React.Component<AppProps, AppState> {
         }
         if (!customEvent?.defaultPrevented) {
           const normalizedUrl = normalizeLink(url);
-            if (isLocalLink(url)) {
-              window.location.href = normalizedUrl;
-            } else {
-              void requireDesktopApi().openExternal(normalizedUrl);
-            }
-          }
+          void requireDesktopApi().openExternal(normalizedUrl);
         }
+      }
     }
   };
 
