@@ -1,23 +1,4 @@
 {
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not ie <= 11",
-      "not op_mini all",
-      "not safari < 12",
-      "not kaios <= 2.5",
-      "not edge < 79",
-      "not chrome < 70",
-      "not and_uc < 13",
-      "not samsung < 10"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "dependencies": {
     "@ant-design/icons": "5.0.1",
     "@dwelle/tunnel-rat": "0.1.1",
@@ -31,7 +12,6 @@
     "antd": "5.4.2",
     "clsx": "1.1.1",
     "cross-env": "7.0.3",
-    "i18next-browser-languagedetector": "6.1.4",
     "image-blob-reduce": "3.0.1",
     "jotai": "1.6.4",
     "lodash.throttle": "4.1.1",
