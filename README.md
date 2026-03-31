@@ -73,12 +73,12 @@ Renderer 只能通过 preload 暴露的 `window.handrawDesktop` 与宿主交互�
 - `onOpenFile`
 - `openExternal`
 - `loadDesktopState`
-- `saveDraftState`
+- `saveDesktopState`
 - `loadLibraryState`
 - `saveLibraryState`
-- `listContainers`
-- `writeContainer`
-- `deleteContainer`
+- `listBoards`
+- `writeBoard`
+- `deleteBoard`
 - `readBinaryFileCache`
 - `writeBinaryFileCache`
 - `pruneBinaryFileCache`
@@ -86,27 +86,25 @@ Renderer 只能通过 preload 暴露的 `window.handrawDesktop` 与宿主交互�
 
 ## 本地数据存储
 
-应用数据保存在 `app.getPath("userData")\\handraw` 下，结构如下：
+应用数据保存在 `app.getPath("userData")\\handraw-v2` 下，结构如下：
 
 ```text
-handraw/
-├─ state/
-│  ├─ app-state.json
-│  ├─ containers.json
-│  └─ library.json
-├─ scenes/
-│  └─ <container>.excalidraw.json
+handraw-v2/
+├─ settings.json
+├─ library.json
+├─ boards.json
+├─ boards/
+│  └─ <board-id>.excalidraw.json
 ├─ files/
 │  └─ <file-id>.json
-└─ meta/
-   └─ settings.json
 ```
 
 说明：
 
 - 不再使用 `localStorage` / `IndexedDB`
-- 不做旧浏览器草稿自动迁移
+- 不读取旧 `handraw` 目录，桌面数据从 `handraw-v2` 重新开始
 - 图片缓存会在本地文件缓存目录内按引用与时间清理
+- 仅保留 `zh-CN` 与 `en` 两套界面语言
 
 ## Windows 打包
 
@@ -144,7 +142,7 @@ pnpm dist:win
 - 导入/导出 PNG、SVG、素材库
 - 双击关联文件唤起单实例
 - 外链由系统浏览器打开
-- `userData` 目录产生状态文件与图片缓存
+- `userData` 下生成 `handraw-v2` 的状态文件与图片缓存
 
 ## 已移除能力
 
@@ -154,6 +152,7 @@ pnpm dist:win
 - 在线协作与分享链接
 - 远程 scene / library URL 导入
 - 公开包入口测试与包分发兼容层
+- 多语言动态加载与非中英文语言包
 
 ## License
 
