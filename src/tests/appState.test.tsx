@@ -62,7 +62,7 @@ describe("appState", () => {
 
     UI.clickTool("text");
 
-    expect(h.state.currentItemFontSize).toBe(30);
+    await waitFor(() => expect(h.state.currentItemFontSize).toBe(30));
     queryByTestId(container, "fontSize-small")!.click();
     expect(h.state.currentItemFontSize).toBe(16);
 

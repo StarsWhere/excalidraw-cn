@@ -21,6 +21,7 @@ import { API } from "./helpers/api";
 import { setDateTimeForTests } from "../utils";
 import { t } from "../i18n";
 import { LibraryItem } from "../types";
+import { getDesktopTestState } from "./desktopTestState";
 
 const checkpoint = (name: string) => {
   expect(renderScene.mock.calls.length).toMatchSnapshot(
@@ -383,10 +384,10 @@ describe("contextMenu element", () => {
     fireEvent.click(queryByText(contextMenu as HTMLElement, "Add to library")!);
 
     await waitFor(() => {
-      const library = localStorage.getItem("excalidraw-library");
-      expect(library).not.toBeNull();
-      const addedElement = JSON.parse(library!)[0] as LibraryItem;
-      expect(addedElement.elements[0]).toEqual(h.elements[0]);
+      const libraryItems = getDesktopTestState().libraryItems || [];
+      const addedElement = libraryItems[0] as LibraryItem | undefined;
+      expect(addedElement).toBeDefined();
+      expect(addedElement!.elements[0]!).toEqual(h.elements[0]);
     });
   });
 

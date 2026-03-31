@@ -11,7 +11,7 @@ const { h } = window;
 export const resize = (
   element: ExcalidrawElement,
   handleDir: TransformHandleDirection,
-  mouseMove: [number, number],
+  delta: [number, number],
   keyboardModifiers: KeyboardModifiers = {},
 ) => {
   mouse.select(element);
@@ -22,9 +22,9 @@ export const resize = (
   const clientY = handle[1] + handle[3] / 2;
   Keyboard.withModifierKeys(keyboardModifiers, () => {
     mouse.reset();
-    mouse.down(clientX, clientY);
-    mouse.move(mouseMove[0], mouseMove[1]);
-    mouse.up();
+    mouse.downAt(clientX, clientY);
+    mouse.moveTo(clientX + delta[0], clientY + delta[1]);
+    mouse.upAt();
   });
 };
 
@@ -41,8 +41,8 @@ export const rotate = (
 
   Keyboard.withModifierKeys(keyboardModifiers, () => {
     mouse.reset();
-    mouse.down(clientX, clientY);
-    mouse.move(clientX + deltaX, clientY + deltaY);
-    mouse.up();
+    mouse.downAt(clientX, clientY);
+    mouse.moveTo(clientX + deltaX, clientY + deltaY);
+    mouse.upAt();
   });
 };

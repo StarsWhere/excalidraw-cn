@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`duplicate element on move when ALT is clicked rectangle 1`] = `
-Object {
+{
   "angle": 0,
   "backgroundColor": "transparent",
   "boundElements": null,
   "fillStyle": "hachure",
-  "groupIds": Array [],
+  "groupIds": [],
   "height": 50,
   "id": "id0_copy",
   "isDeleted": false,
@@ -14,7 +14,7 @@ Object {
   "locked": false,
   "opacity": 100,
   "roughness": 1,
-  "roundness": Object {
+  "roundness": {
     "type": 3,
   },
   "seed": 401146281,
@@ -32,12 +32,12 @@ Object {
 `;
 
 exports[`duplicate element on move when ALT is clicked rectangle 2`] = `
-Object {
+{
   "angle": 0,
   "backgroundColor": "transparent",
   "boundElements": null,
   "fillStyle": "hachure",
-  "groupIds": Array [],
+  "groupIds": [],
   "height": 50,
   "id": "id0",
   "isDeleted": false,
@@ -45,7 +45,7 @@ Object {
   "locked": false,
   "opacity": 100,
   "roughness": 1,
-  "roundness": Object {
+  "roundness": {
     "type": 3,
   },
   "seed": 337897,
@@ -63,12 +63,12 @@ Object {
 `;
 
 exports[`move element rectangle 1`] = `
-Object {
+{
   "angle": 0,
   "backgroundColor": "transparent",
   "boundElements": null,
   "fillStyle": "hachure",
-  "groupIds": Array [],
+  "groupIds": [],
   "height": 50,
   "id": "id0",
   "isDeleted": false,
@@ -76,7 +76,7 @@ Object {
   "locked": false,
   "opacity": 100,
   "roughness": 1,
-  "roundness": Object {
+  "roundness": {
     "type": 3,
   },
   "seed": 337897,
@@ -94,17 +94,17 @@ Object {
 `;
 
 exports[`move element rectangles with binding arrow 1`] = `
-Object {
+{
   "angle": 0,
   "backgroundColor": "transparent",
-  "boundElements": Array [
-    Object {
+  "boundElements": [
+    {
       "id": "id2",
       "type": "arrow",
     },
   ],
   "fillStyle": "hachure",
-  "groupIds": Array [],
+  "groupIds": [],
   "height": 100,
   "id": "id0",
   "isDeleted": false,
@@ -112,7 +112,7 @@ Object {
   "locked": false,
   "opacity": 100,
   "roughness": 1,
-  "roundness": Object {
+  "roundness": {
     "type": 3,
   },
   "seed": 337897,
@@ -130,17 +130,17 @@ Object {
 `;
 
 exports[`move element rectangles with binding arrow 2`] = `
-Object {
+{
   "angle": 0,
   "backgroundColor": "transparent",
-  "boundElements": Array [
-    Object {
+  "boundElements": [
+    {
       "id": "id2",
       "type": "arrow",
     },
   ],
   "fillStyle": "hachure",
-  "groupIds": Array [],
+  "groupIds": [],
   "height": 300,
   "id": "id1",
   "isDeleted": false,
@@ -148,7 +148,7 @@ Object {
   "locked": false,
   "opacity": 100,
   "roughness": 1,
-  "roundness": Object {
+  "roundness": {
     "type": 3,
   },
   "seed": 449462985,
@@ -166,18 +166,18 @@ Object {
 `;
 
 exports[`move element rectangles with binding arrow 3`] = `
-Object {
+{
   "angle": 0,
   "backgroundColor": "transparent",
   "boundElements": null,
   "endArrowhead": null,
-  "endBinding": Object {
+  "endBinding": {
     "elementId": "id1",
     "focus": -0.46666666666666673,
     "gap": 10,
   },
   "fillStyle": "hachure",
-  "groupIds": Array [],
+  "groupIds": [],
   "height": 81.48231043525051,
   "id": "id2",
   "isDeleted": false,
@@ -185,23 +185,23 @@ Object {
   "link": null,
   "locked": false,
   "opacity": 100,
-  "points": Array [
-    Array [
+  "points": [
+    [
       0,
       0,
     ],
-    Array [
+    [
       81,
       81.48231043525051,
     ],
   ],
   "roughness": 1,
-  "roundness": Object {
+  "roundness": {
     "type": 2,
   },
   "seed": 401146281,
   "startArrowhead": null,
-  "startBinding": Object {
+  "startBinding": {
     "elementId": "id0",
     "focus": -0.6000000000000001,
     "gap": 10,

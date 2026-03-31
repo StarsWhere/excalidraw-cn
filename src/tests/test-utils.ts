@@ -11,12 +11,15 @@ import {
 
 import * as toolQueries from "./queries/toolQueries";
 import { ImportedDataState } from "../data/types";
-import { STORAGE_KEYS } from "../excalidraw-app/app_constants";
+import {
+  bootstrapDesktopState,
+  resetDesktopStateCache,
+} from "../excalidraw-app/data/localStorage";
 
 import { SceneData } from "../types";
 import { getSelectedElements } from "../scene/selection";
 import { ExcalidrawElement } from "../element/types";
-import { getContainerNameFromStorage } from "../excalidraw-app/data/localStorage";
+import { setDesktopDraftState } from "./desktopTestState";
 
 const customQueries = {
   ...queries,
@@ -33,7 +36,7 @@ type TestRenderFn = (
 
 const renderApp: TestRenderFn = async (ui, options) => {
   if (options?.localStorageData) {
-    initLocalStorage(options.localStorageData);
+    await initLocalStorage(options.localStorageData);
     delete options.localStorageData;
   }
 
@@ -57,6 +60,12 @@ const renderApp: TestRenderFn = async (ui, options) => {
     const canvas = renderResult.container.querySelector("canvas");
     if (!canvas) {
       throw new Error("not initialized yet");
+    }
+  });
+
+  await waitFor(() => {
+    if (!window.h?.state || window.h.state.isLoading) {
+      throw new Error("app state not ready yet");
     }
   });
 
@@ -88,20 +97,10 @@ export class GlobalTestState {
   }
 }
 
-const initLocalStorage = (data: ImportedDataState) => {
-  if (data.elements) {
-    localStorage.setItem(
-      // STORAGE_KEYS.LOCAL_STORAGE_ELEMENTS,
-      getContainerNameFromStorage(),
-      JSON.stringify(data.elements),
-    );
-  }
-  if (data.appState) {
-    localStorage.setItem(
-      STORAGE_KEYS.LOCAL_STORAGE_APP_STATE,
-      JSON.stringify(data.appState),
-    );
-  }
+const initLocalStorage = async (data: ImportedDataState) => {
+  setDesktopDraftState(data);
+  resetDesktopStateCache();
+  await bootstrapDesktopState();
 };
 
 export const updateSceneData = (data: SceneData) => {

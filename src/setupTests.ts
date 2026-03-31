@@ -2,8 +2,8 @@ import "@testing-library/jest-dom";
 import "jest-canvas-mock";
 import dotenv from "dotenv";
 import polyfill from "./polyfill";
-
-require("fake-indexeddb/auto");
+import { resetDesktopStateCache } from "./excalidraw-app/data/localStorage";
+import { desktopApiMock, resetDesktopTestState } from "./tests/desktopTestState";
 
 polyfill();
 // jest doesn't know of .env.development so we need to init it ourselves
@@ -21,3 +21,9 @@ jest.mock("nanoid", () => {
 const element = document.createElement("div");
 element.id = "root";
 document.body.appendChild(element);
+
+beforeEach(() => {
+  resetDesktopTestState();
+  resetDesktopStateCache();
+  window.handrawDesktop = desktopApiMock as typeof window.handrawDesktop;
+});

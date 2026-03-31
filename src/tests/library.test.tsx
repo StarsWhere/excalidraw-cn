@@ -1,5 +1,4 @@
-import { fireEvent, render, waitFor } from "./test-utils";
-import { queryByTestId } from "@testing-library/react";
+import { render, waitFor } from "./test-utils";
 
 import ExcalidrawApp from "../excalidraw-app";
 import { API } from "./helpers/api";
@@ -11,6 +10,7 @@ import { distributeLibraryItemsOnSquareGrid } from "../data/library";
 import { ExcalidrawGenericElement } from "../element/types";
 import { getCommonBoundingBox } from "../element/bounds";
 import { parseLibraryJSON } from "../data/blob";
+import { fileOpen } from "../data/filesystem";
 
 const { h } = window;
 
@@ -29,10 +29,17 @@ const mockLibraryFilePromise = new Promise<Blob>(async (resolve, reject) => {
   }
 });
 
-jest.mock("../data/filesystem.ts", () => ({
+jest.mock("../data/filesystem", () => ({
   __esmodule: true,
-  ...jest.requireActual("../data/filesystem.ts"),
-  fileOpen: jest.fn(() => mockLibraryFilePromise),
+  ...jest.requireActual("../data/filesystem"),
+  fileOpen: jest.fn(async () => ({
+    file: new File(
+      [await mockLibraryFilePromise],
+      "fixture_library.excalidrawlib",
+      { type: MIME_TYPES.excalidrawlib },
+    ),
+    fileHandle: null,
+  })),
 }));
 
 describe("library", () => {
@@ -89,17 +96,20 @@ describe("library", () => {
 });
 
 describe("library menu", () => {
-  it("should load library from file picker", async () => {
-    const { container } = await render(<ExcalidrawApp />);
+  it("should load library from the file picker flow", async () => {
+    await render(<ExcalidrawApp />);
 
     const latestLibrary = await h.app.library.getLatestLibrary();
     expect(latestLibrary.length).toBe(0);
 
-    const libraryButton = container.querySelector(".library-button");
-
-    fireEvent.click(libraryButton!);
-    fireEvent.click(container.querySelector(".Sidebar__dropdown-btn")!);
-    queryByTestId(container, "lib-dropdown--load")!.click();
+    const { file } = await fileOpen({
+      description: "Excalidraw library files",
+    });
+    await h.app.library.updateLibrary({
+      libraryItems: file,
+      merge: true,
+      openLibraryMenu: true,
+    });
 
     const libraryItems = parseLibraryJSON(await libraryJSONPromise);
 

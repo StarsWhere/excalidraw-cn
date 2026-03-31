@@ -176,16 +176,16 @@ describe("Test Linear Elements", () => {
     expect(renderScene).toHaveBeenCalledTimes(11);
     expect(line.points.length).toEqual(3);
     expect(line.points).toMatchInlineSnapshot(`
-      Array [
-        Array [
+      [
+        [
           0,
           0,
         ],
-        Array [
+        [
           70,
           50,
         ],
-        Array [
+        [
           40,
           0,
         ],
@@ -270,16 +270,16 @@ describe("Test Linear Elements", () => {
 
       expect(line.points.length).toEqual(3);
       expect(line.points).toMatchInlineSnapshot(`
-        Array [
-          Array [
+        [
+          [
             0,
             0,
           ],
-          Array [
+          [
             70,
             50,
           ],
-          Array [
+          [
             40,
             0,
           ],
@@ -312,12 +312,12 @@ describe("Test Linear Elements", () => {
       expect(midPointsWithRoundEdge[1]).not.toEqual(midPointsWithSharpEdge[1]);
 
       expect(midPointsWithRoundEdge).toMatchInlineSnapshot(`
-        Array [
-          Array [
+        [
+          [
             55.96978489652548,
             47.44232623099819,
           ],
-          Array [
+          [
             76.08587175006699,
             43.29416593965321,
           ],
@@ -360,12 +360,12 @@ describe("Test Linear Elements", () => {
       expect(midPoints[0]).not.toEqual(newMidPoints[0]);
       expect(midPoints[1]).not.toEqual(newMidPoints[1]);
       expect(newMidPoints).toMatchInlineSnapshot(`
-        Array [
-          Array [
+        [
+          [
             105.96978489652548,
             67.44232623099819,
           ],
-          Array [
+          [
             126.08587175006699,
             63.29416593965321,
           ],
@@ -409,24 +409,24 @@ describe("Test Linear Elements", () => {
 
         expect((h.elements[0] as ExcalidrawLinearElement).points)
           .toMatchInlineSnapshot(`
-          Array [
-            Array [
+          [
+            [
               0,
               0,
             ],
-            Array [
+            [
               85,
               75,
             ],
-            Array [
+            [
               70,
               50,
             ],
-            Array [
+            [
               105,
               70,
             ],
-            Array [
+            [
               40,
               0,
             ],
@@ -555,24 +555,24 @@ describe("Test Linear Elements", () => {
 
         expect((h.elements[0] as ExcalidrawLinearElement).points)
           .toMatchInlineSnapshot(`
-          Array [
-            Array [
+          [
+            [
               0,
               0,
             ],
-            Array [
+            [
               85.96978489652551,
               77.4423262309982,
             ],
-            Array [
+            [
               70,
               50,
             ],
-            Array [
+            [
               106.08587175006699,
               73.29416593965323,
             ],
-            Array [
+            [
               40,
               0,
             ],
@@ -603,12 +603,12 @@ describe("Test Linear Elements", () => {
         expect(midPoints[0]).not.toEqual(newMidPoints[0]);
         expect(midPoints[1]).not.toEqual(newMidPoints[1]);
         expect(newMidPoints).toMatchInlineSnapshot(`
-          Array [
-            Array [
+          [
+            [
               31.88408451761603,
               23.132755054723816,
             ],
-            Array [
+            [
               77.7479254687566,
               44.57840982272326,
             ],
@@ -664,12 +664,12 @@ describe("Test Linear Elements", () => {
         expect(midPoints[0]).not.toEqual(newMidPoints[0]);
         expect(midPoints[1]).not.toEqual(newMidPoints[1]);
         expect(newMidPoints).toMatchInlineSnapshot(`
-          Array [
-            Array [
+          [
+            [
               55.96978489652548,
               47.44232623099819,
             ],
-            Array [
+            [
               76.08587175006699,
               43.29416593965321,
             ],
@@ -701,12 +701,12 @@ describe("Test Linear Elements", () => {
         [dragEndPositionOffset[0] + line.x, dragEndPositionOffset[1] + line.y],
       );
       expect(line.points).toMatchInlineSnapshot(`
-        Array [
-          Array [
+        [
+          [
             0,
             0,
           ],
-          Array [
+          [
             -60,
             -100,
           ],
@@ -765,7 +765,7 @@ describe("Test Linear Elements", () => {
           textElement,
         );
         expect(position).toMatchInlineSnapshot(`
-          Object {
+          {
             "x": 25,
             "y": 10,
           }
@@ -787,7 +787,7 @@ describe("Test Linear Elements", () => {
           textElement,
         );
         expect(position).toMatchInlineSnapshot(`
-          Object {
+          {
             "x": 75,
             "y": 60,
           }
@@ -821,7 +821,7 @@ describe("Test Linear Elements", () => {
           textElement,
         );
         expect(position).toMatchInlineSnapshot(`
-          Object {
+          {
             "x": 85.82201843191861,
             "y": 75.63461309860818,
           }
@@ -936,7 +936,7 @@ describe("Test Linear Elements", () => {
       expect(textElement.angle).toBe(0);
       expect(getBoundTextElementPosition(arrow, textElement))
         .toMatchInlineSnapshot(`
-        Object {
+        {
           "x": 75,
           "y": 60,
         }
@@ -948,7 +948,7 @@ describe("Test Linear Elements", () => {
       `);
       expect(LinearElementEditor.getElementAbsoluteCoords(container, true))
         .toMatchInlineSnapshot(`
-        Array [
+        [
           20,
           20,
           105,
@@ -959,13 +959,13 @@ describe("Test Linear Elements", () => {
       `);
 
       rotate(container, -35, 55);
-      expect(container.angle).toMatchInlineSnapshot(`1.3988061968364685`);
+      expect(container.angle).toMatchInlineSnapshot(`4.640977144300702`);
       expect(textElement.angle).toBe(0);
       expect(getBoundTextElementPosition(container, textElement))
         .toMatchInlineSnapshot(`
-        Object {
-          "x": 21.73926141863671,
-          "y": 73.31003398390868,
+        {
+          "x": 62.93067445235853,
+          "y": -1.236804935653268,
         }
       `);
       expect(textElement.text).toMatchInlineSnapshot(`
@@ -975,11 +975,11 @@ describe("Test Linear Elements", () => {
       `);
       expect(LinearElementEditor.getElementAbsoluteCoords(container, true))
         .toMatchInlineSnapshot(`
-        Array [
+        [
           20,
           20,
-          102.41961302274555,
-          86.49012635273976,
+          101.04477991740109,
+          85.67528043035716,
           55.45893770831013,
           45,
         ]
@@ -1001,7 +1001,7 @@ describe("Test Linear Elements", () => {
       expect(container.height).toBe(50);
       expect(getBoundTextElementPosition(container, textElement))
         .toMatchInlineSnapshot(`
-        Object {
+        {
           "x": 75,
           "y": 60,
         }
@@ -1013,7 +1013,7 @@ describe("Test Linear Elements", () => {
       `);
       expect(LinearElementEditor.getElementAbsoluteCoords(container, true))
         .toMatchInlineSnapshot(`
-        Array [
+        [
           20,
           20,
           105,
@@ -1027,7 +1027,7 @@ describe("Test Linear Elements", () => {
 
       expect({ width: container.width, height: container.height })
         .toMatchInlineSnapshot(`
-        Object {
+        {
           "height": 10,
           "width": 367,
         }
@@ -1035,7 +1035,7 @@ describe("Test Linear Elements", () => {
 
       expect(getBoundTextElementPosition(container, textElement))
         .toMatchInlineSnapshot(`
-        Object {
+        {
           "x": 386.5,
           "y": 70,
         }
@@ -1047,7 +1047,7 @@ describe("Test Linear Elements", () => {
       `);
       expect(LinearElementEditor.getElementAbsoluteCoords(container, true))
         .toMatchInlineSnapshot(`
-        Array [
+        [
           20,
           60,
           391.8122896842806,
@@ -1069,7 +1069,7 @@ describe("Test Linear Elements", () => {
       expect(container.width).toBe(40);
       expect(getBoundTextElementPosition(container, textElement))
         .toMatchInlineSnapshot(`
-        Object {
+        {
           "x": 25,
           "y": 10,
         }
@@ -1086,7 +1086,7 @@ describe("Test Linear Elements", () => {
 
       expect({ width: container.width, height: container.height })
         .toMatchInlineSnapshot(`
-        Object {
+        {
           "height": 0,
           "width": 340,
         }
@@ -1094,7 +1094,7 @@ describe("Test Linear Elements", () => {
 
       expect(getBoundTextElementPosition(container, textElement))
         .toMatchInlineSnapshot(`
-        Object {
+        {
           "x": 189.5,
           "y": 20,
         }

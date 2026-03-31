@@ -1,40 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`multi point mode in linear elements arrow 1`] = `
-Object {
+{
   "angle": 0,
   "backgroundColor": "transparent",
   "boundElements": null,
   "endArrowhead": "arrow",
   "endBinding": null,
   "fillStyle": "hachure",
-  "groupIds": Array [],
+  "groupIds": [],
   "height": 110,
   "id": "id0",
   "isDeleted": false,
-  "lastCommittedPoint": Array [
+  "lastCommittedPoint": [
     70,
     110,
   ],
   "link": null,
   "locked": false,
   "opacity": 100,
-  "points": Array [
-    Array [
+  "points": [
+    [
       0,
       0,
     ],
-    Array [
+    [
       20,
       30,
     ],
-    Array [
+    [
       70,
       110,
     ],
   ],
   "roughness": 1,
-  "roundness": Object {
+  "roundness": {
     "type": 2,
   },
   "seed": 337897,
@@ -54,40 +54,40 @@ Object {
 `;
 
 exports[`multi point mode in linear elements line 1`] = `
-Object {
+{
   "angle": 0,
   "backgroundColor": "transparent",
   "boundElements": null,
   "endArrowhead": null,
   "endBinding": null,
   "fillStyle": "hachure",
-  "groupIds": Array [],
+  "groupIds": [],
   "height": 110,
   "id": "id0",
   "isDeleted": false,
-  "lastCommittedPoint": Array [
+  "lastCommittedPoint": [
     70,
     110,
   ],
   "link": null,
   "locked": false,
   "opacity": 100,
-  "points": Array [
-    Array [
+  "points": [
+    [
       0,
       0,
     ],
-    Array [
+    [
       20,
       30,
     ],
-    Array [
+    [
       70,
       110,
     ],
   ],
   "roughness": 1,
-  "roundness": Object {
+  "roundness": {
     "type": 2,
   },
   "seed": 337897,

@@ -704,10 +704,11 @@ describe("image", () => {
     await createImage();
 
     await waitFor(() => {
-      expect((h.elements[0] as ExcalidrawImageElement).scale).toEqual([1, 1]);
+      const image = h.elements[0] as ExcalidrawImageElement;
+      expect(image.scale).toEqual([1, 1]);
       expect(API.getSelectedElements().length).toBeGreaterThan(0);
       expect(API.getSelectedElements()[0].type).toEqual("image");
-      expect(h.app.files.fileId).toBeDefined();
+      expect(h.app.files[image.fileId!]).toBeDefined();
     });
     await checkHorizontalFlip();
     expect((h.elements[0] as ExcalidrawImageElement).scale).toEqual([-1, 1]);
@@ -718,10 +719,11 @@ describe("image", () => {
     //paste image
     await createImage();
     await waitFor(() => {
-      expect((h.elements[0] as ExcalidrawImageElement).scale).toEqual([1, 1]);
+      const image = h.elements[0] as ExcalidrawImageElement;
+      expect(image.scale).toEqual([1, 1]);
       expect(API.getSelectedElements().length).toBeGreaterThan(0);
       expect(API.getSelectedElements()[0].type).toEqual("image");
-      expect(h.app.files.fileId).toBeDefined();
+      expect(h.app.files[image.fileId!]).toBeDefined();
     });
 
     await checkVerticalFlip();
@@ -735,10 +737,11 @@ describe("image", () => {
     //paste image
     await createImage();
     await waitFor(() => {
-      expect((h.elements[0] as ExcalidrawImageElement).scale).toEqual([1, 1]);
+      const image = h.elements[0] as ExcalidrawImageElement;
+      expect(image.scale).toEqual([1, 1]);
       expect(API.getSelectedElements().length).toBeGreaterThan(0);
       expect(API.getSelectedElements()[0].type).toEqual("image");
-      expect(h.app.files.fileId).toBeDefined();
+      expect(h.app.files[image.fileId!]).toBeDefined();
     });
     mutateElement(h.elements[0], {
       angle: originalAngle,
@@ -753,11 +756,12 @@ describe("image", () => {
     //paste image
     await createImage();
     await waitFor(() => {
-      expect((h.elements[0] as ExcalidrawImageElement).scale).toEqual([1, 1]);
+      const image = h.elements[0] as ExcalidrawImageElement;
+      expect(image.scale).toEqual([1, 1]);
       expect(h.elements[0].angle).toEqual(0);
       expect(API.getSelectedElements().length).toBeGreaterThan(0);
       expect(API.getSelectedElements()[0].type).toEqual("image");
-      expect(h.app.files.fileId).toBeDefined();
+      expect(h.app.files[image.fileId!]).toBeDefined();
     });
     mutateElement(h.elements[0], {
       angle: originalAngle,
@@ -772,10 +776,11 @@ describe("image", () => {
     //paste image
     await createImage();
     await waitFor(() => {
-      expect((h.elements[0] as ExcalidrawImageElement).scale).toEqual([1, 1]);
+      const image = h.elements[0] as ExcalidrawImageElement;
+      expect(image.scale).toEqual([1, 1]);
       expect(API.getSelectedElements().length).toBeGreaterThan(0);
       expect(API.getSelectedElements()[0].type).toEqual("image");
-      expect(h.app.files.fileId).toBeDefined();
+      expect(h.app.files[image.fileId!]).toBeDefined();
     });
 
     await checkVerticalHorizontalFlip();
