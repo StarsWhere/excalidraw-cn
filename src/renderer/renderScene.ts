@@ -53,7 +53,6 @@ import {
   supportsEmoji,
   throttleRAF,
 } from "../utils";
-import { UserIdleState } from "../types";
 import { THEME_FILTER } from "../constants";
 import {
   EXTERNAL_LINK_IMG,
@@ -527,7 +526,7 @@ export const _renderScene = ({
             selectionColors.push(
               ...renderConfig.remoteSelectedElementIds[element.id].map(
                 (socketId) => {
-                  const { background } = getClientColors(socketId, appState);
+                  const { background } = getClientColors(socketId);
                   return background;
                 },
               ),
@@ -661,14 +660,14 @@ export const _renderScene = ({
       y = Math.max(y, 0);
       y = Math.min(y, normalizedCanvasHeight - height);
 
-      const { background, stroke } = getClientColors(clientId, appState);
+      const { background, stroke } = getClientColors(clientId);
 
       context.save();
       context.strokeStyle = stroke;
       context.fillStyle = background;
 
       const userState = renderConfig.remotePointerUserStates[clientId];
-      if (isOutOfBounds || userState === UserIdleState.AWAY) {
+      if (isOutOfBounds || userState === "away") {
         context.globalAlpha = 0.48;
       }
 
@@ -703,10 +702,10 @@ export const _renderScene = ({
       const username = renderConfig.remotePointerUsernames[clientId];
 
       let idleState = "";
-      if (userState === UserIdleState.AWAY) {
-        idleState = hasEmojiSupport ? "⚫️" : ` (${UserIdleState.AWAY})`;
-      } else if (userState === UserIdleState.IDLE) {
-        idleState = hasEmojiSupport ? "💤" : ` (${UserIdleState.IDLE})`;
+      if (userState === "away") {
+        idleState = hasEmojiSupport ? "⚫️" : " (away)";
+      } else if (userState === "idle") {
+        idleState = hasEmojiSupport ? "💤" : " (idle)";
       }
 
       const usernameAndIdleState = `${username || ""}${

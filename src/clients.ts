@@ -1,13 +1,6 @@
 import colors from "./colors";
-import { AppState } from "./types";
 
-export const getClientColors = (clientId: string, appState: AppState) => {
-  if (appState?.collaborators) {
-    const currentUser = appState.collaborators.get(clientId);
-    if (currentUser?.color) {
-      return currentUser.color;
-    }
-  }
+export const getClientColors = (clientId: string) => {
   // Naive way of getting an integer out of the clientId
   const sum = clientId.split("").reduce((a, str) => a + str.charCodeAt(0), 0);
 

@@ -170,7 +170,7 @@ export const Hyperlink = ({
           className={clsx("excalidraw-hyperlinkContainer-link", {
             "d-none": isEditing,
           })}
-          target={isLocalLink(element.link) ? "_self" : "_blank"}
+          target="_blank"
           onClick={(event) => {
             if (element.link && onLinkOpen) {
               const customEvent = wrapEvent(
@@ -240,10 +240,6 @@ export const normalizeLink = (link: string) => {
     }
   }
   return link;
-};
-
-export const isLocalLink = (link: string | null) => {
-  return !!(link?.includes(location.origin) || link?.startsWith("/"));
 };
 
 export const actionLink = register({

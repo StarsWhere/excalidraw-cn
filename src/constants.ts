@@ -121,7 +121,7 @@ export const EXPORT_DATA_TYPES = {
 } as const;
 
 export const EXPORT_SOURCE =
-  window.EXCALIDRAW_EXPORT_SOURCE || window.location.origin;
+  window.EXCALIDRAW_EXPORT_SOURCE || "desktop://handraw";
 
 // time in milliseconds
 export const IMAGE_RENDER_TIMEOUT = 500;

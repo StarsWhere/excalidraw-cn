@@ -21,7 +21,6 @@ export const getDefaultAppState = (): Omit<
   return {
     showWelcomeScreen: false,
     theme: THEME.LIGHT,
-    collaborators: new Map(),
     currentChartType: "bar",
     currentItemBackgroundColor: "transparent",
     currentItemEndArrowhead: "arrow",
@@ -105,7 +104,7 @@ const APP_STATE_STORAGE_CONF = (<
     local: boolean;
     /** whether to keep when exporting to file/database */
     export: boolean;
-    /** server (shareLink/collab/...) */
+    /** internal export bucket */
     server: boolean;
   },
   T extends Record<keyof AppState, Values>,
@@ -113,7 +112,6 @@ const APP_STATE_STORAGE_CONF = (<
   config)({
   showWelcomeScreen: { local: true, export: false, server: false },
   theme: { local: true, export: false, server: false },
-  collaborators: { local: false, export: false, server: false },
   currentChartType: { local: true, export: false, server: false },
   currentItemBackgroundColor: { local: true, export: false, server: false },
   currentItemEndArrowhead: { local: true, export: false, server: false },

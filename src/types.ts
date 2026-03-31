@@ -34,26 +34,6 @@ import { ContextMenuItems } from "./components/ContextMenu";
 
 export type Point = Readonly<RoughPoint>;
 
-export type Collaborator = {
-  pointer?: {
-    x: number;
-    y: number;
-  };
-  button?: "up" | "down";
-  selectedElementIds?: AppState["selectedElementIds"];
-  username?: string | null;
-  userState?: UserIdleState;
-  color?: {
-    background: string;
-    stroke: string;
-  };
-  // The url of the collaborator's avatar, defaults to username intials
-  // if not present
-  avatarUrl?: string;
-  // user id. If supplied, we'll filter out duplicates when rendering user avatars.
-  id?: string;
-};
-
 export type DataURL = string & { _brand: "DataURL" };
 
 export type BinaryFileData = {
@@ -169,8 +149,8 @@ export type AppState = {
     | "imageExport"
     | "help"
     | "jsonExport"
-    | "switchScene"
-    | "newScene"
+    | "switchBoard"
+    | "newBoard"
     | null;
   isSidebarDocked: boolean;
 
@@ -195,7 +175,6 @@ export type AppState = {
   offsetLeft: number;
 
   fileHandle: NativeFileHandle | null;
-  collaborators: Map<string, Collaborator>;
   showStats: boolean;
   currentChartType: ChartType;
   pasteDialog:
@@ -297,7 +276,6 @@ export interface ExcalidrawProps {
     | null
     | Promise<ExcalidrawInitialDataState | null>;
   excalidrawRef?: ForwardRef<ExcalidrawAPIRefValue>;
-  isCollaborating?: boolean;
   onPointerUpdate?: (payload: {
     pointer: { x: number; y: number };
     button: "down" | "up";
@@ -349,15 +327,8 @@ export interface ExcalidrawProps {
 export type SceneData = {
   elements?: ImportedDataState["elements"];
   appState?: ImportedDataState["appState"];
-  collaborators?: Map<string, Collaborator>;
   commitToHistory?: boolean;
 };
-
-export enum UserIdleState {
-  ACTIVE = "active",
-  AWAY = "away",
-  IDLE = "idle",
-}
 
 export type ExportOpts = {
   saveFileToDisk?: boolean;
@@ -407,7 +378,6 @@ export type AppProps = Merge<
     >;
     detectScroll: boolean;
     handleKeyboardGlobally: boolean;
-    isCollaborating: boolean;
     children?: React.ReactNode;
   }
 >;

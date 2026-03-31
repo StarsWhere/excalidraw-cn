@@ -17,7 +17,6 @@ const ExcalidrawBase = (props: ExcalidrawProps) => {
     onChange,
     initialData,
     excalidrawRef,
-    isCollaborating = false,
     onPointerUpdate,
     renderTopRightUI,
     renderSidebar,
@@ -88,7 +87,6 @@ const ExcalidrawBase = (props: ExcalidrawProps) => {
           onChange={onChange}
           initialData={initialData}
           excalidrawRef={excalidrawRef}
-          isCollaborating={isCollaborating}
           onPointerUpdate={onPointerUpdate}
           renderTopRightUI={renderTopRightUI}
           langCode={langCode}
