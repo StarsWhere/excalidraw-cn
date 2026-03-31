@@ -444,9 +444,9 @@ describe("regression tests", () => {
     fireEvent.click(document.querySelector(".dropdown-menu-button")!);
 
     fireEvent.change(document.querySelector(".dropdown-select__language")!, {
-      target: { value: "de-DE" },
+      target: { value: "zh-CN" },
     });
-    // switching to german, `thin` label should no longer exist
+    // switching to Chinese, `thin` label should no longer exist
     await waitFor(() => expect(screen.queryByTitle(/thin/i)).toBeNull());
     // reset language
     fireEvent.change(document.querySelector(".dropdown-select__language")!, {

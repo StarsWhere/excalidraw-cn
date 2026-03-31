@@ -8,7 +8,6 @@ exports[`given element A and group of elements B and given both are selected whe
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -44,7 +43,7 @@ exports[`given element A and group of elements B and given both are selected whe
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -204,7 +203,7 @@ exports[`given element A and group of elements B and given both are selected whe
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -215,7 +214,7 @@ exports[`given element A and group of elements B and given both are selected whe
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -257,7 +256,7 @@ exports[`given element A and group of elements B and given both are selected whe
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -327,7 +326,7 @@ exports[`given element A and group of elements B and given both are selected whe
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id2": true,
         },
@@ -425,7 +424,7 @@ exports[`given element A and group of elements B and given both are selected whe
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id2": true,
@@ -544,7 +543,6 @@ exports[`given element A and group of elements B and given both are selected whe
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -580,7 +578,7 @@ exports[`given element A and group of elements B and given both are selected whe
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -747,7 +745,7 @@ exports[`given element A and group of elements B and given both are selected whe
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -758,7 +756,7 @@ exports[`given element A and group of elements B and given both are selected whe
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -800,7 +798,7 @@ exports[`given element A and group of elements B and given both are selected whe
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -870,7 +868,7 @@ exports[`given element A and group of elements B and given both are selected whe
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id2": true,
         },
@@ -968,7 +966,7 @@ exports[`given element A and group of elements B and given both are selected whe
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id2": true,
@@ -1086,7 +1084,6 @@ exports[`regression tests Cmd/Ctrl-click exclusively select element under pointe
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -1122,7 +1119,7 @@ exports[`regression tests Cmd/Ctrl-click exclusively select element under pointe
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -1276,7 +1273,7 @@ exports[`regression tests Cmd/Ctrl-click exclusively select element under pointe
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -1287,7 +1284,7 @@ exports[`regression tests Cmd/Ctrl-click exclusively select element under pointe
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -1329,7 +1326,7 @@ exports[`regression tests Cmd/Ctrl-click exclusively select element under pointe
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -1399,7 +1396,7 @@ exports[`regression tests Cmd/Ctrl-click exclusively select element under pointe
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id1": true,
@@ -1478,7 +1475,7 @@ exports[`regression tests Cmd/Ctrl-click exclusively select element under pointe
       "appState": {
         "editingGroupId": "id4",
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id5": true,
@@ -1553,7 +1550,7 @@ exports[`regression tests Cmd/Ctrl-click exclusively select element under pointe
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id7": true,
         },
@@ -1655,7 +1652,7 @@ exports[`regression tests Cmd/Ctrl-click exclusively select element under pointe
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id1": true,
@@ -1767,7 +1764,7 @@ exports[`regression tests Cmd/Ctrl-click exclusively select element under pointe
       "appState": {
         "editingGroupId": "id4",
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id11": true,
@@ -1874,7 +1871,7 @@ exports[`regression tests Cmd/Ctrl-click exclusively select element under pointe
       "appState": {
         "editingGroupId": "id10",
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id12": true,
           "id7": true,
@@ -1993,7 +1990,6 @@ exports[`regression tests Drags selected element when hitting only bounding box 
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -2029,7 +2025,7 @@ exports[`regression tests Drags selected element when hitting only bounding box 
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -2115,7 +2111,7 @@ exports[`regression tests Drags selected element when hitting only bounding box 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -2126,7 +2122,7 @@ exports[`regression tests Drags selected element when hitting only bounding box 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -2168,7 +2164,7 @@ exports[`regression tests Drags selected element when hitting only bounding box 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id1": true,
@@ -2223,7 +2219,6 @@ exports[`regression tests adjusts z order when grouping: [end of test] appState 
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -2259,7 +2254,7 @@ exports[`regression tests adjusts z order when grouping: [end of test] appState 
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -2416,7 +2411,7 @@ exports[`regression tests adjusts z order when grouping: [end of test] history 1
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -2427,7 +2422,7 @@ exports[`regression tests adjusts z order when grouping: [end of test] history 1
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -2469,7 +2464,7 @@ exports[`regression tests adjusts z order when grouping: [end of test] history 1
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -2539,7 +2534,7 @@ exports[`regression tests adjusts z order when grouping: [end of test] history 1
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id2": true,
         },
@@ -2637,7 +2632,7 @@ exports[`regression tests adjusts z order when grouping: [end of test] history 1
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id2": true,
@@ -2756,7 +2751,6 @@ exports[`regression tests alt-drag duplicates an element: [end of test] appState
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -2792,7 +2786,7 @@ exports[`regression tests alt-drag duplicates an element: [end of test] appState
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -2909,7 +2903,7 @@ exports[`regression tests alt-drag duplicates an element: [end of test] history 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -2920,7 +2914,7 @@ exports[`regression tests alt-drag duplicates an element: [end of test] history 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -2962,7 +2956,7 @@ exports[`regression tests alt-drag duplicates an element: [end of test] history 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id1": true,
@@ -3045,7 +3039,6 @@ exports[`regression tests arrow keys: [end of test] appState 1`] = `
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -3081,7 +3074,7 @@ exports[`regression tests arrow keys: [end of test] appState 1`] = `
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -3164,7 +3157,7 @@ exports[`regression tests arrow keys: [end of test] history 1`] = `
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -3175,7 +3168,7 @@ exports[`regression tests arrow keys: [end of test] history 1`] = `
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -3229,7 +3222,6 @@ exports[`regression tests can drag element that covers another element, while an
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -3265,7 +3257,7 @@ exports[`regression tests can drag element that covers another element, while an
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -3413,7 +3405,7 @@ exports[`regression tests can drag element that covers another element, while an
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -3424,7 +3416,7 @@ exports[`regression tests can drag element that covers another element, while an
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -3466,7 +3458,7 @@ exports[`regression tests can drag element that covers another element, while an
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -3536,7 +3528,7 @@ exports[`regression tests can drag element that covers another element, while an
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id2": true,
         },
@@ -3634,7 +3626,7 @@ exports[`regression tests can drag element that covers another element, while an
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
           "id3": true,
@@ -3745,7 +3737,6 @@ exports[`regression tests change the properties of a shape: [end of test] appSta
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "#fa5252",
@@ -3781,7 +3772,7 @@ exports[`regression tests change the properties of a shape: [end of test] appSta
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -3864,7 +3855,7 @@ exports[`regression tests change the properties of a shape: [end of test] histor
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -3875,7 +3866,7 @@ exports[`regression tests change the properties of a shape: [end of test] histor
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -3917,7 +3908,7 @@ exports[`regression tests change the properties of a shape: [end of test] histor
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -3959,7 +3950,7 @@ exports[`regression tests change the properties of a shape: [end of test] histor
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -4013,7 +4004,6 @@ exports[`regression tests click on an element and drag it: [dragged] appState 1`
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -4049,7 +4039,7 @@ exports[`regression tests click on an element and drag it: [dragged] appState 1`
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -4135,7 +4125,7 @@ exports[`regression tests click on an element and drag it: [dragged] history 1`]
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -4146,7 +4136,7 @@ exports[`regression tests click on an element and drag it: [dragged] history 1`]
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -4188,7 +4178,7 @@ exports[`regression tests click on an element and drag it: [dragged] history 1`]
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id1": true,
@@ -4243,7 +4233,6 @@ exports[`regression tests click on an element and drag it: [end of test] appStat
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -4279,7 +4268,7 @@ exports[`regression tests click on an element and drag it: [end of test] appStat
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -4367,7 +4356,7 @@ exports[`regression tests click on an element and drag it: [end of test] history
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -4378,7 +4367,7 @@ exports[`regression tests click on an element and drag it: [end of test] history
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -4420,7 +4409,7 @@ exports[`regression tests click on an element and drag it: [end of test] history
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id1": true,
@@ -4463,7 +4452,7 @@ exports[`regression tests click on an element and drag it: [end of test] history
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id1": true,
@@ -4519,7 +4508,6 @@ exports[`regression tests click to select a shape: [end of test] appState 1`] = 
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -4555,7 +4543,7 @@ exports[`regression tests click to select a shape: [end of test] appState 1`] = 
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -4672,7 +4660,7 @@ exports[`regression tests click to select a shape: [end of test] history 1`] = `
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -4683,7 +4671,7 @@ exports[`regression tests click to select a shape: [end of test] history 1`] = `
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -4725,7 +4713,7 @@ exports[`regression tests click to select a shape: [end of test] history 1`] = `
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -4807,7 +4795,6 @@ exports[`regression tests click-drag to select a group: [end of test] appState 1
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -4843,7 +4830,7 @@ exports[`regression tests click-drag to select a group: [end of test] appState 1
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -4992,7 +4979,7 @@ exports[`regression tests click-drag to select a group: [end of test] history 1`
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -5003,7 +4990,7 @@ exports[`regression tests click-drag to select a group: [end of test] history 1`
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -5045,7 +5032,7 @@ exports[`regression tests click-drag to select a group: [end of test] history 1`
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -5115,7 +5102,7 @@ exports[`regression tests click-drag to select a group: [end of test] history 1`
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id2": true,
         },
@@ -5225,7 +5212,6 @@ exports[`regression tests deselects group of selected elements on pointer down w
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -5288,7 +5274,7 @@ exports[`regression tests deselects group of selected elements on pointer down w
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -5431,7 +5417,7 @@ exports[`regression tests deselects group of selected elements on pointer down w
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -5442,7 +5428,7 @@ exports[`regression tests deselects group of selected elements on pointer down w
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -5484,7 +5470,7 @@ exports[`regression tests deselects group of selected elements on pointer down w
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -5566,7 +5552,6 @@ exports[`regression tests deselects group of selected elements on pointer up whe
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -5629,7 +5614,7 @@ exports[`regression tests deselects group of selected elements on pointer up whe
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -5745,7 +5730,7 @@ exports[`regression tests deselects group of selected elements on pointer up whe
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -5756,7 +5741,7 @@ exports[`regression tests deselects group of selected elements on pointer up whe
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -5798,7 +5783,7 @@ exports[`regression tests deselects group of selected elements on pointer up whe
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -5880,7 +5865,6 @@ exports[`regression tests deselects selected element on pointer down when pointe
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -5943,7 +5927,7 @@ exports[`regression tests deselects selected element on pointer down when pointe
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -6053,7 +6037,7 @@ exports[`regression tests deselects selected element on pointer down when pointe
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -6064,7 +6048,7 @@ exports[`regression tests deselects selected element on pointer down when pointe
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -6118,7 +6102,6 @@ exports[`regression tests deselects selected element, on pointer up, when click 
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -6154,7 +6137,7 @@ exports[`regression tests deselects selected element, on pointer up, when click 
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -6239,7 +6222,7 @@ exports[`regression tests deselects selected element, on pointer up, when click 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -6250,7 +6233,7 @@ exports[`regression tests deselects selected element, on pointer up, when click 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -6304,7 +6287,6 @@ exports[`regression tests double click to edit a group: [end of test] appState 1
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -6340,7 +6322,7 @@ exports[`regression tests double click to edit a group: [end of test] appState 1
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -6491,7 +6473,7 @@ exports[`regression tests double click to edit a group: [end of test] history 1`
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -6502,7 +6484,7 @@ exports[`regression tests double click to edit a group: [end of test] history 1`
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -6544,7 +6526,7 @@ exports[`regression tests double click to edit a group: [end of test] history 1`
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -6614,7 +6596,7 @@ exports[`regression tests double click to edit a group: [end of test] history 1`
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id2": true,
         },
@@ -6712,7 +6694,7 @@ exports[`regression tests double click to edit a group: [end of test] history 1`
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id1": true,
@@ -6832,7 +6814,6 @@ exports[`regression tests drags selected elements from point inside common bound
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -6868,7 +6849,7 @@ exports[`regression tests drags selected elements from point inside common bound
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -6989,7 +6970,7 @@ exports[`regression tests drags selected elements from point inside common bound
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -7000,7 +6981,7 @@ exports[`regression tests drags selected elements from point inside common bound
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -7042,7 +7023,7 @@ exports[`regression tests drags selected elements from point inside common bound
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -7112,7 +7093,7 @@ exports[`regression tests drags selected elements from point inside common bound
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id1": true,
@@ -7197,7 +7178,6 @@ exports[`regression tests draw every type of shape: [end of test] appState 1`] =
     "locked": false,
     "type": "freedraw",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -7233,7 +7213,7 @@ exports[`regression tests draw every type of shape: [end of test] appState 1`] =
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -7629,7 +7609,7 @@ exports[`regression tests draw every type of shape: [end of test] history 1`] = 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -7640,7 +7620,7 @@ exports[`regression tests draw every type of shape: [end of test] history 1`] = 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -7682,7 +7662,7 @@ exports[`regression tests draw every type of shape: [end of test] history 1`] = 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -7752,7 +7732,7 @@ exports[`regression tests draw every type of shape: [end of test] history 1`] = 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id2": true,
         },
@@ -7850,7 +7830,7 @@ exports[`regression tests draw every type of shape: [end of test] history 1`] = 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id3": true,
         },
@@ -7991,7 +7971,7 @@ exports[`regression tests draw every type of shape: [end of test] history 1`] = 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id4": true,
         },
@@ -8175,7 +8155,7 @@ exports[`regression tests draw every type of shape: [end of test] history 1`] = 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id5": true,
         },
@@ -8405,7 +8385,7 @@ exports[`regression tests draw every type of shape: [end of test] history 1`] = 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id5": true,
         },
@@ -8639,7 +8619,7 @@ exports[`regression tests draw every type of shape: [end of test] history 1`] = 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id6": true,
         },
@@ -8919,7 +8899,7 @@ exports[`regression tests draw every type of shape: [end of test] history 1`] = 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id6": true,
         },
@@ -9203,7 +9183,7 @@ exports[`regression tests draw every type of shape: [end of test] history 1`] = 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id7": false,
         },
@@ -9549,7 +9529,6 @@ exports[`regression tests given a group of selected elements with an element tha
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -9585,7 +9564,7 @@ exports[`regression tests given a group of selected elements with an element tha
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -9735,7 +9714,7 @@ exports[`regression tests given a group of selected elements with an element tha
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -9746,7 +9725,7 @@ exports[`regression tests given a group of selected elements with an element tha
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -9788,7 +9767,7 @@ exports[`regression tests given a group of selected elements with an element tha
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -9858,7 +9837,7 @@ exports[`regression tests given a group of selected elements with an element tha
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id2": true,
         },
@@ -9968,7 +9947,6 @@ exports[`regression tests given a selected element A and a not selected element 
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "#fa5252",
@@ -10004,7 +9982,7 @@ exports[`regression tests given a selected element A and a not selected element 
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -10124,7 +10102,7 @@ exports[`regression tests given a selected element A and a not selected element 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -10135,7 +10113,7 @@ exports[`regression tests given a selected element A and a not selected element 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -10175,7 +10153,7 @@ exports[`regression tests given a selected element A and a not selected element 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -10257,7 +10235,6 @@ exports[`regression tests given selected element A with lower z-index than unsel
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -10293,7 +10270,7 @@ exports[`regression tests given selected element A with lower z-index than unsel
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -10411,7 +10388,7 @@ exports[`regression tests given selected element A with lower z-index than unsel
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -10422,7 +10399,7 @@ exports[`regression tests given selected element A with lower z-index than unsel
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id2": true,
@@ -10505,7 +10482,6 @@ exports[`regression tests given selected element A with lower z-index than unsel
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -10541,7 +10517,7 @@ exports[`regression tests given selected element A with lower z-index than unsel
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -10660,7 +10636,7 @@ exports[`regression tests given selected element A with lower z-index than unsel
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -10671,7 +10647,7 @@ exports[`regression tests given selected element A with lower z-index than unsel
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id2": true,
@@ -10742,7 +10718,7 @@ exports[`regression tests given selected element A with lower z-index than unsel
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id2": true,
@@ -10826,7 +10802,6 @@ exports[`regression tests key 2 selects rectangle tool: [end of test] appState 1
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -10862,7 +10837,7 @@ exports[`regression tests key 2 selects rectangle tool: [end of test] appState 1
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -10945,7 +10920,7 @@ exports[`regression tests key 2 selects rectangle tool: [end of test] history 1`
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -10956,7 +10931,7 @@ exports[`regression tests key 2 selects rectangle tool: [end of test] history 1`
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -11010,7 +10985,6 @@ exports[`regression tests key 3 selects diamond tool: [end of test] appState 1`]
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -11046,7 +11020,7 @@ exports[`regression tests key 3 selects diamond tool: [end of test] appState 1`]
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -11129,7 +11103,7 @@ exports[`regression tests key 3 selects diamond tool: [end of test] history 1`] 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -11140,7 +11114,7 @@ exports[`regression tests key 3 selects diamond tool: [end of test] history 1`] 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -11194,7 +11168,6 @@ exports[`regression tests key 4 selects ellipse tool: [end of test] appState 1`]
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -11230,7 +11203,7 @@ exports[`regression tests key 4 selects ellipse tool: [end of test] appState 1`]
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -11313,7 +11286,7 @@ exports[`regression tests key 4 selects ellipse tool: [end of test] history 1`] 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -11324,7 +11297,7 @@ exports[`regression tests key 4 selects ellipse tool: [end of test] history 1`] 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -11378,7 +11351,6 @@ exports[`regression tests key 5 selects arrow tool: [end of test] appState 1`] =
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -11414,7 +11386,7 @@ exports[`regression tests key 5 selects arrow tool: [end of test] appState 1`] =
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -11535,7 +11507,7 @@ exports[`regression tests key 5 selects arrow tool: [end of test] history 1`] = 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -11546,7 +11518,7 @@ exports[`regression tests key 5 selects arrow tool: [end of test] history 1`] = 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -11615,7 +11587,6 @@ exports[`regression tests key 6 selects line tool: [end of test] appState 1`] = 
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -11651,7 +11622,7 @@ exports[`regression tests key 6 selects line tool: [end of test] appState 1`] = 
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -11772,7 +11743,7 @@ exports[`regression tests key 6 selects line tool: [end of test] history 1`] = `
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -11783,7 +11754,7 @@ exports[`regression tests key 6 selects line tool: [end of test] history 1`] = `
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -11852,7 +11823,6 @@ exports[`regression tests key 7 selects freedraw tool: [end of test] appState 1`
     "locked": false,
     "type": "freedraw",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -11888,7 +11858,7 @@ exports[`regression tests key 7 selects freedraw tool: [end of test] appState 1`
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -11993,7 +11963,7 @@ exports[`regression tests key 7 selects freedraw tool: [end of test] history 1`]
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -12004,7 +11974,7 @@ exports[`regression tests key 7 selects freedraw tool: [end of test] history 1`]
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": false,
         },
@@ -12080,7 +12050,6 @@ exports[`regression tests key a selects arrow tool: [end of test] appState 1`] =
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -12116,7 +12085,7 @@ exports[`regression tests key a selects arrow tool: [end of test] appState 1`] =
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -12237,7 +12206,7 @@ exports[`regression tests key a selects arrow tool: [end of test] history 1`] = 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -12248,7 +12217,7 @@ exports[`regression tests key a selects arrow tool: [end of test] history 1`] = 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -12317,7 +12286,6 @@ exports[`regression tests key d selects diamond tool: [end of test] appState 1`]
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -12353,7 +12321,7 @@ exports[`regression tests key d selects diamond tool: [end of test] appState 1`]
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -12436,7 +12404,7 @@ exports[`regression tests key d selects diamond tool: [end of test] history 1`] 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -12447,7 +12415,7 @@ exports[`regression tests key d selects diamond tool: [end of test] history 1`] 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -12501,7 +12469,6 @@ exports[`regression tests key l selects line tool: [end of test] appState 1`] = 
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -12537,7 +12504,7 @@ exports[`regression tests key l selects line tool: [end of test] appState 1`] = 
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -12658,7 +12625,7 @@ exports[`regression tests key l selects line tool: [end of test] history 1`] = `
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -12669,7 +12636,7 @@ exports[`regression tests key l selects line tool: [end of test] history 1`] = `
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -12738,7 +12705,6 @@ exports[`regression tests key o selects ellipse tool: [end of test] appState 1`]
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -12774,7 +12740,7 @@ exports[`regression tests key o selects ellipse tool: [end of test] appState 1`]
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -12857,7 +12823,7 @@ exports[`regression tests key o selects ellipse tool: [end of test] history 1`] 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -12868,7 +12834,7 @@ exports[`regression tests key o selects ellipse tool: [end of test] history 1`] 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -12922,7 +12888,6 @@ exports[`regression tests key p selects freedraw tool: [end of test] appState 1`
     "locked": false,
     "type": "freedraw",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -12958,7 +12923,7 @@ exports[`regression tests key p selects freedraw tool: [end of test] appState 1`
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -13063,7 +13028,7 @@ exports[`regression tests key p selects freedraw tool: [end of test] history 1`]
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -13074,7 +13039,7 @@ exports[`regression tests key p selects freedraw tool: [end of test] history 1`]
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": false,
         },
@@ -13150,7 +13115,6 @@ exports[`regression tests key r selects rectangle tool: [end of test] appState 1
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -13186,7 +13150,7 @@ exports[`regression tests key r selects rectangle tool: [end of test] appState 1
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -13269,7 +13233,7 @@ exports[`regression tests key r selects rectangle tool: [end of test] history 1`
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -13280,7 +13244,7 @@ exports[`regression tests key r selects rectangle tool: [end of test] history 1`
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -13334,7 +13298,6 @@ exports[`regression tests make a group and duplicate it: [end of test] appState 
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -13370,7 +13333,7 @@ exports[`regression tests make a group and duplicate it: [end of test] appState 
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -13631,7 +13594,7 @@ exports[`regression tests make a group and duplicate it: [end of test] history 1
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -13642,7 +13605,7 @@ exports[`regression tests make a group and duplicate it: [end of test] history 1
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -13684,7 +13647,7 @@ exports[`regression tests make a group and duplicate it: [end of test] history 1
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -13754,7 +13717,7 @@ exports[`regression tests make a group and duplicate it: [end of test] history 1
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id2": true,
         },
@@ -13852,7 +13815,7 @@ exports[`regression tests make a group and duplicate it: [end of test] history 1
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id1": true,
@@ -13961,7 +13924,7 @@ exports[`regression tests make a group and duplicate it: [end of test] history 1
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id1": true,
@@ -14173,7 +14136,6 @@ exports[`regression tests noop interaction after undo shouldn't create history e
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -14209,7 +14171,7 @@ exports[`regression tests noop interaction after undo shouldn't create history e
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -14327,7 +14289,7 @@ exports[`regression tests noop interaction after undo shouldn't create history e
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -14338,7 +14300,7 @@ exports[`regression tests noop interaction after undo shouldn't create history e
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -14380,7 +14342,7 @@ exports[`regression tests noop interaction after undo shouldn't create history e
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -14462,7 +14424,6 @@ exports[`regression tests pinch-to-zoom works: [end of test] appState 1`] = `
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -14498,7 +14459,7 @@ exports[`regression tests pinch-to-zoom works: [end of test] appState 1`] = `
   "isSidebarDocked": false,
   "lastPointerDownWith": "touch",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -14550,7 +14511,7 @@ exports[`regression tests pinch-to-zoom works: [end of test] history 1`] = `
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -14573,7 +14534,6 @@ exports[`regression tests rerenders UI on language change: [end of test] appStat
     "locked": false,
     "type": "rectangle",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -14609,7 +14569,7 @@ exports[`regression tests rerenders UI on language change: [end of test] appStat
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -14659,7 +14619,7 @@ exports[`regression tests rerenders UI on language change: [end of test] history
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -14682,7 +14642,6 @@ exports[`regression tests shift click on selected element should deselect it on 
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -14718,7 +14677,7 @@ exports[`regression tests shift click on selected element should deselect it on 
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -14804,7 +14763,7 @@ exports[`regression tests shift click on selected element should deselect it on 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -14815,7 +14774,7 @@ exports[`regression tests shift click on selected element should deselect it on 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -14869,7 +14828,6 @@ exports[`regression tests shift-click to multiselect, then drag: [end of test] a
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -14905,7 +14863,7 @@ exports[`regression tests shift-click to multiselect, then drag: [end of test] a
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -15028,7 +14986,7 @@ exports[`regression tests shift-click to multiselect, then drag: [end of test] h
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -15039,7 +14997,7 @@ exports[`regression tests shift-click to multiselect, then drag: [end of test] h
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -15081,7 +15039,7 @@ exports[`regression tests shift-click to multiselect, then drag: [end of test] h
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -15151,7 +15109,7 @@ exports[`regression tests shift-click to multiselect, then drag: [end of test] h
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id1": true,
@@ -15237,7 +15195,6 @@ exports[`regression tests should group elements and ungroup them: [end of test] 
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -15273,7 +15230,7 @@ exports[`regression tests should group elements and ungroup them: [end of test] 
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -15424,7 +15381,7 @@ exports[`regression tests should group elements and ungroup them: [end of test] 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -15435,7 +15392,7 @@ exports[`regression tests should group elements and ungroup them: [end of test] 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -15477,7 +15434,7 @@ exports[`regression tests should group elements and ungroup them: [end of test] 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -15547,7 +15504,7 @@ exports[`regression tests should group elements and ungroup them: [end of test] 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id2": true,
         },
@@ -15645,7 +15602,7 @@ exports[`regression tests should group elements and ungroup them: [end of test] 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id1": true,
@@ -15754,7 +15711,7 @@ exports[`regression tests should group elements and ungroup them: [end of test] 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id1": true,
@@ -15868,7 +15825,6 @@ exports[`regression tests should show fill icons when element has non transparen
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "#fa5252",
@@ -15904,7 +15860,7 @@ exports[`regression tests should show fill icons when element has non transparen
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -15987,7 +15943,7 @@ exports[`regression tests should show fill icons when element has non transparen
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -15998,7 +15954,7 @@ exports[`regression tests should show fill icons when element has non transparen
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -16040,7 +15996,7 @@ exports[`regression tests should show fill icons when element has non transparen
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -16094,7 +16050,6 @@ exports[`regression tests single-clicking on a subgroup of a selected group shou
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -16130,7 +16085,7 @@ exports[`regression tests single-clicking on a subgroup of a selected group shou
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -16329,7 +16284,7 @@ exports[`regression tests single-clicking on a subgroup of a selected group shou
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -16340,7 +16295,7 @@ exports[`regression tests single-clicking on a subgroup of a selected group shou
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -16382,7 +16337,7 @@ exports[`regression tests single-clicking on a subgroup of a selected group shou
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -16452,7 +16407,7 @@ exports[`regression tests single-clicking on a subgroup of a selected group shou
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id1": true,
@@ -16531,7 +16486,7 @@ exports[`regression tests single-clicking on a subgroup of a selected group shou
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id5": true,
         },
@@ -16633,7 +16588,7 @@ exports[`regression tests single-clicking on a subgroup of a selected group shou
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id6": true,
         },
@@ -16763,7 +16718,7 @@ exports[`regression tests single-clicking on a subgroup of a selected group shou
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id5": true,
           "id6": true,
@@ -16902,7 +16857,7 @@ exports[`regression tests single-clicking on a subgroup of a selected group shou
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id1": true,
@@ -17057,7 +17012,6 @@ exports[`regression tests spacebar + drag scrolls the canvas: [end of test] appS
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -17093,7 +17047,7 @@ exports[`regression tests spacebar + drag scrolls the canvas: [end of test] appS
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -17143,7 +17097,7 @@ exports[`regression tests spacebar + drag scrolls the canvas: [end of test] hist
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -17166,7 +17120,6 @@ exports[`regression tests supports nested groups: [end of test] appState 1`] = `
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -17202,7 +17155,7 @@ exports[`regression tests supports nested groups: [end of test] appState 1`] = `
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -17357,7 +17310,7 @@ exports[`regression tests supports nested groups: [end of test] history 1`] = `
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -17368,7 +17321,7 @@ exports[`regression tests supports nested groups: [end of test] history 1`] = `
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -17410,7 +17363,7 @@ exports[`regression tests supports nested groups: [end of test] history 1`] = `
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -17480,7 +17433,7 @@ exports[`regression tests supports nested groups: [end of test] history 1`] = `
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id2": true,
         },
@@ -17578,7 +17531,7 @@ exports[`regression tests supports nested groups: [end of test] history 1`] = `
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id1": true,
@@ -17686,7 +17639,7 @@ exports[`regression tests supports nested groups: [end of test] history 1`] = `
       "appState": {
         "editingGroupId": "id3",
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id2": true,
@@ -17792,7 +17745,7 @@ exports[`regression tests supports nested groups: [end of test] history 1`] = `
       "appState": {
         "editingGroupId": "id3",
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id2": true,
@@ -17902,7 +17855,7 @@ exports[`regression tests supports nested groups: [end of test] history 1`] = `
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id1": true,
@@ -18025,7 +17978,6 @@ exports[`regression tests switches from group of selected elements to another el
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -18088,7 +18040,7 @@ exports[`regression tests switches from group of selected elements to another el
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -18264,7 +18216,7 @@ exports[`regression tests switches from group of selected elements to another el
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -18275,7 +18227,7 @@ exports[`regression tests switches from group of selected elements to another el
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -18317,7 +18269,7 @@ exports[`regression tests switches from group of selected elements to another el
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -18387,7 +18339,7 @@ exports[`regression tests switches from group of selected elements to another el
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id2": true,
         },
@@ -18497,7 +18449,6 @@ exports[`regression tests switches selected element on pointer down: [end of tes
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -18560,7 +18511,7 @@ exports[`regression tests switches selected element on pointer down: [end of tes
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -18703,7 +18654,7 @@ exports[`regression tests switches selected element on pointer down: [end of tes
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -18714,7 +18665,7 @@ exports[`regression tests switches selected element on pointer down: [end of tes
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -18756,7 +18707,7 @@ exports[`regression tests switches selected element on pointer down: [end of tes
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -18838,7 +18789,6 @@ exports[`regression tests two-finger scroll works: [end of test] appState 1`] = 
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -18874,7 +18824,7 @@ exports[`regression tests two-finger scroll works: [end of test] appState 1`] = 
   "isSidebarDocked": false,
   "lastPointerDownWith": "touch",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -18926,7 +18876,7 @@ exports[`regression tests two-finger scroll works: [end of test] history 1`] = `
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -18949,7 +18899,6 @@ exports[`regression tests undo/redo drawing an element: [end of test] appState 1
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -18985,7 +18934,7 @@ exports[`regression tests undo/redo drawing an element: [end of test] appState 1
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -19147,7 +19096,7 @@ exports[`regression tests undo/redo drawing an element: [end of test] history 1`
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id2": true,
         },
@@ -19267,7 +19216,7 @@ exports[`regression tests undo/redo drawing an element: [end of test] history 1`
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id2": true,
         },
@@ -19385,7 +19334,7 @@ exports[`regression tests undo/redo drawing an element: [end of test] history 1`
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -19396,7 +19345,7 @@ exports[`regression tests undo/redo drawing an element: [end of test] history 1`
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -19438,7 +19387,7 @@ exports[`regression tests undo/redo drawing an element: [end of test] history 1`
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -19520,7 +19469,6 @@ exports[`regression tests updates fontSize & fontFamily appState: [end of test] 
     "locked": false,
     "type": "text",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -19556,7 +19504,7 @@ exports[`regression tests updates fontSize & fontFamily appState: [end of test] 
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -19606,7 +19554,7 @@ exports[`regression tests updates fontSize & fontFamily appState: [end of test] 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -19629,7 +19577,6 @@ exports[`regression tests zoom hotkeys: [end of test] appState 1`] = `
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -19665,7 +19612,7 @@ exports[`regression tests zoom hotkeys: [end of test] appState 1`] = `
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 0,
   "offsetTop": 0,
   "openDialog": null,
@@ -19715,7 +19662,7 @@ exports[`regression tests zoom hotkeys: [end of test] history 1`] = `
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",

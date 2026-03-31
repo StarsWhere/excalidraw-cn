@@ -12,8 +12,8 @@ import {
 import { newLinearElement } from "../element";
 import ExcalidrawApp from "../excalidraw-app";
 import { mutateElement } from "../element/mutateElement";
-import { NormalizedZoomValue } from "../types";
-import { ROUNDNESS } from "../constants";
+import { DataURL, NormalizedZoomValue } from "../types";
+import { MIME_TYPES, ROUNDNESS } from "../constants";
 
 const { h } = window;
 
@@ -673,38 +673,55 @@ describe("freedraw", () => {
 //image
 //TODO: currently there is no test for pixel colors at flipped positions.
 describe("image", () => {
+  const TEST_IMAGE_FILE_ID = "fileId" as FileId;
+  const TEST_IMAGE_DATA_URL =
+    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9WnR16QAAAAASUVORK5CYII=" as DataURL;
+
   const createImage = async () => {
-    const sendPasteEvent = (file?: File) => {
-      const clipboardEvent = new Event("paste", {
-        bubbles: true,
-        cancelable: true,
-        composed: true,
-      });
+    const image = API.createElement({
+      type: "image",
+      x: 0,
+      y: 0,
+      width: 100,
+      height: 100,
+      fileId: TEST_IMAGE_FILE_ID,
+      status: "saved",
+      scale: [1, 1],
+    });
 
-      // set `clipboardData` properties.
-      // @ts-ignore
-      clipboardEvent.clipboardData = {
-        getData: () => window.navigator.clipboard.readText(),
-        files: [file],
-      };
+    h.app.scene.replaceAllElements([image]);
+    h.app.addFiles([
+      {
+        id: TEST_IMAGE_FILE_ID,
+        mimeType: MIME_TYPES.png,
+        dataURL: TEST_IMAGE_DATA_URL,
+        created: Date.now(),
+        lastRetrieved: Date.now(),
+      },
+    ]);
+    h.app.setState({
+      selectedElementIds: { [image.id]: true },
+    });
+  };
 
-      document.dispatchEvent(clipboardEvent);
-    };
-
-    sendPasteEvent(await API.loadFile("./fixtures/smiley_embedded_v2.png"));
+  const waitForInitializedImage = async () => {
+    await waitFor(
+      () => {
+        const image = h.elements[0] as ExcalidrawImageElement;
+        expect(image.fileId).toEqual(TEST_IMAGE_FILE_ID);
+        expect(image.scale).toEqual([1, 1]);
+        expect(API.getSelectedElements().length).toBeGreaterThan(0);
+        expect(API.getSelectedElements()[0].type).toEqual("image");
+        expect(h.app.files[image.fileId!]).toBeDefined();
+      },
+      { timeout: 3000 },
+    );
   };
 
   it("flips an unrotated image horizontally correctly", async () => {
     //paste image
     await createImage();
-
-    await waitFor(() => {
-      const image = h.elements[0] as ExcalidrawImageElement;
-      expect(image.scale).toEqual([1, 1]);
-      expect(API.getSelectedElements().length).toBeGreaterThan(0);
-      expect(API.getSelectedElements()[0].type).toEqual("image");
-      expect(h.app.files[image.fileId!]).toBeDefined();
-    });
+    await waitForInitializedImage();
     await checkHorizontalFlip();
     expect((h.elements[0] as ExcalidrawImageElement).scale).toEqual([-1, 1]);
     expect(h.elements[0].angle).toBeCloseTo(0);
@@ -713,13 +730,7 @@ describe("image", () => {
   it("flips an unrotated image vertically correctly", async () => {
     //paste image
     await createImage();
-    await waitFor(() => {
-      const image = h.elements[0] as ExcalidrawImageElement;
-      expect(image.scale).toEqual([1, 1]);
-      expect(API.getSelectedElements().length).toBeGreaterThan(0);
-      expect(API.getSelectedElements()[0].type).toEqual("image");
-      expect(h.app.files[image.fileId!]).toBeDefined();
-    });
+    await waitForInitializedImage();
 
     await checkVerticalFlip();
     expect((h.elements[0] as ExcalidrawImageElement).scale).toEqual([-1, 1]);
@@ -731,13 +742,7 @@ describe("image", () => {
     const expectedAngle = (7 * Math.PI) / 4;
     //paste image
     await createImage();
-    await waitFor(() => {
-      const image = h.elements[0] as ExcalidrawImageElement;
-      expect(image.scale).toEqual([1, 1]);
-      expect(API.getSelectedElements().length).toBeGreaterThan(0);
-      expect(API.getSelectedElements()[0].type).toEqual("image");
-      expect(h.app.files[image.fileId!]).toBeDefined();
-    });
+    await waitForInitializedImage();
     mutateElement(h.elements[0], {
       angle: originalAngle,
     });
@@ -750,14 +755,8 @@ describe("image", () => {
     const expectedAngle = (3 * Math.PI) / 4;
     //paste image
     await createImage();
-    await waitFor(() => {
-      const image = h.elements[0] as ExcalidrawImageElement;
-      expect(image.scale).toEqual([1, 1]);
-      expect(h.elements[0].angle).toEqual(0);
-      expect(API.getSelectedElements().length).toBeGreaterThan(0);
-      expect(API.getSelectedElements()[0].type).toEqual("image");
-      expect(h.app.files[image.fileId!]).toBeDefined();
-    });
+    await waitForInitializedImage();
+    expect(h.elements[0].angle).toEqual(0);
     mutateElement(h.elements[0], {
       angle: originalAngle,
     });
@@ -770,13 +769,7 @@ describe("image", () => {
   it("flips an image both vertically & horizontally", async () => {
     //paste image
     await createImage();
-    await waitFor(() => {
-      const image = h.elements[0] as ExcalidrawImageElement;
-      expect(image.scale).toEqual([1, 1]);
-      expect(API.getSelectedElements().length).toBeGreaterThan(0);
-      expect(API.getSelectedElements()[0].type).toEqual("image");
-      expect(h.app.files[image.fileId!]).toBeDefined();
-    });
+    await waitForInitializedImage();
 
     await checkVerticalHorizontalFlip();
     expect((h.elements[0] as ExcalidrawImageElement).scale).toEqual([1, 1]);

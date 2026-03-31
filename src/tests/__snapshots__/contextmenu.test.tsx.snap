@@ -8,7 +8,6 @@ exports[`contextMenu element right-clicking on a group should select whole group
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": {
     "items": [
       {
@@ -294,7 +293,7 @@ exports[`contextMenu element right-clicking on a group should select whole group
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 20,
   "offsetTop": 10,
   "openDialog": null,
@@ -415,7 +414,7 @@ exports[`contextMenu element right-clicking on a group should select whole group
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -436,7 +435,6 @@ exports[`contextMenu element selecting 'Add to library' in context menu adds ele
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -472,7 +470,7 @@ exports[`contextMenu element selecting 'Add to library' in context menu adds ele
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 20,
   "offsetTop": 10,
   "openDialog": null,
@@ -557,7 +555,7 @@ exports[`contextMenu element selecting 'Add to library' in context menu adds ele
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -568,7 +566,7 @@ exports[`contextMenu element selecting 'Add to library' in context menu adds ele
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -620,7 +618,6 @@ exports[`contextMenu element selecting 'Bring forward' in context menu brings el
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -656,7 +653,7 @@ exports[`contextMenu element selecting 'Bring forward' in context menu brings el
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 20,
   "offsetTop": 10,
   "openDialog": null,
@@ -770,7 +767,7 @@ exports[`contextMenu element selecting 'Bring forward' in context menu brings el
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -781,7 +778,7 @@ exports[`contextMenu element selecting 'Bring forward' in context menu brings el
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -823,7 +820,7 @@ exports[`contextMenu element selecting 'Bring forward' in context menu brings el
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -893,7 +890,7 @@ exports[`contextMenu element selecting 'Bring forward' in context menu brings el
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -973,7 +970,6 @@ exports[`contextMenu element selecting 'Bring to front' in context menu brings e
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -1009,7 +1005,7 @@ exports[`contextMenu element selecting 'Bring to front' in context menu brings e
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 20,
   "offsetTop": 10,
   "openDialog": null,
@@ -1123,7 +1119,7 @@ exports[`contextMenu element selecting 'Bring to front' in context menu brings e
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -1134,7 +1130,7 @@ exports[`contextMenu element selecting 'Bring to front' in context menu brings e
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -1176,7 +1172,7 @@ exports[`contextMenu element selecting 'Bring to front' in context menu brings e
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -1246,7 +1242,7 @@ exports[`contextMenu element selecting 'Bring to front' in context menu brings e
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -1326,7 +1322,6 @@ exports[`contextMenu element selecting 'Copy styles' in context menu copies styl
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -1362,7 +1357,7 @@ exports[`contextMenu element selecting 'Copy styles' in context menu copies styl
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 20,
   "offsetTop": 10,
   "openDialog": null,
@@ -1447,7 +1442,7 @@ exports[`contextMenu element selecting 'Copy styles' in context menu copies styl
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -1458,7 +1453,7 @@ exports[`contextMenu element selecting 'Copy styles' in context menu copies styl
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -1510,7 +1505,6 @@ exports[`contextMenu element selecting 'Delete' in context menu deletes element:
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -1546,7 +1540,7 @@ exports[`contextMenu element selecting 'Delete' in context menu deletes element:
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 20,
   "offsetTop": 10,
   "openDialog": null,
@@ -1627,7 +1621,7 @@ exports[`contextMenu element selecting 'Delete' in context menu deletes element:
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -1638,7 +1632,7 @@ exports[`contextMenu element selecting 'Delete' in context menu deletes element:
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -1680,7 +1674,7 @@ exports[`contextMenu element selecting 'Delete' in context menu deletes element:
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -1730,7 +1724,6 @@ exports[`contextMenu element selecting 'Duplicate' in context menu duplicates el
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -1766,7 +1759,7 @@ exports[`contextMenu element selecting 'Duplicate' in context menu duplicates el
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 20,
   "offsetTop": 10,
   "openDialog": null,
@@ -1880,7 +1873,7 @@ exports[`contextMenu element selecting 'Duplicate' in context menu duplicates el
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -1891,7 +1884,7 @@ exports[`contextMenu element selecting 'Duplicate' in context menu duplicates el
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -1933,7 +1926,7 @@ exports[`contextMenu element selecting 'Duplicate' in context menu duplicates el
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0_copy": true,
         },
@@ -2013,7 +2006,6 @@ exports[`contextMenu element selecting 'Group selection' in context menu groups 
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -2049,7 +2041,7 @@ exports[`contextMenu element selecting 'Group selection' in context menu groups 
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 20,
   "offsetTop": 10,
   "openDialog": null,
@@ -2173,7 +2165,7 @@ exports[`contextMenu element selecting 'Group selection' in context menu groups 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -2184,7 +2176,7 @@ exports[`contextMenu element selecting 'Group selection' in context menu groups 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -2226,7 +2218,7 @@ exports[`contextMenu element selecting 'Group selection' in context menu groups 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -2296,7 +2288,7 @@ exports[`contextMenu element selecting 'Group selection' in context menu groups 
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id1": true,
@@ -2384,7 +2376,6 @@ exports[`contextMenu element selecting 'Paste styles' in context menu pastes sty
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "#e64980",
@@ -2420,7 +2411,7 @@ exports[`contextMenu element selecting 'Paste styles' in context menu pastes sty
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 20,
   "offsetTop": 10,
   "openDialog": null,
@@ -2536,7 +2527,7 @@ exports[`contextMenu element selecting 'Paste styles' in context menu pastes sty
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -2547,7 +2538,7 @@ exports[`contextMenu element selecting 'Paste styles' in context menu pastes sty
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -2589,7 +2580,7 @@ exports[`contextMenu element selecting 'Paste styles' in context menu pastes sty
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -2659,7 +2650,7 @@ exports[`contextMenu element selecting 'Paste styles' in context menu pastes sty
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -2729,7 +2720,7 @@ exports[`contextMenu element selecting 'Paste styles' in context menu pastes sty
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -2799,7 +2790,7 @@ exports[`contextMenu element selecting 'Paste styles' in context menu pastes sty
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -2869,7 +2860,7 @@ exports[`contextMenu element selecting 'Paste styles' in context menu pastes sty
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -2939,7 +2930,7 @@ exports[`contextMenu element selecting 'Paste styles' in context menu pastes sty
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -3009,7 +3000,7 @@ exports[`contextMenu element selecting 'Paste styles' in context menu pastes sty
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -3079,7 +3070,7 @@ exports[`contextMenu element selecting 'Paste styles' in context menu pastes sty
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -3149,7 +3140,7 @@ exports[`contextMenu element selecting 'Paste styles' in context menu pastes sty
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -3229,7 +3220,6 @@ exports[`contextMenu element selecting 'Send backward' in context menu sends ele
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -3265,7 +3255,7 @@ exports[`contextMenu element selecting 'Send backward' in context menu sends ele
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 20,
   "offsetTop": 10,
   "openDialog": null,
@@ -3379,7 +3369,7 @@ exports[`contextMenu element selecting 'Send backward' in context menu sends ele
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -3390,7 +3380,7 @@ exports[`contextMenu element selecting 'Send backward' in context menu sends ele
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -3432,7 +3422,7 @@ exports[`contextMenu element selecting 'Send backward' in context menu sends ele
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -3502,7 +3492,7 @@ exports[`contextMenu element selecting 'Send backward' in context menu sends ele
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -3582,7 +3572,6 @@ exports[`contextMenu element selecting 'Send to back' in context menu sends elem
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -3618,7 +3607,7 @@ exports[`contextMenu element selecting 'Send to back' in context menu sends elem
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 20,
   "offsetTop": 10,
   "openDialog": null,
@@ -3732,7 +3721,7 @@ exports[`contextMenu element selecting 'Send to back' in context menu sends elem
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -3743,7 +3732,7 @@ exports[`contextMenu element selecting 'Send to back' in context menu sends elem
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -3785,7 +3774,7 @@ exports[`contextMenu element selecting 'Send to back' in context menu sends elem
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -3855,7 +3844,7 @@ exports[`contextMenu element selecting 'Send to back' in context menu sends elem
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -3935,7 +3924,6 @@ exports[`contextMenu element selecting 'Ungroup selection' in context menu ungro
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": null,
   "currentChartType": "bar",
   "currentItemBackgroundColor": "transparent",
@@ -3971,7 +3959,7 @@ exports[`contextMenu element selecting 'Ungroup selection' in context menu ungro
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 20,
   "offsetTop": 10,
   "openDialog": null,
@@ -4089,7 +4077,7 @@ exports[`contextMenu element selecting 'Ungroup selection' in context menu ungro
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -4100,7 +4088,7 @@ exports[`contextMenu element selecting 'Ungroup selection' in context menu ungro
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -4142,7 +4130,7 @@ exports[`contextMenu element selecting 'Ungroup selection' in context menu ungro
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -4212,7 +4200,7 @@ exports[`contextMenu element selecting 'Ungroup selection' in context menu ungro
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id1": true,
@@ -4290,7 +4278,7 @@ exports[`contextMenu element selecting 'Ungroup selection' in context menu ungro
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id1": true,
@@ -4372,7 +4360,6 @@ exports[`contextMenu element shows 'Group selection' in context menu for multipl
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": {
     "items": [
       {
@@ -4658,7 +4645,7 @@ exports[`contextMenu element shows 'Group selection' in context menu for multipl
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 20,
   "offsetTop": 10,
   "openDialog": null,
@@ -4778,7 +4765,7 @@ exports[`contextMenu element shows 'Group selection' in context menu for multipl
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -4789,7 +4776,7 @@ exports[`contextMenu element shows 'Group selection' in context menu for multipl
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -4831,7 +4818,7 @@ exports[`contextMenu element shows 'Group selection' in context menu for multipl
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -4911,7 +4898,6 @@ exports[`contextMenu element shows 'Ungroup selection' in context menu for group
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": {
     "items": [
       {
@@ -5197,7 +5183,7 @@ exports[`contextMenu element shows 'Ungroup selection' in context menu for group
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 20,
   "offsetTop": 10,
   "openDialog": null,
@@ -5323,7 +5309,7 @@ exports[`contextMenu element shows 'Ungroup selection' in context menu for group
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -5334,7 +5320,7 @@ exports[`contextMenu element shows 'Ungroup selection' in context menu for group
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -5376,7 +5362,7 @@ exports[`contextMenu element shows 'Ungroup selection' in context menu for group
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id1": true,
         },
@@ -5446,7 +5432,7 @@ exports[`contextMenu element shows 'Ungroup selection' in context menu for group
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
           "id1": true,
@@ -5535,7 +5521,6 @@ exports[`contextMenu element shows context menu for canvas: [end of test] appSta
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": {
     "items": [
       {
@@ -5676,7 +5661,7 @@ exports[`contextMenu element shows context menu for canvas: [end of test] appSta
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 20,
   "offsetTop": 10,
   "openDialog": null,
@@ -5726,7 +5711,7 @@ exports[`contextMenu element shows context menu for canvas: [end of test] histor
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -5747,7 +5732,6 @@ exports[`contextMenu element shows context menu for element: [end of test] appSt
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": {
     "items": [
       {
@@ -6033,7 +6017,7 @@ exports[`contextMenu element shows context menu for element: [end of test] appSt
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 20,
   "offsetTop": 10,
   "openDialog": null,
@@ -6084,7 +6068,6 @@ exports[`contextMenu element shows context menu for element: [end of test] appSt
     "locked": false,
     "type": "selection",
   },
-  "collaborators": Map {},
   "contextMenu": {
     "items": [
       {
@@ -6370,7 +6353,7 @@ exports[`contextMenu element shows context menu for element: [end of test] appSt
   "isSidebarDocked": false,
   "lastPointerDownWith": "mouse",
   "multiElement": null,
-  "name": "default_canvas",
+  "name": "default-board",
   "offsetLeft": 20,
   "offsetTop": 10,
   "openDialog": null,
@@ -6515,7 +6498,7 @@ exports[`contextMenu element shows context menu for element: [end of test] histo
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",
@@ -6526,7 +6509,7 @@ exports[`contextMenu element shows context menu for element: [end of test] histo
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {
           "id0": true,
         },
@@ -6577,7 +6560,7 @@ exports[`contextMenu element shows context menu for element: [end of test] histo
       "appState": {
         "editingGroupId": null,
         "editingLinearElement": null,
-        "name": "default_canvas",
+        "name": "default-board",
         "selectedElementIds": {},
         "selectedGroupIds": {},
         "viewBackgroundColor": "#ffffff",

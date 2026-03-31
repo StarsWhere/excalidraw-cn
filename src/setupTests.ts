@@ -30,6 +30,16 @@ beforeEach(() => {
   resetDesktopTestState();
   resetDesktopStateCache();
   window.handrawDesktop = desktopApiMock as typeof window.handrawDesktop;
+  Object.defineProperty(window, "crypto", {
+    configurable: true,
+    value: {
+      subtle: {
+        digest: async () => new ArrayBuffer(32),
+      },
+    },
+  });
+  URL.createObjectURL = jest.fn(() => "blob:mock-url");
+  URL.revokeObjectURL = jest.fn();
 });
 
 installConsoleErrorFilter();
