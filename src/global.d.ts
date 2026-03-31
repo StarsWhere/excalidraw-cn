@@ -22,23 +22,20 @@ interface Window {
     loadDesktopState: () => Promise<
       import("./excalidraw-app/data/desktopState").DesktopBootstrapState
     >;
-    loadDraftState: () => Promise<
-      import("./excalidraw-app/data/desktopState").DesktopDraftState
-    >;
-    saveDraftState: (
-      payload: import("./excalidraw-app/data/desktopState").DesktopDraftSavePayload,
-    ) => Promise<import("./excalidraw-app/data/desktopState").DesktopDraftState>;
+    saveDesktopState: (
+      payload: import("./excalidraw-app/data/desktopState").DesktopBoardSavePayload,
+    ) => Promise<import("./excalidraw-app/data/desktopState").DesktopBoardState>;
     loadLibraryState: () => Promise<import("./types").LibraryItems>;
     saveLibraryState: (
       items: import("./types").LibraryItems,
     ) => Promise<import("./types").LibraryItems>;
-    listContainers: () => Promise<string[]>;
-    writeContainer: (
-      payload: import("./excalidraw-app/data/desktopState").DesktopContainerWritePayload,
-    ) => Promise<import("./excalidraw-app/data/desktopState").DesktopDraftState>;
-    deleteContainer: (
+    listBoards: () => Promise<string[]>;
+    writeBoard: (
+      payload: import("./excalidraw-app/data/desktopState").DesktopBoardWritePayload,
+    ) => Promise<import("./excalidraw-app/data/desktopState").DesktopBoardState>;
+    deleteBoard: (
       name: string,
-    ) => Promise<import("./excalidraw-app/data/desktopState").DesktopDraftState>;
+    ) => Promise<import("./excalidraw-app/data/desktopState").DesktopBoardState>;
     readBinaryFileCache: (
       fileIds: import("./element/types").FileId[],
     ) => Promise<{

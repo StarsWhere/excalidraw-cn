@@ -3,25 +3,23 @@
 const fs = require("node:fs/promises");
 const path = require("node:path");
 
-const DEFAULT_CONTAINER_NAME = "default_canvas";
+const DEFAULT_BOARD_NAME = "default-board";
 const FILE_TTL_MS = 24 * 60 * 60 * 1000;
 
 const createDesktopStorage = ({ app }) => {
-  const rootDir = path.join(app.getPath("userData"), "handraw");
-  const stateDir = path.join(rootDir, "state");
-  const scenesDir = path.join(rootDir, "scenes");
+  const rootDir = path.join(app.getPath("userData"), "handraw-v2");
+  const boardsDir = path.join(rootDir, "boards");
   const filesDir = path.join(rootDir, "files");
-  const metaDir = path.join(rootDir, "meta");
 
-  const appStateFile = path.join(stateDir, "app-state.json");
-  const containersFile = path.join(stateDir, "containers.json");
-  const libraryFile = path.join(stateDir, "library.json");
-  const settingsFile = path.join(metaDir, "settings.json");
+  const settingsFile = path.join(rootDir, "settings.json");
+  const boardsFile = path.join(rootDir, "boards.json");
+  const libraryFile = path.join(rootDir, "library.json");
+  const writeQueues = new Map();
   let initialized = false;
   let initializationPromise = null;
 
-  const sceneFilePath = (containerName) =>
-    path.join(scenesDir, `${encodeURIComponent(containerName)}.excalidraw.json`);
+  const boardFilePath = (boardId) =>
+    path.join(boardsDir, `${encodeURIComponent(boardId)}.excalidraw.json`);
 
   const ensureDir = (dirPath) => fs.mkdir(dirPath, { recursive: true });
 
@@ -43,18 +41,75 @@ const createDesktopStorage = ({ app }) => {
     }
   };
 
-  const writeJson = async (filePath, value) => {
+  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  const isRetryableWindowsWriteError = (error) =>
+    Boolean(error) && ["EPERM", "EBUSY", "EACCES"].includes(error.code);
+
+  const commitJsonFile = async (filePath, value) => {
     const tempFilePath = `${filePath}.${process.pid}.${Date.now()}.${Math.random()
       .toString(16)
       .slice(2)}.tmp`;
+    const payload = JSON.stringify(value, null, 2);
+
     await ensureDir(path.dirname(filePath));
     try {
-      await fs.writeFile(tempFilePath, JSON.stringify(value, null, 2), "utf8");
-      await fs.rename(tempFilePath, filePath);
+      await fs.writeFile(tempFilePath, payload, "utf8");
+
+      let lastError = null;
+      for (let attempt = 0; attempt < 6; attempt += 1) {
+        try {
+          await fs.rename(tempFilePath, filePath);
+          return;
+        } catch (error) {
+          lastError = error;
+          if (!isRetryableWindowsWriteError(error) || attempt === 5) {
+            break;
+          }
+          await delay(25 * 2 ** attempt);
+        }
+      }
+
+      if (lastError) {
+        try {
+          await fs.copyFile(tempFilePath, filePath);
+          return;
+        } catch (copyError) {
+          if (!isRetryableWindowsWriteError(copyError)) {
+            throw copyError;
+          }
+        }
+        throw lastError;
+      }
     } finally {
       await fs.rm(tempFilePath, { force: true }).catch(() => undefined);
     }
   };
+
+  const writeJson = async (filePath, value) => {
+    const previousWrite = writeQueues.get(filePath) || Promise.resolve();
+    const nextWrite = previousWrite
+      .catch(() => undefined)
+      .then(() => commitJsonFile(filePath, value));
+
+    writeQueues.set(filePath, nextWrite);
+
+    try {
+      await nextWrite;
+    } finally {
+      if (writeQueues.get(filePath) === nextWrite) {
+        writeQueues.delete(filePath);
+      }
+    }
+  };
+
+  const createBoardId = () =>
+    `board-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+
+  const createDefaultBoard = () => ({
+    id: createBoardId(),
+    name: DEFAULT_BOARD_NAME,
+  });
 
   const ensureInitialized = async () => {
     if (initialized) {
@@ -63,41 +118,42 @@ const createDesktopStorage = ({ app }) => {
 
     if (!initializationPromise) {
       initializationPromise = (async () => {
-        await Promise.all([
-          ensureDir(stateDir),
-          ensureDir(scenesDir),
-          ensureDir(filesDir),
-          ensureDir(metaDir),
-        ]);
+        await Promise.all([ensureDir(rootDir), ensureDir(boardsDir), ensureDir(filesDir)]);
 
-        const containers = await readJson(containersFile, null);
-        const nextContainers =
-          Array.isArray(containers) && containers.length
-            ? containers
-            : [DEFAULT_CONTAINER_NAME];
-        await writeJson(containersFile, nextContainers);
+        const rawBoards = await readJson(boardsFile, null);
+        const nextBoards =
+          Array.isArray(rawBoards) && rawBoards.length
+            ? rawBoards.filter(
+                (board) =>
+                  board &&
+                  typeof board.id === "string" &&
+                  typeof board.name === "string",
+              )
+            : [createDefaultBoard()];
+
+        if (!nextBoards.length) {
+          nextBoards.push(createDefaultBoard());
+        }
+        await writeJson(boardsFile, nextBoards);
 
         const settings = await readJson(settingsFile, {});
-        const currentContainerName =
-          typeof settings.currentContainerName === "string" &&
-          nextContainers.includes(settings.currentContainerName)
-            ? settings.currentContainerName
-            : nextContainers[0];
+        const currentBoardId = nextBoards.some(
+          (board) => board.id === settings.currentBoardId,
+        )
+          ? settings.currentBoardId
+          : nextBoards[0].id;
         await writeJson(settingsFile, {
-          ...settings,
-          currentContainerName,
+          currentBoardId,
+          appState:
+            settings && typeof settings.appState === "object" ? settings.appState : {},
         });
-
-        if (!(await fileExists(appStateFile))) {
-          await writeJson(appStateFile, {});
-        }
 
         if (!(await fileExists(libraryFile))) {
           await writeJson(libraryFile, []);
         }
 
-        for (const containerName of nextContainers) {
-          const filePath = sceneFilePath(containerName);
+        for (const board of nextBoards) {
+          const filePath = boardFilePath(board.id);
           if (!(await fileExists(filePath))) {
             await writeJson(filePath, []);
           }
@@ -116,176 +172,218 @@ const createDesktopStorage = ({ app }) => {
     initialized = false;
   };
 
-  const readContainers = async () => {
+  const readBoards = async () => {
     await ensureInitialized();
-    const containers = await readJson(containersFile, [DEFAULT_CONTAINER_NAME]);
-    return Array.isArray(containers) && containers.length
-      ? containers
-      : [DEFAULT_CONTAINER_NAME];
+    const boards = await readJson(boardsFile, []);
+    return Array.isArray(boards) && boards.length ? boards : [createDefaultBoard()];
   };
 
   const readSettings = async () => {
     await ensureInitialized();
     const settings = await readJson(settingsFile, {});
-    const containerList = await readContainers();
-    const currentContainerName = containerList.includes(settings.currentContainerName)
-      ? settings.currentContainerName
-      : containerList[0];
+    const boards = await readBoards();
+    const currentBoardId = boards.some((board) => board.id === settings.currentBoardId)
+      ? settings.currentBoardId
+      : boards[0].id;
+
     return {
-      ...settings,
-      currentContainerName,
+      currentBoardId,
+      appState:
+        settings && typeof settings.appState === "object" ? settings.appState : {},
     };
   };
 
-  const writeSettings = async (partialSettings) => {
-    const currentSettings = await readSettings();
-    const nextSettings = {
-      ...currentSettings,
-      ...partialSettings,
-    };
-    await writeJson(settingsFile, nextSettings);
-    return nextSettings;
+  const findBoardByName = async (name) => {
+    const boards = await readBoards();
+    return boards.find((board) => board.name === name) || null;
   };
 
-  const readScene = async (containerName) => {
+  const readBoardScene = async (boardId) => {
     await ensureInitialized();
-    return readJson(sceneFilePath(containerName), []);
+    return readJson(boardFilePath(boardId), []);
   };
 
-  const readAllScenes = async (containerList) => {
+  const readAllScenes = async (boards) => {
     const entries = await Promise.all(
-      containerList.map(async (containerName) => [
-        containerName,
-        await readScene(containerName),
-      ]),
+      boards.map(async (board) => [board.name, await readBoardScene(board.id)]),
     );
     return Object.fromEntries(entries);
   };
 
+  const writeSettings = async (partialSettings) => {
+    const currentSettings = await readSettings();
+    const boards = await readBoards();
+    const nextSettings = {
+      ...currentSettings,
+      ...partialSettings,
+    };
+
+    if (partialSettings.currentBoardName) {
+      const matchingBoard = boards.find(
+        (board) => board.name === partialSettings.currentBoardName,
+      );
+      nextSettings.currentBoardId = matchingBoard
+        ? matchingBoard.id
+        : currentSettings.currentBoardId;
+    }
+
+    delete nextSettings.currentBoardName;
+
+    await writeJson(settingsFile, nextSettings);
+    const currentBoard =
+      boards.find((board) => board.id === nextSettings.currentBoardId) || boards[0];
+    return {
+      currentBoardName: currentBoard.name,
+      appState: nextSettings.appState,
+    };
+  };
+
   const loadDesktopState = async () => {
-    const containerList = await readContainers();
+    const boards = await readBoards();
     const settings = await readSettings();
-    const scenes = await readAllScenes(containerList);
-    const appState = await readJson(appStateFile, {});
+    const currentBoard =
+      boards.find((board) => board.id === settings.currentBoardId) || boards[0];
+    const scenes = await readAllScenes(boards);
     const libraryItems = await readJson(libraryFile, []);
 
     return {
-      containerList,
-      containerName: settings.currentContainerName,
-      appState,
+      boardList: boards.map((board) => board.name),
+      boardName: currentBoard.name,
+      appState: settings.appState || {},
       scenes,
-      elements: scenes[settings.currentContainerName] || [],
+      elements: scenes[currentBoard.name] || [],
       libraryItems,
-      settings,
+      settings: {
+        currentBoardName: currentBoard.name,
+      },
     };
   };
 
-  const loadDraftState = async () => {
-    const state = await loadDesktopState();
-    return {
-      containerList: state.containerList,
-      containerName: state.containerName,
-      appState: state.appState,
-      elements: state.elements,
-      scenes: state.scenes,
-    };
+  const saveDesktopState = async ({ boardName, elements, appState }) => {
+    const boards = await readBoards();
+    let targetBoard = boards.find((board) => board.name === boardName) || null;
+    let nextBoards = boards;
+
+    if (!targetBoard) {
+      targetBoard = {
+        id: createBoardId(),
+        name: boardName,
+      };
+      nextBoards = [...boards, targetBoard];
+      await writeJson(boardsFile, nextBoards);
+    }
+
+    await writeSettings({
+      currentBoardId: targetBoard.id,
+      appState: appState || {},
+    });
+    await writeJson(boardFilePath(targetBoard.id), elements || []);
+
+    return loadDesktopState();
   };
 
-  const saveDraftState = async ({ containerName, elements, appState }) => {
-    const containerList = await readContainers();
-    const nextContainerList = containerList.includes(containerName)
-      ? containerList
-      : [...containerList, containerName];
-
-    await writeJson(containersFile, nextContainerList);
-    await writeSettings({ currentContainerName: containerName });
-    await writeJson(sceneFilePath(containerName), elements || []);
-    await writeJson(appStateFile, appState || {});
-
-    return loadDraftState();
+  const listBoards = async () => {
+    const boards = await readBoards();
+    return boards.map((board) => board.name);
   };
 
-  const writeContainer = async (payload) => {
+  const writeBoard = async (payload) => {
     const { mode, name, previousName, elements } = payload;
-    const containerList = await readContainers();
+    const boards = await readBoards();
     const settings = await readSettings();
 
     if (mode === "create") {
-      if (!containerList.includes(name)) {
-        await writeJson(containersFile, [...containerList, name]);
-        await writeJson(sceneFilePath(name), elements || []);
+      const existingBoard = boards.find((board) => board.name === name);
+      if (!existingBoard) {
+        const newBoard = {
+          id: createBoardId(),
+          name,
+        };
+        await writeJson(boardsFile, [...boards, newBoard]);
+        await writeJson(boardFilePath(newBoard.id), elements || []);
+        await writeSettings({ currentBoardId: newBoard.id });
+      } else {
+        await writeSettings({ currentBoardId: existingBoard.id });
       }
-      await writeSettings({ currentContainerName: name });
-      return loadDraftState();
+      return loadDesktopState();
     }
 
     if (mode === "rename") {
       if (!previousName || previousName === name) {
-        return loadDraftState();
+        return loadDesktopState();
       }
 
-      const previousScenePath = sceneFilePath(previousName);
-      const nextScenePath = sceneFilePath(name);
-      const sceneElements = elements || (await readScene(previousName));
-
-      await writeJson(nextScenePath, sceneElements);
-      if (await fileExists(previousScenePath)) {
-        await fs.rm(previousScenePath, { force: true });
+      const targetBoard = boards.find((board) => board.name === previousName);
+      if (!targetBoard) {
+        return loadDesktopState();
       }
 
-      const nextContainerList = containerList.map((containerName) =>
-        containerName === previousName ? name : containerName,
+      const nextBoards = boards.map((board) =>
+        board.id === targetBoard.id ? { ...board, name } : board,
       );
-      await writeJson(containersFile, nextContainerList);
-      await writeSettings({
-        currentContainerName:
-          settings.currentContainerName === previousName
-            ? name
-            : settings.currentContainerName,
-      });
-      return loadDraftState();
+      await writeJson(boardsFile, nextBoards);
+      if (elements) {
+        await writeJson(boardFilePath(targetBoard.id), elements);
+      }
+      return loadDesktopState();
     }
 
     if (mode === "select") {
-      await writeSettings({ currentContainerName: name });
-      return loadDraftState();
+      const targetBoard = boards.find((board) => board.name === name);
+      if (targetBoard) {
+        await writeSettings({ currentBoardId: targetBoard.id });
+      }
+      return loadDesktopState();
     }
 
     if (mode === "updateScene") {
-      await writeJson(sceneFilePath(name), elements || []);
-      if (!containerList.includes(name)) {
-        await writeJson(containersFile, [...containerList, name]);
+      let targetBoard = boards.find((board) => board.name === name) || null;
+
+      if (!targetBoard) {
+        targetBoard = {
+          id: createBoardId(),
+          name,
+        };
+        await writeJson(boardsFile, [...boards, targetBoard]);
       }
-      return loadDraftState();
+
+      await writeJson(boardFilePath(targetBoard.id), elements || []);
+      await writeSettings({
+        currentBoardId:
+          settings.currentBoardId && boards.some((board) => board.id === settings.currentBoardId)
+            ? settings.currentBoardId
+            : targetBoard.id,
+      });
+      return loadDesktopState();
     }
 
-    return loadDraftState();
+    return loadDesktopState();
   };
 
-  const deleteContainer = async (name) => {
-    const containerList = await readContainers();
-    const nextContainerList = containerList.filter(
-      (containerName) => containerName !== name,
-    );
-    const ensuredContainerList = nextContainerList.length
-      ? nextContainerList
-      : [DEFAULT_CONTAINER_NAME];
-
-    if (!nextContainerList.length) {
-      await writeJson(sceneFilePath(DEFAULT_CONTAINER_NAME), []);
+  const deleteBoard = async (name) => {
+    const boards = await readBoards();
+    const targetBoard = boards.find((board) => board.name === name);
+    if (!targetBoard) {
+      return loadDesktopState();
     }
 
-    await writeJson(containersFile, ensuredContainerList);
-    await fs.rm(sceneFilePath(name), { force: true });
+    let nextBoards = boards.filter((board) => board.id !== targetBoard.id);
+    await fs.rm(boardFilePath(targetBoard.id), { force: true });
+
+    if (!nextBoards.length) {
+      const defaultBoard = createDefaultBoard();
+      nextBoards = [defaultBoard];
+      await writeJson(boardFilePath(defaultBoard.id), []);
+    }
+
+    await writeJson(boardsFile, nextBoards);
 
     const settings = await readSettings();
-    if (!ensuredContainerList.includes(settings.currentContainerName)) {
-      await writeSettings({
-        currentContainerName: ensuredContainerList[0],
-      });
+    if (!nextBoards.some((board) => board.id === settings.currentBoardId)) {
+      await writeSettings({ currentBoardId: nextBoards[0].id });
     }
 
-    return loadDraftState();
+    return loadDesktopState();
   };
 
   const loadLibraryState = async () => {
@@ -384,11 +482,10 @@ const createDesktopStorage = ({ app }) => {
 
   return {
     loadDesktopState,
-    loadDraftState,
-    saveDraftState,
-    listContainers: readContainers,
-    writeContainer,
-    deleteContainer,
+    saveDesktopState,
+    listBoards,
+    writeBoard,
+    deleteBoard,
     loadLibraryState,
     saveLibraryState,
     readBinaryFileCache,

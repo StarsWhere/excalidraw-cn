@@ -2,11 +2,11 @@ import { ExcalidrawElement, FileId } from "../element/types";
 import { ImportedDataState } from "../data/types";
 import { AppState, BinaryFileData } from "../types";
 
-const DEFAULT_CONTAINER_NAME = "default_canvas";
+const DEFAULT_BOARD_NAME = "default-board";
 
 type DesktopTestState = {
-  currentContainerName: string;
-  containerList: string[];
+  currentBoardName: string;
+  boardList: string[];
   scenes: Record<string, readonly ExcalidrawElement[]>;
   appState: Partial<AppState> | null;
   libraryItems: ImportedDataState["libraryItems"];
@@ -14,10 +14,10 @@ type DesktopTestState = {
 };
 
 const createDefaultState = (): DesktopTestState => ({
-  currentContainerName: DEFAULT_CONTAINER_NAME,
-  containerList: [DEFAULT_CONTAINER_NAME],
+  currentBoardName: DEFAULT_BOARD_NAME,
+  boardList: [DEFAULT_BOARD_NAME],
   scenes: {
-    [DEFAULT_CONTAINER_NAME]: [],
+    [DEFAULT_BOARD_NAME]: [],
   },
   appState: null,
   libraryItems: [],
@@ -38,8 +38,8 @@ export const resetDesktopTestState = () => {
 };
 
 export const setDesktopDraftState = (data: ImportedDataState) => {
-  const currentContainerName = desktopTestState.currentContainerName;
-  desktopTestState.scenes[currentContainerName] = clone(data.elements || []);
+  const currentBoardName = desktopTestState.currentBoardName;
+  desktopTestState.scenes[currentBoardName] = clone(data.elements || []);
   desktopTestState.appState = data.appState ? clone(data.appState) : null;
 };
 
@@ -49,51 +49,42 @@ export const desktopApiMock = {
   isElectron: true,
   platform: "win32",
   loadDesktopState: async () => ({
-    containerList: clone(desktopTestState.containerList),
-    containerName: desktopTestState.currentContainerName,
+    boardList: clone(desktopTestState.boardList),
+    boardName: desktopTestState.currentBoardName,
     elements: clone(
-      desktopTestState.scenes[desktopTestState.currentContainerName] || [],
+      desktopTestState.scenes[desktopTestState.currentBoardName] || [],
     ),
     appState: clone(desktopTestState.appState),
     scenes: clone(desktopTestState.scenes),
     libraryItems: clone(desktopTestState.libraryItems),
     settings: {
-      currentContainerName: desktopTestState.currentContainerName,
+      currentBoardName: desktopTestState.currentBoardName,
     },
   }),
-  loadDraftState: async () => ({
-    containerList: clone(desktopTestState.containerList),
-    containerName: desktopTestState.currentContainerName,
-    elements: clone(
-      desktopTestState.scenes[desktopTestState.currentContainerName] || [],
-    ),
-    appState: clone(desktopTestState.appState),
-    scenes: clone(desktopTestState.scenes),
-  }),
-  saveDraftState: async ({
-    containerName,
+  saveDesktopState: async ({
+    boardName,
     elements,
     appState,
   }: {
-    containerName: string;
+    boardName: string;
     elements: readonly ExcalidrawElement[];
     appState: Partial<AppState>;
   }) => {
-    desktopTestState.currentContainerName = containerName;
-    if (!desktopTestState.containerList.includes(containerName)) {
-      desktopTestState.containerList.push(containerName);
+    desktopTestState.currentBoardName = boardName;
+    if (!desktopTestState.boardList.includes(boardName)) {
+      desktopTestState.boardList.push(boardName);
     }
-    desktopTestState.scenes[containerName] = clone(elements);
+    desktopTestState.scenes[boardName] = clone(elements);
     desktopTestState.appState = clone(appState);
-    return desktopApiMock.loadDraftState();
+    return desktopApiMock.loadDesktopState();
   },
   loadLibraryState: async () => clone(desktopTestState.libraryItems),
   saveLibraryState: async (items: ImportedDataState["libraryItems"]) => {
     desktopTestState.libraryItems = clone(items || []);
     return clone(desktopTestState.libraryItems);
   },
-  listContainers: async () => clone(desktopTestState.containerList),
-  writeContainer: async ({
+  listBoards: async () => clone(desktopTestState.boardList),
+  writeBoard: async ({
     mode,
     name,
     previousName,
@@ -105,41 +96,41 @@ export const desktopApiMock = {
     elements?: readonly ExcalidrawElement[];
   }) => {
     if (mode === "create") {
-      if (!desktopTestState.containerList.includes(name)) {
-        desktopTestState.containerList.push(name);
+      if (!desktopTestState.boardList.includes(name)) {
+        desktopTestState.boardList.push(name);
       }
       desktopTestState.scenes[name] = clone(elements || []);
-      desktopTestState.currentContainerName = name;
+      desktopTestState.currentBoardName = name;
     } else if (mode === "rename" && previousName) {
-      desktopTestState.containerList = desktopTestState.containerList.map(
-        (containerName) => (containerName === previousName ? name : containerName),
+      desktopTestState.boardList = desktopTestState.boardList.map(
+        (boardName) => (boardName === previousName ? name : boardName),
       );
       desktopTestState.scenes[name] = clone(
         elements || desktopTestState.scenes[previousName] || [],
       );
       delete desktopTestState.scenes[previousName];
-      if (desktopTestState.currentContainerName === previousName) {
-        desktopTestState.currentContainerName = name;
+      if (desktopTestState.currentBoardName === previousName) {
+        desktopTestState.currentBoardName = name;
       }
     } else if (mode === "updateScene") {
       desktopTestState.scenes[name] = clone(elements || []);
     } else if (mode === "select") {
-      desktopTestState.currentContainerName = name;
+      desktopTestState.currentBoardName = name;
     }
 
-    return desktopApiMock.loadDraftState();
+    return desktopApiMock.loadDesktopState();
   },
-  deleteContainer: async (name: string) => {
-    desktopTestState.containerList = desktopTestState.containerList.filter(
-      (containerName) => containerName !== name,
+  deleteBoard: async (name: string) => {
+    desktopTestState.boardList = desktopTestState.boardList.filter(
+      (boardName) => boardName !== name,
     );
     delete desktopTestState.scenes[name];
-    if (!desktopTestState.containerList.length) {
+    if (!desktopTestState.boardList.length) {
       desktopTestState = createDefaultState();
-    } else if (desktopTestState.currentContainerName === name) {
-      desktopTestState.currentContainerName = desktopTestState.containerList[0];
+    } else if (desktopTestState.currentBoardName === name) {
+      desktopTestState.currentBoardName = desktopTestState.boardList[0];
     }
-    return desktopApiMock.loadDraftState();
+    return desktopApiMock.loadDesktopState();
   },
   readBinaryFileCache: async (fileIds: FileId[]) => {
     const loadedFiles: BinaryFileData[] = [];
@@ -176,18 +167,18 @@ export const desktopApiMock = {
     });
   },
   saveSettings: async ({
-    currentContainerName,
+    currentBoardName,
   }: {
-    currentContainerName?: string;
+    currentBoardName?: string;
   }) => {
-    if (currentContainerName) {
-      desktopTestState.currentContainerName = currentContainerName;
-      if (!desktopTestState.containerList.includes(currentContainerName)) {
-        desktopTestState.containerList.push(currentContainerName);
+    if (currentBoardName) {
+      desktopTestState.currentBoardName = currentBoardName;
+      if (!desktopTestState.boardList.includes(currentBoardName)) {
+        desktopTestState.boardList.push(currentBoardName);
       }
     }
     return {
-      currentContainerName: desktopTestState.currentContainerName,
+      currentBoardName: desktopTestState.currentBoardName,
     };
   },
   resetDesktopState: async () => {

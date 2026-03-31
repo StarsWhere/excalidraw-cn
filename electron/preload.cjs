@@ -8,13 +8,13 @@ contextBridge.exposeInMainWorld("handrawDesktop", {
   isElectron: true,
   platform: process.platform,
   loadDesktopState: () => ipcRenderer.invoke("handraw:load-desktop-state"),
-  loadDraftState: () => ipcRenderer.invoke("handraw:load-draft-state"),
-  saveDraftState: (payload) => ipcRenderer.invoke("handraw:save-draft-state", payload),
+  saveDesktopState: (payload) =>
+    ipcRenderer.invoke("handraw:save-desktop-state", payload),
   loadLibraryState: () => ipcRenderer.invoke("handraw:load-library-state"),
   saveLibraryState: (items) => ipcRenderer.invoke("handraw:save-library-state", items),
-  listContainers: () => ipcRenderer.invoke("handraw:list-containers"),
-  writeContainer: (payload) => ipcRenderer.invoke("handraw:write-container", payload),
-  deleteContainer: (name) => ipcRenderer.invoke("handraw:delete-container", name),
+  listBoards: () => ipcRenderer.invoke("handraw:list-boards"),
+  writeBoard: (payload) => ipcRenderer.invoke("handraw:write-board", payload),
+  deleteBoard: (name) => ipcRenderer.invoke("handraw:delete-board", name),
   readBinaryFileCache: (fileIds) =>
     ipcRenderer.invoke("handraw:read-binary-file-cache", fileIds),
   writeBinaryFileCache: (files) =>

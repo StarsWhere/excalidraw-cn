@@ -304,12 +304,8 @@ module.exports = ({ app, BrowserWindow, dialog, ipcMain, shell, appRoot }) => {
     return desktopStorage.loadDesktopState();
   });
 
-  ipcMain.handle("handraw:load-draft-state", async () => {
-    return desktopStorage.loadDraftState();
-  });
-
-  ipcMain.handle("handraw:save-draft-state", async (_event, payload) => {
-    return desktopStorage.saveDraftState(payload || {});
+  ipcMain.handle("handraw:save-desktop-state", async (_event, payload) => {
+    return desktopStorage.saveDesktopState(payload || {});
   });
 
   ipcMain.handle("handraw:load-library-state", async () => {
@@ -320,16 +316,16 @@ module.exports = ({ app, BrowserWindow, dialog, ipcMain, shell, appRoot }) => {
     return desktopStorage.saveLibraryState(items || []);
   });
 
-  ipcMain.handle("handraw:list-containers", async () => {
-    return desktopStorage.listContainers();
+  ipcMain.handle("handraw:list-boards", async () => {
+    return desktopStorage.listBoards();
   });
 
-  ipcMain.handle("handraw:write-container", async (_event, payload) => {
-    return desktopStorage.writeContainer(payload || {});
+  ipcMain.handle("handraw:write-board", async (_event, payload) => {
+    return desktopStorage.writeBoard(payload || {});
   });
 
-  ipcMain.handle("handraw:delete-container", async (_event, name) => {
-    return desktopStorage.deleteContainer(name);
+  ipcMain.handle("handraw:delete-board", async (_event, name) => {
+    return desktopStorage.deleteBoard(name);
   });
 
   ipcMain.handle("handraw:read-binary-file-cache", async (_event, fileIds) => {

@@ -7,13 +7,13 @@ import { clearAppStateForLocalState } from "../../appState";
 import { ExcalidrawElement, FileId } from "../../element/types";
 import { AppState, BinaryFileData, BinaryFiles } from "../../types";
 import { debounce } from "../../utils";
-import { SAVE_TO_LOCAL_STORAGE_TIMEOUT } from "../app_constants";
+import { SAVE_TO_DESKTOP_STORE_TIMEOUT } from "../app_constants";
 import { FileManager } from "./FileManager";
 import { Locker } from "./Locker";
 import {
   clearObsoleteFilesFromStorage,
   readFilesFromStorage,
-  saveDraftStateToStorage,
+  saveDesktopStateToStorage,
   writeFilesToStorage,
 } from "./desktopState";
 
@@ -23,7 +23,7 @@ class LocalFileManager extends FileManager {
   };
 }
 
-type SavingLockTypes = "collaboration";
+type SavingLockTypes = "desktop-write";
 
 export class LocalData {
   private static _save = debounce(
@@ -33,7 +33,7 @@ export class LocalData {
       files: BinaryFiles,
       onFilesSaved: () => void,
     ) => {
-      await saveDraftStateToStorage(
+      await saveDesktopStateToStorage(
         elements,
         clearAppStateForLocalState(appState) as AppState,
       );
@@ -44,7 +44,7 @@ export class LocalData {
       });
       onFilesSaved();
     },
-    SAVE_TO_LOCAL_STORAGE_TIMEOUT,
+    SAVE_TO_DESKTOP_STORE_TIMEOUT,
   );
 
   static save = (

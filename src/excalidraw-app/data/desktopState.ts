@@ -5,33 +5,33 @@ import {
   getDefaultAppState,
 } from "../../appState";
 import { clearElementsForLocalState } from "../../element";
-import { STORAGE_KEYS } from "../app_constants";
+import { DEFAULT_BOARD_NAME } from "../app_constants";
 import { ImportedDataState } from "../../data/types";
 
 export type DesktopSettings = {
-  currentContainerName: string;
+  currentBoardName: string;
 };
 
-export type DesktopDraftState = {
-  containerList: string[];
-  containerName: string;
+export type DesktopBoardState = {
+  boardList: string[];
+  boardName: string;
   elements: readonly ExcalidrawElement[];
   appState: Partial<AppState> | null;
   scenes: Record<string, readonly ExcalidrawElement[]>;
 };
 
-export type DesktopBootstrapState = DesktopDraftState & {
+export type DesktopBootstrapState = DesktopBoardState & {
   libraryItems: ImportedDataState["libraryItems"];
   settings?: DesktopSettings;
 };
 
-export type DesktopDraftSavePayload = {
-  containerName: string;
+export type DesktopBoardSavePayload = {
+  boardName: string;
   elements: readonly ExcalidrawElement[];
   appState: Partial<AppState>;
 };
 
-export type DesktopContainerWritePayload =
+export type DesktopBoardWritePayload =
   | {
       mode: "create" | "select";
       name: string;
@@ -49,13 +49,10 @@ export type DesktopContainerWritePayload =
       elements: readonly ExcalidrawElement[];
     };
 
-const DEFAULT_CONTAINER_NAME = STORAGE_KEYS.LOCAL_STORAGE_DEFAULT_CONTAINER_NAME;
-
 type DesktopStateCache = {
   initialized: boolean;
-  containerId: string | null;
-  currentContainerName: string;
-  containerList: string[];
+  currentBoardName: string;
+  boardList: string[];
   scenes: Record<string, readonly ExcalidrawElement[]>;
   appState: Partial<AppState> | null;
   libraryItems: ImportedDataState["libraryItems"];
@@ -63,11 +60,10 @@ type DesktopStateCache = {
 
 const storageCache: DesktopStateCache = {
   initialized: false,
-  containerId: null,
-  currentContainerName: DEFAULT_CONTAINER_NAME,
-  containerList: [DEFAULT_CONTAINER_NAME],
+  currentBoardName: DEFAULT_BOARD_NAME,
+  boardList: [DEFAULT_BOARD_NAME],
   scenes: {
-    [DEFAULT_CONTAINER_NAME]: [],
+    [DEFAULT_BOARD_NAME]: [],
   },
   appState: null,
   libraryItems: [],
@@ -95,49 +91,47 @@ export const requireDesktopApi = () => {
   return desktop;
 };
 
-const ensureSceneEntry = (containerName: string) => {
-  if (!storageCache.scenes[containerName]) {
-    storageCache.scenes[containerName] = [];
+const ensureBoardEntry = (boardName: string) => {
+  if (!storageCache.scenes[boardName]) {
+    storageCache.scenes[boardName] = [];
   }
 };
 
 const applyBootstrapState = (state: DesktopBootstrapState) => {
-  const containerList =
-    state.containerList.length > 0
-      ? [...state.containerList]
-      : [DEFAULT_CONTAINER_NAME];
-  const currentContainerName =
-    state.containerName && containerList.includes(state.containerName)
-      ? state.containerName
-      : containerList[0];
+  const boardList =
+    state.boardList.length > 0 ? [...state.boardList] : [DEFAULT_BOARD_NAME];
+  const currentBoardName =
+    state.boardName && boardList.includes(state.boardName)
+      ? state.boardName
+      : boardList[0];
 
   storageCache.initialized = true;
-  storageCache.containerList = containerList;
-  storageCache.currentContainerName = currentContainerName;
+  storageCache.boardList = boardList;
+  storageCache.currentBoardName = currentBoardName;
   storageCache.appState = state.appState ? clone(state.appState) : null;
   storageCache.libraryItems = state.libraryItems ? clone(state.libraryItems) : [];
   storageCache.scenes = Object.keys(state.scenes || {}).length
     ? clone(state.scenes)
     : {
-        [currentContainerName]: clone(state.elements || []),
+        [currentBoardName]: clone(state.elements || []),
       };
 
-  for (const containerName of containerList) {
-    ensureSceneEntry(containerName);
+  for (const boardName of boardList) {
+    ensureBoardEntry(boardName);
   }
 };
 
 const getDefaultBootstrapState = (): DesktopBootstrapState => ({
-  containerList: [DEFAULT_CONTAINER_NAME],
-  containerName: DEFAULT_CONTAINER_NAME,
+  boardList: [DEFAULT_BOARD_NAME],
+  boardName: DEFAULT_BOARD_NAME,
   elements: [],
   appState: null,
   scenes: {
-    [DEFAULT_CONTAINER_NAME]: [],
+    [DEFAULT_BOARD_NAME]: [],
   },
   libraryItems: [],
   settings: {
-    currentContainerName: DEFAULT_CONTAINER_NAME,
+    currentBoardName: DEFAULT_BOARD_NAME,
   },
 });
 
@@ -163,24 +157,28 @@ export const bootstrapDesktopState = async () => {
   return bootstrapPromise;
 };
 
+export const refreshDesktopState = async () => {
+  bootstrapPromise = null;
+  return bootstrapDesktopState();
+};
+
 export const resetDesktopStateCache = () => {
   bootstrapPromise = null;
   Object.assign(storageCache, getDefaultBootstrapState(), {
     initialized: false,
-    containerId: null,
   });
 };
 
 const persistSettings = async () => {
   const desktop = requireDesktopApi();
   await desktop.saveSettings({
-    currentContainerName: storageCache.currentContainerName,
+    currentBoardName: storageCache.currentBoardName,
   });
 };
 
 export const getDesktopDraftState = () => {
-  const currentContainerName = getContainerNameFromStorage();
-  const savedElements = storageCache.scenes[currentContainerName] || [];
+  const currentBoardName = getCurrentBoardName();
+  const savedElements = storageCache.scenes[currentBoardName] || [];
   const savedState = storageCache.appState;
 
   let elements: ExcalidrawElement[] = [];
@@ -198,7 +196,7 @@ export const getDesktopDraftState = () => {
       appState = {
         ...getDefaultAppState(),
         ...clearAppStateForLocalState(clone(savedState) as Partial<AppState>),
-        name: currentContainerName,
+        name: currentBoardName,
       };
     } catch (error: any) {
       console.error(error);
@@ -208,33 +206,38 @@ export const getDesktopDraftState = () => {
   return { elements, appState };
 };
 
-export const saveDraftStateToStorage = async (
+export const saveDesktopStateToStorage = async (
   elements: readonly ExcalidrawElement[],
   appState: AppState,
 ) => {
   const desktop = requireDesktopApi();
-  const currentContainerName = getContainerNameFromStorage();
+  const currentBoardName = getCurrentBoardName();
 
-  storageCache.currentContainerName = currentContainerName;
+  storageCache.currentBoardName = currentBoardName;
   storageCache.appState = {
     ...clearAppStateForLocalState(clone(appState)),
-    name: currentContainerName,
+    name: currentBoardName,
   };
-  storageCache.scenes[currentContainerName] = clone(
+  storageCache.scenes[currentBoardName] = clone(
     clearElementsForLocalState(elements),
   );
 
-  await desktop.saveDraftState({
-    containerName: currentContainerName,
-    elements: storageCache.scenes[currentContainerName],
+  const nextState = await desktop.saveDesktopState({
+    boardName: currentBoardName,
+    elements: storageCache.scenes[currentBoardName],
     appState: storageCache.appState,
+  });
+  applyBootstrapState({
+    ...getDefaultBootstrapState(),
+    ...nextState,
+    libraryItems: storageCache.libraryItems,
   });
 };
 
 export const getElementsStorageSize = () => {
   try {
-    const currentContainerName = getContainerNameFromStorage();
-    const elements = storageCache.scenes[currentContainerName] || [];
+    const currentBoardName = getCurrentBoardName();
+    const elements = storageCache.scenes[currentBoardName] || [];
     return JSON.stringify(elements).length;
   } catch (error: any) {
     console.error(error);
@@ -246,12 +249,12 @@ export const getTotalStorageSize = () => {
   try {
     const appState = storageCache.appState || {};
     const library = storageCache.libraryItems || [];
-    const containers = storageCache.containerList || [];
+    const boards = storageCache.boardList || [];
 
     return (
       JSON.stringify(appState).length +
       JSON.stringify(library).length +
-      JSON.stringify(containers).length +
+      JSON.stringify(boards).length +
       getElementsStorageSize()
     );
   } catch (error: any) {
@@ -276,54 +279,46 @@ export const clearLibraryItems = async () => {
   return saveLibraryItems([]);
 };
 
-export const setContainerIdToStorage = (id: string) => {
-  storageCache.containerId = id;
-};
-
-export const setContainerNameToStorage = (name: string) => {
+export const setCurrentBoardName = (name: string) => {
   if (!name) {
     return;
   }
 
-  storageCache.currentContainerName = name;
+  storageCache.currentBoardName = name;
   if (storageCache.appState) {
     storageCache.appState = {
       ...storageCache.appState,
       name,
     };
   }
-  if (!storageCache.containerList.includes(name)) {
-    storageCache.containerList = [...storageCache.containerList, name];
+  if (!storageCache.boardList.includes(name)) {
+    storageCache.boardList = [...storageCache.boardList, name];
   }
-  ensureSceneEntry(name);
+  ensureBoardEntry(name);
   void persistSettings();
 };
 
-export const getContainerIdFromStorage = () => {
-  return storageCache.containerId;
+export const getCurrentBoardName = () => {
+  return storageCache.currentBoardName || DEFAULT_BOARD_NAME;
 };
 
-export const getContainerNameFromStorage = () => {
-  return storageCache.currentContainerName || DEFAULT_CONTAINER_NAME;
+export const getBoardListFromStorage = (): string[] => {
+  return [...storageCache.boardList];
 };
 
-export const getContainerListFromStorage = (): string[] => {
-  return [...storageCache.containerList];
-};
-
-export const createContainerInStorage = async (name: string) => {
+export const createBoardInStorage = async (name: string) => {
   const desktop = requireDesktopApi();
-  storageCache.currentContainerName = name;
+  storageCache.currentBoardName = name;
   storageCache.appState = {
     ...(storageCache.appState || {}),
     name,
   };
-  if (!storageCache.containerList.includes(name)) {
-    storageCache.containerList = [...storageCache.containerList, name];
+  if (!storageCache.boardList.includes(name)) {
+    storageCache.boardList = [...storageCache.boardList, name];
   }
   storageCache.scenes[name] = [];
 
-  const nextState = await desktop.writeContainer({
+  const nextState = await desktop.writeBoard({
     mode: "create",
     name,
     elements: [],
@@ -335,55 +330,57 @@ export const createContainerInStorage = async (name: string) => {
   });
 };
 
-export const setContainerListToStorage = (list: string[] = []) => {
-  storageCache.containerList = list.length ? [...list] : [DEFAULT_CONTAINER_NAME];
-};
-
-export const getElementsFromStorage = (
-  containerName?: string,
+export const getBoardElementsFromStorage = (
+  boardName?: string,
 ): ExcalidrawElement[] => {
   return clone(
-    storageCache.scenes[containerName || getContainerNameFromStorage()] || [],
+    storageCache.scenes[boardName || getCurrentBoardName()] || [],
   ) as ExcalidrawElement[];
 };
 
-export const setElementsToStorage = async (
+export const setBoardElementsToStorage = async (
   elements: ExcalidrawElement[] = [],
 ) => {
-  const currentContainerName = getContainerNameFromStorage();
-  storageCache.scenes[currentContainerName] = clone(elements);
+  const currentBoardName = getCurrentBoardName();
+  storageCache.scenes[currentBoardName] = clone(elements);
   const desktop = requireDesktopApi();
 
-  await desktop.writeContainer({
+  const nextState = await desktop.writeBoard({
     mode: "updateScene",
-    name: currentContainerName,
+    name: currentBoardName,
     elements,
+  });
+
+  applyBootstrapState({
+    ...getDefaultBootstrapState(),
+    ...nextState,
+    libraryItems: storageCache.libraryItems,
   });
 };
 
-export const renameContainerNameToStorage = async (
+export const renameBoardNameInStorage = async (
   oldName: string,
   newName: string,
 ) => {
   if (!(oldName && newName)) {
     console.warn(
-      `oldName: ${oldName}, newName: ${newName} 不同时存在，无法重命名`,
+      `oldName: ${oldName}, newName: ${newName} do not both exist, rename aborted.`,
     );
     return;
   }
 
-  const elements = getElementsFromStorage(oldName);
+  const elements = getBoardElementsFromStorage(oldName);
   const desktop = requireDesktopApi();
 
   delete storageCache.scenes[oldName];
   storageCache.scenes[newName] = elements;
-  storageCache.containerList = storageCache.containerList.map((name) =>
+  storageCache.boardList = storageCache.boardList.map((name) =>
     name === oldName ? newName : name,
   );
-  storageCache.currentContainerName =
-    storageCache.currentContainerName === oldName
+  storageCache.currentBoardName =
+    storageCache.currentBoardName === oldName
       ? newName
-      : storageCache.currentContainerName;
+      : storageCache.currentBoardName;
   if (storageCache.appState?.name === oldName) {
     storageCache.appState = {
       ...storageCache.appState,
@@ -391,7 +388,7 @@ export const renameContainerNameToStorage = async (
     };
   }
 
-  const nextState = await desktop.writeContainer({
+  const nextState = await desktop.writeBoard({
     mode: "rename",
     previousName: oldName,
     name: newName,
@@ -404,29 +401,20 @@ export const renameContainerNameToStorage = async (
   });
 };
 
-export const removeContainerFromStorage = async (containerName: string) => {
+export const selectBoardInStorage = async (boardName: string) => {
+  storageCache.currentBoardName = boardName;
+  if (storageCache.appState) {
+    storageCache.appState = {
+      ...storageCache.appState,
+      name: boardName,
+    };
+  }
+
   const desktop = requireDesktopApi();
-
-  delete storageCache.scenes[containerName];
-  storageCache.containerList = storageCache.containerList.filter(
-    (name) => name !== containerName,
-  );
-  if (!storageCache.containerList.length) {
-    storageCache.containerList = [DEFAULT_CONTAINER_NAME];
-    ensureSceneEntry(DEFAULT_CONTAINER_NAME);
-  }
-
-  if (storageCache.currentContainerName === containerName) {
-    storageCache.currentContainerName = storageCache.containerList[0];
-    if (storageCache.appState) {
-      storageCache.appState = {
-        ...storageCache.appState,
-        name: storageCache.currentContainerName,
-      };
-    }
-  }
-
-  const nextState = await desktop.deleteContainer(containerName);
+  const nextState = await desktop.writeBoard({
+    mode: "select",
+    name: boardName,
+  });
   applyBootstrapState({
     ...getDefaultBootstrapState(),
     ...nextState,
@@ -434,9 +422,37 @@ export const removeContainerFromStorage = async (containerName: string) => {
   });
 };
 
-export const getAllContainerListElementsFromStorage = () => {
-  return storageCache.containerList.reduce((prevElements, containerName) => {
-    const elements = storageCache.scenes[containerName] || [];
+export const removeBoardFromStorage = async (boardName: string) => {
+  const desktop = requireDesktopApi();
+
+  delete storageCache.scenes[boardName];
+  storageCache.boardList = storageCache.boardList.filter((name) => name !== boardName);
+  if (!storageCache.boardList.length) {
+    storageCache.boardList = [DEFAULT_BOARD_NAME];
+    ensureBoardEntry(DEFAULT_BOARD_NAME);
+  }
+
+  if (storageCache.currentBoardName === boardName) {
+    storageCache.currentBoardName = storageCache.boardList[0];
+    if (storageCache.appState) {
+      storageCache.appState = {
+        ...storageCache.appState,
+        name: storageCache.currentBoardName,
+      };
+    }
+  }
+
+  const nextState = await desktop.deleteBoard(boardName);
+  applyBootstrapState({
+    ...getDefaultBootstrapState(),
+    ...nextState,
+    libraryItems: storageCache.libraryItems,
+  });
+};
+
+export const getAllBoardElementsFromStorage = () => {
+  return storageCache.boardList.reduce((prevElements, boardName) => {
+    const elements = storageCache.scenes[boardName] || [];
     return [...prevElements, ...elements];
   }, [] as ExcalidrawElement[]);
 };
@@ -460,16 +476,10 @@ export const writeFilesToStorage = async (files: BinaryFileData[]) => {
   const payload = await desktop.writeBinaryFileCache(files);
   return {
     savedFiles: new Map(
-      (payload.savedFiles || []).map((fileId: FileId) => [
-        fileId,
-        true as const,
-      ]),
+      (payload.savedFiles || []).map((fileId: FileId) => [fileId, true as const]),
     ),
     erroredFiles: new Map(
-      (payload.erroredFiles || []).map((fileId: FileId) => [
-        fileId,
-        true as const,
-      ]),
+      (payload.erroredFiles || []).map((fileId: FileId) => [fileId, true as const]),
     ),
   };
 };
@@ -481,9 +491,8 @@ export const clearObsoleteFilesFromStorage = async (currentFileIds: FileId[]) =>
 
 export const getDesktopStateSnapshot = () => {
   return clone({
-    containerId: storageCache.containerId,
-    currentContainerName: storageCache.currentContainerName,
-    containerList: storageCache.containerList,
+    currentBoardName: storageCache.currentBoardName,
+    boardList: storageCache.boardList,
     appState: storageCache.appState,
     libraryItems: storageCache.libraryItems,
     scenes: storageCache.scenes,
