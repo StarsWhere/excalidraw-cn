@@ -114,20 +114,17 @@ class Library {
   /**
    * @returns latest cloned libraryItems. Awaits all in-progress updates first.
    */
-  getLatestLibrary = (): Promise<LibraryItems> => {
-    return new Promise(async (resolve) => {
-      try {
-        const libraryItems = await (this.getLastUpdateTask() ||
-          this.lastLibraryItems);
-        if (this.updateQueue.length > 0) {
-          resolve(this.getLatestLibrary());
-        } else {
-          resolve(cloneLibraryItems(libraryItems));
-        }
-      } catch (error) {
-        return resolve(this.lastLibraryItems);
+  getLatestLibrary = async (): Promise<LibraryItems> => {
+    try {
+      const libraryItems = await (this.getLastUpdateTask() ||
+        this.lastLibraryItems);
+      if (this.updateQueue.length > 0) {
+        return this.getLatestLibrary();
       }
-    });
+      return cloneLibraryItems(libraryItems);
+    } catch (error) {
+      return this.lastLibraryItems;
+    }
   };
 
   // NOTE this is a high-level public API (exposed on ExcalidrawAPI) with
@@ -150,41 +147,31 @@ class Library {
       this.app.setState({ openSidebar: "library" });
     }
 
-    return this.setLibrary(() => {
-      return new Promise<LibraryItems>(async (resolve, reject) => {
-        try {
-          const source = await (typeof libraryItems === "function" &&
-          !(libraryItems instanceof Blob)
-            ? libraryItems(this.lastLibraryItems)
-            : libraryItems);
+    return this.setLibrary(async () => {
+      const source = await (typeof libraryItems === "function" &&
+      !(libraryItems instanceof Blob)
+        ? libraryItems(this.lastLibraryItems)
+        : libraryItems);
 
-          let nextItems;
+      const nextItems =
+        source instanceof Blob
+          ? await loadLibraryFromBlob(source, defaultStatus)
+          : restoreLibraryItems(source, defaultStatus);
 
-          if (source instanceof Blob) {
-            nextItems = await loadLibraryFromBlob(source, defaultStatus);
-          } else {
-            nextItems = restoreLibraryItems(source, defaultStatus);
-          }
-          if (
-            !prompt ||
-            window.confirm(
-              t("alerts.confirmAddLibrary", {
-                numShapes: nextItems.length,
-              }),
-            )
-          ) {
-            if (merge) {
-              resolve(mergeLibraryItems(this.lastLibraryItems, nextItems));
-            } else {
-              resolve(nextItems);
-            }
-          } else {
-            reject(new AbortError());
-          }
-        } catch (error: any) {
-          reject(error);
-        }
-      });
+      if (
+        prompt &&
+        !window.confirm(
+          t("alerts.confirmAddLibrary", {
+            numShapes: nextItems.length,
+          }),
+        )
+      ) {
+        throw new AbortError();
+      }
+
+      return merge
+        ? mergeLibraryItems(this.lastLibraryItems, nextItems)
+        : nextItems;
     }).finally(() => {
       this.app.focusContainer();
     });
@@ -208,21 +195,18 @@ class Library {
           latestLibraryItems: LibraryItems,
         ) => LibraryItems | Promise<LibraryItems>),
   ): Promise<LibraryItems> => {
-    const task = new Promise<LibraryItems>(async (resolve, reject) => {
-      try {
-        await this.getLastUpdateTask();
+    const task = (async () => {
+      await this.getLastUpdateTask();
 
-        if (typeof libraryItems === "function") {
-          libraryItems = libraryItems(this.lastLibraryItems);
-        }
+      const nextLibraryItems =
+        typeof libraryItems === "function"
+          ? libraryItems(this.lastLibraryItems)
+          : libraryItems;
 
-        this.lastLibraryItems = cloneLibraryItems(await libraryItems);
+      this.lastLibraryItems = cloneLibraryItems(await nextLibraryItems);
 
-        resolve(this.lastLibraryItems);
-      } catch (error: any) {
-        reject(error);
-      }
-    })
+      return this.lastLibraryItems;
+    })()
       .catch((error) => {
         if (error.name === "AbortError") {
           console.warn("Library update aborted by user");

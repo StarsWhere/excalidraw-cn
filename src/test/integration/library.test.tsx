@@ -19,15 +19,11 @@ const libraryJSONPromise = API.readFile(
   "utf8",
 );
 
-const mockLibraryFilePromise = new Promise<Blob>(async (resolve, reject) => {
-  try {
-    resolve(
-      new Blob([await libraryJSONPromise], { type: MIME_TYPES.excalidrawlib }),
-    );
-  } catch (error) {
-    reject(error);
-  }
-});
+const mockLibraryFilePromise = (async (): Promise<Blob> => {
+  return new Blob([await libraryJSONPromise], {
+    type: MIME_TYPES.excalidrawlib,
+  });
+})();
 
 jest.mock("../../platform/desktop/api/filesystem", () => ({
   __esmodule: true,
