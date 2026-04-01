@@ -298,7 +298,7 @@ export class UI {
             (element) => element.id === origElement.id,
           ) as any;
           if (prop === "get") {
-            if (currentElement.hasOwnProperty("get")) {
+            if (Object.prototype.hasOwnProperty.call(currentElement, "get")) {
               throw new Error(
                 "trying to get `get` test property, but ExcalidrawElement seems to define its own",
               );

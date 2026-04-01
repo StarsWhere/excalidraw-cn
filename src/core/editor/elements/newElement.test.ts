@@ -6,7 +6,10 @@ import { isPrimitive } from "../../../shared/lib/utils";
 
 const assertCloneObjects = (source: any, clone: any) => {
   for (const key in clone) {
-    if (clone.hasOwnProperty(key) && !isPrimitive(clone[key])) {
+    if (
+      Object.prototype.hasOwnProperty.call(clone, key) &&
+      !isPrimitive(clone[key])
+    ) {
       expect(clone[key]).not.toBe(source[key]);
       if (source[key]) {
         assertCloneObjects(source[key], clone[key]);
@@ -46,7 +49,7 @@ it("clones arrow element", () => {
 
   // @ts-ignore
   expect(copy.__proto__).toEqual({ hello: "world" });
-  expect(copy.hasOwnProperty("hello")).toBe(false);
+  expect(Object.prototype.hasOwnProperty.call(copy, "hello")).toBe(false);
 
   expect(copy.points).not.toBe(element.points);
   expect(copy).not.toHaveProperty("shape");
