@@ -90,7 +90,9 @@
     "nsis": {
       "oneClick": false,
       "perMachine": false,
-      "allowToChangeInstallationDirectory": true
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "icons/favicon.ico",
+      "uninstallerIcon": "icons/favicon.ico"
     },
     "fileAssociations": [
       {
