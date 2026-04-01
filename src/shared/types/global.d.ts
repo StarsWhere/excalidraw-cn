@@ -34,7 +34,9 @@ interface CanvasRenderingContext2D {
 }
 
 declare namespace NodeJS {
-  interface ProcessEnv {}
+  interface ProcessEnv {
+    [key: string]: string | undefined;
+  }
 }
 
 declare const process: {
