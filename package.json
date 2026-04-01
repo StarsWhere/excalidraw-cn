@@ -120,6 +120,7 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
+    "clean": "node ./scripts/build/clean.js",
     "build:electron": "node ./scripts/build/build-electron.js",
     "build:renderer": "vite build && pnpm build:version",
     "build:version": "node ./scripts/build/build-version.js",
