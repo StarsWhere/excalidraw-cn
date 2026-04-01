@@ -157,7 +157,7 @@ const restoreElement = (
   refreshDimensions = false,
 ): typeof element | null => {
   switch (element.type) {
-    case "text":
+    case "text": {
       let fontSize = element.fontSize;
       let fontFamily = element.fontFamily;
       if ("font" in element) {
@@ -182,6 +182,7 @@ const restoreElement = (
         element = { ...element, ...refreshTextDimensions(element) };
       }
       return element;
+    }
     case "freedraw": {
       return restoreElementWithProperties(element, {
         points: element.points,

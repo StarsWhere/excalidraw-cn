@@ -542,7 +542,8 @@ export const textWysiwyg = ({
    * @returns indices of start positions of selected lines, in reverse order
    */
   const getSelectedLinesStartIndices = () => {
-    let { selectionStart, selectionEnd, value } = editable;
+    let { selectionStart } = editable;
+    const { selectionEnd, value } = editable;
 
     // chars before selectionStart on the same line
     const startOffset = value.slice(0, selectionStart).match(/[^\n]*$/)![0]

@@ -41,7 +41,7 @@ export const SidebarDockButton = (props: {
   );
 };
 
-const _SidebarHeader: React.FC<{
+const SidebarHeaderImpl: React.FC<{
   children?: React.ReactNode;
   className?: string;
 }> = ({ children, className }) => {
@@ -83,7 +83,7 @@ const _SidebarHeader: React.FC<{
   );
 };
 
-const [Context, Component] = withUpstreamOverride(_SidebarHeader);
+const [Context, Component] = withUpstreamOverride(SidebarHeaderImpl);
 
 /** @private */
 export const SidebarHeaderComponents = { Context, Component };

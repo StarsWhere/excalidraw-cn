@@ -184,9 +184,10 @@ const hitTestPointAgainstElement = (args: HitTestArgs): boolean => {
     case "image":
     case "text":
     case "diamond":
-    case "ellipse":
+    case "ellipse": {
       const distance = distanceToBindableElement(args.element, args.point);
       return args.check(distance, args.threshold);
+    }
     case "freedraw": {
       if (
         !args.check(
@@ -611,7 +612,7 @@ const getSortedElementLineIntersections = (
     case "rectangle":
     case "image":
     case "text":
-    case "diamond":
+    case "diamond": {
       const corners = getCorners(element);
       intersections = corners
         .flatMap((point, i) => {
@@ -622,6 +623,7 @@ const getSortedElementLineIntersections = (
           corners.flatMap((point) => getCircleIntersections(point, gap, line)),
         );
       break;
+    }
     case "ellipse":
       intersections = getEllipseIntersections(element, gap, line);
       break;

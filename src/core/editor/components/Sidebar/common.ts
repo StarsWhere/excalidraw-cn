@@ -1,6 +1,6 @@
 import React from "react";
 
-export type SidebarProps<P = {}> = {
+export type SidebarProps<P extends object = Record<string, never>> = {
   children: React.ReactNode;
   /**
    * Called on sidebar close (either by user action or by the editor).

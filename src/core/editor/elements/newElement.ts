@@ -90,7 +90,7 @@ const _newElementBase = <T extends ExcalidrawElement>(
     seed: rest.seed ?? randomInteger(),
     version: rest.version || 1,
     versionNonce: rest.versionNonce ?? 0,
-    isDeleted: false as false,
+    isDeleted: false as const,
     boundElements,
     updated: getUpdatedTimestamp(),
     link,
@@ -398,7 +398,7 @@ export const deepCopyElement = (val: any, depth: number = 0) => {
         ? Object.create(Object.getPrototypeOf(val))
         : {};
     for (const key in val) {
-      if (val.hasOwnProperty(key)) {
+      if (Object.prototype.hasOwnProperty.call(val, key)) {
         // don't copy non-serializable objects like these caches. They'll be
         // populated when the element is rendered.
         if (depth === 0 && (key === "shape" || key === "canvas")) {

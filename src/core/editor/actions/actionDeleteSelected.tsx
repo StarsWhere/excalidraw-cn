@@ -131,14 +131,16 @@ export const actionDeleteSelected = register({
         commitToHistory: true,
       };
     }
-    let { elements: nextElements, appState: nextAppState } =
-      deleteSelectedElements(elements, appState);
+    const {
+      elements: nextElements,
+      appState: deletedAppState,
+    } = deleteSelectedElements(elements, appState);
     fixBindingsAfterDeletion(
       nextElements,
       elements.filter(({ id }) => appState.selectedElementIds[id]),
     );
 
-    nextAppState = handleGroupEditingState(nextAppState, nextElements);
+    const nextAppState = handleGroupEditingState(deletedAppState, nextElements);
 
     return {
       elements: nextElements,

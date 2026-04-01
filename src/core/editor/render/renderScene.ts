@@ -981,7 +981,7 @@ const renderBindingHighlightForBindableElement = (
         element.angle,
       );
       break;
-    case "diamond":
+    case "diamond": {
       const side = Math.hypot(width, height);
       const wPadding = (padding * side) / height;
       const hPadding = (padding * side) / width;
@@ -994,6 +994,7 @@ const renderBindingHighlightForBindableElement = (
         element.angle,
       );
       break;
+    }
     case "ellipse":
       strokeEllipseWithRotation(
         context,
