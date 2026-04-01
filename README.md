@@ -13,7 +13,7 @@ Handraw 是一个仅面向 Windows 的、以桌面端为优先的手绘风格白
 
 ## 环境要求
 
-- Node.js `>= 18.12`
+- Node.js `>= 20.9`
 - pnpm `>= 10`
 - Windows
 
