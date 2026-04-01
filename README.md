@@ -1,6 +1,6 @@
 # Handraw
 
-Handraw 是一个仅面向 Windows 的、以桌面端为优先的手绘风格白板应用。当前仓库围绕 Electron 桌面宿主、React 渲染层、共享基础设施，以及构建与测试脚本组织，后续开发将基于现有结构继续演进。
+Handraw 是一个仅面向 Windows 的 Electron 白板应用。仓库已经整理为标准的 `main / preload / renderer` 结构，后续开发默认只围绕 Windows 桌面宿主展开，不再兼容其他运行形态。
 
 ## 技术栈
 
@@ -37,38 +37,34 @@ pnpm install
 pnpm dev
 pnpm build
 pnpm check
-pnpm release:win
+pnpm package:win
 ```
 
-命令说明：
-
-- `pnpm install` 安装依赖并执行准备脚本
-- `pnpm dev` 同时启动 renderer 与 Electron 桌面宿主开发环境
-- `pnpm build` 生成 `dist/renderer` 与 `dist/desktop`
+- `pnpm dev` 同时启动 Vite renderer 与 Electron 主进程
+- `pnpm build` 生成 `dist/renderer`、`dist/main`、`dist/preload`
 - `pnpm check` 运行格式检查、lint、类型检查与测试
-- `pnpm release:win` 生成 Windows 安装包与便携版到 `dist/release`
+- `pnpm package:win` 生成 Windows 安装包与便携版到 `dist/release`
 
 ## 仓库结构
 
 ```text
 .
-├─ desktop/                    Electron 桌面宿主源码
-│  ├─ main.cjs                应用主进程入口
-│  ├─ preload.cjs             预加载脚本
-│  ├─ runtime.cjs             运行时辅助逻辑
-│  └─ storage.cjs             本地存储相关逻辑
-├─ public/                     运行时静态资源
-│  ├─ fonts/                  字体资源
-│  ├─ icons/                  图标资源
-│  └─ runtime-static/         其他静态资源
-├─ scripts/                    构建与测试脚本
-│  ├─ build/                  构建脚本
-│  └─ test/                   测试辅助脚本
-├─ src/                        应用源码
-│  ├─ app/                    应用层代码
-│  ├─ core/                   编辑器核心能力
-│  ├─ platform/               平台适配层
-│  ├─ shared/                 共享基础设施
-│  └─ test/                   集成测试与测试辅助
-└─ .github/workflows/          Windows CI 配置
+├─ public/                      运行时静态资源
+│  ├─ fonts/                   字体资源
+│  └─ icons/                   图标资源
+├─ scripts/                     构建与测试脚本
+│  ├─ build/
+│  └─ test/
+├─ src/
+│  ├─ main/                    Electron 主进程
+│  ├─ preload/                 Electron 预加载
+│  └─ renderer/
+│     ├─ app/                  应用装配与宿主边界
+│     ├─ editor/               编辑器核心
+│     ├─ platform/electron/    Electron bridge
+│     ├─ shared/               共享 UI 与工具
+│     ├─ workspace/            画布与本地状态业务
+│     └─ main.tsx              renderer 入口
+├─ test/                        集成测试、夹具与快照
+└─ .github/workflows/           Windows CI
 ```

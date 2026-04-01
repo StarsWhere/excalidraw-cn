@@ -7,10 +7,10 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Node.js 18.x
+      - name: Setup Node.js 20.x
         uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: 20.x
           cache: pnpm
       - name: Enable Corepack
         run: corepack enable pnpm
@@ -19,4 +19,4 @@ jobs:
           pnpm install --frozen-lockfile
           pnpm check:test --runInBand
           pnpm build
-          pnpm release:win
+          pnpm package:win
