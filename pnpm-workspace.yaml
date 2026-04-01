@@ -1,0 +1,2 @@
+patchedDependencies:
+  app-builder-lib@26.8.1: patches/app-builder-lib@26.8.1.patch

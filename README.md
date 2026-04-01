@@ -24,6 +24,10 @@ pnpm install
 pnpm dev
 ```
 
+仓库固定使用 `pnpm` 的 hoisted 安装布局，`.npmrc` 已包含 `node-linker=hoisted`。本地与 CI 都应直接执行仓库内的 `pnpm install`，不要覆盖这个设置，否则 `electron-builder` 重新收集依赖时会再次出现 unresolved deps 提示。
+
+仓库也已经通过 `pnpm.onlyBuiltDependencies` 允许 `electron`、`electron-winstaller` 和 `esbuild` 的安装脚本执行，因此正常情况下 `pnpm install` 后可以直接运行 `pnpm dev`。如果此前是在旧配置下安装过依赖，执行一次 `pnpm rebuild electron electron-winstaller esbuild` 即可补齐缺失的运行时文件。
+
 如果 Electron 二进制因为包管理器策略没有自动下载，可以手动执行：
 
 ```powershell

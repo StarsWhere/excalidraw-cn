@@ -1,0 +1,24 @@
+diff --git a/out/node-module-collector/nodeModulesCollector.js b/out/node-module-collector/nodeModulesCollector.js
+index 0956d2657279b06ff210e5008583b9c35b533d5f..50c3739da98ed6f50364a53a95e9e24eb165f8b7 100644
+--- a/out/node-module-collector/nodeModulesCollector.js
++++ b/out/node-module-collector/nodeModulesCollector.js
+@@ -308,14 +308,17 @@ class NodeModulesCollector {
+             const batScript = `@echo off\r\n"${command}" %*\r\n`; // <-- CRLF required for .bat
+             await fs.writeFile(tempBatFile, batScript, { encoding: "utf8" });
+             command = "cmd.exe";
+-            args = ["/c", `"${tempBatFile}"`, ...args];
++            args = ["/c", tempBatFile, ...args];
+         }
+         await new Promise((resolve, reject) => {
+             const outStream = (0, fs_extra_1.createWriteStream)(tempOutputFile);
+             const child = childProcess.spawn(command, args, {
+                 cwd,
+                 env: { COREPACK_ENABLE_STRICT: "0", ...process.env }, // allow `process.env` overrides
+-                shell: true, // `true`` is now required: https://github.com/electron-userland/electron-builder/issues/9488
++                // Avoid `shell: true` here so Node 20+ doesn't emit DEP0190 for the
++                // pnpm collector path. Windows `.cmd` entrypoints are already wrapped
++                // in a temporary `.bat` and executed through `cmd.exe` above.
++                shell: false,
+             });
+             let stderr = "";
+             child.stdout.pipe(outStream);
