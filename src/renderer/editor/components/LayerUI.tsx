@@ -12,21 +12,17 @@ import { AppProps, AppState, ExcalidrawProps, BinaryFiles } from "../state/types
 import { isShallowEqual, muteFSAbortError } from "@shared/lib/utils";
 import { SelectedShapeActions, ShapesSwitcher } from "./Actions";
 import { ErrorDialog } from "./ErrorDialog";
-import { ExportCB, ImageExportDialog } from "./ImageExportDialog";
-import { SwitchBoardDialog } from "./SwitchBoardDialog";
-import { NewBoardDialog } from "./NewBoardDialog";
+import type { ExportCB } from "./ImageExportDialog";
 import { FixedSideContainer } from "./FixedSideContainer";
 import { HintViewer } from "./HintViewer";
 import { Island } from "@shared/ui/Island";
 import { LoadingMessage } from "./LoadingMessage";
 import { LockButton } from "./LockButton";
 import { MobileMenu } from "./MobileMenu";
-import { PasteChartDialog } from "./PasteChartDialog";
 import { Section } from "@shared/ui/Section";
 import { HelpDialog } from "./HelpDialog";
 import Stack from "@shared/ui/Stack";
 import Library from "../io/library";
-import { JSONExportDialog } from "./JSONExportDialog";
 import { LibraryButton } from "./LibraryButton";
 import { isImageFileHandle } from "../io/blob";
 import { LibraryMenu } from "./LibraryMenu";
@@ -52,6 +48,36 @@ import {
   renameBoardNameInStorage,
 } from "@app/host/workspace";
 import InputPreview from "./InputPreview";
+
+const ImageExportDialog = React.lazy(() =>
+  import("./ImageExportDialog").then((module) => ({
+    default: module.ImageExportDialog,
+  })),
+);
+
+const JSONExportDialog = React.lazy(() =>
+  import("./JSONExportDialog").then((module) => ({
+    default: module.JSONExportDialog,
+  })),
+);
+
+const PasteChartDialog = React.lazy(() =>
+  import("./PasteChartDialog").then((module) => ({
+    default: module.PasteChartDialog,
+  })),
+);
+
+const SwitchBoardDialog = React.lazy(() =>
+  import("./SwitchBoardDialog").then((module) => ({
+    default: module.SwitchBoardDialog,
+  })),
+);
+
+const NewBoardDialog = React.lazy(() =>
+  import("./NewBoardDialog").then((module) => ({
+    default: module.NewBoardDialog,
+  })),
+);
 
 interface LayerUIProps {
   actionManager: ActionManager;
@@ -382,6 +408,7 @@ const LayerUI = ({
   };
 
   const [hostSidebarCounters] = useAtom(hostSidebarCountersAtom, jotaiScope);
+  const lazyDialogFallback = <LoadingMessage delay={0} />;
 
   const layerUIJSX = (
     <>
@@ -410,22 +437,24 @@ const LayerUI = ({
         />
       )}
       <ActiveConfirmDialog />
-      {renderImageExportDialog()}
-      {renderJSONExportDialog()}
-      {renderSwitchBoardDialog()}
-      {renderNewBoardDialog()}
-      {appState.pasteDialog.shown && (
-        <PasteChartDialog
-          setAppState={setAppState}
-          appState={appState}
-          onInsertChart={onInsertElements}
-          onClose={() =>
-            setAppState({
-              pasteDialog: { shown: false, data: null },
-            })
-          }
-        />
-      )}
+      <React.Suspense fallback={lazyDialogFallback}>
+        {renderImageExportDialog()}
+        {renderJSONExportDialog()}
+        {renderSwitchBoardDialog()}
+        {renderNewBoardDialog()}
+        {appState.pasteDialog.shown && (
+          <PasteChartDialog
+            setAppState={setAppState}
+            appState={appState}
+            onInsertChart={onInsertElements}
+            onClose={() =>
+              setAppState({
+                pasteDialog: { shown: false, data: null },
+              })
+            }
+          />
+        )}
+      </React.Suspense>
       {device.isMobile && (
         <MobileMenu
           appState={appState}

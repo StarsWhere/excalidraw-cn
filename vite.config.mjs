@@ -30,6 +30,31 @@ export default defineConfig(({ mode }) => ({
   build: {
     outDir: "dist/renderer",
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          const normalizedId = id.replaceAll("\\", "/");
+
+          if (normalizedId.includes("/node_modules/")) {
+            if (
+              normalizedId.includes("/node_modules/react/") ||
+              normalizedId.includes("/node_modules/react-dom/") ||
+              normalizedId.includes("/node_modules/jotai/") ||
+              normalizedId.includes("/node_modules/scheduler/")
+            ) {
+              return "react-vendor";
+            }
+
+            if (
+              normalizedId.includes("/node_modules/roughjs/") ||
+              normalizedId.includes("/node_modules/perfect-freehand/")
+            ) {
+              return "drawing-vendor";
+            }
+          }
+        },
+      },
+    },
   },
   server: {
     host: "127.0.0.1",
