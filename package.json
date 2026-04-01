@@ -72,7 +72,7 @@
     "productName": "Handraw",
     "asar": true,
     "extraMetadata": {
-      "main": "dist/desktop/main.cjs"
+      "main": "dist/main/index.cjs"
     },
     "directories": {
       "buildResources": "public",
@@ -80,7 +80,8 @@
     },
     "files": [
       "dist/renderer/**/*",
-      "dist/desktop/**/*",
+      "dist/main/**/*",
+      "dist/preload/**/*",
       "package.json"
     ],
     "win": {
@@ -88,7 +89,7 @@
         "nsis",
         "portable"
       ],
-      "icon": "public/icons/favicon.ico",
+      "icon": "icons/favicon.ico",
       "signAndEditExecutable": false
     },
     "nsis": {
@@ -112,7 +113,7 @@
     ]
   },
   "homepage": ".",
-  "main": "desktop/main.cjs",
+  "main": "dist/main/index.cjs",
   "name": "handraw",
   "description": "A desktop-first hand-drawn whiteboard built with Electron.",
   "author": "StarsWhere",
@@ -121,12 +122,12 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
-    "build:desktop": "node ./scripts/build/build-desktop.js",
+    "build:electron": "node ./scripts/build/build-electron.js",
     "build:renderer": "vite build && pnpm build:version",
     "build:version": "node ./scripts/build/build-version.js",
-    "build": "pnpm build:renderer && pnpm build:desktop",
-    "dev": "concurrently -k -s first \"pnpm dev:renderer\" \"pnpm dev:desktop\"",
-    "dev:desktop": "wait-on tcp:5173 && cross-env ELECTRON_START_URL=http://127.0.0.1:5173 electron .",
+    "build": "pnpm build:renderer && pnpm build:electron",
+    "dev": "concurrently -k -s first \"pnpm dev:renderer\" \"pnpm dev:electron\"",
+    "dev:electron": "wait-on tcp:5173 && cross-env ELECTRON_START_URL=http://127.0.0.1:5173 electron ./src/main/index.cjs",
     "dev:renderer": "vite",
     "check:format": "prettier \"**/*.{css,scss,json,md,html,yml}\" --ignore-path=.prettierignore --list-different",
     "check:lint": "eslint --quiet --ext .js,.cjs,.mjs,.ts,.tsx .",
@@ -137,7 +138,7 @@
     "fix:lint": "eslint --quiet --ext .js,.cjs,.mjs,.ts,.tsx . --fix",
     "fix": "pnpm fix:format && pnpm fix:lint",
     "prepare": "husky install",
-    "release:win": "pnpm build && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder --win nsis portable"
+    "package:win": "pnpm build && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder --win nsis portable"
   },
   "repository": "git@github.com:korbinzhao/handraw.git"
 }
