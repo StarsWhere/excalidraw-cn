@@ -11,11 +11,12 @@ import {
   HelpIcon,
   LoadIcon,
   MoonIcon,
+  PlusIcon,
   save,
+  SelectionIcon,
   SunIcon,
   TrashIcon,
 } from "../icons";
-import { FileAddOutlined, SwitcherOutlined } from "@ant-design/icons";
 import DropdownMenuItem from "@shared/ui/dropdownMenu/DropdownMenuItem";
 import {
   actionClearCanvas,
@@ -34,7 +35,7 @@ export const NewBoard = () => {
 
   return (
     <DropdownMenuItem
-      icon={<FileAddOutlined />}
+      icon={PlusIcon}
       onSelect={() => setAppState({ openDialog: "newBoard" })}
       data-testid="recent-scenes-button"
       shortcut={getShortcutFromShortcutName("newBoard")}
@@ -50,7 +51,7 @@ export const SwitchBoard = () => {
 
   return (
     <DropdownMenuItem
-      icon={<SwitcherOutlined />}
+      icon={SelectionIcon}
       onSelect={() => setAppState({ openDialog: "switchBoard" })}
       data-testid="recent-scenes-button"
       shortcut={getShortcutFromShortcutName("switchBoard")}

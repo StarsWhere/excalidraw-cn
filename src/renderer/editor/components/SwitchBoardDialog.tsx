@@ -4,15 +4,15 @@ import { AppState } from "../state/types";
 import "./ExportDialog.scss";
 import { ActionManager } from "../actions/manager";
 import { Dialog } from "@shared/ui/Dialog";
+import ConfirmDialog from "@shared/ui/ConfirmDialog";
 import {
   getBoardListFromStorage,
   getCurrentBoardName,
   removeBoardFromStorage,
   selectBoardInStorage,
 } from "@app/host/workspace";
-import { List, Popconfirm } from "antd";
-import { CheckSquareOutlined, CloseCircleOutlined } from "@ant-design/icons";
 import { notifyWorkspaceStateChanged } from "@app/host/workspace";
+import { TrashIcon, checkIcon } from "./icons";
 
 export const SwitchBoardDialog = ({
   appState,
@@ -27,62 +27,99 @@ export const SwitchBoardDialog = ({
   }, [setAppState]);
 
   const boardList = getBoardListFromStorage();
-
   const currentBoardName = getCurrentBoardName();
+  const [boardPendingDelete, setBoardPendingDelete] = React.useState<
+    string | null
+  >(null);
 
   return (
     <>
       {appState.openDialog === "switchBoard" && (
         <Dialog onCloseRequest={handleClose} title={t("buttons.switchBoard")}>
-          <List>
+          <div>
             {boardList?.map((scene: string) => {
+              const isCurrentBoard = currentBoardName === scene;
+
               return (
-                <List.Item
+                <div
                   key={scene}
                   style={{
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
+                    gap: 12,
                     padding: 10,
-                    borderBottom: `1px solid #e2e2e2`,
+                    borderBottom: "1px solid #e2e2e2",
                   }}
                 >
-                  <span
+                  <button
+                    type="button"
                     style={{
                       flex: "auto",
                       cursor: "pointer",
-                      color: `${
-                        currentBoardName === scene ? "green" : "#333"
-                      }`,
+                      color: isCurrentBoard ? "green" : "#333",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 10,
+                      border: 0,
+                      background: "transparent",
+                      padding: 0,
+                      textAlign: "left",
                     }}
                     onClick={async () => {
                       await selectBoardInStorage(scene);
                       notifyWorkspaceStateChanged();
                     }}
                   >
-                    {currentBoardName === scene ? (
-                      <CheckSquareOutlined
-                        style={{ marginRight: 10, color: "green" }}
-                      />
+                    {isCurrentBoard ? (
+                      <span
+                        aria-hidden="true"
+                        style={{
+                          display: "inline-flex",
+                          color: "green",
+                        }}
+                      >
+                        {checkIcon}
+                      </span>
                     ) : null}
                     {scene}
-                  </span>
-                  <Popconfirm
-                    title={`确定删除 ${scene} 吗?`}
-                    onConfirm={async () => {
-                      await removeBoardFromStorage(scene);
-                      notifyWorkspaceStateChanged();
+                  </button>
+                  <button
+                    type="button"
+                    aria-label={`删除 ${scene}`}
+                    title={`删除 ${scene}`}
+                    onClick={() => setBoardPendingDelete(scene)}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      border: 0,
+                      background: "transparent",
+                      color: "#c92a2a",
+                      cursor: "pointer",
+                      padding: 0,
                     }}
                   >
-                    <CloseCircleOutlined
-                      style={{ display: "block", flex: 0, width: 20 }}
-                    />
-                  </Popconfirm>
-                </List.Item>
+                    {TrashIcon}
+                  </button>
+                </div>
               );
             })}
-          </List>
+          </div>
         </Dialog>
+      )}
+      {boardPendingDelete && (
+        <ConfirmDialog
+          title={`确定删除 ${boardPendingDelete} 吗?`}
+          onConfirm={async () => {
+            await removeBoardFromStorage(boardPendingDelete);
+            setBoardPendingDelete(null);
+            notifyWorkspaceStateChanged();
+          }}
+          onCancel={() => setBoardPendingDelete(null)}
+        >
+          <p>删除后将无法恢复这个画布。</p>
+        </ConfirmDialog>
       )}
     </>
   );

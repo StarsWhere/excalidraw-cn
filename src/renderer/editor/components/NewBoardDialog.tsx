@@ -5,7 +5,6 @@ import { Dialog } from "@shared/ui/Dialog";
 import "./ExportDialog.scss";
 import { ActionManager } from "../actions/manager";
 import { Button } from "@shared/ui/Button";
-import { message } from "antd";
 import {
   createBoardInStorage,
   getBoardListFromStorage,
@@ -32,49 +31,72 @@ export const NewBoardDialog = ({
   }, [setAppState]);
 
   const [newContainerName, setNewContainerName] = useState(appState.name);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const createBoard = async () => {
+    const boardName = newContainerName.trim();
+    const boardList: string[] = getBoardListFromStorage();
+
+    if (!boardName) {
+      setErrorMessage(t("errors.required"));
+      return;
+    }
+
+    if (boardList.includes(boardName)) {
+      setErrorMessage(`画布 ${boardName} 已存在，无需重复创建`);
+      return;
+    }
+
+    setErrorMessage(null);
+    await createBoardInStorage(boardName);
+    notifyWorkspaceStateChanged();
+  };
 
   return (
     <>
       {appState.openDialog === "newBoard" && (
         <Dialog onCloseRequest={handleClose} title={t("buttons.newBoard")}>
-          <input
-            type="text"
-            placeholder={t("labels.inputNewBoardName")}
-            style={{ minWidth: 500 }}
-            defaultValue={newContainerName}
-            onChange={(e) => {
-              setNewContainerName(e.target.value);
-            }}
-          />
-          <Button
-            style={{
-              whiteSpace: "nowrap",
-              padding: "0 20px",
-              marginTop: 10,
-              width: 70,
-              backgroundColor: "#6965db",
-              color: "#fff",
-            }}
-            onSelect={async () => {
-              const boardName = newContainerName.trim();
-              const boardList: string[] = getBoardListFromStorage();
-
-              if (!boardName) {
-                message.error(t("errors.required"));
-                return;
-              }
-
-              if (boardList.includes(boardName)) {
-                message.error(`画布 ${boardName} 已存在，无需重复创建`);
-                return;
-              }
-
-              await createBoardInStorage(boardName);
-              notifyWorkspaceStateChanged();
+          <form
+            onSubmit={(event) => {
+              event.preventDefault();
+              void createBoard();
             }}
           >
-            {t("buttons.confirm")}
-          </Button>
+            <input
+              type="text"
+              placeholder={t("labels.inputNewBoardName")}
+              style={{ minWidth: 500 }}
+              value={newContainerName}
+              onChange={(event) => {
+                setNewContainerName(event.target.value);
+                if (errorMessage) {
+                  setErrorMessage(null);
+                }
+              }}
+            />
+            {errorMessage && (
+              <p
+                role="alert"
+                style={{ color: "#c92a2a", margin: "8px 0 0", fontSize: 14 }}
+              >
+                {errorMessage}
+              </p>
+            )}
+            <Button
+              type="submit"
+              style={{
+                whiteSpace: "nowrap",
+                padding: "0 20px",
+                marginTop: 10,
+                width: 70,
+                backgroundColor: "#6965db",
+                color: "#fff",
+              }}
+              onSelect={() => {}}
+            >
+              {t("buttons.confirm")}
+            </Button>
+          </form>
         </Dialog>
       )}
     </>
