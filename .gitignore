@@ -24,3 +24,4 @@ yarn-error.log*
 .env.development.local
 .env.production.local
 .env.test.local
+docs/plan/SDK
