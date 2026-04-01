@@ -22,6 +22,7 @@ Handraw 是一个仅面向 Windows 的 Electron 白板应用。仓库已经整�
 ```powershell
 pnpm install
 pnpm dev
+pnpm clean
 ```
 
 仓库固定使用 `pnpm` 的 hoisted 安装布局，`.npmrc` 已包含 `node-linker=hoisted`。本地与 CI 都应直接执行仓库内的 `pnpm install`，不要覆盖这个设置，否则 `electron-builder` 重新收集依赖时会再次出现 unresolved deps 提示。
@@ -38,16 +39,20 @@ node node_modules\.pnpm\electron@37.2.3\node_modules\electron\install.js
 
 ```powershell
 pnpm install
+pnpm clean
 pnpm dev
 pnpm build
 pnpm check
 pnpm package:win
 ```
 
+- `pnpm clean` 删除 `dist/`、`.tmp-dev.*.log` 与 `.husky/_/` 等可丢弃产物
 - `pnpm dev` 同时启动 Vite renderer 与 Electron 主进程
 - `pnpm build` 生成 `dist/renderer`、`dist/main`、`dist/preload`
 - `pnpm check` 运行格式检查、lint、类型检查与测试
 - `pnpm package:win` 生成 Windows 安装包与便携版到 `dist/release`
+
+`dist/` 为构建与打包输出目录，可随时通过 `pnpm clean` 删除后重新生成。
 
 ## 仓库结构
 
