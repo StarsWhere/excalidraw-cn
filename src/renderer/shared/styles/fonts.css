@@ -39,13 +39,6 @@
 }
 
 @font-face {
-  font-family: "Zhushiti";
-  src: url("/fonts/YangRenDongZhuShiTi-Light-2.ttf");
-  font-display: swap;
-  font-weight: 700;
-}
-
-@font-face {
   font-family: "Cangnanshoujiti";
   src: url("/fonts/YeZiGongChangCangNanShouJi-2.ttf");
   font-display: swap;
