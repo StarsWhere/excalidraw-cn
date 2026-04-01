@@ -5422,44 +5422,42 @@ class App extends React.Component<AppProps, AppState> {
       false,
     ) as NonDeleted<InitializedExcalidrawImageElement>;
 
-    return new Promise<NonDeleted<InitializedExcalidrawImageElement>>(
-      async (resolve, reject) => {
-        try {
-          this.files = {
-            ...this.files,
-            [fileId]: {
-              mimeType,
-              id: fileId,
-              dataURL,
-              created: Date.now(),
-              lastRetrieved: Date.now(),
-            },
-          };
-          const cachedImageData = this.imageCache.get(fileId);
-          if (!cachedImageData) {
-            this.addNewImagesToImageCache();
-            await this.updateImageCache([imageElement]);
-          }
-          if (cachedImageData?.image instanceof Promise) {
-            await cachedImageData.image;
-          }
-          if (
-            this.state.pendingImageElementId !== imageElement.id &&
-            this.state.draggingElement?.id !== imageElement.id
-          ) {
-            this.initializeImageDimensions(imageElement, true);
-          }
-          resolve(imageElement);
-        } catch (error: any) {
-          console.error(error);
-          reject(new Error(t("errors.imageInsertError")));
-        } finally {
-          if (!showCursorImagePreview) {
-            resetCursor(this.canvas);
-          }
+    return (async () => {
+      try {
+        this.files = {
+          ...this.files,
+          [fileId]: {
+            mimeType,
+            id: fileId,
+            dataURL,
+            created: Date.now(),
+            lastRetrieved: Date.now(),
+          },
+        };
+        const cachedImageData = this.imageCache.get(fileId);
+        if (!cachedImageData) {
+          this.addNewImagesToImageCache();
+          await this.updateImageCache([imageElement]);
         }
-      },
-    );
+        if (cachedImageData?.image instanceof Promise) {
+          await cachedImageData.image;
+        }
+        if (
+          this.state.pendingImageElementId !== imageElement.id &&
+          this.state.draggingElement?.id !== imageElement.id
+        ) {
+          this.initializeImageDimensions(imageElement, true);
+        }
+        return imageElement;
+      } catch (error: any) {
+        console.error(error);
+        throw new Error(t("errors.imageInsertError"));
+      } finally {
+        if (!showCursorImagePreview) {
+          resetCursor(this.canvas);
+        }
+      }
+    })();
   };
 
   /**
