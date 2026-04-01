@@ -1,45 +1,100 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Input, InputProps, InputRef } from "antd";
+import React, { useEffect, useRef, useState } from "react";
+import { KEYS } from "@shared/lib/keys";
 
-function InputPreview(props: InputProps & { onSave?: (value: any) => void }) {
-  const { defaultValue, onChange, onSave, ...extraProps } = props || {};
+type InputPreviewProps = Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  "defaultValue" | "onChange"
+> & {
+  defaultValue?: string | number | readonly string[];
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onSave?: (value: string) => void;
+};
 
-  const [isEditable, setIsEditable] = useState<boolean>(false);
-  const [value, setValue] = useState(defaultValue);
-  const inputRef = useRef<InputRef>(null);
+const normalizeValue = (
+  value: InputPreviewProps["defaultValue"],
+): string => {
+  if (Array.isArray(value)) {
+    return value.join(", ");
+  }
+  return value?.toString() ?? "";
+};
+
+function InputPreview(props: InputPreviewProps) {
+  const { defaultValue, onChange, onSave, style, ...extraProps } = props || {};
+
+  const [isEditable, setIsEditable] = useState(false);
+  const [value, setValue] = useState(normalizeValue(defaultValue));
+  const inputRef = useRef<HTMLInputElement>(null);
+  const skipBlurCommitRef = useRef(false);
 
   useEffect(() => {
-    setValue(defaultValue);
+    setValue(normalizeValue(defaultValue));
   }, [defaultValue]);
+
+  useEffect(() => {
+    if (!isEditable) {
+      return;
+    }
+
+    const input = inputRef.current;
+    input?.focus();
+    input?.select();
+  }, [isEditable]);
+
+  const commit = () => {
+    skipBlurCommitRef.current = false;
+    setIsEditable(false);
+    onSave?.(value);
+  };
+
+  const reset = () => {
+    skipBlurCommitRef.current = false;
+    setValue(normalizeValue(defaultValue));
+    setIsEditable(false);
+  };
 
   if (isEditable) {
     return (
-      <Input
+      <input
         ref={inputRef}
-        style={{ minWidth: 200 }}
-        onChange={(e) => {
-          const value = e.target.value;
-          setValue(value);
-          onChange?.(e);
+        value={value}
+        style={{ minWidth: 200, ...style }}
+        onChange={(event) => {
+          setValue(event.target.value);
+          onChange?.(event);
         }}
         onBlur={() => {
-          setIsEditable(false);
-          onSave?.(value);
+          if (skipBlurCommitRef.current) {
+            skipBlurCommitRef.current = false;
+            return;
+          }
+          commit();
         }}
-        defaultValue={defaultValue}
+        onKeyDown={(event) => {
+          if (event.key === KEYS.ENTER) {
+            event.preventDefault();
+            skipBlurCommitRef.current = true;
+            commit();
+          }
+
+          if (event.key === KEYS.ESCAPE) {
+            event.preventDefault();
+            skipBlurCommitRef.current = true;
+            reset();
+          }
+
+          extraProps.onKeyDown?.(event);
+        }}
         {...extraProps}
       />
     );
   }
   return (
     <span
-      title={`画布名称: ${value || defaultValue}`}
+      title={`画布名称: ${value || normalizeValue(defaultValue)}`}
       style={{ cursor: "pointer", whiteSpace: "nowrap", color: "#999" }}
       onClick={() => {
         setIsEditable(true);
-        setTimeout(() => {
-          inputRef.current?.focus();
-        }, 0);
       }}
     >
       {value}
