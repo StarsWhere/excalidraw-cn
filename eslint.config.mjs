@@ -8,13 +8,14 @@ const browserFiles = ["src/**/*.{js,ts,tsx}"];
 const nodeFiles = [
   "*.cjs",
   ".lintstagedrc.js",
-  "desktop/**/*.{js,cjs}",
+  "src/main/**/*.{js,cjs}",
+  "src/preload/**/*.{js,cjs}",
   "scripts/**/*.{js,cjs}",
 ];
 const testFiles = [
   "**/*.test.{js,ts,tsx}",
   "jest.config.cjs",
-  "src/test/**/*.{js,ts,tsx}",
+  "test/**/*.{js,ts,tsx}",
 ];
 
 export default tseslint.config(
@@ -28,7 +29,6 @@ export default tseslint.config(
       "firebase/**",
       "package-lock.json",
       "public/runtime-static/**",
-      "public/workbox/**",
       "src/packages/excalidraw/types/**",
     ],
   },
@@ -96,23 +96,15 @@ export default tseslint.config(
     },
   },
   {
-    files: [
-      "src/core/editor/elements/**/*.{ts,tsx,js,jsx}",
-      "src/core/editor/features/**/*.{ts,tsx,js,jsx}",
-      "src/core/editor/lib/**/*.{ts,tsx,js,jsx}",
-      "src/core/editor/render/**/*.{ts,tsx,js,jsx}",
-      "src/core/editor/scene/**/*.{ts,tsx,js,jsx}",
-    ],
+    files: ["src/renderer/editor/**/*.{ts,tsx,js,jsx}"],
     ignores: ["**/*.test.*"],
     rules: {
       "no-restricted-imports": [
         "error",
         {
           patterns: [
-            "@app/*",
-            "@platform/*",
-            "**/app/desktop/*",
-            "**/platform/desktop/*",
+            "@workspace/*",
+            "@renderer/platform/electron/*",
           ],
         },
       ],

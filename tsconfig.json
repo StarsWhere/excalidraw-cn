@@ -12,11 +12,14 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "@app/*": ["src/app/*"],
-      "@core/*": ["src/core/*"],
-      "@platform/*": ["src/platform/*"],
-      "@shared/*": ["src/shared/*"],
-      "@test/*": ["src/test/*"]
+      "@main/*": ["src/main/*"],
+      "@preload/*": ["src/preload/*"],
+      "@renderer/*": ["src/renderer/*"],
+      "@app/*": ["src/renderer/app/*"],
+      "@editor/*": ["src/renderer/editor/*"],
+      "@workspace/*": ["src/renderer/workspace/*"],
+      "@shared/*": ["src/renderer/shared/*"],
+      "@test/*": ["test/*"]
     },
     "noFallthroughCasesInSwitch": true,
     "resolveJsonModule": true,
@@ -24,5 +27,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src"]
+  "include": ["src", "test"]
 }

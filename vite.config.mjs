@@ -17,11 +17,14 @@ export default defineConfig(({ mode }) => ({
   publicDir: "public",
   resolve: {
     alias: {
-      "@app": path.resolve("src/app"),
-      "@core": path.resolve("src/core"),
-      "@platform": path.resolve("src/platform"),
-      "@shared": path.resolve("src/shared"),
-      "@test": path.resolve("src/test"),
+      "@main": path.resolve("src/main"),
+      "@preload": path.resolve("src/preload"),
+      "@renderer": path.resolve("src/renderer"),
+      "@app": path.resolve("src/renderer/app"),
+      "@editor": path.resolve("src/renderer/editor"),
+      "@workspace": path.resolve("src/renderer/workspace"),
+      "@shared": path.resolve("src/renderer/shared"),
+      "@test": path.resolve("test"),
     },
   },
   build: {
