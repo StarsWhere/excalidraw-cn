@@ -3,8 +3,8 @@
 const path = require("node:path");
 
 const rootDir = path.resolve(__dirname, "..", "..", "..");
-const integrationRoot = path.join(rootDir, "src", "test", "integration");
-const snapshotRoot = path.join(rootDir, "src", "test", "snapshots");
+const integrationRoot = path.join(rootDir, "test", "integration");
+const snapshotRoot = path.join(rootDir, "test", "snapshots");
 
 const isInside = (target, parent) => {
   const relative = path.relative(parent, target);
