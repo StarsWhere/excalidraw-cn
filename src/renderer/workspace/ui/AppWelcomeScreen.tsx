@@ -11,9 +11,6 @@ export const AppWelcomeScreen: React.FC = React.memo(() => {
       <WelcomeScreen.Hints.ToolbarHint />
       <WelcomeScreen.Hints.HelpHint />
       <WelcomeScreen.Center>
-        <WelcomeScreen.Center.Heading>
-          {t("welcomeScreen.app.center_heading")}
-        </WelcomeScreen.Center.Heading>
         <WelcomeScreen.Center.Menu>
           <WelcomeScreen.Center.MenuItemLoadScene />
           <WelcomeScreen.Center.MenuItemHelp />

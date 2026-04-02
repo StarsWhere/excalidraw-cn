@@ -185,6 +185,9 @@ const LibraryMenuItems = ({
   const publishedItems = libraryItems.filter(
     (item) => item.status === "published",
   );
+  const hasPrivateItems = pendingElements.length > 0 || unpublishedItems.length > 0;
+  const hasPublishedItems = publishedItems.length > 0;
+  const showEmptyLibraryState = !hasPrivateItems && !hasPublishedItems;
 
   const showBtn =
     !libraryItems.length &&
@@ -214,9 +217,7 @@ const LibraryMenuItems = ({
       >
         <>
           <div>
-            {(pendingElements.length > 0 ||
-              unpublishedItems.length > 0 ||
-              publishedItems.length > 0) && (
+            {hasPrivateItems && (
               <div className="library-menu-items-container__header">
                 {t("labels.personalLib")}
               </div>
@@ -234,7 +235,7 @@ const LibraryMenuItems = ({
               </div>
             )}
           </div>
-          {!pendingElements.length && !unpublishedItems.length ? (
+          {showEmptyLibraryState ? (
             <div className="library-menu-items__no-items">
               <div
                 className={clsx({
@@ -247,7 +248,7 @@ const LibraryMenuItems = ({
                 {t("library.hint_emptyPrivateLibrary")}
               </div>
             </div>
-          ) : (
+          ) : hasPrivateItems ? (
             renderLibrarySection([
               // append pending library item
               ...(pendingElements.length
@@ -255,32 +256,18 @@ const LibraryMenuItems = ({
                 : []),
               ...unpublishedItems,
             ])
-          )}
+          ) : null}
         </>
 
         <>
-          {(publishedItems.length > 0 ||
-            pendingElements.length > 0 ||
-            unpublishedItems.length > 0) && (
-            <div className="library-menu-items-container__header library-menu-items-container__header--excal">
-              {t("labels.excalidrawLib")}
-            </div>
-          )}
-          {publishedItems.length > 0 ? (
-            renderLibrarySection(publishedItems)
-          ) : unpublishedItems.length > 0 ? (
+          {hasPublishedItems ? (
             <div
               style={{
-                margin: "1rem 0",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
                 width: "100%",
-                fontSize: ".9rem",
+                marginTop: hasPrivateItems ? "2.5rem" : 0,
               }}
             >
-              {t("library.noItems")}
+              {renderLibrarySection(publishedItems)}
             </div>
           ) : null}
         </>

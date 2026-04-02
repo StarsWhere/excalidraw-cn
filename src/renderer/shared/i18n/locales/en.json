@@ -104,7 +104,6 @@
     "showBackground": "Show background color picker",
     "toggleTheme": "Toggle theme",
     "personalLib": "Personal Library",
-    "excalidrawLib": "Excalidraw Library",
     "decreaseFontSize": "Decrease font size",
     "increaseFontSize": "Increase font size",
     "unbindText": "Unbind text",
@@ -440,8 +439,6 @@
   },
   "welcomeScreen": {
     "app": {
-      "center_heading": "All your data stays on this PC.",
-      "center_heading_plus": "Electron edition",
       "menuHint": "Files, canvases, export, languages..."
     },
     "defaults": {
