@@ -44,6 +44,34 @@ module.exports = ({ app, BrowserWindow, dialog, ipcMain, shell, appRoot }) => {
 
   const isDevelopment = () => Boolean(process.env.ELECTRON_START_URL);
 
+  const enforceFullscreenWindow = (window) => {
+    if (!window || window.isDestroyed() || window.isMinimized()) {
+      return;
+    }
+
+    if (!window.isKiosk()) {
+      window.setKiosk(true);
+    }
+
+    if (window.isMaximized()) {
+      window.unmaximize();
+    }
+
+    if (!window.isFullScreen()) {
+      window.setFullScreen(true);
+    }
+  };
+
+  const scheduleFullscreenEnforcement = (window) => {
+    if (!window || window.isDestroyed()) {
+      return;
+    }
+
+    setTimeout(() => {
+      enforceFullscreenWindow(window);
+    }, 0);
+  };
+
   const normalizeCandidatePath = (value) => {
     if (!value) {
       return null;
@@ -162,12 +190,17 @@ module.exports = ({ app, BrowserWindow, dialog, ipcMain, shell, appRoot }) => {
 
   const createMainWindow = async () => {
     mainWindow = new BrowserWindow({
-      width: 1440,
-      height: 960,
       minWidth: 1024,
       minHeight: 720,
       autoHideMenuBar: true,
       show: false,
+      frame: false,
+      fullscreen: true,
+      kiosk: true,
+      resizable: false,
+      movable: false,
+      maximizable: false,
+      minimizable: true,
       webPreferences: {
         preload: preloadPath,
         contextIsolation: true,
@@ -193,8 +226,28 @@ module.exports = ({ app, BrowserWindow, dialog, ipcMain, shell, appRoot }) => {
       }
     });
 
+    mainWindow.webContents.on("before-input-event", (event, input) => {
+      if (input.key === "F11" || input.code === "F11") {
+        event.preventDefault();
+        scheduleFullscreenEnforcement(mainWindow);
+      }
+    });
+
     mainWindow.once("ready-to-show", () => {
+      enforceFullscreenWindow(mainWindow);
       mainWindow?.show();
+    });
+
+    mainWindow.on("leave-full-screen", () => {
+      scheduleFullscreenEnforcement(mainWindow);
+    });
+
+    mainWindow.on("unmaximize", () => {
+      scheduleFullscreenEnforcement(mainWindow);
+    });
+
+    mainWindow.on("restore", () => {
+      scheduleFullscreenEnforcement(mainWindow);
     });
 
     if (isDevelopment()) {
